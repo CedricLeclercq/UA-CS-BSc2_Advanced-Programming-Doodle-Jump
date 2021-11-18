@@ -5,3 +5,5 @@ int main() {
     i++;
     return i;
 }
+
+// TODO edit all ifndef to the new project name
