@@ -9,17 +9,17 @@ FIND_PACKAGE(SFML 2 COMPONENTS system window graphics)
 
 add_executable(DoodleJump
         src/main.cpp
-        src/Game.cpp
-        src/Game.h
-        src/Stopwatch.cpp
-        src/Stopwatch.h
-        src/Camera.cpp
-        src/Camera.h
-        src/Random.cpp
-        src/Random.h
-        src/World.cpp
-        src/World.h
-        src/BGTile.cpp
-        src/BGTile.h
-        src/Bonus.cpp
-        src/Bonus.h)
+        src/GameLogic/Game.cpp
+        src/GameLogic/Game.h
+        src/Utilities/Stopwatch.cpp
+        src/Utilities/Stopwatch.h
+        src/GameLogic/Camera.cpp
+        src/GameLogic/Camera.h
+        src/Utilities/Random.cpp
+        src/Utilities/Random.h
+        src/GameLogic/World.cpp
+        src/GameLogic/World.h
+        src/Entities/BGTile.cpp
+        src/Entities/BGTile.h
+        src/Entities/Bonus.cpp
+        src/Entities/Bonus.h src/Entities/Player.cpp src/Entities/Player.h)
