@@ -14,8 +14,13 @@ private:
     // Member variables
     sf::RenderWindow mWindow;
     sf::Sprite mSprite;
-    float mSpriteScaleX;
-    float mSpriteScaleY;
+    sf::Texture mSpriteTex;
+    bool mLookLeft;
+
+    float velocityY;
+    float accelerationY;
+
+
 
 
     // Setup
@@ -31,16 +36,8 @@ public:
     /**
      * Basic constructor
      */
-    Game() : mWindow(sf::VideoMode(800, 1500), "My window"){
-        sf::Texture texture;
-        texture.loadFromFile("recourses/playerPictogram.png");
-        mSprite.setTexture(texture);
-        //mSprite.setTextureRect(sf::IntRect(10, 10, 50, 30));
-        mSprite.setPosition(400,1000);
-        mWindow.draw(mSprite);
-        mSpriteScaleX = mSprite.getPosition().x;
-        mSpriteScaleY = mSprite.getPosition().y;
-        //this->setup();
+    Game() : mWindow(sf::VideoMode(800, 1500), "Doodle jump - Alpha v0.0"){
+        this->setup();
         this->start();
     };
 
