@@ -7,7 +7,8 @@ SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/Modules/
 
 FIND_PACKAGE(SFML 2 COMPONENTS system window graphics)
 
-add_executable(DoodleJump
+
+SET(SRC
         src/main.cpp
         src/GameLogic/Game.cpp
         src/GameLogic/Game.h
@@ -22,4 +23,12 @@ add_executable(DoodleJump
         src/Entities/BGTile.cpp
         src/Entities/BGTile.h
         src/Entities/Bonus.cpp
-        src/Entities/Bonus.h src/Entities/Player.cpp src/Entities/Player.h)
+        src/Entities/Bonus.h src/Entities/Player.cpp src/Entities/Player.h src/Entities/Platform.cpp src/Entities/Platform.h)
+
+INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
+
+ADD_EXECUTABLE(AdvancedProgrammingDoodleJump ${SRC})
+
+TARGET_LINK_LIBRARIES(AdvancedProgrammingDoodleJump ${SFML_LIBRARIES})
+
+INSTALL(TARGETS AdvancedProgrammingDoodleJump DESTINATION ${PROJECT_SOURCE_DIR}/bin)
