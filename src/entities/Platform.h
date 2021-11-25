@@ -5,9 +5,11 @@
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_PLATFORM_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_PLATFORM_H
 
+#include "../utilities/Utilities.h"
+
 
 class Platform {
-
+    Utilities::Coordinates platformCoordinates;
 };
 
 

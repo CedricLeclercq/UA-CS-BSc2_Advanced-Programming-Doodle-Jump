@@ -8,33 +8,34 @@
 
 void Game::setup() {
     mSpriteTex.loadFromFile("recourses/playerPictogram.png");
+    mSpriteTex.setSmooth(true);
     mSprite.setTexture(mSpriteTex);
     //mSprite.setTextureRect(sf::IntRect(10, 10, 50, 30));
     mSprite.setPosition(400,1000);
-    mSprite.setScale(mSprite.getScale().x * (float)0.1,mSprite.getScale().y * (float)0.1);
+    mSprite.setScale(0.1,0.1);
     this->mLookLeft = false;
-    mWindow.draw(mSprite);
+    (*this->mWindow).draw(mSprite);
 }
 
 void Game::start() {
     sf::Clock clock;
 
-    while (mWindow.isOpen()) {
+    while ((*this->mWindow).isOpen()) {
         // Code about the character
         this->moveCharacter();
-        mWindow.draw(mSprite);
+        (*this->mWindow).draw(mSprite);
 
-        // FPS print
-        std::cout << 1.f /  clock.restart().asSeconds()  << std::endl;
+        // FPS print todo
+        //std::cout << 1.f /  clock.restart().asSeconds()  << std::endl;
 
         // Drawing the game
         sf::Event event{};
-        while (mWindow.pollEvent(event)) {
+        while ((*this->mWindow).pollEvent(event)) {
             if (event.type == sf::Event::Closed)
-                mWindow.close();
+                (*this->mWindow).close();
         }
-        mWindow.display();
-        mWindow.clear();
+        (*this->mWindow).display();
+        (*this->mWindow).clear();
     }
 }
 
@@ -47,12 +48,12 @@ void Game::moveCharacter() {
         // But reverse if it is not looking left
         this->mSprite.setScale(1,1);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) or sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-        this->mSprite.move(0.f,-0.5);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) or sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-        this->mSprite.move(0.f,0.5);
-    }
+    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) or sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+    //    this->mSprite.move(0.f,-0.5);
+    //}
+    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) or sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+    //    this->mSprite.move(0.f,0.5);
+    //}
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) or sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
         this->mSprite.move(0.5,0.f);
         if (this->mLookLeft) {
@@ -73,6 +74,8 @@ void Game::jumpCharacter() {
     // TODO change if statement below to <WHEN COLLISION OCCURS>
     if ((int)this->mSprite.getPosition().y >= 1000) { // When we can jump
         this->velocityY = 1;
+        this->mSprite.move(0,-this->velocityY);
+        std::cout << "YES";
     } else {
         // Above the ground
         this->velocityY -= 0.002; // Add gravity

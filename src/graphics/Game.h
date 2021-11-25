@@ -7,18 +7,19 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include "../gameLogic/World.h"
 
 
 class Game {
 private:
     // Member variables
-    sf::RenderWindow mWindow;
+    std::unique_ptr<sf::RenderWindow> mWindow;
     sf::Sprite mSprite;
     sf::Texture mSpriteTex;
-    bool mLookLeft;
+    bool mLookLeft{};
 
-    float velocityY;
-    float accelerationY;
+    float velocityY{};
+    float accelerationY{};
 
 
 
@@ -36,7 +37,7 @@ public:
     /**
      * Basic constructor
      */
-    Game() : mWindow(sf::VideoMode(800, 1500), "Doodle jump - Alpha v0.0"){
+    Game() : mWindow(new sf::RenderWindow(sf::VideoMode(800, 1500), "Doodle jump - Alpha")) {
         this->setup();
         this->start();
     };
