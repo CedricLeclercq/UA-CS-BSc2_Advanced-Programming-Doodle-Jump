@@ -5,15 +5,24 @@
 #include "Game.h"
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
+#include <cmath>
 
-void Game::setup() {
+void Game::initialiseGame() {
+    // Creating world
+    this->mWorld = std::make_unique<World>();
+    // Setting texture of main player
     mSpriteTex.loadFromFile("recourses/playerPictogram.png");
     mSpriteTex.setSmooth(true);
     mSprite.setTexture(mSpriteTex);
-    //mSprite.setTextureRect(sf::IntRect(10, 10, 50, 30));
-    mSprite.setPosition(400,1000);
+    // Scaling main player
     mSprite.setScale(0.1,0.1);
-    this->mLookLeft = false;
+}
+
+void Game::setup() {
+    // Getting and setting position of main player
+    //std::cout << "Position: " << this->mWorld->getPlayer()->getPosX() << std::endl;
+    mSprite.setPosition(this->mWorld->getPlayer()->getPosX(), this->mWorld->getPlayer()->getPosY());
+    // Drawing main character
     (*this->mWindow).draw(mSprite);
 }
 
@@ -21,13 +30,20 @@ void Game::start() {
     sf::Clock clock;
 
     while ((*this->mWindow).isOpen()) {
-        // Code about the character
+        // Moving the character and setting up the graphics
         this->moveCharacter();
-        (*this->mWindow).draw(mSprite);
-
+        this->setup();
         // FPS print todo
+        sf::Text text;
+        sf::Font font;
+        font.loadFromFile("recourses/arial.ttf");
+        text.setFont(font);
+        text.setString(std::to_string((int)std::round(1.f /  clock.restart().asSeconds())) + " fps");
+        text.setFillColor(sf::Color::White);
+        text.setPosition(700,10);
+        text.setCharacterSize(24);
+        (*this->mWindow).draw(text);
         //std::cout << 1.f /  clock.restart().asSeconds()  << std::endl;
-
         // Drawing the game
         sf::Event event{};
         while ((*this->mWindow).pollEvent(event)) {
@@ -41,46 +57,24 @@ void Game::start() {
 
 void Game::moveCharacter() {
     this->jumpCharacter();
-    if (this->mLookLeft) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) or sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        this->mWorld->getPlayer()->moveRight();
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) or sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        this->mWorld->getPlayer()->moveLeft();
+    }
+}
+
+void Game::jumpCharacter() {
+    this->mWorld->getPlayer()->jump();
+    // Adding the jump to the graphics
+    if (this->mWorld->getPlayer()->getLookingLeft()) {
         // Mirroring the character if it is looking left
         this->mSprite.setScale(-1, 1);
     } else {
         // But reverse if it is not looking left
         this->mSprite.setScale(1,1);
     }
-    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) or sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-    //    this->mSprite.move(0.f,-0.5);
-    //}
-    //if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) or sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-    //    this->mSprite.move(0.f,0.5);
-    //}
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) or sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        this->mSprite.move(0.5,0.f);
-        if (this->mLookLeft) {
-            this->mSprite.move(-80,0.f);
-        }
-        this->mLookLeft = false;
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) or sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        mSprite.move(-0.5,0.f);
-        if (not this->mLookLeft) {
-            this->mSprite.move(80, 0.f);
-        }
-        this->mLookLeft = true;
-    }
 }
 
-void Game::jumpCharacter() {
-    // TODO change if statement below to <WHEN COLLISION OCCURS>
-    if ((int)this->mSprite.getPosition().y >= 1000) { // When we can jump
-        this->velocityY = 1;
-        this->mSprite.move(0,-this->velocityY);
-        std::cout << "YES";
-    } else {
-        // Above the ground
-        this->velocityY -= 0.002; // Add gravity
 
-        //this->velocityY += this->accelerationY;
-        this->mSprite.move(0,-this->velocityY);
-    }
-}

@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <memory>
 #include "../gameLogic/World.h"
 
 
@@ -14,14 +15,9 @@ class Game {
 private:
     // Member variables
     std::unique_ptr<sf::RenderWindow> mWindow;
+    std::unique_ptr<World> mWorld{};
     sf::Sprite mSprite;
     sf::Texture mSpriteTex;
-    bool mLookLeft{};
-
-    float velocityY{};
-    float accelerationY{};
-
-
 
 
     // Setup
@@ -29,6 +25,8 @@ private:
      * When the game is started for the first time, setup is ran for placing all elements is the world
      */
     void setup();
+
+    void initialiseGame();
 
     void moveCharacter();
 
@@ -38,6 +36,7 @@ public:
      * Basic constructor
      */
     Game() : mWindow(new sf::RenderWindow(sf::VideoMode(800, 1500), "Doodle jump - Alpha")) {
+        this->initialiseGame();
         this->setup();
         this->start();
     };

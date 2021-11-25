@@ -5,31 +5,32 @@
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_PLAYER_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_PLAYER_H
 
-#include <utility>
+
 #include <memory>
 
-#include "../utilities/Utilities.h"
+#include "Entity.h"
 
 
-class Player {
+class Player: public Entity {
 private:
-    std::unique_ptr<Utilities::Coordinates> mPlayerPosition;
     bool mLookLeft;
     float velocityY{};
 public:
-    Player() : mPlayerPosition(new Utilities::Coordinates(400.f,1000.f)) {
-       this->mLookLeft = false;
+    Player() {
+        this->position = std::make_shared<Utilities::Coordinates>(400.f,1000.f);
+        this->mLookLeft = false;
     }
 
-    void movePlayer(float offsetX, float offsetY);
+    void moveRight() override;
 
-    void setPlayerPosition(float posX, float posY);
-
-    void moveRight();
-
-    void moveLeft();
+    void moveLeft() override;
 
     void jump();
+
+    bool getLookingLeft() const {
+        return this->mLookLeft;
+    }
+
 
 };
 

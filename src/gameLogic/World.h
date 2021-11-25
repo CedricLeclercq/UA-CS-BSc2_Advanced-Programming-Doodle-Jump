@@ -11,9 +11,15 @@
 
 class World {
 private:
-    std::unique_ptr<Player> player;
+    std::shared_ptr<Player> player;
 public:
-    World()=default;
+    World() : player(new Player()) {
+        // TODO todo
+    }
+
+    std::shared_ptr<Player> getPlayer() {
+        return this->player;
+    }
 
 
 };
