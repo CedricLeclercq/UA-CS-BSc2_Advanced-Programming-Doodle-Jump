@@ -25,7 +25,24 @@ SET(SRC
         src/entities/Platform.cpp
         src/entities/Platform.h
         src/utilities/Utilities.h
-        src/entities/Entity.h src/entities/Entity.cpp src/factories/AbstractFactory.h src/factories/ConcreteFactory.cpp src/factories/ConcreteFactory.h src/utilities/Utilities.cpp)
+        src/entities/Entity.h
+        src/entities/Entity.cpp
+        src/factories/AbstractFactory.h
+        src/factories/ConcreteFactory.cpp
+        src/factories/ConcreteFactory.h
+        src/utilities/Utilities.cpp
+        src/controllers/Controllers.h
+        src/controllers/entityControllers/BGTileController.h
+        src/controllers/entityControllers/BGTileController.cpp
+        src/controllers/entityControllers/BonusController.h
+        src/controllers/entityControllers/BonusController.cpp
+        src/controllers/entityControllers/PlatformController.h
+        src/controllers/entityControllers/PlatformController.cpp
+        src/controllers/entityControllers/PlayerController.h
+        src/controllers/entityControllers/PlayerController.cpp
+        src/controllers/Controllers.h
+        src/controllers/Controller.cpp
+        )
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 
