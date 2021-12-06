@@ -14,7 +14,8 @@ public:
     std::shared_ptr<BGTile> createBGTile() override;
     std::shared_ptr<Bonus> createBonus() override;
     std::shared_ptr<Platform> createPlatform() override;
-    std::unique_ptr<World> createWorld(std::pair<float,float> borderX, std::pair<float,float> borderY) override;
+    std::shared_ptr<World> createWorld(std::pair<float,float> borderX, std::pair<float,float> borderY) override;
+    std::unique_ptr<Camera> createCamera(float maxX, float maxY, std::shared_ptr<World> nWorld) override;
 };
 
 

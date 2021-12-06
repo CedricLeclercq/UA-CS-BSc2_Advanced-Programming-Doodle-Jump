@@ -24,6 +24,7 @@ private:
      */
     void removeOutOfView(float minY, float maxY);
 public:
+    // TODO let the player come from the concrete factory
     World(std::pair<float,float> nBorderX, std::pair<float,float> nBorderY) : player(new Player()) {
         this->borderX = nBorderX;
         this->borderY = nBorderY;

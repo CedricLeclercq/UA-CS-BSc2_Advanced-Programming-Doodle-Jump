@@ -14,20 +14,20 @@ void Game::initialiseGame() {
     std::pair<float,float> borderX = std::make_pair(0,this->mWindow->getSize().x);
     std::pair<float,float> borderY = std::make_pair(0,this->mWindow->getSize().y);
     this->mWorld = factory.createWorld(borderX,borderY);
-
+    this->mCamera = factory.createCamera(borderX.second,borderY.second, this->mWorld);
 
     // Setting texture of main player
-    mSpriteTex.loadFromFile("recourses/playerPictogram.png");
+    mSpriteTex.loadFromFile("recourses/textures/playerPictogram.png");
     mSpriteTex.setSmooth(true);
     mSprite.setTexture(mSpriteTex);
 
     // Setting background texture
-    mBackgroundTex.loadFromFile("recourses/background.png");
+    mBackgroundTex.loadFromFile("recourses/textures/background.png");
     mBackground.setTexture(this->mBackgroundTex);
 
 
     // Scaling main player
-    mSprite.setScale(0.5,0.5);
+    mSprite.setScale(0.1,0.1);
     mBackground.setScale(2, 2);
 }
 
@@ -113,10 +113,10 @@ void Game::jumpCharacter() {
     // Adding the jump to the graphics
     if (this->mWorld->getPlayer()->getLookingLeft()) {
         // Mirroring the character if it is looking left
-        this->mSprite.setScale(-0.5, 0.5);
+        this->mSprite.setScale(-0.4, 0.4);
     } else {
         // But reverse if it is not looking left
-        this->mSprite.setScale(0.5,0.5);
+        this->mSprite.setScale(0.4,0.4);
     }
 }
 

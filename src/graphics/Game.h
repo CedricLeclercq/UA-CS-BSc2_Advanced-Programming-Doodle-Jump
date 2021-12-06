@@ -9,6 +9,8 @@
 #include <SFML/Window.hpp>
 #include <memory>
 #include "../gameLogic/World.h"
+#include "../gameLogic/Camera.h"
+#include "../controllers/Controllers.h"
 
 
 class Game {
@@ -17,7 +19,9 @@ private:
     /// Window where everything will be drawn on
     std::unique_ptr<sf::RenderWindow> mWindow;
     /// World where all the game logic happens
-    std::unique_ptr<World> mWorld;
+    std::shared_ptr<World> mWorld;
+    /// Camera used for the projection of elements
+    std::unique_ptr<Camera> mCamera;
     /// Main player sprite
     sf::Sprite mSprite;
     /// Vector with all the platforms
@@ -62,7 +66,7 @@ public:
     /**
      * Basic constructor
      */
-    Game() : mWindow(new sf::RenderWindow(sf::VideoMode(800, 1500), "Doodle jump - Alpha")) {
+    Game() : mWindow(new sf::RenderWindow(sf::VideoMode(540, 960), "Doodle jump - Alpha")) {
         this->initialiseGame();
         this->setup();
         this->start();

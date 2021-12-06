@@ -24,7 +24,7 @@ void Player::moveLeft() {
 
 void Player::jump() {
     // TODO change if statement below to <WHEN COLLISION OCCURS>
-    if (this->position->getY() >= 1000.f) {
+    if (this->position->getY() >= 800.f) {
         this->velocityY = 1;
         this->move(0,-this->velocityY);
     } else {
