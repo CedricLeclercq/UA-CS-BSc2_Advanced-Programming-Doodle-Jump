@@ -33,5 +33,12 @@ void Player::jump() {
     }
 }
 
+void Player::teleportPlayer(float minX, float maxX) {
+    if (this->getPosX() < minX)
+        this->setPosX(maxX);
+    if (this->getPosX() > maxX)
+        this->setPosX(minX);
+}
+
 
 

@@ -5,18 +5,17 @@
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_UTILITIES_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_UTILITIES_H
 
+#include <random>
+#include <iostream>
+
 namespace Utilities {
     class Random {
-
+    public:
+        static int randInt(int x,int y);
     };
 
-    class StopWatch {
+    class StopWatch {};
 
-    };
-
-    class Utils {
-
-    };
 
     class Coordinates {
     private:
@@ -28,18 +27,10 @@ namespace Utilities {
             this->x = nX;
             this->y = nY;
         }
-        void setX(float nX) {
-            this->x = nX;
-        }
-        void setY(float nY) {
-            this->y = nY;
-        }
-        float getX() const {
-            return this->x;
-        }
-        float getY() const {
-            return this->y;
-        }
+        void setX(float nX);
+        void setY(float nY);
+        float getX() const;
+        float getY() const;
     };
 }
 

@@ -31,6 +31,8 @@ public:
         return this->mLookLeft;
     }
 
+    void teleportPlayer(float minX, float maxX);
+
 
 };
 

@@ -16,10 +16,10 @@ protected:
     virtual void moveRight() = 0;
     virtual void moveLeft() = 0;
     void move(float offsetX, float offsetY);
+public:
     void setPos(float nX, float nY);
     void setPosX(float nX);
     void setPosY(float nY);
-public:
     std::shared_ptr<Utilities::Coordinates> getPos();
     float getPosX();
     float getPosY();

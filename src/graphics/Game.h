@@ -13,22 +13,49 @@
 
 class Game {
 private:
-    // Member variables
+    // Elements
+    /// Window where everything will be drawn on
     std::unique_ptr<sf::RenderWindow> mWindow;
-    std::unique_ptr<World> mWorld{};
+    /// World where all the game logic happens
+    std::unique_ptr<World> mWorld;
+    /// Main player sprite
     sf::Sprite mSprite;
+    /// Vector with all the platforms
+    std::vector<std::pair<std::shared_ptr<Platform>,sf::Sprite>> platforms;
+    /// Background for the game
+    sf::Sprite mBackground;
+
+    // Textures
+    /// Main player sprite texture
     sf::Texture mSpriteTex;
+    /// Static platform texture
+    sf::Texture mStaticPlatformTex;
+    /// Horizontal platform texture
+    sf::Texture mHorizontalPlatformTex;
+    /// Vertical platform texture
+    sf::Texture mVerticalPlatformTex;
+    /// Temporary platform texture
+    sf::Texture mTempPlatformTex;
+    /// Background of the game texture
+    sf::Texture mBackgroundTex;
 
-
-    // Setup
+    // Functions
     /**
-     * When the game is started for the first time, setup is ran for placing all elements is the world
+     * Setup the game after one cycle
      */
     void setup();
-
+    /**
+     * At the beginning of the game, set all the elements
+     */
     void initialiseGame();
-
-    void moveCharacter();
+    /**
+     * Get input from the user to move the charachter
+     */
+    void getInput();
+    /**
+     * Set all the textures for all entities
+     */
+    void setTextures();
 
 public:
 
@@ -40,10 +67,6 @@ public:
         this->setup();
         this->start();
     };
-
-
-
-
     /**
      * Start game
      */

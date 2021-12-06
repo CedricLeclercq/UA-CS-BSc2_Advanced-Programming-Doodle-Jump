@@ -6,10 +6,17 @@
 #define DOODLEJUMP_BGTILE_H
 
 #include "../utilities/Utilities.h"
+#include "Entity.h"
 
+// TODO link to entity
 
-class BGTile {
-    Utilities::Coordinates tileCoordinates;
+class BGTile: public Entity {
+public:
+    BGTile()=default;
+    void moveRight() override {};
+    void moveLeft() override {};
+    void moveUp();
+    void moveDown();
 };
 
 

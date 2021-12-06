@@ -12,12 +12,8 @@ SET(SRC
         src/main.cpp
         src/graphics/Game.cpp
         src/graphics/Game.h
-        src/utilities/Stopwatch.cpp
-        src/utilities/Stopwatch.h
         src/gameLogic/Camera.cpp
         src/gameLogic/Camera.h
-        src/utilities/Random.cpp
-        src/utilities/Random.h
         src/gameLogic/World.cpp
         src/gameLogic/World.h
         src/entities/BGTile.cpp
@@ -29,7 +25,7 @@ SET(SRC
         src/entities/Platform.cpp
         src/entities/Platform.h
         src/utilities/Utilities.h
-        src/entities/Entity.h src/entities/Entity.cpp)
+        src/entities/Entity.h src/entities/Entity.cpp src/factories/AbstractFactory.h src/factories/ConcreteFactory.cpp src/factories/ConcreteFactory.h src/utilities/Utilities.cpp)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 
