@@ -17,7 +17,7 @@ private:
     float velocityY{};
 public:
     Player() {
-        this->position = std::make_shared<Utilities::Coordinates>(400.f,1000.f);
+        this->position = std::make_shared<Utilities::Coordinates>(400.f,800.f);
         this->mLookLeft = false;
     }
 

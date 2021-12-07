@@ -9,116 +9,153 @@
 #include <cmath>
 
 void Game::initialiseGame() {
+    this->createWorld();
+    this->createControllers();
+    this->initiateTextures();
+    this->scaleElements();
+    // Placing first platforms
+    //this->mWorld->createPlatforms(0,this->mWindow->getSize().y);
+    //this->setTextures();
+}
+
+void Game::setup() {
+    this->placeBackground();
+    this->placePlatforms();
+    this->placeBonus();
+    this->placePlayer();
+}
+
+void Game::setTexture(const std::shared_ptr<Platform>& platform, sf::Sprite& sfPlatform) {
+    if (platform->getKind() == PKind::STATIC)
+        sfPlatform.setTexture(this->mStaticPlatformTex);
+    else if (platform->getKind() == PKind::HORIZONTAL)
+        sfPlatform.setTexture(this->mHorizontalPlatformTex);
+    else if (platform->getKind() == PKind::TEMP)
+        sfPlatform.setTexture(this->mTempPlatformTex);
+    else if (platform->getKind() == PKind::VERTICAL)
+        sfPlatform.setTexture(this->mVerticalPlatformTex);
+}
+
+void Game::start() {
+    while ((*this->mWindow).isOpen()) {
+        this->getInput(); // Getting input from the user and moving the player
+        this->updateWorld(); // Updating the world based on the user input
+        this->setup(); // Setting up the graphics and placing all views
+        this->addFPSCounter(); // Adding an FPS counter, can be left out might the user want it
+        this->openSFWindow(); // Finally opening the game
+    }
+}
+
+void Game::getInput() {
+    this->playerController.handleInput();
+    this->mWorld->getPlayer()->teleportPlayer(0.f,(float)this->mWindow->getSize().x);
+    this->jumpingGraphics();
+}
+
+void Game::jumpingGraphics() {
+    // Adding the jump to the graphics
+    if (this->mWorld->getPlayer()->getLookingLeft()) {
+        // Mirroring the character if it is looking left
+        this->playerController.getView().setScale(-0.4, 0.4);
+    } else {
+        // But reverse if it is not looking left
+        this->playerController.getView().setScale(0.4,0.4);
+    }
+}
+
+void Game::createWorld() {
     // Creating world
     ConcreteFactory factory;
     std::pair<float,float> borderX = std::make_pair(0,this->mWindow->getSize().x);
     std::pair<float,float> borderY = std::make_pair(0,this->mWindow->getSize().y);
     this->mWorld = factory.createWorld(borderX,borderY);
+    // Creating camera
+    this->mCamera = factory.createCamera(borderX.second,borderY.second, this->mWorld);
+}
 
+void Game::initiateTextures() {
+    // Textures for platforms
+    this->mVerticalPlatformTex.loadFromFile("recourses/textures/gray_platform.png");
+    this->mHorizontalPlatformTex.loadFromFile("recourses/textures/light_blue_platform.png");
+    this->mStaticPlatformTex.loadFromFile("recourses/textures/green_platform.png");
+    this->mTempPlatformTex.loadFromFile("recourses/textures/yellow_platform.png");
 
     // Setting texture of main player
-    mSpriteTex.loadFromFile("recourses/playerPictogram.png");
+    mSpriteTex.loadFromFile("recourses/textures/playerPictogram.png");
     mSpriteTex.setSmooth(true);
-    mSprite.setTexture(mSpriteTex);
+    this->playerController.getView().setTexture(mSpriteTex);
 
     // Setting background texture
-    mBackgroundTex.loadFromFile("recourses/background.png");
+    mBackgroundTex.loadFromFile("recourses/textures/background.png");
     mBackground.setTexture(this->mBackgroundTex);
+}
 
+void Game::createControllers() {
+    // Creating sprite
+    std::shared_ptr<sf::Sprite> sprite = std::make_shared<sf::Sprite>();
+    // Creating controllers
+    this->playerController = Controllers::PlayerController(this->mWorld->getPlayer(),sprite);
+    this->platformController = Controllers::PlatformController();
+}
 
+void Game::scaleElements() {
     // Scaling main player
-    mSprite.setScale(0.5,0.5);
-    mBackground.setScale(2, 2);
+    this->playerController.getView().setScale(0.1,0.1);
+    this->mBackground.setScale(2, 2);
 }
 
-void Game::setup() {
+void Game::placePlayer() {
     // Getting and setting position of main player
-    mSprite.setPosition(this->mWorld->getPlayer()->getPosX(), this->mWorld->getPlayer()->getPosY());
+    this->playerController.getView().setPosition(this->mWorld->getPlayer()->getPosX(), this->mWorld->getPlayer()->getPosY());
+    (*this->mWindow).draw(this->playerController.getView());
+}
+
+void Game::placePlatforms() {
+    std::vector<std::shared_ptr<Platform>> worldPlatforms = (*this->mWorld).getPlatforms();
+    for (const auto& platform: worldPlatforms) {
+        sf::Sprite newPlatform;
+        newPlatform.setPosition(platform->getPosX(), platform->getPosX()); // TODO use camera class here
+        this->setTexture(platform,newPlatform);
+        (*this->mWindow).draw(newPlatform);
+    }
+}
+
+void Game::placeBonus() {
+
+}
+
+void Game::placeBackground() {
     (*this->mWindow).draw(mBackground);
-    (*this->mWindow).draw(mSprite);
 }
 
-void Game::setTextures() {
-    // The plaform on which the player is should become the standard height for the player. All other platforms should
-    // then go away that fall out of the new range and ofcourse move with the given offset
-    std::vector<std::shared_ptr<Platform>> gamePlatforms = this->mWorld->getPlatforms();
-    for (auto platform: gamePlatforms) {
-        bool found = false;
-        for (const auto& pair: this->platforms) {
-            if (pair.first == platform) {
-                found = true;
-            }
-        }
-        if (not found) {
-            sf::Sprite newPlatform;
-            // TODO set position of newPlatform with the camera utility
-            if (platform->getKind() == PKind::STATIC)
-                newPlatform.setTexture(this->mStaticPlatformTex);
-            else if (platform->getKind() == PKind::HORIZONTAL)
-                newPlatform.setTexture(this->mHorizontalPlatformTex);
-            else if (platform->getKind() == PKind::TEMP)
-                newPlatform.setTexture(this->mTempPlatformTex);
-            else if (platform->getKind() == PKind::VERTICAL)
-                newPlatform.setTexture(this->mVerticalPlatformTex);
-            this->platforms.emplace_back(platform,newPlatform);
-        }
-    }
-}
-
-void Game::start() {
+void Game::addFPSCounter() {
+    // FPS print
     sf::Clock clock;
-
-    while ((*this->mWindow).isOpen()) {
-        // Moving the character and setting up the graphics
-        this->getInput();
-        this->setup();
-
-        // FPS print todo
-        sf::Text text;
-        sf::Font font;
-        font.loadFromFile("recourses/arial.ttf");
-        text.setFont(font);
-        text.setString(std::to_string((int)std::round(1.f /  clock.restart().asSeconds())) + " fps");
-        text.setFillColor(sf::Color::Black);
-        text.setPosition(700,10);
-        text.setCharacterSize(24);
-        (*this->mWindow).draw(text);
-
-
-        //std::cout << 1.f /  clock.restart().asSeconds()  << std::endl;
-        // Drawing the game
-        sf::Event event{};
-        while ((*this->mWindow).pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                (*this->mWindow).close();
-        }
-        (*this->mWindow).display();
-        (*this->mWindow).clear();
-    }
+    sf::Text text;
+    sf::Font font;
+    font.loadFromFile("recourses/arial.ttf");
+    text.setFont(font);
+    text.setString(std::to_string((int)std::round(1.f /  clock.restart().asSeconds())) + " fps");
+    text.setFillColor(sf::Color::Black);
+    text.setPosition(700,10);
+    text.setCharacterSize(24);
+    (*this->mWindow).draw(text);
 }
 
-void Game::getInput() {
-    this->jumpCharacter();
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) or sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        this->mWorld->getPlayer()->moveRight();
+void Game::openSFWindow() {
+    sf::Event event{};
+    while ((*this->mWindow).pollEvent(event)) {
+        if (event.type == sf::Event::Closed)
+            (*this->mWindow).close();
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) or sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        this->mWorld->getPlayer()->moveLeft();
-    }
-    this->mWorld->getPlayer()->teleportPlayer(0.f,(float)this->mWindow->getSize().x);
+    (*this->mWindow).display();
+    (*this->mWindow).clear();
 }
 
-void Game::jumpCharacter() {
-    this->mWorld->getPlayer()->jump();
-    // Adding the jump to the graphics
-    if (this->mWorld->getPlayer()->getLookingLeft()) {
-        // Mirroring the character if it is looking left
-        this->mSprite.setScale(-0.5, 0.5);
-    } else {
-        // But reverse if it is not looking left
-        this->mSprite.setScale(0.5,0.5);
-    }
+void Game::updateWorld() {
+    this->mWorld->updateWorld();
 }
+
 
 
 

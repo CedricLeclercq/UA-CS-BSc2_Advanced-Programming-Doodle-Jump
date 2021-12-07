@@ -6,7 +6,10 @@
 #define DOODLEJUMP_CAMERA_H
 
 #include <memory>
+
 #include "../utilities/Utilities.h"
+#include "World.h"
+
 using Coordinates = Utilities::Coordinates;
 
 /**
@@ -19,8 +22,12 @@ private:
     std::pair<float,float> cameraBordersX;
     /// The current Y coordinates views of the camera
     std::pair<float,float> cameraBordersY;
+    /// Shared pointer to the World
+    std::shared_ptr<World> world;
 public:
-    Camera(float maxX, float maxY);
+    Camera(float maxX, float maxY, std::shared_ptr<World> nWorld);
+
+    void projectCoordinates(std::shared_ptr<Entity> entity);
 };
 
 
