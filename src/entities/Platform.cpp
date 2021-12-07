@@ -43,6 +43,7 @@ void Platform::makeStatic() {
 
 void Platform::makeHorizontal() {
     this->platformKind = HORIZONTAL;
+    this->movingRight = (bool)Random::randInt(0,1);
 }
 
 void Platform::makeVertical() {
@@ -55,19 +56,19 @@ void Platform::makeTemp() {
 }
 
 void Platform::moveUp() {
-    this->setPos(this->getPosX(), this->getPosY() - (float)0.5);
+    this->setPos(this->getPosX(), this->getPosY() - (float)0.001);
 }
 
 void Platform::moveDown() {
-    this->setPos(this->getPosX(), this->getPosY() + (float)0.5);
+    this->setPos(this->getPosX(), this->getPosY() + (float)0.0003);
 }
 
 void Platform::moveRight() {
-    this->setPos(this->getPosX() + (float)0.5, this->getPosY());
+    this->setPos(this->getPosX() + (float)0.0003, this->getPosY());
 }
 
 void Platform::moveLeft() {
-    this->setPos(this->getPosX() - (float)0.5, this->getPosY());
+    this->setPos(this->getPosX() - (float)0.0003, this->getPosY());
 }
 
 void Platform::changeToGround() {
@@ -77,4 +78,12 @@ void Platform::changeToGround() {
 
 PKind Platform::getKind() const {
     return this->platformKind;
+}
+
+bool Platform::getMovingRight() {
+    return this->movingRight;
+}
+
+void Platform::setMovingRight(bool newBool) {
+    this->movingRight = newBool;
 }

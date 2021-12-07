@@ -7,6 +7,7 @@
 #include <iostream>
 #include "../factories/ConcreteFactory.h"
 #include <cmath>
+using Coordinates = Utilities::Coordinates;
 
 void Game::initialiseGame() {
     this->createWorld();
@@ -106,15 +107,17 @@ void Game::scaleElements() {
 
 void Game::placePlayer() {
     // Getting and setting position of main player
-    this->playerController.getView().setPosition(this->mWorld->getPlayer()->getPosX(), this->mWorld->getPlayer()->getPosY());
+    Coordinates viewCoo = this->mCamera->projectPlayer(this->mWorld->getPlayer());
+    this->playerController.getView().setPosition(viewCoo.getX(), viewCoo.getY());
     (*this->mWindow).draw(this->playerController.getView());
 }
 
 void Game::placePlatforms() {
+    this->mWorld->createPlatforms(this->mWorld->getPlayer()->getPosY() - 1000, this->mWorld->getPlayer()->getPosY() + 1000);
     std::vector<std::shared_ptr<Platform>> worldPlatforms = (*this->mWorld).getPlatforms();
     for (const auto& platform: worldPlatforms) {
         sf::Sprite newPlatform;
-        newPlatform.setPosition(platform->getPosX(), platform->getPosX()); // TODO use camera class here
+        newPlatform.setPosition(this->mCamera->projectPlatform(platform).getX(), this->mCamera->projectPlatform(platform).getY()); // TODO use camera class here
         this->setTexture(platform,newPlatform);
         (*this->mWindow).draw(newPlatform);
     }

@@ -24,10 +24,14 @@ private:
     std::pair<float,float> cameraBordersY;
     /// Shared pointer to the World
     std::shared_ptr<World> world;
+
+    Coordinates prevPlayerPos;
 public:
     Camera(float maxX, float maxY, std::shared_ptr<World> nWorld);
 
-    void projectCoordinates(std::shared_ptr<Entity> entity);
+    Coordinates projectPlayer(const std::shared_ptr<Player>& player);
+    Coordinates projectPlatform(const std::shared_ptr<Platform>& platform);
+    Coordinates projectStaticYEntity(const std::shared_ptr<Entity>& entity);
 };
 
 

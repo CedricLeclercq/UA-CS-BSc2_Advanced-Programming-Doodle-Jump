@@ -7,37 +7,38 @@
 
 
 void Player::moveRight() {
-    this->move(0.5,0.f);
+    this->move(0.0012,0.f);
     if (this->mLookLeft) {
-        this->move(-80,0.f);
+        this->move(-0.1,0.f);
     }
     this->mLookLeft = false;
 }
 
 void Player::moveLeft() {
-    this->move(-0.5,0.f);
+    this->move(-0.0012,0.f);
     if (not this->mLookLeft) {
-        this->move(80,0.f);
+        this->move(0.1,0.f);
     }
     this->mLookLeft = true;
 }
 
 void Player::jump() {
-    // TODO change if statement below to <WHEN COLLISION OCCURS>
-    if (this->position->getY() >= 800.f) {
-        this->velocityY = 1;
-        this->move(0,-this->velocityY);
+    if (this->position->getY() <= this->positionBeforeJumpY) {
+        this->positionBeforeJumpY = this->position->getY();
+        this->velocityY = this->standardVelocityY;
+        this->move(0,this->velocityY);
     } else {
         this->velocityY -= 0.002;
-        this->move(0,-this->velocityY);
+        //std::cout << this->standardVelocityY;
+        this->move(0,this->velocityY);
     }
 }
 
 void Player::teleportPlayer(float minX, float maxX) {
-    if (this->getPosX() < minX)
-        this->setPosX(maxX);
-    if (this->getPosX() > maxX)
-        this->setPosX(minX);
+    if (this->getPosX() * maxX < minX)
+        this->setPosX(1);
+    if (this->getPosX() * maxX > maxX)
+        this->setPosX(0);
 }
 
 

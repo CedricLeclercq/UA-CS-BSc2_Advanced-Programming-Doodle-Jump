@@ -7,7 +7,7 @@
 #include <utility>
 
 void Controllers::PlayerController::handleInput() {
-    this->model->jump();
+    //this->model->jump();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) or sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
         this->model->moveRight();
     }
