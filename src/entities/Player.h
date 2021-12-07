@@ -15,9 +15,13 @@ class Player: public Entity {
 private:
     bool mLookLeft;
     float velocityY{};
+    float standardVelocityY{};
+    float positionBeforeJumpY{};
 public:
     Player() {
-        this->position = std::make_shared<Utilities::Coordinates>(400.f,800.f);
+        this->standardVelocityY = 1;
+        this->position = std::make_shared<Utilities::Coordinates>(0.5,0.f);
+        this->positionBeforeJumpY = this->getPosY();
         this->mLookLeft = false;
     }
 
@@ -29,6 +33,14 @@ public:
 
     bool getLookingLeft() const {
         return this->mLookLeft;
+    }
+
+    float getPositionBeforeJumpY() {
+        return this->positionBeforeJumpY;
+    }
+
+    float getStVelocityY() {
+        return this->standardVelocityY;
     }
 
     void teleportPlayer(float minX, float maxX);

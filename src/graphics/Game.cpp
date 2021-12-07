@@ -7,6 +7,7 @@
 #include <iostream>
 #include "../factories/ConcreteFactory.h"
 #include <cmath>
+using Coordinates = Utilities::Coordinates;
 
 void Game::initialiseGame() {
     this->createWorld();
@@ -106,7 +107,8 @@ void Game::scaleElements() {
 
 void Game::placePlayer() {
     // Getting and setting position of main player
-    this->playerController.getView().setPosition(this->mWorld->getPlayer()->getPosX(), this->mWorld->getPlayer()->getPosY());
+    Coordinates viewCoo = this->mCamera->projectPlayer(this->mWorld->getPlayer());
+    this->playerController.getView().setPosition(viewCoo.getX(), viewCoo.getY());
     (*this->mWindow).draw(this->playerController.getView());
 }
 

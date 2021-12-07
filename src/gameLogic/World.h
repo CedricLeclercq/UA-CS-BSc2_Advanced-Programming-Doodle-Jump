@@ -24,6 +24,12 @@ private:
      */
     void removeOutOfView(float minY, float maxY);
 public:
+    /**
+     * This function is responsible for applying any change needed to the world after the player moved
+     */
+    void updateWorld();
+    bool collisionCheckPlatform();
+
     // TODO let the player come from the concrete factory
     World(std::pair<float,float> nBorderX, std::pair<float,float> nBorderY) : player(new Player()) {
         this->borderX = nBorderX;
@@ -38,7 +44,7 @@ public:
 
     void createPlatforms(float minY, float maxY);
 
-    void updateWorld();
+
 };
 
 

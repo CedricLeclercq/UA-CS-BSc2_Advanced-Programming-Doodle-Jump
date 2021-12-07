@@ -6,6 +6,24 @@
 #include "../factories/ConcreteFactory.h"
 using Random = Utilities::Random;
 
+
+void World::updateWorld() {
+    if (this->collisionCheckPlatform()) {
+        this->player->jump();
+    }
+}
+
+bool World::collisionCheckPlatform() {
+    for (const auto& platform: this->platforms) {
+        if (platform->getPosY() == this->player->getPosY() and platform->getPosX() < this->player->getPosX() + 10
+                and this->player->getPosX() - 10 < platform->getPosX()) {
+            return true;
+        }
+    }
+    return true;
+}
+
+
 void World::createPlatforms(float minY, float maxY) {
     this->removeOutOfView(minY,maxY);
     ConcreteFactory factory;
@@ -67,6 +85,5 @@ std::vector<std::shared_ptr<Platform>> World::getPlatforms() {
     return this->platforms;
 }
 
-void World::updateWorld() {
 
-}
+
