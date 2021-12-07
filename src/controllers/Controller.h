@@ -11,7 +11,7 @@
 class Controller {
 protected:
     /// Model that the controller will manipulate
-    std::shared_ptr<Entity> model;
+    //std::shared_ptr<Entity> model;
     /// View that the controller will communicate to
     std::shared_ptr<sf::Sprite> view;
     /**
@@ -23,8 +23,10 @@ protected:
      * @param nModel
      * @param nView
      */
-    Controller(std::shared_ptr<Entity> nModel, std::shared_ptr<sf::Sprite> nView);
+    Controller(std::shared_ptr<sf::Sprite> nView);
 public:
+    Entity& getModel();
+    sf::Sprite& getView();
 };
 
 

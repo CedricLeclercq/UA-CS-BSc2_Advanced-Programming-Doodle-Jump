@@ -11,10 +11,19 @@
 #include "../gameLogic/World.h"
 #include "../gameLogic/Camera.h"
 #include "../controllers/Controllers.h"
+#include "../controllers/entityControllers/PlayerController.h"
+#include "../controllers/entityControllers/PlatformController.h"
+#include "../controllers/entityControllers/BGTileController.h"
+#include "../controllers/entityControllers/BonusController.h"
 
 
 class Game {
 private:
+    // New elements
+    Controllers::PlayerController playerController;
+    Controllers::PlatformController platformController;
+    Controllers::BGTileController bgTileController;
+    Controllers::BonusController bonusController;
     // Elements
     /// Window where everything will be drawn on
     std::unique_ptr<sf::RenderWindow> mWindow;
@@ -22,10 +31,6 @@ private:
     std::shared_ptr<World> mWorld;
     /// Camera used for the projection of elements
     std::unique_ptr<Camera> mCamera;
-    /// Main player sprite
-    sf::Sprite mSprite;
-    /// Vector with all the platforms
-    std::vector<std::pair<std::shared_ptr<Platform>,sf::Sprite>> platforms;
     /// Background for the game
     sf::Sprite mBackground;
 
@@ -44,14 +49,21 @@ private:
     sf::Texture mBackgroundTex;
 
     // Functions
+public:
     /**
-     * Setup the game after one cycle
+     * Main function, will start the game and initiate everything
      */
-    void setup();
+    void start();
+private:
     /**
-     * At the beginning of the game, set all the elements
+     * At the very beginning of the game, right after starting, this
      */
     void initialiseGame();
+    /**
+     * This function is used every refresh of the game. It will check for changes in the world and make
+     * those changes in the view as well
+     */
+    void setup();
     /**
      * Get input from the user to move the charachter
      */
@@ -59,8 +71,33 @@ private:
     /**
      * Set all the textures for all entities
      */
-    void setTextures();
+    void setTexture(const std::shared_ptr<Platform>& platform, sf::Sprite& sfPlatform);
+    /**
+     * Creates the world
+     */
+    void createWorld();
+    /**
+     * Initiates the textures of everything
+     */
+    void initiateTextures();
 
+    void createControllers();
+
+    void scaleElements();
+
+    void placePlayer();
+
+    void placePlatforms();
+
+    void placeBonus();
+
+    void placeBackground();
+
+    void addFPSCounter();
+
+    void openSFWindow();
+
+    void updateWorld();
 public:
 
     /**
@@ -71,12 +108,8 @@ public:
         this->setup();
         this->start();
     };
-    /**
-     * Start game
-     */
-    void start();
 
-    void jumpCharacter();
+    void jumpingGraphics();
 
 
 

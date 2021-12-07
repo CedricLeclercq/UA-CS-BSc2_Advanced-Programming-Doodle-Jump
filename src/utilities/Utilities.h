@@ -12,6 +12,7 @@ namespace Utilities {
     class Random {
     public:
         static int randInt(int x,int y);
+        static float randFloat(float x, float y);
     };
 
     class StopWatch {};
@@ -22,7 +23,10 @@ namespace Utilities {
         float x;
         float y;
     public:
-        Coordinates()=default;
+        Coordinates() {
+            x = 0;
+            y = 0;
+        }
         Coordinates(float nX, float nY) {
             this->x = nX;
             this->y = nY;

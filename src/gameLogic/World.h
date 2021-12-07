@@ -37,6 +37,8 @@ public:
     std::vector<std::shared_ptr<Platform>> getPlatforms();
 
     void createPlatforms(float minY, float maxY);
+
+    void updateWorld();
 };
 
 

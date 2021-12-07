@@ -44,7 +44,9 @@ void World::placePlatforms() {
             // Platform still needs to get a location
             // This platform can be 1 to 10 higher than the previous one
             float highest = highestPlatform->getPosY();
-            float newHeight = (float)Random::randInt(1,10);
+            float newHeight = (float)Random::randInt(1,500);
+            float newX = Random::randFloat(0.f,1.f);
+            platform->setPosX(newX * 540); // TODO chance this to dynamic code
             platform->setPosY(highest + newHeight);
         }
     }
@@ -63,4 +65,8 @@ void World::removeOutOfView(float minY, float maxY) {
 
 std::vector<std::shared_ptr<Platform>> World::getPlatforms() {
     return this->platforms;
+}
+
+void World::updateWorld() {
+
 }

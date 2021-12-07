@@ -12,11 +12,14 @@
 
 class Entity {
 protected:
-    std::shared_ptr<Utilities::Coordinates> position;
+    std::shared_ptr<Utilities::Coordinates> position{};
     virtual void moveRight() = 0;
     virtual void moveLeft() = 0;
     void move(float offsetX, float offsetY);
 public:
+    Entity() {
+        this->position = std::make_shared<Utilities::Coordinates>(0,0);
+    }
     void setPos(float nX, float nY);
     void setPosX(float nX);
     void setPosY(float nY);

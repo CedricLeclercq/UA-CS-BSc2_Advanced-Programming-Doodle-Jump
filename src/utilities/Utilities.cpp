@@ -15,6 +15,17 @@ int Utilities::Random::randInt(int x, int y) {
     return distribution(mt);
 }
 
+float Utilities::Random::randFloat(float x, float y) {
+    if (x == y)
+        return x;
+    if (x > y)
+        std::swap(x,y);
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_real_distribution<float> distribution(x,y);
+    return distribution(mt);
+}
+
 void Utilities::Coordinates::setX(float nX) {
     this->x = nX;
 }

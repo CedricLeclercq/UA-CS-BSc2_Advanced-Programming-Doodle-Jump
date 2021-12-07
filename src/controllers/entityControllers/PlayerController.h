@@ -11,7 +11,17 @@
 
 class Controllers::PlayerController: public Controller {
 public:
+    std::shared_ptr<Player> model;
+    PlayerController()=default;
+    /**
+     * Constructor that defines the model and the view
+     * @param nModel
+     * @param nView
+     */
+    PlayerController(std::shared_ptr<Player> nModel, std::shared_ptr<sf::Sprite> nView);
+
     void handleInput();
+
 };
 
 
