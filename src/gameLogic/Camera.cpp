@@ -24,6 +24,25 @@ Coordinates Camera::projectPlayer(const std::shared_ptr<Player>& player) {
         // Player is jumping!
         viewY = viewY - (player->getPosY() - originalPos);
     }
+    return {viewX,viewY};
+}
 
+Coordinates Camera::projectPlatform(const std::shared_ptr<Platform> &platform) {
+    PKind pType = platform->getKind();
+    if (pType == PKind::STATIC or pType == PKind::TEMP or pType == PKind::HORIZONTAL) {
+        // Entities that remain static on the Y coordinate
+        return this->projectStaticYEntity(platform);
+    } else {
+        return {4000,4000}; // TODO fix random values
+    }
+}
+
+Coordinates Camera::projectStaticYEntity(const std::shared_ptr<Entity> &entity) {
+    // Getting the coordinates of the entity
+    Coordinates cooEntity = (*entity->getPos());
+    float viewX = cooEntity.getX() * cameraBordersX.second;
+    // Calculating the entity's Y by using our player's Y
+    float awayFromPlayerGround = this->world->getPlayer()->getPositionBeforeJumpY() - cooEntity.getY();
+    float viewY = this->cameraBordersY.second * (float)0.8 + awayFromPlayerGround;
     return {viewX,viewY};
 }

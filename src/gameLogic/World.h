@@ -44,6 +44,7 @@ public:
 
     void createPlatforms(float minY, float maxY);
 
+    void movePlatforms();
 
 };
 

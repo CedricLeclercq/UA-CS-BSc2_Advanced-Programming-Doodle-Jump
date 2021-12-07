@@ -113,10 +113,11 @@ void Game::placePlayer() {
 }
 
 void Game::placePlatforms() {
+    this->mWorld->createPlatforms(this->mWorld->getPlayer()->getPosY() - 1000, this->mWorld->getPlayer()->getPosY() + 1000);
     std::vector<std::shared_ptr<Platform>> worldPlatforms = (*this->mWorld).getPlatforms();
     for (const auto& platform: worldPlatforms) {
         sf::Sprite newPlatform;
-        newPlatform.setPosition(platform->getPosX(), platform->getPosX()); // TODO use camera class here
+        newPlatform.setPosition(this->mCamera->projectPlatform(platform).getX(), this->mCamera->projectPlatform(platform).getY()); // TODO use camera class here
         this->setTexture(platform,newPlatform);
         (*this->mWindow).draw(newPlatform);
     }

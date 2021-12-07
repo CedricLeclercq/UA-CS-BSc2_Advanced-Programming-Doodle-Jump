@@ -30,6 +30,8 @@ public:
     Camera(float maxX, float maxY, std::shared_ptr<World> nWorld);
 
     Coordinates projectPlayer(const std::shared_ptr<Player>& player);
+    Coordinates projectPlatform(const std::shared_ptr<Platform>& platform);
+    Coordinates projectStaticYEntity(const std::shared_ptr<Entity>& entity);
 };
 
 

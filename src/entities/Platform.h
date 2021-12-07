@@ -14,6 +14,7 @@ enum PKind {UNDEF,STATIC,HORIZONTAL,VERTICAL,TEMP};
 class Platform: public Entity {
 private:
     PKind platformKind;
+    bool movingRight{};
     void createPlatform();
     void makeStatic();
     void makeHorizontal();
@@ -30,6 +31,8 @@ public:
     void moveUp();
     void moveDown();
     void changeToGround();
+    bool getMovingRight();
+    void setMovingRight(bool newBool);
 };
 
 
