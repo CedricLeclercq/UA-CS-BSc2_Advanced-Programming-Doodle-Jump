@@ -20,8 +20,8 @@ protected:
     virtual std::shared_ptr<BGTile> createBGTile() = 0;
     virtual std::shared_ptr<Bonus> createBonus() = 0;
     virtual std::shared_ptr<Platform> createPlatform() = 0;
-    virtual std::shared_ptr<World> createWorld(std::pair<float,float> borderX, std::pair<float,float> borderY) = 0;
-    virtual std::unique_ptr<Camera> createCamera(float maxX, float maxY, std::shared_ptr<World> nWorld) = 0;
+    virtual std::shared_ptr<World> createWorld(std::shared_ptr<Camera> camera) = 0;
+    virtual std::unique_ptr<Camera> createCamera(const Coordinates& worldView, const Coordinates& cameraView) = 0;
 };
 
 #endif //ADVANCEDPROGRAMMINGDOODLEJUMP_ABSTRACTFACTORY_H

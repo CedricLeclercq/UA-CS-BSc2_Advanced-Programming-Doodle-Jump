@@ -7,6 +7,7 @@
 #include <iostream>
 #include "../factories/ConcreteFactory.h"
 #include <cmath>
+#include <memory>
 using Coordinates = Utilities::Coordinates;
 
 void Game::initialiseGame() {
@@ -69,9 +70,9 @@ void Game::createWorld() {
     ConcreteFactory factory;
     std::pair<float,float> borderX = std::make_pair(0,this->mWindow->getSize().x);
     std::pair<float,float> borderY = std::make_pair(0,this->mWindow->getSize().y);
-    this->mWorld = factory.createWorld(borderX,borderY);
     // Creating camera
-    this->mCamera = factory.createCamera(borderX.second,borderY.second, this->mWorld);
+    this->mCamera = factory.createCamera(Coordinates(1, 1000), Coordinates(borderX.second,borderY.second));
+    this->mWorld = factory.createWorld(mCamera);
 }
 
 void Game::initiateTextures() {
@@ -84,7 +85,9 @@ void Game::initiateTextures() {
     // Setting texture of main player
     mSpriteTex.loadFromFile("recourses/textures/playerPictogram.png");
     mSpriteTex.setSmooth(true);
-    this->playerController.getView().setTexture(mSpriteTex);
+    sf::Sprite& playerView = this->playerController.getView();
+    playerView.setTexture(mSpriteTex);
+    playerView.setOrigin(0, playerView.getLocalBounds().height);
 
     // Setting background texture
     mBackgroundTex.loadFromFile("recourses/textures/background.png");
@@ -107,7 +110,7 @@ void Game::scaleElements() {
 
 void Game::placePlayer() {
     // Getting and setting position of main player
-    Coordinates viewCoo = this->mCamera->projectPlayer(this->mWorld->getPlayer());
+    Coordinates viewCoo = this->mCamera->project(*this->mWorld->getPlayer()->getPos());
     this->playerController.getView().setPosition(viewCoo.getX(), viewCoo.getY());
     (*this->mWindow).draw(this->playerController.getView());
 }
@@ -117,8 +120,10 @@ void Game::placePlatforms() {
     std::vector<std::shared_ptr<Platform>> worldPlatforms = (*this->mWorld).getPlatforms();
     for (const auto& platform: worldPlatforms) {
         sf::Sprite newPlatform;
-        newPlatform.setPosition(this->mCamera->projectPlatform(platform).getX(), this->mCamera->projectPlatform(platform).getY()); // TODO use camera class here
+        Utilities::Coordinates coords = this->mCamera->project(*platform->getPos());
+        newPlatform.setPosition(coords.getX(), coords.getY());
         this->setTexture(platform,newPlatform);
+        newPlatform.setOrigin(0, newPlatform.getLocalBounds().height);
         (*this->mWindow).draw(newPlatform);
     }
 }

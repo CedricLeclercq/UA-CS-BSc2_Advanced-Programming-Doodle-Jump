@@ -28,7 +28,7 @@ void Player::jump() {
         this->velocityY = this->standardVelocityY;
         this->move(0,this->velocityY);
     } else {
-        this->velocityY -= 0.002;
+        this->velocityY -= 0.0005;
         //std::cout << this->standardVelocityY;
         this->move(0,this->velocityY);
     }
@@ -40,6 +40,3 @@ void Player::teleportPlayer(float minX, float maxX) {
     if (this->getPosX() * maxX > maxX)
         this->setPosX(0);
 }
-
-
-

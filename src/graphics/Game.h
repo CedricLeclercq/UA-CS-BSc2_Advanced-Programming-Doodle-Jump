@@ -30,7 +30,7 @@ private:
     /// World where all the game logic happens
     std::shared_ptr<World> mWorld;
     /// Camera used for the projection of elements
-    std::unique_ptr<Camera> mCamera;
+    std::shared_ptr<Camera> mCamera;
     /// Background for the game
     sf::Sprite mBackground;
 

@@ -11,6 +11,7 @@ void World::updateWorld() {
     if (this->collisionCheckPlatform()) {
         this->player->jump();
     }
+    m_camera->updateHeight(this->player->getPosY());
 }
 
 bool World::collisionCheckPlatform() {

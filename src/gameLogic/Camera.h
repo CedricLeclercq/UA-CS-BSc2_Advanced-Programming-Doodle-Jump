@@ -8,7 +8,6 @@
 #include <memory>
 
 #include "../utilities/Utilities.h"
-#include "World.h"
 
 using Coordinates = Utilities::Coordinates;
 
@@ -18,20 +17,14 @@ using Coordinates = Utilities::Coordinates;
  */
 class Camera {
 private:
-    /// The current X coordinates views of the camera
-    std::pair<float,float> cameraBordersX;
-    /// The current Y coordinates views of the camera
-    std::pair<float,float> cameraBordersY;
-    /// Shared pointer to the World
-    std::shared_ptr<World> world;
+    double m_windowHeight;
+    Coordinates m_worldView;
+    Coordinates m_cameraView;
 
-    Coordinates prevPlayerPos;
 public:
-    Camera(float maxX, float maxY, std::shared_ptr<World> nWorld);
-
-    Coordinates projectPlayer(const std::shared_ptr<Player>& player);
-    Coordinates projectPlatform(const std::shared_ptr<Platform>& platform);
-    Coordinates projectStaticYEntity(const std::shared_ptr<Entity>& entity);
+    Camera(const Coordinates& worldView, const Coordinates& cameraView);
+    Coordinates project(const Coordinates& coordinates) const;
+    void updateHeight(double height);
 };
 
 
