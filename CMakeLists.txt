@@ -16,8 +16,8 @@ SET(SRC
         src/gameLogic/Camera.h
         src/gameLogic/World.cpp
         src/gameLogic/World.h
-        src/entities/BGTile.cpp
-        src/entities/BGTile.h
+        src/entities/background/BGTile.cpp
+        src/entities/background/BGTile.h
         src/entities/Bonus.cpp
         src/entities/Bonus.h
         src/entities/Player.cpp
