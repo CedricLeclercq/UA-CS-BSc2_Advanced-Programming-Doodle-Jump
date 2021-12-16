@@ -13,6 +13,8 @@
 class Entity {
 protected:
     std::shared_ptr<Utilities::Coordinates> position{};
+    float length{};
+    float height{};
     virtual void moveRight() = 0;
     virtual void moveLeft() = 0;
     void move(float offsetX, float offsetY);
@@ -26,6 +28,11 @@ public:
     std::shared_ptr<Utilities::Coordinates> getPos();
     float getPosX();
     float getPosY();
+
+    void setLength(float nLength);
+    void setHeight(float nHeight);
+    float getLength() const {return this->length; }
+    float getHeight() const {return this->height; }
 };
 
 

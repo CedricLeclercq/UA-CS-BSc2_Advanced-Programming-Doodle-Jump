@@ -7,7 +7,7 @@
 
 #include <memory>
 #include "../entities/Player.h"
-#include "../entities/BGTile.h"
+#include "../entities/background/BGTile.h"
 #include "../entities/Bonus.h"
 #include "../entities/Platform.h"
 #include "../gameLogic/World.h"

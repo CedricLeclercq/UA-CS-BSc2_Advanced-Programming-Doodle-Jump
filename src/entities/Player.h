@@ -29,18 +29,14 @@ public:
 
     void moveLeft() override;
 
-    void jump();
+    void jump(bool newJump=false);
 
     bool getLookingLeft() const {
         return this->mLookLeft;
     }
 
-    float getPositionBeforeJumpY() {
-        return this->positionBeforeJumpY;
-    }
-
-    float getStVelocityY() {
-        return this->standardVelocityY;
+    float getVelocityY() const {
+        return this->velocityY;
     }
 
     void teleportPlayer(float minX, float maxX);
