@@ -22,10 +22,10 @@ std::shared_ptr<Platform> ConcreteFactory::createPlatform() {
     return std::shared_ptr<Platform>(new Platform());
 }
 
-std::shared_ptr<World> ConcreteFactory::createWorld(std::pair<float,float> borderX, std::pair<float,float> borderY) {
-    return std::shared_ptr<World>(new World(borderX,borderY));
+std::shared_ptr<World> ConcreteFactory::createWorld(std::shared_ptr<Camera> camera) {
+    return std::shared_ptr<World>(new World(camera));
 }
 
-std::unique_ptr<Camera> ConcreteFactory::createCamera(float maxX, float maxY, std::shared_ptr<World> nWorld) {
-    return std::make_unique<Camera>(maxX,maxY, nWorld);
+std::unique_ptr<Camera> ConcreteFactory::createCamera(const Coordinates& worldView, const Coordinates& cameraView) {
+    return std::make_unique<Camera>(worldView,cameraView);
 }

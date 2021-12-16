@@ -30,7 +30,7 @@ private:
     /// World where all the game logic happens
     std::shared_ptr<World> mWorld;
     /// Camera used for the projection of elements
-    std::unique_ptr<Camera> mCamera;
+    std::shared_ptr<Camera> mCamera;
     /// Background for the game
     sf::Sprite mBackground;
 
@@ -47,6 +47,30 @@ private:
     sf::Texture mTempPlatformTex;
     /// Background of the game texture
     sf::Texture mBackgroundTex;
+    /// Background of the game background element: Planet 1
+    sf::Texture mPlanet1Tex;
+    /// Background of the game background element: Planet 2
+    sf::Texture mPlanet2Tex;
+    /// Background of the game background element: Planet 3
+    sf::Texture mPlanet3Tex;
+    /// Background of the game background element: Planet 4
+    sf::Texture mPlanet4Tex;
+    /// Background of the game background element: Planet 5
+    sf::Texture mPlanet5Tex;
+    /// Background of the game background element: Planet 6
+    sf::Texture mPlanet6Tex;
+    /// Background of the game background element: Star 1
+    sf::Texture mStar1Tex;
+    /// Background of the game background element: Star 2
+    sf::Texture mStar2Tex;
+    /// Background of the game background element: Milky way 1
+    sf::Texture mMilkyWay1Tex;
+    /// Background of the game background element: Milky way 2
+    sf::Texture mMilkyWay2Tex;
+    /// Background of the game background element: Ground
+    sf::Texture mGroundTex;
+
+
 
     // Functions
 public:
@@ -68,10 +92,17 @@ private:
      * Get input from the user to move the charachter
      */
     void getInput();
+    // TODO fix documentation below
     /**
-     * Set all the textures for all entities
+     * Finds and sets the texture for a given platform
      */
-    void setTexture(const std::shared_ptr<Platform>& platform, sf::Sprite& sfPlatform);
+    void setPlatformTexture(const std::shared_ptr<Platform>& platform, sf::Sprite& sfPlatform);
+    /**
+     * Finds and sets the texture for a given background tile
+     * @param tile
+     * @param sfTile
+     */
+    void setTileTexture(const std::shared_ptr<BGTile>& tile, sf::Sprite& sfTile);
     /**
      * Creates the world
      */
@@ -103,7 +134,7 @@ public:
     /**
      * Basic constructor
      */
-    Game() : mWindow(new sf::RenderWindow(sf::VideoMode(540, 960), "Doodle jump - Alpha")) {
+    Game() : mWindow(new sf::RenderWindow(sf::VideoMode(800, 1200), "Doodle jump - Alpha")) {
         this->initialiseGame();
         this->setup();
         this->start();

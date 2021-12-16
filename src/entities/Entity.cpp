@@ -33,3 +33,11 @@ void Entity::setPosX(float nX) {
 void Entity::setPosY(float nY) {
     this->position->setY(nY);
 }
+
+void Entity::setLength(float nLength) {
+    this->length = nLength;
+}
+
+void Entity::setHeight(float nHeight) {
+    this->height = nHeight;
+}
