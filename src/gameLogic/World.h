@@ -20,22 +20,30 @@ private:
     std::vector<std::shared_ptr<Platform>> platforms;
     /// Vector with shared pointer to our background elements
     std::vector<std::shared_ptr<BGTile>> bgTiles;
+    /// Vector with shared pointer to our bonuses
+    std::vector<std::shared_ptr<Bonus>> bonuses;
     /// Shared pointer to the camera view of our world
     std::shared_ptr<Camera> m_camera;
     /// Standard player length
     float playerLength{};
     /// Standard platform length
     float platformLength{};
-    void createPlatforms(float minY, float maxY);
-    void placePlatforms();
-    void placeBackground();
+    void createPlatforms();
     void createBackground();
+    static void createBonus(const std::shared_ptr<Platform>& platform);
+    Coordinates findHighestStar() const;
+    Coordinates findHighestPlatform() const; // todo change to shared poniter
+    std::shared_ptr<Platform> findLowestPlatform();
+    std::shared_ptr<BGTile> findLowestStar();
+    std::shared_ptr<Bonus> findLowestBonus();
+    bool newPlatformsNeeded();
+    bool newStarsNeeded();
     /**
      * Will remove all elements that fall out of the view of the world
-     * @param minY
-     * @param maxY
      */
-    void removeOutOfView(float minY, float maxY);
+    void removeOutOfView();
+
+    std::vector<std::shared_ptr<Entity>> removeOutOfView(std::vector<std::shared_ptr<Entity>> entities, int maxSize);
 public:
     /**
      * This function is responsible for applying any change needed to the world after the player moved
@@ -64,8 +72,12 @@ public:
 
     std::vector<std::shared_ptr<Platform>> getPlatforms();
 
+    std::vector<std::shared_ptr<Bonus>> getBonuses() const {return this->bonuses; }
+
 
     void movePlatforms();
+
+
 
 };
 

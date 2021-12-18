@@ -7,6 +7,7 @@
 
 #include "../utilities/Utilities.h"
 #include "Entity.h"
+#include "Bonus.h"
 
 enum PKind {UNDEF,STATIC,HORIZONTAL,VERTICAL,TEMP};
 
@@ -20,6 +21,7 @@ private:
     void makeHorizontal();
     void makeVertical();
     void makeTemp();
+    std::shared_ptr<Bonus> bonus{};
 public:
     explicit Platform(PKind kind=UNDEF) {
         this->platformKind = kind;
@@ -33,6 +35,8 @@ public:
     void changeToGround();
     bool getMovingRight();
     void setMovingRight(bool newBool);
+    void setBonus(std::shared_ptr<Bonus> nBonus);
+    std::shared_ptr<Bonus> getBonus() const;
 };
 
 

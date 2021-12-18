@@ -23,11 +23,11 @@ void Game::initialiseGame() {
 void Game::setup() {
     this->placeBackground();
     this->placePlatforms();
-    this->placeBonus();
     this->placePlayer();
 }
 
 void Game::setPlatformTexture(const std::shared_ptr<Platform>& platform, sf::Sprite& sfPlatform) {
+    if (platform->getBonus() == nullptr) {
     if (platform->getKind() == PKind::STATIC)
         sfPlatform.setTexture(this->mStaticPlatformTex);
     else if (platform->getKind() == PKind::HORIZONTAL)
@@ -36,6 +36,29 @@ void Game::setPlatformTexture(const std::shared_ptr<Platform>& platform, sf::Spr
         sfPlatform.setTexture(this->mTempPlatformTex);
     else if (platform->getKind() == PKind::VERTICAL)
         sfPlatform.setTexture(this->mVerticalPlatformTex);
+    }
+
+    else if (platform->getBonus() != nullptr and platform->getBonus()->getPowerKind() == BonusPower::SPRING) {
+        if (platform->getKind() == PKind::STATIC)
+            sfPlatform.setTexture(this->mStaticSpringPlatformTex);
+        else if (platform->getKind() == PKind::HORIZONTAL)
+            sfPlatform.setTexture(this->mHorizontalSpringPlatformTex);
+        else if (platform->getKind() == PKind::TEMP)
+            sfPlatform.setTexture(this->mTempSpringPlatformTex);
+        else if (platform->getKind() == PKind::VERTICAL)
+            sfPlatform.setTexture(this->mVerticalSpringPlatformTex);
+    }
+
+    else if (platform->getBonus() != nullptr and platform->getBonus()->getPowerKind() == BonusPower::ROCKET) {
+        if (platform->getKind() == PKind::STATIC)
+            sfPlatform.setTexture(this->mStaticRocketPlatformTex);
+        else if (platform->getKind() == PKind::HORIZONTAL)
+            sfPlatform.setTexture(this->mHorizontalRocketPlatformTex);
+        else if (platform->getKind() == PKind::TEMP)
+            sfPlatform.setTexture(this->mTempRocketPlatformTex);
+        else if (platform->getKind() == PKind::VERTICAL)
+            sfPlatform.setTexture(this->mVerticalRocketPlatformTex);
+    }
 }
 
 void Game::setTileTexture(const std::shared_ptr<BGTile> &tile, sf::Sprite &sfTile) {
@@ -118,10 +141,20 @@ void Game::initiateTextures() {
     // todo make sure to try all of these and throw an exception if one didn't load!
     try {
         // Textures for platforms
-        this->mVerticalPlatformTex.loadFromFile("recourses/textures/gray_platform.png");
+        this->mVerticalPlatformTex.loadFromFile("recourses/textures/yellow_platform.png");
         this->mHorizontalPlatformTex.loadFromFile("recourses/textures/light_blue_platform.png");
         this->mStaticPlatformTex.loadFromFile("recourses/textures/green_platform.png");
-        this->mTempPlatformTex.loadFromFile("recourses/textures/yellow_platform.png");
+        this->mTempPlatformTex.loadFromFile("recourses/textures/white_platform.png");
+        // Textures for bonus platforms
+        this->mVerticalSpringPlatformTex.loadFromFile("recourses/textures/yellow_platform_spring.png");
+        this->mHorizontalSpringPlatformTex.loadFromFile("recourses/textures/light_blue_platform_spring.png");
+        this->mStaticSpringPlatformTex.loadFromFile("recourses/textures/green_platform_spring.png");
+        this->mTempSpringPlatformTex.loadFromFile("recourses/textures/white_platform_spring.png");
+        this->mVerticalRocketPlatformTex.loadFromFile("recourses/textures/yellow_platform_rocket.png");
+        this->mHorizontalRocketPlatformTex.loadFromFile("recourses/textures/light_blue_platform_rocket.png");
+        this->mStaticRocketPlatformTex.loadFromFile("recourses/textures/green_platform_rocket.png");
+        this->mTempRocketPlatformTex.loadFromFile("recourses/textures/white_platform_rocket.png");
+
         // Textures for background tiles
         this->mPlanet1Tex.loadFromFile("recourses/textures/background/planets/Planet1.png");
         this->mPlanet2Tex.loadFromFile("recourses/textures/background/planets/Planet2.png");
@@ -135,7 +168,8 @@ void Game::initiateTextures() {
         this->mStar2Tex.loadFromFile("recourses/textures/background/stars/Star2.png");
         this->mGroundTex.loadFromFile("recourses/textures/background/Ground.png");
 
-        // Setting texture of main player
+
+        // Texture for player
         mSpriteTex.loadFromFile("recourses/textures/playerPictogram.png");
         mSpriteTex.setSmooth(true);
         sf::Sprite &playerView = this->playerController.getView();
@@ -200,14 +234,11 @@ void Game::placePlatforms() {
         Utilities::Coordinates coords = this->mCamera->project(*platform->getPos());
         newPlatform.setPosition(coords.getX(), coords.getY());
         this->setPlatformTexture(platform, newPlatform);
-        newPlatform.setOrigin(0, newPlatform.getLocalBounds().height);//todo fix not here
+        newPlatform.setOrigin(0, newPlatform.getLocalBounds().height);
         (*this->mWindow).draw(newPlatform);
     }
 }
 
-void Game::placeBonus() {
-
-}
 
 void Game::placeBackground() {
     std::vector<std::shared_ptr<BGTile>> worldBackground = this->mWorld->getBackground();
@@ -249,6 +280,8 @@ void Game::openSFWindow() {
 void Game::updateWorld() {
     this->mWorld->updateWorld();
 }
+
+
 
 
 
