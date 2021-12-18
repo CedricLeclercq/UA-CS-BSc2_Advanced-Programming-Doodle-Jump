@@ -91,14 +91,17 @@ void Game::getInput() {
 }
 
 void Game::jumpingGraphics() {
+    // todo fix looking left
     // Adding the jump to the graphics
     if (this->mWorld->getPlayer()->getLookingLeft()) {
         // Mirroring the character if it is looking left
-        this->playerController.getView().setScale(-0.4, 0.4);
+        //this->playerController.getView().setScale(-0.4, 0.4); // todo look left is disabled
     } else {
         // But reverse if it is not looking left
-        this->playerController.getView().setScale(0.4,0.4);
+        //this->playerController.getView().setScale(0.4,0.4); // todo ... also here
     }
+    // Scaling the player to its correct size
+    this->playerController.getView().setScale(0.4,0.4);
 }
 
 void Game::createWorld() {
@@ -107,44 +110,64 @@ void Game::createWorld() {
     std::pair<float,float> borderX = std::make_pair(0,this->mWindow->getSize().x);
     std::pair<float,float> borderY = std::make_pair(0,this->mWindow->getSize().y);
     // Creating camera
-    this->mCamera = factory.createCamera(Coordinates(1, 1000), Coordinates(borderX.second,borderY.second));
+    this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second,borderY.second));
     this->mWorld = factory.createWorld(mCamera);
 }
 
 void Game::initiateTextures() {
-    // Textures for platforms
-    this->mVerticalPlatformTex.loadFromFile("recourses/textures/gray_platform.png");
-    this->mHorizontalPlatformTex.loadFromFile("recourses/textures/light_blue_platform.png");
-    this->mStaticPlatformTex.loadFromFile("recourses/textures/green_platform.png");
-    this->mTempPlatformTex.loadFromFile("recourses/textures/yellow_platform.png");
-    // Textures for background tiles
-    this->mPlanet1Tex.loadFromFile("recourses/textures/background/planets/Planet1.png");
-    this->mPlanet2Tex.loadFromFile("recourses/textures/background/planets/Planet2.png");
-    this->mPlanet3Tex.loadFromFile("recourses/textures/background/planets/Planet3.png");
-    this->mPlanet4Tex.loadFromFile("recourses/textures/background/planets/Planet4.png");
-    this->mPlanet5Tex.loadFromFile("recourses/textures/background/planets/Planet5.png");
-    this->mPlanet6Tex.loadFromFile("recourses/textures/background/planets/Planet6.png");
-    this->mMilkyWay1Tex.loadFromFile("recourses/textures/background/milkyways/MilkyWay1.png");
-    this->mMilkyWay2Tex.loadFromFile("recourses/textures/background/milkyways/MilkyWay2.png");
-    this->mStar1Tex.loadFromFile("recourses/textures/background/stars/Star1.png");
-    this->mStar2Tex.loadFromFile("recourses/textures/background/stars/Star2.png");
-    this->mGroundTex.loadFromFile("recourses/textures/background/Ground.png");
+    // todo make sure to try all of these and throw an exception if one didn't load!
+    try {
+        // Textures for platforms
+        this->mVerticalPlatformTex.loadFromFile("recourses/textures/gray_platform.png");
+        this->mHorizontalPlatformTex.loadFromFile("recourses/textures/light_blue_platform.png");
+        this->mStaticPlatformTex.loadFromFile("recourses/textures/green_platform.png");
+        this->mTempPlatformTex.loadFromFile("recourses/textures/yellow_platform.png");
+        // Textures for background tiles
+        this->mPlanet1Tex.loadFromFile("recourses/textures/background/planets/Planet1.png");
+        this->mPlanet2Tex.loadFromFile("recourses/textures/background/planets/Planet2.png");
+        this->mPlanet3Tex.loadFromFile("recourses/textures/background/planets/Planet3.png");
+        this->mPlanet4Tex.loadFromFile("recourses/textures/background/planets/Planet4.png");
+        this->mPlanet5Tex.loadFromFile("recourses/textures/background/planets/Planet5.png");
+        this->mPlanet6Tex.loadFromFile("recourses/textures/background/planets/Planet6.png");
+        this->mMilkyWay1Tex.loadFromFile("recourses/textures/background/milkyways/MilkyWay1.png");
+        this->mMilkyWay2Tex.loadFromFile("recourses/textures/background/milkyways/MilkyWay2.png");
+        this->mStar1Tex.loadFromFile("recourses/textures/background/stars/Star1.png");
+        this->mStar2Tex.loadFromFile("recourses/textures/background/stars/Star2.png");
+        this->mGroundTex.loadFromFile("recourses/textures/background/Ground.png");
 
-    // Setting texture of main player
-    mSpriteTex.loadFromFile("recourses/textures/playerPictogram.png");
-    mSpriteTex.setSmooth(true);
-    sf::Sprite& playerView = this->playerController.getView();
-    playerView.setTexture(mSpriteTex);
-    playerView.setOrigin(0, playerView.getLocalBounds().height); // todo fix better location
+        // Setting texture of main player
+        mSpriteTex.loadFromFile("recourses/textures/playerPictogram.png");
+        mSpriteTex.setSmooth(true);
+        sf::Sprite &playerView = this->playerController.getView();
+        playerView.setTexture(mSpriteTex);
+        playerView.setOrigin(0, playerView.getLocalBounds().height); // todo fix better location
 
-    // Setting background texture
-    mBackgroundTex.loadFromFile("recourses/textures/background.png");
-    mBackground.setTexture(this->mBackgroundTex);
+        // Setting background texture
+        mBackgroundTex.loadFromFile("recourses/textures/background.png");
+        mBackground.setTexture(this->mBackgroundTex);
 
-    // Creating the standard lengths of the platform and the player
-    float platformLength = (float)this->mHorizontalPlatformTex.getSize().x;
-    float playerLength = (float)this->mSpriteTex.getSize().x;
-    std::cout << playerLength / (float)this->mWindow->getSize().x << std::endl;
+        this->defineLengths();
+
+    } catch (std::exception& exc) {
+        // todo fix what to catch here above
+        std::cerr << "An exception occurred but caught while loading the textures. ";
+        std::cerr << "The exception was the following: " << std::endl << exc.what() << std::endl << std::endl;
+        std::cerr << "The graphical interface might not look as expected. Try pulling the game again from GitHub.";
+        std::cerr << std::endl << std::endl;
+    }
+}
+
+void Game::defineLengths() {
+    // Getting platform length
+    sf::Sprite testPlatform;
+    testPlatform.setTexture(this->mHorizontalPlatformTex);
+    float platformLength = testPlatform.getLocalBounds().width;
+    // Getting player length
+    sf::Sprite testPlayer;
+    sf::Texture playerFeetTex;
+    playerFeetTex.loadFromFile("recourses/textures/playerFeet.png");
+    testPlayer.setTexture(playerFeetTex);
+    float playerLength = testPlayer.getLocalBounds().width * (float)0.4;
     this->mWorld->setPlatformLength(platformLength / (float)this->mWindow->getSize().x);
     this->mWorld->setPlayerLength(playerLength / (float)this->mWindow->getSize().x);
 }
@@ -207,7 +230,7 @@ void Game::addFPSCounter() {
     font.loadFromFile("recourses/arial.ttf");
     text.setFont(font);
     text.setString(std::to_string((int)std::round(1.f /  clock.restart().asSeconds())) + " fps");
-    text.setFillColor(sf::Color::Black);
+    text.setFillColor(sf::Color::White);
     text.setPosition(700,10);
     text.setCharacterSize(24);
     (*this->mWindow).draw(text);
@@ -220,7 +243,7 @@ void Game::openSFWindow() {
             (*this->mWindow).close();
     }
     (*this->mWindow).display();
-    (*this->mWindow).clear(sf::Color(5,5,25)); // todo find perfect color
+    (*this->mWindow).clear(sf::Color(5,5,25));
 }
 
 void Game::updateWorld() {

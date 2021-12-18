@@ -129,6 +129,8 @@ private:
     void openSFWindow();
 
     void updateWorld();
+
+    void defineLengths();
 public:
 
     /**

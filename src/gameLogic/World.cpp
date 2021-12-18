@@ -51,12 +51,10 @@ bool World::collisionCheckPlatform() {
         if ((int)posY == (int)platform->getPosY()) {
             // Checking leftmost part of the player
             if (leftMostX > platform->getPosX() and leftMostX <= platform->getPosX() + platform->getLength()) {
-                std::cout << "leftmost" << std::endl;
                 return true;
             }
             // Checking rightmost part of the player
             if (rightMostX > platform->getPosX() and rightMostX <= platform->getPosX() + platform->getLength()) {
-                std::cout << "rightmost" << std::endl;
                 return true;
             }
         }

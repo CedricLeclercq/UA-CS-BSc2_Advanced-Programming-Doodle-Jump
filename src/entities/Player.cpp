@@ -9,7 +9,7 @@
 void Player::moveRight() {
     this->move(0.0005,0.f);
     if (this->mLookLeft) {
-        this->move(-0.1,0.f);
+        //this->move(-0.1,0.f);
     }
     this->mLookLeft = false;
 }
@@ -17,7 +17,7 @@ void Player::moveRight() {
 void Player::moveLeft() {
     this->move(-0.0005,0.f);
     if (not this->mLookLeft) {
-        this->move(0.1,0.f);
+        //this->move(0.1,0.f);
     }
     this->mLookLeft = true;
 }

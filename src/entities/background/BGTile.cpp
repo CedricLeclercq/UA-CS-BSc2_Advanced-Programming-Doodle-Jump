@@ -9,20 +9,20 @@ using Random = Utilities::Random;
 
 void BGTile::defineKind() {
     // Getting a random number
-    float random = Random::randFloat(0,100);
+    float random = Random::randFloat(0,1000);
 
-    // 90% of the time a STAR1 generates
-    if (random <= 90) {
+    // STAR1 generates
+    if (random <= 950) {
         this->kind = TKind::STAR1;
         return;
     }
-    // 5% of the time a STAR2 generates
-    if (random <= 95) {
+    // STAR2 generates
+    if (random <= 980) {
         this->kind = TKind::STAR2;
         return;
     }
-    // 4% of the time a PLANETx generates
-    if (random <= 99) {
+    // PLANETx generates
+    if (random <= 998) {
         int randomPlanet = Random::randInt(1,6);
         switch (randomPlanet) {
             case 1:
@@ -48,7 +48,7 @@ void BGTile::defineKind() {
                 break;
         }
     } else {
-        // 1% of the time a MILKYWAYx generates
+        // MILKYWAYx generates
         int randomMilkyWay = Random ::randInt(1,2);
         switch (randomMilkyWay) {
             case 1:
