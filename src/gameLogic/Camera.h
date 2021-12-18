@@ -6,7 +6,6 @@
 #define DOODLEJUMP_CAMERA_H
 
 #include <memory>
-
 #include "../utilities/Utilities.h"
 
 using Coordinates = Utilities::Coordinates;
@@ -25,6 +24,8 @@ public:
     Camera(const Coordinates& worldView, const Coordinates& cameraView);
     Coordinates project(const Coordinates& coordinates) const;
     void updateHeight(double height);
+    bool evalInWindow(const Coordinates& coordinates);
+    Coordinates getWorldView() const;
 };
 
 

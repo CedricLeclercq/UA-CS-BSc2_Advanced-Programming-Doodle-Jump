@@ -26,16 +26,21 @@ private:
     float playerLength{};
     /// Standard platform length
     float platformLength{};
-    void createPlatforms(float minY, float maxY);
-    void placePlatforms();
+    void createPlatforms();
     void placeBackground();
     void createBackground();
+    Coordinates findHighestStar() const;
+    Coordinates findHighestPlatform() const; // todo change to shared poniter
+    std::shared_ptr<Platform> findLowestPlatform();
+    std::shared_ptr<BGTile> findLowestStar();
+    bool newPlatformsNeeded();
+    bool newStarsNeeded();
     /**
      * Will remove all elements that fall out of the view of the world
-     * @param minY
-     * @param maxY
      */
-    void removeOutOfView(float minY, float maxY);
+    void removeOutOfView();
+
+    std::vector<std::shared_ptr<Entity>> removeOutOfView(std::vector<std::shared_ptr<Entity>> entities, int maxSize);
 public:
     /**
      * This function is responsible for applying any change needed to the world after the player moved
