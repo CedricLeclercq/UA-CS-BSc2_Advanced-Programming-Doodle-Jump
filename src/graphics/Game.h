@@ -45,6 +45,24 @@ private:
     sf::Texture mVerticalPlatformTex;
     /// Temporary platform texture
     sf::Texture mTempPlatformTex;
+    /// Static spring platform texture
+    sf::Texture mStaticSpringPlatformTex;
+    /// Horizontal spring platform texture
+    sf::Texture mHorizontalSpringPlatformTex;
+    /// Vertical spring platform texture
+    sf::Texture mVerticalSpringPlatformTex;
+    /// Temporary spring platform texture;
+    sf::Texture mTempSpringPlatformTex;
+    /// Static rocket platform texture
+    sf::Texture mStaticRocketPlatformTex;
+    /// Horizontal rocket platform texture
+    sf::Texture mHorizontalRocketPlatformTex;
+    /// Vertical rocket platform texture
+    sf::Texture mVerticalRocketPlatformTex;
+    /// Temporary rocket platform texture
+    sf::Texture mTempRocketPlatformTex;
+
+
     /// Background of the game texture
     sf::Texture mBackgroundTex;
     /// Background of the game background element: Planet 1
@@ -119,8 +137,6 @@ private:
     void placePlayer();
 
     void placePlatforms();
-
-    void placeBonus();
 
     void placeBackground();
 

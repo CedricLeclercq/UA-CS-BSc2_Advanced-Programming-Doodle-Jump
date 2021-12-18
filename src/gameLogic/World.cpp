@@ -16,119 +16,39 @@ void World::updateWorld() {
     }
     // Updating the player height
     m_camera->updateHeight(this->player->getPosY());
-    // Creating the platforms
-    //this->createPlatforms(this->getPlayer()->getPosY() - 1200, this->getPlayer()->getPosY() + 1200);
+    // Removing everything that is out of view
     this->removeOutOfView();
+    // Creating all new elements in the world
     this->createPlatforms();
-    // TODO creating the bonuses
-    // Creating the background
     this->createBackground();
-
 }
 
 bool World::collisionCheckPlatform() {
-
-    /*
-    for (const auto& platform: this->platforms) {
-        if ((int)platform->getPosY() == (int)this->player->getPosY() and this->player->getVelocityY() <= 0) { //and platform->getPosX() <= this->player->getPosX()
-            if (player->getPosX() > platform->getPosX() and platform->getPosX() + 10 > player->getPosX()) {
-                return true;
-            }
-        }
-    }
-    return false;
-     */
     if (this->player->getVelocityY() > 0) {
         // Player cannot collide with something while moving up
         return false;
     }
-
     // Getting the position of the player
     float leftMostX = this->player->getPosX();
     float posY = this->player->getPosY();
     float rightMostX = leftMostX + this->player->getLength();
-
     // Looping over all platforms to check
     for (const auto& platform: this->platforms) {
         if ((int)posY == (int)platform->getPosY()) {
             // Checking leftmost part of the player
             if (leftMostX > platform->getPosX() and leftMostX <= platform->getPosX() + platform->getLength()) {
+                if (platform->getBonus() != nullptr) this->player->setBonus(platform->getBonus());
                 return true;
             }
             // Checking rightmost part of the player
             if (rightMostX > platform->getPosX() and rightMostX <= platform->getPosX() + platform->getLength()) {
+                if (platform->getBonus() != nullptr) this->player->setBonus(platform->getBonus());
                 return true;
             }
         }
     }
     return false;
 }
-
-/*
-void World::createPlatforms(float minY, float maxY) {
-
-
-
-    this->removeOutOfView();
-    // todo find a better location to do this
-    if (player->getLength() == 0) {
-        this->player->setLength(this->playerLength);
-    }
-
-    //this->removeOutOfView(minY,maxY);
-    ConcreteFactory factory;
-    int stillInView = (int)this->platforms.size();
-    int amount = 0;
-    if (stillInView == 0) {
-        amount = Random::randInt(8,20); // 8 to 15 platforms can be on a screen
-    }
-    else if (stillInView < 8) {
-        // We have less than 8 platforms
-        amount = Random::randInt(8-stillInView,15-stillInView);
-    }
-    else if (stillInView >= 8) {
-        amount = Random::randInt(0,std::max(0,15-stillInView));
-    }
-    for (int it = 0; it < amount; it++) {
-        this->platforms.push_back(factory.createPlatform());
-    }
-    this->placePlatforms();
-    this->movePlatforms();
-}
- */
-/*
-void World::createPlatforms() {
-    // todo find a better location to do this
-    if (player->getLength() == 0) {
-        this->player->setLength(this->playerLength);
-    }
-
-    // Remove all the platforms that fall out of the view of the player from the platforms vector
-    this->removeOutOfView();
-
-    // Calculating the difficulty
-    // Max difficulty is reached at height 50000
-    float difficulty = 1 - (this->m_camera->getWorldView().getY() / 50000);
-    int amountOfNewPlatforms = ceil(30*difficulty);
-    if (amountOfNewPlatforms < 10) {
-        // Setting a minimum of 10 platforms in the world
-        amountOfNewPlatforms = 10;
-    }
-    Coordinates highestPlatform =
-    if (static_cast<int>(this->platforms.size()) > 30) {
-        // there are enough platforms for now
-        return;
-    }
-
-    ConcreteFactory factory;
-    for (int it = 0; it < amountOfNewPlatforms; it++) {
-        this->platforms.push_back(factory.createPlatform()); // todo if extra time, add more moving platforms when possible
-    }
-
-    this->placePlatforms();
-    this->movePlatforms();
-}
-*/
 
 void World::createPlatforms() {
     // todo find better location for this
@@ -141,6 +61,7 @@ void World::createPlatforms() {
         newPlatform->setPosX(Random::randFloat(0,0.85)); // todo change y to 1
         newPlatform->setPosY(this->findHighestPlatform().getY() + Random::randFloat(20,150));
         newPlatform->setLength(this->platformLength);
+        World::createBonus(newPlatform);
         this->platforms.push_back(newPlatform);
     }
     // Moving all the platforms
@@ -157,6 +78,16 @@ void World::createBackground() {
     }
 }
 
+void World::createBonus(const std::shared_ptr<Platform>& platform) {
+    // Will there be a bonus on this platform: 5% chance
+    if (Random::randInt(1,100) <= 5) {
+        std::shared_ptr<Bonus> newBonus(new Bonus);
+        // Place the bonus somewhere random on the platform
+        newBonus->setPosX(Random::randFloat(platform->getPosX(),platform->getPosX()+platform->getLength()));
+        newBonus->setPosY(platform->getPosY());
+        platform->setBonus(newBonus);
+    }
+}
 
 void World::removeOutOfView() {
     // Max amount of platforms allowed is 30, remove all the others to begin with
@@ -171,17 +102,7 @@ void World::removeOutOfView() {
         this->platforms = newPlatforms;
     }
 
-    std::vector<std::shared_ptr<Platform>> newPlatforms;
-    for (const auto &platform: this->platforms) {
-        Coordinates adjusted = {platform->getPosX(),platform->getPosY()-100};
-        if (this->m_camera->evalInWindow(adjusted)) {
-            newPlatforms.push_back(platform);
-        }
-    }
-    this->platforms.clear();
-    this->platforms = newPlatforms;
-
-    // Max amount of stars allowed is 150, remove all the others to begin with
+    // Max amount of stars allowed is 100, remove all the others to begin with
     while (this->bgTiles.size() > 100) {
         std::vector<std::shared_ptr<BGTile>> newBGTiles;
         std::shared_ptr<BGTile> lowest = this->findLowestStar();
@@ -194,45 +115,6 @@ void World::removeOutOfView() {
         this->bgTiles = newBGTiles;
     }
 }
-
-
-
-
-/*
-void World::placePlatforms() {
-    // Find the highest platform that already has coordinates and place all the order above that one
-    std::shared_ptr<Platform> highestPlatform;
-    for (const auto& platform: this->platforms) {
-        // Setting the platform length
-        platform->setLength(this->platformLength);
-
-
-        if (highestPlatform == nullptr) {
-            highestPlatform = platform;
-        }
-        if (platform->getPosY() != 0) {
-            // Platform has an assigned position
-            if (highestPlatform->getPosY() < platform->getPosY()) {
-                highestPlatform = platform;
-            }
-        }
-        else {
-            // Platform still needs to get a location
-            // This platform can be 1 to 10 higher than the previous one
-            float highest = highestPlatform->getPosY();
-            auto newHeight = (float)Random::randInt(20,300);
-            float newX = Random::randFloat(0.f,0.85);
-            platform->setPosX(newX);
-            platform->setPosY(highest + newHeight);
-            //while (!this->m_camera->evalInWindow((*platform->getPos()))) {
-               //newHeight = (float)Random::randInt(20,39);
-               //platform->setPosY(newHeight + highest);
-            //}
-            highestPlatform = platform;
-        }
-    }
-}
-*/
 
 void World::movePlatforms() {
     for (auto& platform: this->platforms) {
@@ -256,56 +138,6 @@ void World::movePlatforms() {
 
 std::vector<std::shared_ptr<Platform>> World::getPlatforms() {
     return this->platforms;
-}
-/*
-void World::createBackground() {
-
-    // todo remove this and place it in a more convenient place
-    if (player->getLength() == 0) {
-        this->player->setLength(this->playerLength);
-    }
-
-    // todo if time, draw the Ground.png here
-
-    ConcreteFactory factory;
-    int stillInView = (int)this->bgTiles.size();
-
-    // There are still enough background tiles in the view
-    if (150 - stillInView < 0)
-        return;
-
-    for (int i = 0; i < 150-stillInView; i++) {
-        this->bgTiles.push_back(factory.createBGTile());
-    }
-    this->placeBackground();
-}
-*/
-void World::placeBackground() {
-    // todo fix that this can become one with our placePlatforms function, they both do pratically the same
-    // Finding the highest tile that already has coordinates and place all the other above that one
-    std::shared_ptr<BGTile> highestTile;
-    for (auto& tile: this->bgTiles) {
-        if (highestTile == nullptr) {
-            highestTile = tile;
-        }
-        if (tile->getPosY() != 0) {
-            if (highestTile->getPosY() < tile->getPosY()) {
-                highestTile = tile;
-            }
-        }
-
-        else {
-            // Platform still needs to get a location
-            // This platform can be 1 to 10 higher than the previous one
-            float highest = highestTile->getPosY();
-            auto newHeight = (float)Random::randInt(10,50);
-            float newX = Random::randFloat(0.f,0.85);
-            tile->setPosX(newX);
-            tile->setPosY(highest + newHeight);
-            highestTile = tile;
-        }
-    }
-
 }
 
 bool World::newPlatformsNeeded() {
@@ -371,6 +203,16 @@ bool World::newStarsNeeded() {
 
     // Else, everything is fine, just generate new platforms
     return true;
+}
+
+std::shared_ptr<Bonus> World::findLowestBonus() {
+    std::shared_ptr<Bonus> lowest;
+    for (const auto& entity: this->bonuses) {
+        if (lowest == nullptr or entity->getPosY() < lowest->getPosY()) {
+            lowest = entity;
+        }
+    }
+    return lowest;
 }
 
 

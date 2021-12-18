@@ -87,3 +87,11 @@ bool Platform::getMovingRight() {
 void Platform::setMovingRight(bool newBool) {
     this->movingRight = newBool;
 }
+
+void Platform::setBonus(std::shared_ptr<Bonus> nBonus) {
+    this->bonus = std::move(nBonus);
+}
+
+std::shared_ptr<Bonus> Platform::getBonus() const {
+    return this->bonus;
+}

@@ -7,22 +7,27 @@
 
 
 #include <memory>
-
+#include <utility>
+#include "Bonus.h"
 #include "Entity.h"
 
 
 class Player: public Entity {
 private:
-    bool mLookLeft;
+    bool mLookLeft{};
+    /// Bool that indicates if the player is able to move up and down on itself
+    bool paralysedY{};
     float velocityY{};
     float standardVelocityY{};
     float positionBeforeJumpY{};
+    std::shared_ptr<Bonus> bonus{};
 public:
     Player() {
         this->standardVelocityY = 1;
         this->position = std::make_shared<Utilities::Coordinates>(0.5,0.f);
         this->positionBeforeJumpY = this->getPosY();
         this->mLookLeft = false;
+        this->paralysedY = false;
     }
 
     void moveRight() override;
@@ -30,6 +35,10 @@ public:
     void moveLeft() override;
 
     void jump(bool newJump=false);
+
+    void setVelocityY(float velocity) {
+        this->velocityY = velocity;
+    }
 
     bool getLookingLeft() const {
         return this->mLookLeft;
@@ -40,6 +49,14 @@ public:
     }
 
     void teleportPlayer(float minX, float maxX);
+
+    void setBonus(std::shared_ptr<Bonus> nBonus) {this->bonus = std::move(nBonus);}
+
+    std::shared_ptr<Bonus> getBonus() const { return this->bonus; }
+
+
+    void setParalysed(bool paralysed) {this->paralysedY = paralysed;}
+
 
 
 };
