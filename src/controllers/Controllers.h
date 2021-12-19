@@ -14,7 +14,7 @@
 namespace Controllers {
     class BGTileController;
     class BonusController;
-    class PlatformController;
+    class PlatformsController;
     class PlayerController;
 }
 

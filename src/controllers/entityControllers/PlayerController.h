@@ -20,7 +20,7 @@ public:
      */
     PlayerController(std::shared_ptr<Player> nModel, std::shared_ptr<sf::Sprite> nView);
 
-    void handleInput();
+    void handleInput() const;
 
 };
 

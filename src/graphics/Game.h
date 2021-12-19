@@ -12,7 +12,7 @@
 #include "../gameLogic/Camera.h"
 #include "../controllers/Controllers.h"
 #include "../controllers/entityControllers/PlayerController.h"
-#include "../controllers/entityControllers/PlatformController.h"
+#include "../controllers/entityControllers/PlatformsController.h"
 #include "../controllers/entityControllers/BGTileController.h"
 #include "../controllers/entityControllers/BonusController.h"
 
@@ -21,7 +21,7 @@ class Game {
 private:
     // New elements
     Controllers::PlayerController playerController;
-    Controllers::PlatformController platformController;
+    std::vector<Controllers::PlatformsController> platformsControllers;
     Controllers::BGTileController bgTileController;
     Controllers::BonusController bonusController;
     // Elements
@@ -87,6 +87,8 @@ private:
     sf::Texture mMilkyWay2Tex;
     /// Background of the game background element: Ground
     sf::Texture mGroundTex;
+    /// Texture for the rocket bonus
+    sf::Texture mRocketBonusTex;
 
 
 
@@ -130,7 +132,7 @@ private:
      */
     void initiateTextures();
 
-    void createControllers();
+    void createPlayerController();
 
     void scaleElements();
 
@@ -147,6 +149,8 @@ private:
     void updateWorld();
 
     void defineLengths();
+
+    void createPlatformsControllers();
 public:
 
     /**

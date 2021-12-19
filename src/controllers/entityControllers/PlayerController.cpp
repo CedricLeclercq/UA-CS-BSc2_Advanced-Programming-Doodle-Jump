@@ -6,7 +6,7 @@
 
 #include <utility>
 
-void Controllers::PlayerController::handleInput() {
+void Controllers::PlayerController::handleInput() const {
     //this->model->jump();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) or sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
         this->model->moveRight();
@@ -20,5 +20,5 @@ void Controllers::PlayerController::handleInput() {
 
 Controllers::PlayerController::PlayerController(std::shared_ptr<Player> nModel, std::shared_ptr<sf::Sprite> nView)
         : Controller(std::move(nView)) {
-    this->model = nModel;
+    this->model = std::move(nModel);
 }

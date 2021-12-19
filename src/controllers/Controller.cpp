@@ -11,10 +11,6 @@ Controller::Controller(std::shared_ptr<sf::Sprite> nView) {
     this->view = std::move(nView);
 }
 
-Entity &Controller::getModel() {
-    //return (*this->model);
-}
-
 sf::Sprite &Controller::getView() {
     return (*this->view);
 }

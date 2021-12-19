@@ -14,8 +14,11 @@ enum PKind {UNDEF,STATIC,HORIZONTAL,VERTICAL,TEMP};
 
 class Platform: public Entity {
 private:
-    PKind platformKind;
+    PKind platformKind{};
+    float maxHeight{};
+    float minHeight{};
     bool movingRight{};
+    bool movingUp{};
     void createPlatform();
     void makeStatic();
     void makeHorizontal();
@@ -33,8 +36,14 @@ public:
     void moveUp();
     void moveDown();
     void changeToGround();
-    bool getMovingRight();
+    bool getMovingRight() const;
     void setMovingRight(bool newBool);
+    bool getMovingUp() const;
+    void setMovingUp(bool newBool);
+    float getMaxHeight() const;
+    void setMaxHeight(float newHeight);
+    float getMinHeight() const;
+    void setMinHeight(float newHeight);
     void setBonus(std::shared_ptr<Bonus> nBonus);
     std::shared_ptr<Bonus> getBonus() const;
 };

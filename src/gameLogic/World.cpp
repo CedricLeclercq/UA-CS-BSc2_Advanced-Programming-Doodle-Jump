@@ -34,15 +34,21 @@ bool World::collisionCheckPlatform() {
     float rightMostX = leftMostX + this->player->getLength();
     // Looping over all platforms to check
     for (const auto& platform: this->platforms) {
-        if ((int)posY == (int)platform->getPosY()) {
+        bool criteriaMatched = false;
+        if (std::ceil(posY) == std::ceil(platform->getPosY())) criteriaMatched = true;
+        if (std::ceil(posY) - 1 == std::ceil(platform->getPosY())) criteriaMatched = true;
+        if (std::ceil(posY) == std::ceil(platform->getPosY()) - 1) criteriaMatched = true;
+        if (criteriaMatched) {
             // Checking leftmost part of the player
             if (leftMostX > platform->getPosX() and leftMostX <= platform->getPosX() + platform->getLength()) {
-                if (platform->getBonus() != nullptr) this->player->setBonus(platform->getBonus());
+                if (platform->getBonus() != nullptr) this->player->setBonus(platform->getBonus()); // todo fix duplicate code
+                if (platform->getKind() == PKind::TEMP) this->removePlatform(platform);
                 return true;
             }
             // Checking rightmost part of the player
             if (rightMostX > platform->getPosX() and rightMostX <= platform->getPosX() + platform->getLength()) {
-                if (platform->getBonus() != nullptr) this->player->setBonus(platform->getBonus());
+                if (platform->getBonus() != nullptr) this->player->setBonus(platform->getBonus()); // todo with this code
+                if (platform->getKind() == PKind::TEMP) this->removePlatform(platform);
                 return true;
             }
         }
@@ -61,6 +67,10 @@ void World::createPlatforms() {
         newPlatform->setPosX(Random::randFloat(0,0.85)); // todo change y to 1
         newPlatform->setPosY(this->findHighestPlatform().getY() + Random::randFloat(20,150));
         newPlatform->setLength(this->platformLength);
+        if (newPlatform->getKind() == PKind::VERTICAL) {
+            newPlatform->setMinHeight(newPlatform->getPosY());
+            newPlatform->setMaxHeight(newPlatform->getPosY() + 300);
+        }
         World::createBonus(newPlatform);
         this->platforms.push_back(newPlatform);
     }
@@ -116,14 +126,15 @@ void World::removeOutOfView() {
     }
 }
 
+
 void World::movePlatforms() {
     for (auto& platform: this->platforms) {
         if (platform->getKind() == PKind::HORIZONTAL) {
             // todo edit this to take into account the length of the platform
-            if (platform->getMovingRight() and platform->getPosX() < 0.85) {
+            if (platform->getMovingRight() and platform->getPosX() + platform->getLength() < 1) {
                 platform->moveRight();
             }
-            else if (platform->getMovingRight() and platform->getPosX() >= 0.85) {
+            else if (platform->getMovingRight() and platform->getPosX() + platform->getLength() >= 1) {
                 platform->setMovingRight(false);
             }
             else if (!platform->getMovingRight() and platform->getPosX() > 0) {
@@ -131,6 +142,20 @@ void World::movePlatforms() {
             }
             else if (!platform->getMovingRight() and platform->getPosX() <= 0) {
                 platform->setMovingRight(true);
+            }
+        }
+        else if (platform->getKind() == PKind::VERTICAL) {
+            if (platform->getMovingUp() and platform->getMaxHeight() - platform->getPosY() <= 0) {
+                platform->setMovingUp(false);
+            }
+            else if (platform->getMovingUp() and platform->getMaxHeight() - platform->getPosY() > 0) {
+                platform->moveUp();
+            }
+            else if (!platform->getMovingUp() and platform->getMinHeight() - platform->getPosY() > 0) {
+                platform->setMovingUp(true);
+            }
+            else if (!platform->getMovingUp() and platform->getMinHeight() - platform->getPosY() <= 0) {
+                platform->moveDown();
             }
         }
     }
@@ -213,6 +238,17 @@ std::shared_ptr<Bonus> World::findLowestBonus() {
         }
     }
     return lowest;
+}
+
+void World::removePlatform(const std::shared_ptr<Platform>& toRemove) {
+    std::vector<std::shared_ptr<Platform>> newPlatforms;
+    for (const auto& platform: this->platforms) {
+        if (platform != toRemove) {
+            newPlatforms.push_back(platform);
+        }
+    }
+    this->platforms.clear();
+    this->platforms = newPlatforms;
 }
 
 

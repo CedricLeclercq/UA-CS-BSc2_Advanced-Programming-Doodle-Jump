@@ -10,6 +10,7 @@
 #include "../entities/background/BGTile.h"
 #include "Camera.h"
 #include <memory>
+#include <utility>
 
 
 class World {
@@ -32,18 +33,21 @@ private:
     void createBackground();
     static void createBonus(const std::shared_ptr<Platform>& platform);
     Coordinates findHighestStar() const;
-    Coordinates findHighestPlatform() const; // todo change to shared poniter
+    Coordinates findHighestPlatform() const; // todo change to shared pointer
     std::shared_ptr<Platform> findLowestPlatform();
     std::shared_ptr<BGTile> findLowestStar();
     std::shared_ptr<Bonus> findLowestBonus();
     bool newPlatformsNeeded();
     bool newStarsNeeded();
+    void removePlatform(const std::shared_ptr<Platform>& toRemove);
     /**
      * Will remove all elements that fall out of the view of the world
      */
     void removeOutOfView();
 
-    std::vector<std::shared_ptr<Entity>> removeOutOfView(std::vector<std::shared_ptr<Entity>> entities, int maxSize);
+    void addPlatformScore(std::shared_ptr<Platform> platform);
+    void addBonusScore(std::shared_ptr<Bonus> bonus);
+    void addHeightScore();
 public:
     /**
      * This function is responsible for applying any change needed to the world after the player moved
@@ -52,7 +56,7 @@ public:
     bool collisionCheckPlatform();
 
     // TODO let the player come from the concrete factory
-    World(std::shared_ptr<Camera> camera) : player(new Player()), m_camera(camera) {}
+    explicit World(std::shared_ptr<Camera> camera) : player(new Player()), m_camera(std::move(camera)) {}
 
     std::shared_ptr<Player> getPlayer() {
         return this->player;

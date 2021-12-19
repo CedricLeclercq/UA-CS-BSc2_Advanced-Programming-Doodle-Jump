@@ -48,6 +48,7 @@ void Platform::makeHorizontal() {
 
 void Platform::makeVertical() {
     this->platformKind = VERTICAL;
+    this->movingUp = true;
 }
 
 void Platform::makeTemp() {
@@ -56,11 +57,11 @@ void Platform::makeTemp() {
 }
 
 void Platform::moveUp() {
-    this->setPos(this->getPosX(), this->getPosY() - (float)0.001);
+    this->setPos(this->getPosX(), this->getPosY() + (float)0.1);
 }
 
 void Platform::moveDown() {
-    this->setPos(this->getPosX(), this->getPosY() + (float)0.0003);
+    this->setPos(this->getPosX(), this->getPosY() - (float)0.1);
 }
 
 void Platform::moveRight() {
@@ -80,7 +81,7 @@ PKind Platform::getKind() const {
     return this->platformKind;
 }
 
-bool Platform::getMovingRight() {
+bool Platform::getMovingRight() const {
     return this->movingRight;
 }
 
@@ -94,4 +95,28 @@ void Platform::setBonus(std::shared_ptr<Bonus> nBonus) {
 
 std::shared_ptr<Bonus> Platform::getBonus() const {
     return this->bonus;
+}
+
+bool Platform::getMovingUp() const {
+    return this->movingUp;
+}
+
+void Platform::setMovingUp(bool newBool) {
+    this->movingUp = newBool;
+}
+
+float Platform::getMaxHeight() const {
+    return this->maxHeight;
+}
+
+void Platform::setMaxHeight(float newHeight) {
+    this->maxHeight = newHeight;
+}
+
+void Platform::setMinHeight(float newHeight) {
+    this->minHeight = newHeight;
+}
+
+float Platform::getMinHeight() const {
+    return this->minHeight;
 }

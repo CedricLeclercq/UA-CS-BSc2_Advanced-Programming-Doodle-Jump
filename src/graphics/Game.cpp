@@ -12,7 +12,7 @@ using Coordinates = Utilities::Coordinates;
 
 void Game::initialiseGame() {
     this->createWorld();
-    this->createControllers();
+    this->createPlayerController();
     this->initiateTextures();
     this->scaleElements();
     // Placing first platforms
@@ -21,9 +21,44 @@ void Game::initialiseGame() {
 }
 
 void Game::setup() {
+    // Creating new controllers if needed
+    this->createPlatformsControllers();
+
+    // Placing all the elements for the game
     this->placeBackground();
     this->placePlatforms();
     this->placePlayer();
+}
+
+void Game::createPlatformsControllers() {
+
+    // Removing all the controllers that are no longer used by the world
+    std::vector<std::shared_ptr<Platform>> worldPlatforms = (*this->mWorld).getPlatforms();
+    std::vector<Controllers::PlatformsController> newControllers;
+    for (const auto& pController: this->platformsControllers) {
+        for (const auto& platform: worldPlatforms) {
+            if (pController.getModel() == platform) {
+                newControllers.push_back(pController);
+            }
+        }
+    }
+    this->platformsControllers.clear();
+    this->platformsControllers = newControllers;
+
+    // Adding the platforms that don't yet have a controller
+    for (const auto& platform: worldPlatforms) {
+        bool found = false;
+        for (const auto& controller: this->platformsControllers) {
+            if (controller.getModel() == platform) {
+                found = true;
+            }
+        }
+        // Platform doesn't have a controller yet, create it!
+        if (!found) {
+            // Pushing back our new controller to all our controllers
+            this->platformsControllers.emplace_back(platform);
+        }
+    }
 }
 
 void Game::setPlatformTexture(const std::shared_ptr<Platform>& platform, sf::Sprite& sfPlatform) {
@@ -141,19 +176,19 @@ void Game::initiateTextures() {
     // todo make sure to try all of these and throw an exception if one didn't load!
     try {
         // Textures for platforms
-        this->mVerticalPlatformTex.loadFromFile("recourses/textures/yellow_platform.png");
-        this->mHorizontalPlatformTex.loadFromFile("recourses/textures/light_blue_platform.png");
-        this->mStaticPlatformTex.loadFromFile("recourses/textures/green_platform.png");
-        this->mTempPlatformTex.loadFromFile("recourses/textures/white_platform.png");
+        this->mVerticalPlatformTex.loadFromFile("recourses/textures/platforms/yellow_platform.png");
+        this->mHorizontalPlatformTex.loadFromFile("recourses/textures/platforms/light_blue_platform.png");
+        this->mStaticPlatformTex.loadFromFile("recourses/textures/platforms/green_platform.png");
+        this->mTempPlatformTex.loadFromFile("recourses/textures/platforms/white_platform.png");
         // Textures for bonus platforms
-        this->mVerticalSpringPlatformTex.loadFromFile("recourses/textures/yellow_platform_spring.png");
-        this->mHorizontalSpringPlatformTex.loadFromFile("recourses/textures/light_blue_platform_spring.png");
-        this->mStaticSpringPlatformTex.loadFromFile("recourses/textures/green_platform_spring.png");
-        this->mTempSpringPlatformTex.loadFromFile("recourses/textures/white_platform_spring.png");
-        this->mVerticalRocketPlatformTex.loadFromFile("recourses/textures/yellow_platform_rocket.png");
-        this->mHorizontalRocketPlatformTex.loadFromFile("recourses/textures/light_blue_platform_rocket.png");
-        this->mStaticRocketPlatformTex.loadFromFile("recourses/textures/green_platform_rocket.png");
-        this->mTempRocketPlatformTex.loadFromFile("recourses/textures/white_platform_rocket.png");
+        this->mVerticalSpringPlatformTex.loadFromFile("recourses/textures/platforms/yellow_platform_spring1.png");
+        this->mHorizontalSpringPlatformTex.loadFromFile("recourses/textures/platforms/light_blue_platform_spring1.png");
+        this->mStaticSpringPlatformTex.loadFromFile("recourses/textures/platforms/green_platform_spring1.png");
+        this->mTempSpringPlatformTex.loadFromFile("recourses/textures/platforms/white_platform_spring1.png");
+        this->mVerticalRocketPlatformTex.loadFromFile("recourses/textures/platforms/yellow_platform_rocket.png");
+        this->mHorizontalRocketPlatformTex.loadFromFile("recourses/textures/platforms/light_blue_platform_rocket.png");
+        this->mStaticRocketPlatformTex.loadFromFile("recourses/textures/platforms/green_platform_rocket.png");
+        this->mTempRocketPlatformTex.loadFromFile("recourses/textures/platforms/white_platform_rocket.png");
 
         // Textures for background tiles
         this->mPlanet1Tex.loadFromFile("recourses/textures/background/planets/Planet1.png");
@@ -167,6 +202,9 @@ void Game::initiateTextures() {
         this->mStar1Tex.loadFromFile("recourses/textures/background/stars/Star1.png");
         this->mStar2Tex.loadFromFile("recourses/textures/background/stars/Star2.png");
         this->mGroundTex.loadFromFile("recourses/textures/background/Ground.png");
+
+        // Texture for bonuses
+        this->mRocketBonusTex.loadFromFile("recourses/textures/bonuses/rsz_rocket1.png");
 
 
         // Texture for player
@@ -199,19 +237,18 @@ void Game::defineLengths() {
     // Getting player length
     sf::Sprite testPlayer;
     sf::Texture playerFeetTex;
-    playerFeetTex.loadFromFile("recourses/textures/playerFeet.png");
+    playerFeetTex.loadFromFile("recourses/textures/playerFeet.png"); // todo try and catch
     testPlayer.setTexture(playerFeetTex);
     float playerLength = testPlayer.getLocalBounds().width * (float)0.4;
     this->mWorld->setPlatformLength(platformLength / (float)this->mWindow->getSize().x);
     this->mWorld->setPlayerLength(playerLength / (float)this->mWindow->getSize().x);
 }
 
-void Game::createControllers() {
+void Game::createPlayerController() {
     // Creating sprite
     std::shared_ptr<sf::Sprite> sprite = std::make_shared<sf::Sprite>();
     // Creating controllers
     this->playerController = Controllers::PlayerController(this->mWorld->getPlayer(),sprite);
-    this->platformController = Controllers::PlatformController();
 }
 
 void Game::scaleElements() {
@@ -224,6 +261,14 @@ void Game::placePlayer() {
     // Getting and setting position of main player
     Coordinates viewCoo = this->mCamera->project(*this->mWorld->getPlayer()->getPos());
     this->playerController.getView().setPosition(viewCoo.getX(), viewCoo.getY());
+    std::shared_ptr<Bonus> playerBonus = this->mWorld->getPlayer()->getBonus();
+    // Load rocket texture
+    if (playerBonus != nullptr and playerBonus->getPowerKind() == BonusPower::ROCKET) {
+        this->playerController.getView().setTexture(this->mRocketBonusTex);
+        //this->playerController.getView().setScale(1,1);
+    } else {
+        this->playerController.getView().setTexture(this->mSpriteTex);
+    }
     (*this->mWindow).draw(this->playerController.getView());
 }
 
@@ -280,6 +325,8 @@ void Game::openSFWindow() {
 void Game::updateWorld() {
     this->mWorld->updateWorld();
 }
+
+
 
 
 
