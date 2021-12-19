@@ -23,7 +23,7 @@ Coordinates Camera::getWorldView() const {
     return this->m_worldView;
 }
 
-bool Camera::evalInWindow(const Coordinates& coordinates) {
+bool Camera::evalInWindow(const Coordinates& coordinates) const {
     Coordinates projection = this->project(coordinates);
     if (projection.getY() < 0) {
         // Falls out of window
@@ -31,4 +31,19 @@ bool Camera::evalInWindow(const Coordinates& coordinates) {
     }
     // Doesn't fall out of window
     return true;
+}
+
+
+double Camera::higherWindowHeight(double height) const {
+    double newWindowHeight = height - (this->m_worldView.getY() / 2);
+    if (newWindowHeight > this->m_windowHeight)
+        return newWindowHeight - this->m_windowHeight;
+    return 0;
+}
+
+bool Camera::evalInCamera(const Coordinates &coordinates) const {
+    Coordinates projection = this->project(coordinates);
+    if (projection.getY() > this->m_cameraView.getY()) {
+        return false;
+    } else return true;
 }

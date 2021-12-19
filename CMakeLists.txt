@@ -40,7 +40,7 @@ SET(SRC
         src/controllers/entityControllers/PlayerController.cpp
         src/controllers/Controllers.h
         src/controllers/Controller.cpp
-        )
+        src/utilities/Stopwatch.cpp src/utilities/Stopwatch.h)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 

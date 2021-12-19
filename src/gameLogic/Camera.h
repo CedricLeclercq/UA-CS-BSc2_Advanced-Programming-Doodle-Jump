@@ -24,8 +24,10 @@ public:
     Camera(const Coordinates& worldView, const Coordinates& cameraView);
     Coordinates project(const Coordinates& coordinates) const;
     void updateHeight(double height);
-    bool evalInWindow(const Coordinates& coordinates);
+    bool evalInWindow(const Coordinates& coordinates) const;
+    bool evalInCamera(const Coordinates& coordinates) const;
     Coordinates getWorldView() const;
+    double higherWindowHeight(double height) const;
 };
 
 

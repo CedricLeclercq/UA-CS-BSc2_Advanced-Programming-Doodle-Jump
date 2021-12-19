@@ -25,6 +25,8 @@ private:
     std::vector<std::shared_ptr<Bonus>> bonuses;
     /// Shared pointer to the camera view of our world
     std::shared_ptr<Camera> m_camera;
+    /// Total score of the player
+    float score{};
     /// Standard player length
     float playerLength{};
     /// Standard platform length
@@ -45,8 +47,8 @@ private:
      */
     void removeOutOfView();
 
-    void addPlatformScore(std::shared_ptr<Platform> platform);
-    void addBonusScore(std::shared_ptr<Bonus> bonus);
+    void addPlatformScore(const std::shared_ptr<Platform>& platform);
+    void addBonusScore(const std::shared_ptr<Bonus>& bonus);
     void addHeightScore();
 public:
     /**
@@ -80,6 +82,10 @@ public:
 
 
     void movePlatforms();
+
+    int getScore() const;
+
+    bool checkGameOver();
 
 
 

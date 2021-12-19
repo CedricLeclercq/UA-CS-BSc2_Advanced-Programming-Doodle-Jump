@@ -14,6 +14,7 @@
 #include "../controllers/entityControllers/PlayerController.h"
 #include "../controllers/entityControllers/PlatformsController.h"
 #include "../controllers/entityControllers/BGTileController.h"
+#include "../utilities/Stopwatch.h"
 
 
 class Game {
@@ -29,6 +30,8 @@ private:
     std::shared_ptr<World> mWorld;
     /// Camera used for the projection of elements
     std::shared_ptr<Camera> mCamera;
+    /// Singleton stopwatch for fps counting
+    std::unique_ptr<Stopwatch> mStopwatch;
     /// Background for the game
     sf::Sprite mBackground;
 
@@ -87,6 +90,10 @@ private:
     sf::Texture mGroundTex;
     /// Texture for the rocket bonus
     sf::Texture mRocketBonusTex;
+    /// Will display the score
+    sf::Text scoreText;
+    /// Font for the score to be displayed in
+    sf::Font scoreFont;
 
 
 
@@ -151,6 +158,16 @@ private:
     void createPlatformsControllers();
 
     void createBGTileControllers();
+
+    void addScore();
+
+    void drawEndScreen();
+
+    void evaluateEndGame();
+
+    void evaluateAndEditHighScores();
+
+    void updateHighScore();
 
 
 public:

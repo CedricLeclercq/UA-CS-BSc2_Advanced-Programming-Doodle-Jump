@@ -14,6 +14,10 @@ void World::updateWorld() {
     } else {
         this->player->jump();
     }
+    // Calculating score for when the player has gone higher
+    auto difference = static_cast<float>(this->m_camera->higherWindowHeight(this->player->getPosY()));
+    // Adding score
+    this->score+=difference*1/4;
     // Updating the player height
     m_camera->updateHeight(this->player->getPosY());
     // Removing everything that is out of view
@@ -41,14 +45,23 @@ bool World::collisionCheckPlatform() {
         if (criteriaMatched) {
             // Checking leftmost part of the player
             if (leftMostX > platform->getPosX() and leftMostX <= platform->getPosX() + platform->getLength()) {
-                if (platform->getBonus() != nullptr) this->player->setBonus(platform->getBonus()); // todo fix duplicate code
+                if (platform->getBonus() != nullptr) {
+                    this->player->setBonus(platform->getBonus()); // todo fix duplicate code
+                    this->addBonusScore(platform->getBonus());
+                }
                 if (platform->getKind() == PKind::TEMP) this->removePlatform(platform);
+                this->addPlatformScore(platform);
                 return true;
             }
             // Checking rightmost part of the player
             if (rightMostX > platform->getPosX() and rightMostX <= platform->getPosX() + platform->getLength()) {
-                if (platform->getBonus() != nullptr) this->player->setBonus(platform->getBonus()); // todo with this code
+                if (platform->getBonus() != nullptr) {
+                    this->player->setBonus(platform->getBonus()); // todo with this code
+                    this->addBonusScore(platform->getBonus());
+                }
+
                 if (platform->getKind() == PKind::TEMP) this->removePlatform(platform);
+                this->addPlatformScore(platform);
                 return true;
             }
         }
@@ -249,6 +262,46 @@ void World::removePlatform(const std::shared_ptr<Platform>& toRemove) {
     }
     this->platforms.clear();
     this->platforms = newPlatforms;
+}
+
+void World::addPlatformScore(const std::shared_ptr<Platform>& platform) {
+    if (platform->getKind() == PKind::STATIC) {
+        this->score+=10;
+        return;
+    }
+    if (platform->getKind() == PKind::HORIZONTAL) {
+        this->score+=12;
+        return;
+    }
+    if (platform->getKind() == PKind::VERTICAL) {
+        this->score+=14;
+        return;
+    }
+    if (platform->getKind() == PKind::TEMP) {
+        this->score+=16;
+        return;
+    }
+}
+
+void World::addBonusScore(const std::shared_ptr<Bonus>& bonus) {
+    if (bonus->getPowerKind() == BonusPower::ROCKET) {
+        this->score+=30;
+        return;
+    }
+    if (bonus->getPowerKind() == BonusPower::SPRING) {
+        this->score+=20;
+        return;
+    }
+}
+
+int World::getScore() const {
+    return static_cast<int>(this->score);
+}
+
+bool World::checkGameOver() {
+    if (!this->m_camera->evalInCamera(*this->player->getPos()))
+        return true;
+    else return false;
 }
 
 
