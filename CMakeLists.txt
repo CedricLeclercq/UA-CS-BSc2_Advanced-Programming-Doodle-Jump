@@ -34,8 +34,6 @@ SET(SRC
         src/controllers/Controllers.h
         src/controllers/entityControllers/BGTileController.h
         src/controllers/entityControllers/BGTileController.cpp
-        src/controllers/entityControllers/BonusController.h
-        src/controllers/entityControllers/BonusController.cpp
         src/controllers/entityControllers/PlatformsController.h
         src/controllers/entityControllers/PlatformsController.cpp
         src/controllers/entityControllers/PlayerController.h

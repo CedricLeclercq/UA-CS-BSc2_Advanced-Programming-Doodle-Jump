@@ -14,7 +14,6 @@
 #include "../controllers/entityControllers/PlayerController.h"
 #include "../controllers/entityControllers/PlatformsController.h"
 #include "../controllers/entityControllers/BGTileController.h"
-#include "../controllers/entityControllers/BonusController.h"
 
 
 class Game {
@@ -22,8 +21,7 @@ private:
     // New elements
     Controllers::PlayerController playerController;
     std::vector<Controllers::PlatformsController> platformsControllers;
-    Controllers::BGTileController bgTileController;
-    Controllers::BonusController bonusController;
+    std::vector<Controllers::BGTileController> bgTileControllers;
     // Elements
     /// Window where everything will be drawn on
     std::unique_ptr<sf::RenderWindow> mWindow;
@@ -151,6 +149,10 @@ private:
     void defineLengths();
 
     void createPlatformsControllers();
+
+    void createBGTileControllers();
+
+
 public:
 
     /**

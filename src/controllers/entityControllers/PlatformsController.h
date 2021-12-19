@@ -16,6 +16,7 @@ public:
     PlatformsController()=default;
     explicit PlatformsController(std::shared_ptr<Platform> nModel);
     void loadNewPlatform(std::shared_ptr<Platform> nPlatform);
+    std::shared_ptr<sf::Sprite> getView() const;
     std::shared_ptr<Platform> getModel() const;
 };
 

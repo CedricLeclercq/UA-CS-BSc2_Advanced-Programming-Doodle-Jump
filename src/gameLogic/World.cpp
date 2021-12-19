@@ -112,8 +112,8 @@ void World::removeOutOfView() {
         this->platforms = newPlatforms;
     }
 
-    // Max amount of stars allowed is 100, remove all the others to begin with
-    while (this->bgTiles.size() > 100) {
+    // Max amount of stars allowed is 50, remove all the others to begin with
+    while (this->bgTiles.size() > 50) {
         std::vector<std::shared_ptr<BGTile>> newBGTiles;
         std::shared_ptr<BGTile> lowest = this->findLowestStar();
         for (const auto& star: this->bgTiles) {

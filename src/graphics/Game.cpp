@@ -23,6 +23,11 @@ void Game::initialiseGame() {
 void Game::setup() {
     // Creating new controllers if needed
     this->createPlatformsControllers();
+    this->createBGTileControllers();
+
+    for (auto& controller: this->bgTileControllers) {
+        //if (controller.getView())
+    }
 
     // Placing all the elements for the game
     this->placeBackground();
@@ -57,6 +62,36 @@ void Game::createPlatformsControllers() {
         if (!found) {
             // Pushing back our new controller to all our controllers
             this->platformsControllers.emplace_back(platform);
+        }
+    }
+}
+
+void Game::createBGTileControllers() {
+    // Removing all the controllers that are no longer used by the world
+    std::vector<std::shared_ptr<BGTile>> worldTiles = (*this->mWorld).getBackground();
+    std::vector<Controllers::BGTileController> newControllers;
+    for (const auto& tController: this->bgTileControllers) {
+        for (const auto& tile: worldTiles) {
+            if (tController.getModel() == tile) {
+                newControllers.push_back(tController);
+            }
+        }
+    }
+    this->bgTileControllers.clear();
+    this->bgTileControllers = newControllers;
+
+    // Adding the platforms that don't yet have a controller
+    for (const auto& tile: worldTiles) {
+        bool found = false;
+        for (const auto& controller: this->bgTileControllers) {
+            if (controller.getModel() == tile) {
+                found = true;
+            }
+        }
+        // Platform doesn't have a controller yet, create it!
+        if (!found) {
+            // Pushing back our new controller to all our controllers
+            this->bgTileControllers.emplace_back(tile);
         }
     }
 }
@@ -273,29 +308,33 @@ void Game::placePlayer() {
 }
 
 void Game::placePlatforms() {
-    std::vector<std::shared_ptr<Platform>> worldPlatforms = (*this->mWorld).getPlatforms();
-    for (const auto& platform: worldPlatforms) {
-        sf::Sprite newPlatform;
-        Utilities::Coordinates coords = this->mCamera->project(*platform->getPos());
-        newPlatform.setPosition(coords.getX(), coords.getY());
-        this->setPlatformTexture(platform, newPlatform);
-        newPlatform.setOrigin(0, newPlatform.getLocalBounds().height);
-        (*this->mWindow).draw(newPlatform);
+    for (auto& controller: this->platformsControllers) {
+        Utilities::Coordinates coords = this->mCamera->project(*controller.getModel()->getPos());
+        controller.getView()->setPosition(coords.getX(),coords.getY());
+        this->setPlatformTexture(controller.getModel(),*controller.getView());
+        controller.getView()->setOrigin(0,controller.getView()->getLocalBounds().height);
+        (*this->mWindow).draw(*controller.getView());
     }
 }
 
 
 void Game::placeBackground() {
-    std::vector<std::shared_ptr<BGTile>> worldBackground = this->mWorld->getBackground();
-    for (const auto& tile: worldBackground) {
-        sf::Sprite newTile;
-        Coordinates coords = this->mCamera->project(*tile->getPos());
-        newTile.setPosition(coords.getX(),coords.getY());
-        this->setTileTexture(tile,newTile);
-        newTile.setOrigin(0,newTile.getLocalBounds().height);
-        (*this->mWindow).draw(newTile);
+    //std::vector<std::shared_ptr<BGTile>> worldBackground = this->mWorld->getBackground();
+    //for (const auto& tile: worldBackground) {
+        //sf::Sprite newTile;
+        //Coordinates coords = this->mCamera->project(*tile->getPos());
+        //newTile.setPosition(coords.getX(),coords.getY());
+        //this->setTileTexture(tile,newTile);
+        //newTile.setOrigin(0,newTile.getLocalBounds().height);
+        //(*this->mWindow).draw(newTile);
+    //}
+    for (auto& controller: this->bgTileControllers) {
+        Utilities::Coordinates coords = this->mCamera->project(*controller.getModel()->getPos());
+        controller.getView()->setPosition(coords.getX(),coords.getY());
+        this->setTileTexture(controller.getModel(),*controller.getView());
+        controller.getView()->setOrigin(0,controller.getView()->getLocalBounds().height);
+        (*this->mWindow).draw(*controller.getView());
     }
-    //(*this->mWindow).draw(mBackground);
 }
 
 void Game::addFPSCounter() {
