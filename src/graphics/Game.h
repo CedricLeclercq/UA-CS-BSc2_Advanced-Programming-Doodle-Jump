@@ -19,175 +19,200 @@
 
 class Game {
 private:
-    // New elements
+    // Controllers
+    /// @brief Player controller
     Controllers::PlayerController playerController;
+    /// @brief Vector with all the current platform controllers
     std::vector<Controllers::PlatformsController> platformsControllers;
+    /// @brief Vector with all the current background tiles controllers
     std::vector<Controllers::BGTileController> bgTileControllers;
-    // Elements
-    /// Window where everything will be drawn on
+
+    // Member variables (minus the controllers)
+    /// @brief Window where everything will be drawn on
     std::unique_ptr<sf::RenderWindow> mWindow;
-    /// World where all the game logic happens
+    /// @brief  World where all the game logic happens
     std::shared_ptr<World> mWorld;
-    /// Camera used for the projection of elements
+    /// @brief Camera used for the projection of elements
     std::shared_ptr<Camera> mCamera;
-    /// Singleton stopwatch for fps counting
+    /// @brief Singleton stopwatch for fps counting
     std::unique_ptr<Stopwatch> mStopwatch;
-    /// Background for the game
-    sf::Sprite mBackground;
 
     // Textures
-    /// Main player sprite texture
+    /// @brief Main player sprite texture
     sf::Texture mSpriteTex;
-    /// Static platform texture
+    /// @brief Static platform texture
     sf::Texture mStaticPlatformTex;
-    /// Horizontal platform texture
+    /// @brief Horizontal platform texture
     sf::Texture mHorizontalPlatformTex;
-    /// Vertical platform texture
+    /// @brief Vertical platform texture
     sf::Texture mVerticalPlatformTex;
-    /// Temporary platform texture
+    /// @brief Temporary platform texture
     sf::Texture mTempPlatformTex;
-    /// Static spring platform texture
+    /// @brief Static spring platform texture
     sf::Texture mStaticSpringPlatformTex;
-    /// Horizontal spring platform texture
+    /// @brief Horizontal spring platform texture
     sf::Texture mHorizontalSpringPlatformTex;
-    /// Vertical spring platform texture
+    /// @brief Vertical spring platform texture
     sf::Texture mVerticalSpringPlatformTex;
-    /// Temporary spring platform texture;
+    /// @brief Temporary spring platform texture;
     sf::Texture mTempSpringPlatformTex;
-    /// Static rocket platform texture
+    /// @brief Static rocket platform texture
     sf::Texture mStaticRocketPlatformTex;
-    /// Horizontal rocket platform texture
+    /// @brief Horizontal rocket platform texture
     sf::Texture mHorizontalRocketPlatformTex;
-    /// Vertical rocket platform texture
+    /// @brief Vertical rocket platform texture
     sf::Texture mVerticalRocketPlatformTex;
-    /// Temporary rocket platform texture
+    /// @brief Temporary rocket platform texture
     sf::Texture mTempRocketPlatformTex;
 
-
-    /// Background of the game texture
+    // Background textures
+    /// @brief Background of the game texture
     sf::Texture mBackgroundTex;
-    /// Background of the game background element: Planet 1
+    /// @brief Background of the game background element: Planet 1
     sf::Texture mPlanet1Tex;
-    /// Background of the game background element: Planet 2
+    /// @brief Background of the game background element: Planet 2
     sf::Texture mPlanet2Tex;
-    /// Background of the game background element: Planet 3
+    /// @brief Background of the game background element: Planet 3
     sf::Texture mPlanet3Tex;
-    /// Background of the game background element: Planet 4
+    /// @brief Background of the game background element: Planet 4
     sf::Texture mPlanet4Tex;
-    /// Background of the game background element: Planet 5
+    /// @brief Background of the game background element: Planet 5
     sf::Texture mPlanet5Tex;
-    /// Background of the game background element: Planet 6
+    /// @brief Background of the game background element: Planet 6
     sf::Texture mPlanet6Tex;
-    /// Background of the game background element: Star 1
+    /// @brief Background of the game background element: Star 1
     sf::Texture mStar1Tex;
-    /// Background of the game background element: Star 2
+    /// @brief Background of the game background element: Star 2
     sf::Texture mStar2Tex;
-    /// Background of the game background element: Milky way 1
+    /// @brief Background of the game background element: Milky way 1
     sf::Texture mMilkyWay1Tex;
-    /// Background of the game background element: Milky way 2
+    /// @brief Background of the game background element: Milky way 2
     sf::Texture mMilkyWay2Tex;
-    /// Background of the game background element: Ground
+    /// @brief Background of the game background element: Ground
     sf::Texture mGroundTex;
-    /// Texture for the rocket bonus
+    /// @brief Texture for the rocket bonus
     sf::Texture mRocketBonusTex;
-    /// Will display the score
+
+    // Fonts and texts
+    /// @brief Text for the score
     sf::Text scoreText;
-    /// Font for the score to be displayed in
+    /// @brief Font for the score and endscreen to be displayed in
     sf::Font scoreFont;
 
-
-
     // Functions
-public:
     /**
-     * Main function, will start the game and initiate everything
-     */
-    void start();
-private:
-    /**
-     * At the very beginning of the game, right after starting, this
+     * @brief Will be ran at the beginning of the game and initialise all the elements
      */
     void initialiseGame();
     /**
-     * This function is used every refresh of the game. It will check for changes in the world and make
-     * those changes in the view as well
+     * @brief After every loop, this function will setup everything for a new display
      */
     void setup();
     /**
-     * Get input from the user to move the charachter
+     * @brief Get input from the user to move the character
      */
     void getInput();
-    // TODO fix documentation below
     /**
-     * Finds and sets the texture for a given platform
+     * @brief Finds and sets the texture for a given platform
+     * @param platform      Shared pointer to the platform in the world
+     * @param sfPlatform    Sprite reference that is the platform (and will also get the texture)
      */
     void setPlatformTexture(const std::shared_ptr<Entities::Platform>& platform, sf::Sprite& sfPlatform);
     /**
-     * Finds and sets the texture for a given background tile
-     * @param tile
-     * @param sfTile
+     * @brief Finds and sets the texture for a given background tile
+     * @param tile          Shared pointer to the background tile in the world
+     * @param sfTile        Sprite reference that is the background tile (and will also get the texture)
      */
     void setTileTexture(const std::shared_ptr<Entities::BGTile>& tile, sf::Sprite& sfTile);
     /**
-     * Creates the world
+     * @brief Creates the world when there isn't one yet - is only ran at the beginning of the game
      */
     void createWorld();
     /**
-     * Initiates the textures of everything
+     * @brief Initiates the textures of everything - is only ran at the beginning of the game
      */
     void initiateTextures();
-
+    /**
+     * @brief Will create a controller for the player - is only ran when a new player is created
+     */
     void createPlayerController();
-
-    void scaleElements();
-
-    void placePlayer();
-
-    void placePlatforms();
-
-    void placeBackground();
-
-    void addFPSCounter();
-
-    void openSFWindow();
-
-    void updateWorld();
-
-    void defineLengths();
-
+    /**
+     * @brief Will create a controller for the new platforms - is only ran when a new platform is created
+     */
     void createPlatformsControllers();
-
+    /**
+     * @brief Will create a new controller for the new background tiles - is only ran when a new tile is created
+     */
     void createBGTileControllers();
-
+    /**
+     * @brief Will scale all the sprites so that everything is sized accordingly
+     */
+    void scaleElements();
+    /**
+     * @brief Will place the player in the window
+     */
+    void placePlayer();
+    /**
+     * @brief Will place all the platforms in the window
+     */
+    void placePlatforms();
+    /**
+     * @brief Will place all the background tiles in the window
+     */
+    void placeBackground();
+    /**
+     * @brief Will draw an fps counter with a build in sfml library
+     *
+     * @note Currently does not work because of performance issues - will be fixed
+     */
+    __attribute__((unused)) static void addFPSCounter();
+    /**
+     * @brief Will open the sfml window
+     */
+    void openSFWindow();
+    /**
+     * @brief Will ask the world to update everything in it
+     */
+    void updateWorld();
+    /**
+     * @brief Will define the lengths of a player and a platform (for the worlds collision check)
+     */
+    void defineLengths();
+    /**
+     * @brief Will add a score in the left hand corner of the screen
+     */
     void addScore();
-
+    /**
+     * @brief Will draw the "end" or "game over" screen is the player has died - will stop when enter is pressed
+     */
     void drawEndScreen();
-
+    /**
+     * @brief Will ask the world on feedback if the player has died (so game over!)
+     */
     void evaluateEndGame();
-
-    void evaluateAndEditHighScores();
-
-    void updateHighScore();
-
+    /**
+     * @brief Will handle certain graphical changes if the player jumps
+     */
+    void jumpingGraphics();
+    /**
+     * @brief Will open the "game over" or "end" screen and keep it open
+     * @return      (window.closed?) Will return true when the user asked to close the "end"window
+     */
+    bool openEndSFScreen();
 
 public:
-
     /**
-     * Basic constructor
+     * @brief Main function, will start the game and keep thee game running
      */
-    Game() : mWindow(new sf::RenderWindow(sf::VideoMode(800, 1200), "Doodle jump - Alpha")) {
+    void start();
+    /**
+     * @brief Basic constructor that will create a window with standard dimensions, and start the game
+     */
+    Game() : mWindow(new sf::RenderWindow(sf::VideoMode(800, 1200), "Doodle jump - Advanced programming")) {
         this->initialiseGame();
         this->setup();
         this->start();
     };
-
-    void jumpingGraphics();
-
-    bool openEndSFScreen();
-
-
-
-
 };
 
 

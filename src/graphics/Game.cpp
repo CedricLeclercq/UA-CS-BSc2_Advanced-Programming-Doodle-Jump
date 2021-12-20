@@ -5,9 +5,9 @@
 #include "Game.h"
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
-#include "../factories/ConcreteFactory.h"
 #include <memory>
 #include <fstream>
+
 using Coordinates = Utilities::Coordinates;
 
 void Game::initialiseGame() {
@@ -15,9 +15,6 @@ void Game::initialiseGame() {
     this->createPlayerController();
     this->initiateTextures();
     this->scaleElements();
-    // Placing first platforms
-    //this->mWorld->createPlatforms(0,this->mWindow->getSize().y);
-    //this->setTextures();
 }
 
 void Game::setup() {
@@ -171,7 +168,7 @@ void Game::start() {
         this->getInput(); // Getting input from the user and moving the player
         this->updateWorld(); // Updating the world based on the user input
         this->setup(); // Setting up the graphics and placing all views
-        this->addFPSCounter(); // Adding an FPS counter, can be left out might the user want it
+        //Game::addFPSCounter(); // Adding an FPS counter, can be left out might the user want it
         this->addScore(); // Adding the score to the window
         this->openSFWindow(); // Finally, opening the game
         this->evaluateEndGame(); // Evaluating is the game has ended
@@ -260,10 +257,6 @@ void Game::initiateTextures() {
         playerView.setTexture(mSpriteTex);
         playerView.setOrigin(0, playerView.getLocalBounds().height); // todo fix better location
 
-        // Setting background texture
-        mBackgroundTex.loadFromFile("recourses/textures/background.png");
-        mBackground.setTexture(this->mBackgroundTex);
-
         this->defineLengths();
 
     } catch (std::exception& exc) {
@@ -301,7 +294,6 @@ void Game::createPlayerController() {
 void Game::scaleElements() {
     // Scaling main player
     this->playerController.getView().setScale(0.1,0.1);
-    this->mBackground.setScale(2, 2);
 }
 
 void Game::placePlayer() {
@@ -330,15 +322,6 @@ void Game::placePlatforms() {
 }
 
 void Game::placeBackground() {
-    //std::vector<std::shared_ptr<BGTile>> worldBackground = this->mWorld->getBackground();
-    //for (const auto& tile: worldBackground) {
-        //sf::Sprite newTile;
-        //Coordinates coords = this->mCamera->project(*tile->getPos());
-        //newTile.setPosition(coords.getX(),coords.getY());
-        //this->setTileTexture(tile,newTile);
-        //newTile.setOrigin(0,newTile.getLocalBounds().height);
-        //(*this->mWindow).draw(newTile);
-    //}
     for (auto& controller: this->bgTileControllers) {
         Utilities::Coordinates coords = this->mCamera->project(*controller.getModel()->getPos());
         controller.getView()->setPosition(coords.getX(),coords.getY());
@@ -348,12 +331,12 @@ void Game::placeBackground() {
     }
 }
 
-void Game::addFPSCounter() {
+__attribute__((unused)) void Game::addFPSCounter() {
     // FPS print
     sf::Clock clock;
     sf::Text text;
     sf::Font font;
-    //font.loadFromFile("recourses/arial.ttf"); // todo catch
+    //font.loadFromFile("recourses/arial.ttf"); // If enabled again, catch a possible exception!
     text.setFont(font);
     //text.setString(std::to_string((int)std::round(1.f /  clock.restart().asSeconds())) + " fps");
     //text.setString(std::to_string(Stopwatch::getFPS()) + " fps");
@@ -390,23 +373,26 @@ void Game::addScore() {
 }
 
 void Game::drawEndScreen() {
-
-    //this->evaluateAndEditHighScores();
     // Drawing "GAME OVER!" text
     sf::Text gameOverText;
     gameOverText.setFont(this->scoreFont);
     gameOverText.setString("Game over!");
+    gameOverText.setFillColor(sf::Color::Red);
     gameOverText.setCharacterSize(40);
     sf::FloatRect textRect = gameOverText.getLocalBounds();
     gameOverText.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-    gameOverText.setPosition(sf::Vector2f(this->mWindow->getSize().x / 2.0f, 100));
+    gameOverText.setPosition(sf::Vector2f(static_cast<float>(this->mWindow->getSize().x) / 2.0f, 100));
 
-    this->scoreText.setString("Current score: " + this->scoreText.getString());
-    sf::FloatRect scoreTextRect = this->scoreText.getLocalBounds();
-    this->scoreText.setOrigin(scoreTextRect.left + scoreTextRect.width / 2.0f,
+    sf::Text gameOverScore;
+    gameOverScore.setCharacterSize(50);
+    gameOverScore.setOutlineColor(sf::Color::Red);
+    gameOverScore.setFont(this->scoreFont);
+    gameOverScore.setString("Current score: " + this->scoreText.getString());
+    sf::FloatRect scoreTextRect = gameOverScore.getLocalBounds();
+    gameOverScore.setOrigin(scoreTextRect.left + scoreTextRect.width / 2.0f,
                               scoreTextRect.top + scoreTextRect.height / 2.0f);
-    this->scoreText.setPosition(
-            sf::Vector2f(this->mWindow->getSize().x / 2.0f, 200)); // todo place this back after a new game
+    gameOverScore.setPosition(
+            sf::Vector2f(static_cast<float>(this->mWindow->getSize().x) / 2.0f, 200));
 
     // Drawing high scores
     std::ifstream file("recourses/game_data.info");
@@ -423,15 +409,16 @@ void Game::drawEndScreen() {
     std::ifstream file2("recourses/game_data.info");
     std::getline(file2, highscore);
     file2.close();
+
     sf::Text highScoreText;
     highScoreText.setFont(this->scoreFont);
-    highScoreText.setString("Current Highscore: " + highscore);
+    highScoreText.setString("All time Highscore: " + highscore);
     highScoreText.setCharacterSize(40);
     sf::FloatRect highscoreRect = highScoreText.getLocalBounds();
     highScoreText.setOrigin(highscoreRect.left + highscoreRect.width / 2.0f,
                             highscoreRect.top + highscoreRect.height / 2.0f);
     highScoreText.setPosition(
-            sf::Vector2f(this->mWindow->getSize().x / 2.0f, 400)); // todo place this back after a new game
+            sf::Vector2f(static_cast<float>(this->mWindow->getSize().x) / 2.0f, 400));
 
     sf::Text newGame;
     newGame.setFont(this->scoreFont);
@@ -440,18 +427,18 @@ void Game::drawEndScreen() {
     sf::FloatRect newGameRect = newGame.getLocalBounds();
     newGame.setOrigin(newGameRect.left + newGameRect.width / 2.0f, newGameRect.top + newGameRect.height / 2.0f);
     newGame.setPosition(
-            sf::Vector2f(this->mWindow->getSize().x / 2.0f, 600)); // todo place this back after a new game
+            sf::Vector2f(static_cast<float>(this->mWindow->getSize().x) / 2.0f, 600));
 
-    while (not sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) { // todo fix closing the window while this is open!
+    while (not sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
         this->mWindow->clear(sf::Color::Black);
 
         (*this->mWindow).draw(gameOverText);
 
         // Drawing player score
-        (*this->mWindow).draw(this->scoreText);
+        (*this->mWindow).draw(gameOverScore);
+        // Drawing high score text
         (*this->mWindow).draw(highScoreText);
-
-
+        // Drawing start new game text
         (*this->mWindow).draw(newGame);
         if(this->openEndSFScreen()) {
             break;
@@ -468,61 +455,6 @@ void Game::evaluateEndGame() {
     if (this->mWorld->checkGameOver()) {
         this->drawEndScreen();
     }
-}
-
-void Game::evaluateAndEditHighScores() {
-    std::ifstream file("recourses/game_data.info");
-    std::vector<std::pair<std::string,int>> highScores;
-    std::string str;
-    while(std::getline(file,str)) {
-        std::string result;
-        std::string nameResult;
-        bool stripe = false;
-        bool space = false;
-        for (const auto& ch: str) {
-            if (!stripe and !space and ch != '-' and ch != ' ')  nameResult += ch;
-            if (ch == '-') {
-                stripe = true;
-            }
-            else if (stripe and ch == ' ') {
-                space = true;
-            }
-            else if (stripe and space and ch != ' ') result += ch;
-        }
-        highScores.emplace_back(nameResult,std::stoi(result));
-    }
-
-    // Evaluating if the player scored better than any of the scores
-    for (auto& score: highScores) {
-        if (score.second < this->mWorld->getScore()) {
-            // todo ask for input from player
-            sf::RenderWindow keyBoardInputWindow(sf::VideoMode(800,400),"Enter name: ");
-            sf::Event event{};
-            sf::Text nameEntered;
-            nameEntered.setFont(this->scoreFont);
-            nameEntered.setPosition(10,30);
-            nameEntered.setCharacterSize(15);
-            while (keyBoardInputWindow.pollEvent(event)) {
-                if (event.type == sf::Event::Closed) {
-                    keyBoardInputWindow.close();
-                } else if (event.type == sf::Event::TextEntered) {
-                    if (event.text.unicode < 128) {
-                        str += static_cast<char>(event.text.unicode);
-                        nameEntered.setString(str);
-                    }
-                    keyBoardInputWindow.draw(nameEntered);
-                }
-            }
-            keyBoardInputWindow.display();
-            keyBoardInputWindow.close();
-            score.first = nameEntered.getString();
-            score.second = this->mWorld->getScore();
-            break;
-        }
-    }
-    std::ofstream writeFile;
-    writeFile.open("test.txt", std::ofstream::out | std::ofstream::trunc);
-    writeFile.close();
 }
 
 bool Game::openEndSFScreen() {

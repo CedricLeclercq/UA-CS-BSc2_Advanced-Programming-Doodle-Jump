@@ -82,7 +82,7 @@ void World::createPlatforms() {
     // Evaluating is we need new platforms
     while (newPlatformsNeeded()) {
         std::shared_ptr<Entities::Platform> newPlatform(new Entities::Platform);
-        newPlatform->setPosX(Random::randFloat(0,1));
+        newPlatform->setPosX(Random::randFloat(0,1 - this->platformLength));
         newPlatform->setPosY(this->findHighestPlatform().getY() + Random::randFloat(20,150));
         newPlatform->setLength(this->platformLength);
         if (newPlatform->getKind() == PKind::VERTICAL) {
