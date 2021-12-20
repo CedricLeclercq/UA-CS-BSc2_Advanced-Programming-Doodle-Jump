@@ -29,6 +29,8 @@ private:
     std::vector<std::shared_ptr<Entities::Bonus>> bonuses;
     /// @brief Shared pointer to the camera view of our world
     std::shared_ptr<Camera> m_camera;
+    /// @brief Shared pointer to the previous platform the player jumped on
+    std::shared_ptr<Entities::Platform> prevPlatform;
     /// @brief Total score of the player
     float score{};
     /// @brief Standard player length

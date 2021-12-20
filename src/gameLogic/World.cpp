@@ -68,9 +68,18 @@ bool World::collisionCheckPlatform() {
                 }
                 // If we collided with a temporary platform, remove that platform
                 if (platform->getKind() == PKind::TEMP) this->removePlatform(platform);
-                // And of course credit the player for jumping on this platform
-                // todo IF the platform is not the same af the prev time of course
-                this->addPlatformScore(platform);
+                // Saving the previous platform the player jumped on
+                if (this->prevPlatform == nullptr) this->prevPlatform = platform;
+                // If the player jumped twice on the same platform, decrease score by 10
+                if (this->prevPlatform == platform) {
+                    if (this->score - 10 >= 0) {
+                        this->score -= 10; // Decreasing score
+                    } else this->score = 0;
+                } else {
+                    this->prevPlatform = platform; // Else adding to score
+                    this->addPlatformScore(platform);
+
+                }
                 return true;
             }
         }
