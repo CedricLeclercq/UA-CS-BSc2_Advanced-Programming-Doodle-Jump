@@ -1,9 +1,11 @@
-//
-// Created by Cédric Leclercq on 06/12/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//           Controller.cpp            //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "Controller.h"
-
 #include <utility>
 
 Controller::Controller(std::shared_ptr<sf::Sprite> nView) {

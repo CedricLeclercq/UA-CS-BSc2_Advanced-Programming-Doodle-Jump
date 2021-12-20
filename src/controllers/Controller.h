@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 06/12/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//            Controller.h             //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_CONTROLLER_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_CONTROLLER_H
@@ -8,21 +11,23 @@
 #include "Controllers.h"
 #include "../entities/Entity.h"
 
+/**
+ * @class Controller
+ * @brief A super class for all the entity controllers
+ */
 class Controller {
 protected:
-    /// View that the controller will communicate to
+    /// @brief View that the controller will communicate to
     std::shared_ptr<sf::Sprite> view;
-    /**
-     * Default constructor
-     */
+    /// @brief Default constructor
     Controller()=default;
     /**
-     * Constructor that defines the model and the view
-     * @param nModel
-     * @param nView
+     * @brief Constructor that defines the model and the view
+     * @param nView     The view it will define
      */
     Controller(std::shared_ptr<sf::Sprite> nView);
 public:
+    /// @brief Getter for the view
     sf::Sprite& getView();
 };
 
