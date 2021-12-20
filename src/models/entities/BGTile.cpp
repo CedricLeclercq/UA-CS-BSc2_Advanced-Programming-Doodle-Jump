@@ -65,3 +65,12 @@ void Entities::BGTile::defineKind() {
         }
     }
 }
+
+Entities::BGTile::BGTile() {
+    this->kind = TKind::NONE;
+    this->defineKind();
+}
+
+TKind Entities::BGTile::getKind() const {
+    return this->kind;
+}

@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 25/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//            Entity.cpp               //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "Entity.h"
 
@@ -38,6 +41,6 @@ void Entity::setLength(float nLength) {
     this->length = nLength;
 }
 
-void Entity::setHeight(float nHeight) {
-    this->height = nHeight;
+float Entity::getLength() const {
+    return this->length;
 }

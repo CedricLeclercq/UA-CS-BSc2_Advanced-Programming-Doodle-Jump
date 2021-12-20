@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//             Player.cpp              //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "Player.h"
 
@@ -49,4 +52,25 @@ void Entities::Player::teleportPlayer(float minX, float maxX) {
         this->setPosX(1);
     if (this->getPosX() * maxX > maxX)
         this->setPosX(0);
+}
+
+void Entities::Player::setVelocityY(float velocity) {
+    this->velocityY = velocity;
+}
+
+bool Entities::Player::getLookingLeft() const {
+    return this->mLookLeft;
+
+}
+
+void Entities::Player::setBonus(std::shared_ptr<Entities::Bonus> nBonus) {
+    this->bonus = std::move(nBonus);
+}
+
+std::shared_ptr<Entities::Bonus> Entities::Player::getBonus() const {
+    return this->bonus;
+}
+
+void Entities::Player::setParalysed(bool paralysed) {
+    this->paralysedY = paralysed;
 }

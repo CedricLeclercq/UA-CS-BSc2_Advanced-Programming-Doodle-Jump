@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 20/12/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//             Entities.h              //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_ENTITIES_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_ENTITIES_H

@@ -1,10 +1,13 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//            Platform.cpp             //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "Platform.h"
-using Random = Utilities::Random;
 
+using Random = Utilities::Random;
 
 void Entities::Platform::createPlatform() {
     // Check if the platform type was pre-defined at construction
@@ -70,11 +73,6 @@ void Entities::Platform::moveRight() {
 
 void Entities::Platform::moveLeft() {
     this->setPos(this->getPosX() - (float)0.0003, this->getPosY());
-}
-
-void Entities::Platform::changeToGround() {
-    this->makeStatic();
-
 }
 
 PKind Entities::Platform::getKind() const {

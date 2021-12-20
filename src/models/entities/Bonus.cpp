@@ -1,9 +1,11 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//             Bonus.cpp               //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "Bonus.h"
-#include "../../utilities/Utilities.h"
 #include "Player.h"
 
 using Random = Utilities::Random;

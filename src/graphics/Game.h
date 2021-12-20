@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//               Game.h                //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef DOODLEJUMP_GAME_H
 #define DOODLEJUMP_GAME_H
@@ -14,7 +17,6 @@
 #include "../controllers/entityControllers/PlayerController.h"
 #include "../controllers/entityControllers/PlatformsController.h"
 #include "../controllers/entityControllers/BGTileController.h"
-#include "../utilities/Stopwatch.h"
 
 
 class Game {
@@ -35,7 +37,7 @@ private:
     /// @brief Camera used for the projection of elements
     std::shared_ptr<Camera> mCamera;
     /// @brief Singleton stopwatch for fps counting
-    std::unique_ptr<Stopwatch> mStopwatch;
+    std::unique_ptr<Utilities::Stopwatch> mStopwatch;
 
     // Textures
     /// @brief Main player sprite texture
@@ -66,8 +68,6 @@ private:
     sf::Texture mTempRocketPlatformTex;
 
     // Background textures
-    /// @brief Background of the game texture
-    sf::Texture mBackgroundTex;
     /// @brief Background of the game background element: Planet 1
     sf::Texture mPlanet1Tex;
     /// @brief Background of the game background element: Planet 2

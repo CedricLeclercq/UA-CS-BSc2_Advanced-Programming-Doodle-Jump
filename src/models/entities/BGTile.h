@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//              BGTile.h               //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef DOODLEJUMP_BGTILE_H
 #define DOODLEJUMP_BGTILE_H
@@ -25,17 +28,31 @@ enum TKind {
 
 class Entities::BGTile: public Entity {
 private:
+    /// @brief Describes the kind of tile this tile is
     TKind kind;
-
+    /**
+     * @brief Will define what kind of tile a tile will be upon constructing
+     */
     void defineKind();
 public:
-    BGTile() {
-        this->kind = TKind::NONE;
-        this->defineKind();
-    }
-
-    TKind getKind() const {return this->kind; }
+    /**
+     * @brief Constructor for the background tile - will use other functions to define the tile kind
+     */
+    BGTile();
+    /**
+     * @brief Getter for the tile kind
+     * @return      Tile kind
+     */
+    TKind getKind() const;
+    /**
+     * @brief Will move the background tile to the right
+     * @note This function is currently not defined and not used (not needed, but is in place if it ever is)
+     */
     void moveRight() override {};
+    /**
+     * @brief Will move the background tile to the left
+     * @note This function is currently not defined and not used (not needed, but is in place if it ever is)
+     */
     void moveLeft() override {};
 };
 

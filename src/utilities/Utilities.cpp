@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 02/12/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//           Utilities.cpp             //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "Utilities.h"
 
@@ -24,6 +27,18 @@ float Utilities::Random::randFloat(float x, float y) {
     std::mt19937 mt(rd());
     std::uniform_real_distribution<float> distribution(x,y);
     return distribution(mt);
+}
+
+void Utilities::Stopwatch::startCounter() {
+    this->beforeRunTicks = clock(); // todo maybe use high resolution clock
+}
+
+void Utilities::Stopwatch::stopCounter() {
+    this->deltaTicks = clock() - this->beforeRunTicks;
+}
+
+float Utilities::Stopwatch::getDeltaTicks() const {
+    return static_cast<float>(this->deltaTicks);
 }
 
 void Utilities::Coordinates::setX(float nX) {

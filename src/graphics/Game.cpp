@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//              Game.cpp               //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "Game.h"
 #include <SFML/Graphics/Texture.hpp>
@@ -204,7 +207,7 @@ void Game::createWorld() {
     // Creating camera
     this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second,borderY.second));
     this->mWorld = factory.createWorld(mCamera);
-    this->mStopwatch = std::make_unique<Stopwatch>();
+    this->mStopwatch = std::make_unique<Utilities::Stopwatch>();
     //this->mWindow->setFramerateLimit(20); // Setting framerate limit // todo fix setting framerate
 }
 
