@@ -34,7 +34,7 @@ void Game::setup() {
 void Game::createPlatformsControllers() {
 
     // Removing all the controllers that are no longer used by the world
-    std::vector<std::shared_ptr<Platform>> worldPlatforms = (*this->mWorld).getPlatforms();
+    std::vector<std::shared_ptr<Entities::Platform>> worldPlatforms = (*this->mWorld).getPlatforms();
     std::vector<Controllers::PlatformsController> newControllers;
     for (const auto& pController: this->platformsControllers) {
         for (const auto& platform: worldPlatforms) {
@@ -64,7 +64,7 @@ void Game::createPlatformsControllers() {
 
 void Game::createBGTileControllers() {
     // Removing all the controllers that are no longer used by the world
-    std::vector<std::shared_ptr<BGTile>> worldTiles = (*this->mWorld).getBackground();
+    std::vector<std::shared_ptr<Entities::BGTile>> worldTiles = (*this->mWorld).getBackground();
     std::vector<Controllers::BGTileController> newControllers;
     for (const auto& tController: this->bgTileControllers) {
         for (const auto& tile: worldTiles) {
@@ -92,7 +92,7 @@ void Game::createBGTileControllers() {
     }
 }
 
-void Game::setPlatformTexture(const std::shared_ptr<Platform>& platform, sf::Sprite& sfPlatform) {
+void Game::setPlatformTexture(const std::shared_ptr<Entities::Platform>& platform, sf::Sprite& sfPlatform) {
     if (platform->getBonus() == nullptr) {
     if (platform->getKind() == PKind::STATIC)
         sfPlatform.setTexture(this->mStaticPlatformTex);
@@ -127,7 +127,7 @@ void Game::setPlatformTexture(const std::shared_ptr<Platform>& platform, sf::Spr
     }
 }
 
-void Game::setTileTexture(const std::shared_ptr<BGTile> &tile, sf::Sprite &sfTile) {
+void Game::setTileTexture(const std::shared_ptr<Entities::BGTile> &tile, sf::Sprite &sfTile) {
     if (tile->getKind() == TKind::MILKYWAY1) {
         sfTile.setTexture(this->mMilkyWay1Tex);
         sfTile.setScale(1.2,1.2);
@@ -288,6 +288,7 @@ void Game::defineLengths() {
     float playerLength = testPlayer.getLocalBounds().width * (float)0.4;
     this->mWorld->setPlatformLength(platformLength / (float)this->mWindow->getSize().x);
     this->mWorld->setPlayerLength(playerLength / (float)this->mWindow->getSize().x);
+    this->mWorld->getPlayer()->setLength(playerLength / (float)this->mWindow->getSize().x);
 }
 
 void Game::createPlayerController() {
@@ -307,7 +308,7 @@ void Game::placePlayer() {
     // Getting and setting position of main player
     Coordinates viewCoo = this->mCamera->project(*this->mWorld->getPlayer()->getPos());
     this->playerController.getView().setPosition(viewCoo.getX(), viewCoo.getY());
-    std::shared_ptr<Bonus> playerBonus = this->mWorld->getPlayer()->getBonus();
+    std::shared_ptr<Entities::Bonus> playerBonus = this->mWorld->getPlayer()->getBonus();
     // Load rocket texture
     if (playerBonus != nullptr and playerBonus->getPowerKind() == BonusPower::ROCKET) {
         this->playerController.getView().setTexture(this->mRocketBonusTex);

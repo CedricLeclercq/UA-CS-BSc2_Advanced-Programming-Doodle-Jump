@@ -9,7 +9,7 @@
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_CONTROLLER_H
 
 #include "Controllers.h"
-#include "../entities/Entity.h"
+#include "../models/Entity.h"
 
 /**
  * @class Controller

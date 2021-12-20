@@ -1,13 +1,17 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//               World.h               //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef DOODLEJUMP_WORLD_H
 #define DOODLEJUMP_WORLD_H
 
-#include "../entities/Player.h"
-#include "../entities/Platform.h"
-#include "../entities/background/BGTile.h"
+#include "../models/entities/Player.h"
+#include "../models/entities/Platform.h"
+#include "../models/entities/BGTile.h"
+#include "../factories/ConcreteFactory.h"
 #include "Camera.h"
 #include <memory>
 #include <utility>
@@ -15,80 +19,149 @@
 
 class World {
 private:
-    /// Shared pointer to our main player
-    std::shared_ptr<Player> player;
-    /// Vector with shared pointer to all our platforms
-    std::vector<std::shared_ptr<Platform>> platforms;
-    /// Vector with shared pointer to our background elements
-    std::vector<std::shared_ptr<BGTile>> bgTiles;
-    /// Vector with shared pointer to our bonuses
-    std::vector<std::shared_ptr<Bonus>> bonuses;
-    /// Shared pointer to the camera view of our world
+    /// @brief Shared pointer to our main player
+    std::shared_ptr<Entities::Player> player;
+    /// @brief Vector with shared pointer to all our platforms
+    std::vector<std::shared_ptr<Entities::Platform>> platforms;
+    /// @brief Vector with shared pointer to our background elements
+    std::vector<std::shared_ptr<Entities::BGTile>> bgTiles;
+    /// @brief Vector with shared pointer to our bonuses
+    std::vector<std::shared_ptr<Entities::Bonus>> bonuses;
+    /// @brief Shared pointer to the camera view of our world
     std::shared_ptr<Camera> m_camera;
-    /// Total score of the player
+    /// @brief Total score of the player
     float score{};
-    /// Standard player length
+    /// @brief Standard player length
     float playerLength{};
-    /// Standard platform length
+    /// @brief Standard platform length
     float platformLength{};
-    void createPlatforms();
-    void createBackground();
-    static void createBonus(const std::shared_ptr<Platform>& platform);
-    Coordinates findHighestStar() const;
-    Coordinates findHighestPlatform() const; // todo change to shared pointer
-    std::shared_ptr<Platform> findLowestPlatform();
-    std::shared_ptr<BGTile> findLowestStar();
-    std::shared_ptr<Bonus> findLowestBonus();
-    bool newPlatformsNeeded();
-    bool newStarsNeeded();
-    void removePlatform(const std::shared_ptr<Platform>& toRemove);
     /**
-     * Will remove all elements that fall out of the view of the world
+     * @brief Create platforms and place them in the world (only if new platforms are needed)
+     */
+    void createPlatforms();
+    /**
+     * @brief Create all the background elements and place them in the world (only if new background elem are needed)
+     */
+    void createBackground();
+    /**
+     * @brief Decide if a platform will get a bonus, create a bonus and place it on the platform
+     * @param platform      Given platform to evaluate
+     */
+    static void createBonus(const std::shared_ptr<Entities::Platform>& platform);
+    /**
+     * @brief Finds the highest star in the world
+     * @return      Coordinates to the highest star in the world
+     */
+    Coordinates findHighestStar() const;
+    /**
+     * @brief Finds the highest platform in the world
+     * @return      Coordinates to the highest platform in the world
+     */
+    Coordinates findHighestPlatform() const;
+    /**
+     * @brief Finds the lowest platform in the world
+     * @return      Shared pointer to the lowest platform in the world
+     */
+    std::shared_ptr<Entities::Platform> findLowestPlatform();
+    /**
+     * @brief Finds the lowest star in the world
+     * @return      Shared pointer to the lowest star in the world
+     */
+    std::shared_ptr<Entities::BGTile> findLowestStar();
+    /**
+     * @brief Finds the lowest bonus in the world
+     * @return      Shared pointer to the lowest bonus in the world
+     */
+    __attribute__((unused)) std::shared_ptr<Entities::Bonus> findLowestBonus();
+    /**
+     * @brief Defines if new platforms are needed in the world
+     * @return      (needNewPlatforms?)
+     */
+    bool newPlatformsNeeded();
+    /**
+     * @brief Defines if new stars are needed in the world
+     * @return      (needNewStars?)
+     */
+    bool newStarsNeeded();
+    /**
+     * @brief Removes a platform from all the platforms in the world
+     * @param toRemove      A shared pointer to the platform we need to remove
+     */
+    void removePlatform(const std::shared_ptr<Entities::Platform>& toRemove);
+    /**
+     * @brief Remove all the elements that fall out of the world window
      */
     void removeOutOfView();
-
-    void addPlatformScore(const std::shared_ptr<Platform>& platform);
-    void addBonusScore(const std::shared_ptr<Bonus>& bonus);
-    void addHeightScore();
-public:
     /**
-     * This function is responsible for applying any change needed to the world after the player moved
+     * @brief Adds to the main score a score based on which platform we jumped on
+     * @param platform      A shared pointer to the platform we jumped on
+     */
+    void addPlatformScore(const std::shared_ptr<Entities::Platform>& platform);
+    /**
+     * @brief Adds to the main score a score based on which bonus was picked up
+     * @param bonus         A shared pointer to the bonus we picked up
+     */
+    void addBonusScore(const std::shared_ptr<Entities::Bonus>& bonus);
+    /**
+     * @brief Checks if the player collided with a platform
+     * @return      (player.collidedWithPlatform?)
+     */
+    bool collisionCheckPlatform();
+    /**
+     * @brief Will move the horizontal and vertical platforms
+     */
+    void movePlatforms();
+public:
+
+    /**
+     * @brief Constructor for the world, will create a player and accept a camera for world view purposes
+     * @param camera
+     */
+    explicit World(std::shared_ptr<Camera> camera);
+    /**
+     * @brief Update the world after one loop (Update the player, the platforms, the bonuses, ...)
      */
     void updateWorld();
-    bool collisionCheckPlatform();
-
-    // TODO let the player come from the concrete factory
-    explicit World(std::shared_ptr<Camera> camera) : player(new Player()), m_camera(std::move(camera)) {}
-
-    std::shared_ptr<Player> getPlayer() {
-        return this->player;
-    }
-
-    void setPlayerLength(float length) {
-        this->playerLength = length;
-    }
-
-    void setPlatformLength(float length) {
-        this->platformLength = length;
-    }
-
-    std::vector<std::shared_ptr<BGTile>> getBackground() const {
-        return this->bgTiles;
-    }
-
-    std::vector<std::shared_ptr<Platform>> getPlatforms();
-
-    std::vector<std::shared_ptr<Bonus>> getBonuses() const {return this->bonuses; }
-
-
-    void movePlatforms();
-
+    /**
+     * @brief Getter for the player
+     * @return      Shared pointer to the player;
+     */
+    std::shared_ptr<Entities::Player> getPlayer();
+    /**
+     * @brief Will set the standard length of the player (needed for the collision check)
+     * @param length    Player length
+     */
+    void setPlayerLength(float length);
+    /**
+     * @brief Will set the standard length of a platform (needed for the collision check)
+     * @param length    Platform length
+     */
+    void setPlatformLength(float length);
+    /**
+     * @brief Getter for the background in the world
+     * @return      Vector with shared pointers to the background tiles
+     */
+    std::vector<std::shared_ptr<Entities::BGTile>> getBackground();
+    /**
+     * @brief Getter for the platforms in the world
+     * @return      Vector with shared pointers to the platforms
+     */
+    std::vector<std::shared_ptr<Entities::Platform>> getPlatforms();
+    /**
+     * @brief Getter for the bonuses in the world
+     * @return      Vector with shared pointers to the bonuses
+     */
+    __attribute__((unused)) std::vector<std::shared_ptr<Entities::Bonus>> getBonuses() const {return this->bonuses; }
+    /**
+     * @brief Getter for the score of the player
+     * @return      Static cast <int> (score of the player)
+     */
     int getScore() const;
-
+    /**
+     * @brief Checks is the game is over in the world by comparing Y coordinates with the lowest allowed
+     * @return      (gameOver?)
+     */
     bool checkGameOver();
-
-
-
 };
 
 

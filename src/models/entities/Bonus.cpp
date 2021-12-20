@@ -3,12 +3,12 @@
 //
 
 #include "Bonus.h"
-#include "../utilities/Utilities.h"
+#include "../../utilities/Utilities.h"
 #include "Player.h"
 
 using Random = Utilities::Random;
 
-Bonus::Bonus(BonusPower power) {
+Entities::Bonus::Bonus(BonusPower power) {
     this->powerKind = power;
     if (Random::randInt(0,1) == 1) {
         this->powerKind = BonusPower::SPRING;
@@ -16,7 +16,7 @@ Bonus::Bonus(BonusPower power) {
     this->chargePowers();
 }
 
-void Bonus::chargePowers() {
+void Entities::Bonus::chargePowers() {
     if (this->powerKind == BonusPower::ROCKET) {
         // Rocket will use power as the amount of Y blocks the player moves up
         this->power = 5000;
@@ -30,11 +30,11 @@ void Bonus::chargePowers() {
     // ... more bonuses? todo
 }
 
-bool Bonus::exhaustedBonus() const {
+bool Entities::Bonus::exhaustedBonus() const {
     return this->power <= 0;
 }
 
-void Bonus::takeEffect(Player& player) {
+void Entities::Bonus::takeEffect(Entities::Player& player) {
     if (this->powerKind == BonusPower::SPRING) {
         player.setVelocityY(player.getVelocityY() * this->power);
         // player should no longer have effect of the spring after the velocity has worked out
@@ -51,6 +51,6 @@ void Bonus::takeEffect(Player& player) {
     }
 }
 
-BonusPower Bonus::getPowerKind() const {
+BonusPower Entities::Bonus::getPowerKind() const {
     return this->powerKind;
 }

@@ -9,10 +9,10 @@
 #include <memory>
 #include <utility>
 #include "Bonus.h"
-#include "Entity.h"
+#include "../Entities.h"
 
 
-class Player: public Entity {
+class Entities::Player: public Entity {
 private:
     bool mLookLeft{};
     /// Bool that indicates if the player is able to move up and down on itself
@@ -20,7 +20,7 @@ private:
     float velocityY{};
     float standardVelocityY{};
     float positionBeforeJumpY{};
-    std::shared_ptr<Bonus> bonus{};
+    std::shared_ptr<Entities::Bonus> bonus{};
 public:
     Player() {
         this->standardVelocityY = 1;
@@ -50,9 +50,9 @@ public:
 
     void teleportPlayer(float minX, float maxX);
 
-    void setBonus(std::shared_ptr<Bonus> nBonus) {this->bonus = std::move(nBonus);}
+    void setBonus(std::shared_ptr<Entities::Bonus> nBonus) {this->bonus = std::move(nBonus);}
 
-    std::shared_ptr<Bonus> getBonus() const { return this->bonus; }
+    std::shared_ptr<Entities::Bonus> getBonus() const { return this->bonus; }
 
 
     void setParalysed(bool paralysed) {this->paralysedY = paralysed;}

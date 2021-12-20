@@ -18,7 +18,7 @@ void Controllers::PlayerController::handleInput() const {
     }
 }
 
-Controllers::PlayerController::PlayerController(std::shared_ptr<Player> nModel, std::shared_ptr<sf::Sprite> nView)
+Controllers::PlayerController::PlayerController(std::shared_ptr<Entities::Player> nModel, std::shared_ptr<sf::Sprite> nView)
         : Controller(std::move(nView)) {
     this->model = std::move(nModel);
 }

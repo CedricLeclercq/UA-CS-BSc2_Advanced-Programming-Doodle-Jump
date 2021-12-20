@@ -5,9 +5,9 @@
 #ifndef DOODLEJUMP_BONUS_H
 #define DOODLEJUMP_BONUS_H
 
-#include "../utilities/Utilities.h"
-#include "Entity.h"
-class Player;
+#include "../../utilities/Utilities.h"
+#include "../Entities.h"
+
 
 enum BonusPower {
     SPRING,
@@ -15,7 +15,7 @@ enum BonusPower {
     };
 
 
-class Bonus: public Entity {
+class Entities::Bonus: public Entity {
 private:
     /// Power that the bonus has left to help the player
     float power{};
@@ -38,7 +38,7 @@ public:
      */
     bool exhaustedBonus() const;
 
-    void takeEffect(Player& player);
+    void takeEffect(Entities::Player& player);
 
     BonusPower getPowerKind() const;
 

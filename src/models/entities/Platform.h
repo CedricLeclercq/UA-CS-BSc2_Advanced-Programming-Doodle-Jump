@@ -5,14 +5,14 @@
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_PLATFORM_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_PLATFORM_H
 
-#include "../utilities/Utilities.h"
-#include "Entity.h"
+#include "../../utilities/Utilities.h"
+#include "../Entities.h"
 #include "Bonus.h"
 
 enum PKind {UNDEF,STATIC,HORIZONTAL,VERTICAL,TEMP};
 
 
-class Platform: public Entity {
+class Entities::Platform: public Entity {
 private:
     PKind platformKind{};
     float maxHeight{};
@@ -24,7 +24,7 @@ private:
     void makeHorizontal();
     void makeVertical();
     void makeTemp();
-    std::shared_ptr<Bonus> bonus{};
+    std::shared_ptr<Entities::Bonus> bonus{};
 public:
     explicit Platform(PKind kind=UNDEF) {
         this->platformKind = kind;
@@ -44,8 +44,8 @@ public:
     void setMaxHeight(float newHeight);
     float getMinHeight() const;
     void setMinHeight(float newHeight);
-    void setBonus(std::shared_ptr<Bonus> nBonus);
-    std::shared_ptr<Bonus> getBonus() const;
+    void setBonus(std::shared_ptr<Entities::Bonus> nBonus);
+    std::shared_ptr<Entities::Bonus> getBonus() const;
 };
 
 

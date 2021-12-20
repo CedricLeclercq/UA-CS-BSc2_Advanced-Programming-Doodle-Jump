@@ -5,9 +5,9 @@
 #ifndef DOODLEJUMP_BGTILE_H
 #define DOODLEJUMP_BGTILE_H
 
-#include "../../utilities/Utilities.h"
-#include "../Entity.h"
+#include "../Entities.h"
 
+/// @brief Enumeration of the possible tile kinds
 enum TKind {
     NONE,
     PLANET1,
@@ -20,9 +20,10 @@ enum TKind {
     STAR2,
     MILKYWAY1,
     MILKYWAY2
-        };
+    };
 
-class BGTile: public Entity {
+
+class Entities::BGTile: public Entity {
 private:
     TKind kind;
 

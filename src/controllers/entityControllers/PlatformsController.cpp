@@ -7,12 +7,12 @@
 
 #include "PlatformsController.h"
 
-Controllers::PlatformsController::PlatformsController(std::shared_ptr<Platform> nModel) {
+Controllers::PlatformsController::PlatformsController(std::shared_ptr<Entities::Platform> nModel) {
     this->model = std::move(nModel);
     this->view = std::make_shared<sf::Sprite>();
 }
 
-std::shared_ptr<Platform> Controllers::PlatformsController::getModel() const {
+std::shared_ptr<Entities::Platform> Controllers::PlatformsController::getModel() const {
     return this->model;
 }
 

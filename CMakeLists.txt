@@ -16,17 +16,17 @@ SET(SRC
         src/gameLogic/Camera.h
         src/gameLogic/World.cpp
         src/gameLogic/World.h
-        src/entities/background/BGTile.cpp
-        src/entities/background/BGTile.h
-        src/entities/Bonus.cpp
-        src/entities/Bonus.h
-        src/entities/Player.cpp
-        src/entities/Player.h
-        src/entities/Platform.cpp
-        src/entities/Platform.h
+        src/models/entities/BGTile.cpp
+        src/models/entities/BGTile.h
+        src/models/entities/Bonus.cpp
+        src/models/entities/Bonus.h
+        src/models/entities/Player.cpp
+        src/models/entities/Player.h
+        src/models/entities/Platform.cpp
+        src/models/entities/Platform.h
         src/utilities/Utilities.h
-        src/entities/Entity.h
-        src/entities/Entity.cpp
+        src/models/Entity.h
+        src/models/Entity.cpp
         src/factories/AbstractFactory.h
         src/factories/ConcreteFactory.cpp
         src/factories/ConcreteFactory.h
@@ -40,7 +40,7 @@ SET(SRC
         src/controllers/entityControllers/PlayerController.cpp
         src/controllers/Controllers.h
         src/controllers/Controller.cpp
-        src/utilities/Stopwatch.cpp src/utilities/Stopwatch.h)
+        src/utilities/Stopwatch.cpp src/utilities/Stopwatch.h src/models/Entities.h)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 

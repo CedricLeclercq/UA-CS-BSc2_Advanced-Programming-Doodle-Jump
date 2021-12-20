@@ -1,13 +1,15 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//            BGTile.cpp               //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "BGTile.h"
-#include "../../utilities/Utilities.h"
 
 using Random = Utilities::Random;
 
-void BGTile::defineKind() {
+void Entities::BGTile::defineKind() {
     // Getting a random number
     float random = Random::randFloat(0,1000);
 

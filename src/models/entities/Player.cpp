@@ -6,7 +6,7 @@
 
 
 
-void Player::moveRight() {
+void Entities::Player::moveRight() {
     this->move(0.0005,0.f);
     if (this->mLookLeft) {
         //this->move(-0.1,0.f);
@@ -14,7 +14,7 @@ void Player::moveRight() {
     this->mLookLeft = false;
 }
 
-void Player::moveLeft() {
+void Entities::Player::moveLeft() {
     this->move(-0.0005,0.f);
     if (not this->mLookLeft) {
         //this->move(0.1,0.f);
@@ -22,7 +22,7 @@ void Player::moveLeft() {
     this->mLookLeft = true;
 }
 
-void Player::jump(bool newJump) {
+void Entities::Player::jump(bool newJump) {
 
     if (!this->paralysedY) {
         if (this->position->getY() <= 0 or newJump) {
@@ -44,7 +44,7 @@ void Player::jump(bool newJump) {
     }
 }
 
-void Player::teleportPlayer(float minX, float maxX) {
+void Entities::Player::teleportPlayer(float minX, float maxX) {
     if (this->getPosX() * maxX < minX)
         this->setPosX(1);
     if (this->getPosX() * maxX > maxX)

@@ -6,7 +6,7 @@
 using Random = Utilities::Random;
 
 
-void Platform::createPlatform() {
+void Entities::Platform::createPlatform() {
     // Check if the platform type was pre-defined at construction
     if (this->platformKind != UNDEF) {
         if (this->platformKind == STATIC)
@@ -36,87 +36,87 @@ void Platform::createPlatform() {
     }
 }
 
-void Platform::makeStatic() {
+void Entities::Platform::makeStatic() {
     this->platformKind = STATIC;
     // Defining location of the platform
 }
 
-void Platform::makeHorizontal() {
+void Entities::Platform::makeHorizontal() {
     this->platformKind = HORIZONTAL;
     this->movingRight = (bool)Random::randInt(0,1);
 }
 
-void Platform::makeVertical() {
+void Entities::Platform::makeVertical() {
     this->platformKind = VERTICAL;
     this->movingUp = true;
 }
 
-void Platform::makeTemp() {
+void Entities::Platform::makeTemp() {
     this->platformKind = TEMP;
 
 }
 
-void Platform::moveUp() {
+void Entities::Platform::moveUp() {
     this->setPos(this->getPosX(), this->getPosY() + (float)0.1);
 }
 
-void Platform::moveDown() {
+void Entities::Platform::moveDown() {
     this->setPos(this->getPosX(), this->getPosY() - (float)0.1);
 }
 
-void Platform::moveRight() {
+void Entities::Platform::moveRight() {
     this->setPos(this->getPosX() + (float)0.0003, this->getPosY());
 }
 
-void Platform::moveLeft() {
+void Entities::Platform::moveLeft() {
     this->setPos(this->getPosX() - (float)0.0003, this->getPosY());
 }
 
-void Platform::changeToGround() {
+void Entities::Platform::changeToGround() {
     this->makeStatic();
 
 }
 
-PKind Platform::getKind() const {
+PKind Entities::Platform::getKind() const {
     return this->platformKind;
 }
 
-bool Platform::getMovingRight() const {
+bool Entities::Platform::getMovingRight() const {
     return this->movingRight;
 }
 
-void Platform::setMovingRight(bool newBool) {
+void Entities::Platform::setMovingRight(bool newBool) {
     this->movingRight = newBool;
 }
 
-void Platform::setBonus(std::shared_ptr<Bonus> nBonus) {
+void Entities::Platform::setBonus(std::shared_ptr<Bonus> nBonus) {
     this->bonus = std::move(nBonus);
 }
 
-std::shared_ptr<Bonus> Platform::getBonus() const {
+std::shared_ptr<Entities::Bonus> Entities::Platform::getBonus() const {
     return this->bonus;
 }
 
-bool Platform::getMovingUp() const {
+bool Entities::Platform::getMovingUp() const {
     return this->movingUp;
 }
 
-void Platform::setMovingUp(bool newBool) {
+void Entities::Platform::setMovingUp(bool newBool) {
     this->movingUp = newBool;
 }
 
-float Platform::getMaxHeight() const {
+float Entities::Platform::getMaxHeight() const {
     return this->maxHeight;
 }
 
-void Platform::setMaxHeight(float newHeight) {
+void Entities::Platform::setMaxHeight(float newHeight) {
     this->maxHeight = newHeight;
 }
 
-void Platform::setMinHeight(float newHeight) {
+void Entities::Platform::setMinHeight(float newHeight) {
     this->minHeight = newHeight;
 }
 
-float Platform::getMinHeight() const {
+float Entities::Platform::getMinHeight() const {
     return this->minHeight;
 }

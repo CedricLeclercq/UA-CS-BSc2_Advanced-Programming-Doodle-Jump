@@ -1,9 +1,11 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//             Camera.cpp              //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "Camera.h"
-#include <utility>
 
 Camera::Camera(const Coordinates& worldView, const Coordinates& cameraView): m_windowHeight(0), m_worldView(worldView), m_cameraView(cameraView) {}
 
@@ -19,10 +21,6 @@ void Camera::updateHeight(double height) {
         m_windowHeight = newWindowHeight;
 }
 
-Coordinates Camera::getWorldView() const {
-    return this->m_worldView;
-}
-
 bool Camera::evalInWindow(const Coordinates& coordinates) const {
     Coordinates projection = this->project(coordinates);
     if (projection.getY() < 0) {
@@ -32,7 +30,6 @@ bool Camera::evalInWindow(const Coordinates& coordinates) const {
     // Doesn't fall out of window
     return true;
 }
-
 
 double Camera::higherWindowHeight(double height) const {
     double newWindowHeight = height - (this->m_worldView.getY() / 2);

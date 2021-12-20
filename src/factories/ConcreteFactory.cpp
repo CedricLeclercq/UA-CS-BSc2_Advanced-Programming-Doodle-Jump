@@ -1,25 +1,28 @@
-//
-// Created by Cédric Leclercq on 02/12/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//         ConcreteFactory.cpp         //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "ConcreteFactory.h"
-
 #include <memory>
+#include "../gameLogic/World.h"
 
-std::shared_ptr<Player> ConcreteFactory::createPlayer() {
-    return std::shared_ptr<Player>(new Player());
+std::shared_ptr<Entities::Player> ConcreteFactory::createPlayer() {
+    return std::shared_ptr<Entities::Player>(new Entities::Player());
 }
 
-std::shared_ptr<BGTile> ConcreteFactory::createBGTile() {
-    return std::shared_ptr<BGTile>(new BGTile());
+std::shared_ptr<Entities::BGTile> ConcreteFactory::createBGTile() {
+    return std::shared_ptr<Entities::BGTile>(new Entities::BGTile());
 }
 
-std::shared_ptr<Bonus> ConcreteFactory::createBonus() {
-    return std::shared_ptr<Bonus>(new Bonus());
+std::shared_ptr<Entities::Bonus> ConcreteFactory::createBonus() {
+    return std::shared_ptr<Entities::Bonus>(new Entities::Bonus());
 }
 
-std::shared_ptr<Platform> ConcreteFactory::createPlatform() {
-    return std::shared_ptr<Platform>(new Platform());
+std::shared_ptr<Entities::Platform> ConcreteFactory::createPlatform() {
+    return std::shared_ptr<Entities::Platform>(new Entities::Platform());
 }
 
 std::shared_ptr<World> ConcreteFactory::createWorld(std::shared_ptr<Camera> camera) {

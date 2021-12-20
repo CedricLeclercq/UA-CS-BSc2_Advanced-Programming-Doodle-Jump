@@ -121,13 +121,13 @@ private:
     /**
      * Finds and sets the texture for a given platform
      */
-    void setPlatformTexture(const std::shared_ptr<Platform>& platform, sf::Sprite& sfPlatform);
+    void setPlatformTexture(const std::shared_ptr<Entities::Platform>& platform, sf::Sprite& sfPlatform);
     /**
      * Finds and sets the texture for a given background tile
      * @param tile
      * @param sfTile
      */
-    void setTileTexture(const std::shared_ptr<BGTile>& tile, sf::Sprite& sfTile);
+    void setTileTexture(const std::shared_ptr<Entities::BGTile>& tile, sf::Sprite& sfTile);
     /**
      * Creates the world
      */

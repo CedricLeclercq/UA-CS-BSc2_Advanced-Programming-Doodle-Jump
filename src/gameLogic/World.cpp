@@ -1,11 +1,13 @@
-//
-// Created by Cédric Leclercq on 18/11/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//             World.cpp               //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "World.h"
-#include "../factories/ConcreteFactory.h"
-using Random = Utilities::Random;
 
+using Random = Utilities::Random;
 
 void World::updateWorld() {
     // Don't do anything if game over!
@@ -19,51 +21,55 @@ void World::updateWorld() {
     }
     // Calculating score for when the player has gone higher
     auto difference = static_cast<float>(this->m_camera->higherWindowHeight(this->player->getPosY()));
-    // Adding score
-    this->score+=difference*1/4;
+    this->score+=difference*1/4; // and adding that score
     // Updating the player height
     m_camera->updateHeight(this->player->getPosY());
-    // Removing everything that is out of view
-    this->removeOutOfView();
     // Creating all new elements in the world
+    this->removeOutOfView();
     this->createPlatforms();
     this->createBackground();
 }
 
 bool World::collisionCheckPlatform() {
-    if (this->player->getVelocityY() > 0) {
-        // Player cannot collide with something while moving up
-        return false;
-    }
+    // Player cannot collide with something while moving up
+    if (this->player->getVelocityY() > 0) return false;
+
     // Getting the position of the player
-    float leftMostX = this->player->getPosX();
-    float posY = this->player->getPosY();
-    float rightMostX = leftMostX + this->player->getLength();
-    // Looping over all platforms to check
+    float leftMostX = this->player->getPosX(); // leftmost point of the player
+    float rightMostX = leftMostX + this->player->getLength(); // rightmost point of the player
+    float posY = this->player->getPosY(); // Y position of the player
+
+
+    // Looping over all platforms to check for collision
     for (const auto& platform: this->platforms) {
         bool criteriaMatched = false;
+        // Setting criteria for when a collision occurred
         if (std::ceil(posY) == std::ceil(platform->getPosY())) criteriaMatched = true;
         if (std::ceil(posY) - 1 == std::ceil(platform->getPosY())) criteriaMatched = true;
         if (std::ceil(posY) == std::ceil(platform->getPosY()) - 1) criteriaMatched = true;
+
         if (criteriaMatched) {
+            bool matched = false;
             // Checking leftmost part of the player
             if (leftMostX > platform->getPosX() and leftMostX <= platform->getPosX() + platform->getLength()) {
-                if (platform->getBonus() != nullptr) {
-                    this->player->setBonus(platform->getBonus()); // todo fix duplicate code
-                    this->addBonusScore(platform->getBonus());
-                }
-                if (platform->getKind() == PKind::TEMP) this->removePlatform(platform);
-                this->addPlatformScore(platform);
-                return true;
+                matched = true;
             }
             // Checking rightmost part of the player
             if (rightMostX > platform->getPosX() and rightMostX <= platform->getPosX() + platform->getLength()) {
+                matched = true;
+            }
+            // Checking if we matched a platform
+            if (matched) {
                 if (platform->getBonus() != nullptr) {
-                    this->player->setBonus(platform->getBonus()); // todo with this code
+                    // There is a bonus, give it to the player
+                    this->player->setBonus(platform->getBonus());
+                    // And of course credit the player for catching the bonus
                     this->addBonusScore(platform->getBonus());
                 }
-
+                // If we collided with a temporary platform, remove that platform
                 if (platform->getKind() == PKind::TEMP) this->removePlatform(platform);
+                // And of course credit the player for jumping on this platform
+                // todo IF the platform is not the same af the prev time of course
                 this->addPlatformScore(platform);
                 return true;
             }
@@ -73,14 +79,10 @@ bool World::collisionCheckPlatform() {
 }
 
 void World::createPlatforms() {
-    // todo find better location for this
-    if (player->getLength() == 0) {
-        this->player->setLength(this->playerLength);
-    }
     // Evaluating is we need new platforms
     while (newPlatformsNeeded()) {
-        std::shared_ptr<Platform> newPlatform(new Platform);
-        newPlatform->setPosX(Random::randFloat(0,0.85)); // todo change y to 1
+        std::shared_ptr<Entities::Platform> newPlatform(new Entities::Platform);
+        newPlatform->setPosX(Random::randFloat(0,1));
         newPlatform->setPosY(this->findHighestPlatform().getY() + Random::randFloat(20,150));
         newPlatform->setLength(this->platformLength);
         if (newPlatform->getKind() == PKind::VERTICAL) {
@@ -97,17 +99,17 @@ void World::createPlatforms() {
 void World::createBackground() {
     // Evaluating is we need new stars
     while (newStarsNeeded()) {
-        std::shared_ptr<BGTile> newStar(new BGTile);
+        std::shared_ptr<Entities::BGTile> newStar(new Entities::BGTile);
         newStar->setPosX(Random::randFloat(0,1));
         newStar->setPosY(this->findHighestStar().getY() + (float)Random::randInt(10,50));
         this->bgTiles.push_back(newStar);
     }
 }
 
-void World::createBonus(const std::shared_ptr<Platform>& platform) {
+void World::createBonus(const std::shared_ptr<Entities::Platform>& platform) {
     // Will there be a bonus on this platform: 5% chance
     if (Random::randInt(1,100) <= 5) {
-        std::shared_ptr<Bonus> newBonus(new Bonus);
+        std::shared_ptr<Entities::Bonus> newBonus(new Entities::Bonus);
         // Place the bonus somewhere random on the platform
         newBonus->setPosX(Random::randFloat(platform->getPosX(),platform->getPosX()+platform->getLength()));
         newBonus->setPosY(platform->getPosY());
@@ -118,8 +120,8 @@ void World::createBonus(const std::shared_ptr<Platform>& platform) {
 void World::removeOutOfView() {
     // Max amount of platforms allowed is 30, remove all the others to begin with
     while (this->platforms.size() > 30) {
-        std::vector<std::shared_ptr<Platform>> newPlatforms;
-        std::shared_ptr<Platform> lowest = this->findLowestPlatform();
+        std::vector<std::shared_ptr<Entities::Platform>> newPlatforms;
+        std::shared_ptr<Entities::Platform> lowest = this->findLowestPlatform();
         for (const auto& platform: this->platforms) {
             if (platform != lowest)
                 newPlatforms.push_back(platform);
@@ -130,8 +132,8 @@ void World::removeOutOfView() {
 
     // Max amount of stars allowed is 50, remove all the others to begin with
     while (this->bgTiles.size() > 50) {
-        std::vector<std::shared_ptr<BGTile>> newBGTiles;
-        std::shared_ptr<BGTile> lowest = this->findLowestStar();
+        std::vector<std::shared_ptr<Entities::BGTile>> newBGTiles;
+        std::shared_ptr<Entities::BGTile> lowest = this->findLowestStar();
         for (const auto& star: this->bgTiles) {
             if (star != lowest) {
                 newBGTiles.push_back(star);
@@ -146,7 +148,6 @@ void World::removeOutOfView() {
 void World::movePlatforms() {
     for (auto& platform: this->platforms) {
         if (platform->getKind() == PKind::HORIZONTAL) {
-            // todo edit this to take into account the length of the platform
             if (platform->getMovingRight() and platform->getPosX() + platform->getLength() < 1) {
                 platform->moveRight();
             }
@@ -177,7 +178,7 @@ void World::movePlatforms() {
     }
 }
 
-std::vector<std::shared_ptr<Platform>> World::getPlatforms() {
+std::vector<std::shared_ptr<Entities::Platform>> World::getPlatforms() {
     return this->platforms;
 }
 
@@ -204,8 +205,8 @@ Coordinates World::findHighestPlatform() const {
     return highest;
 }
 
-std::shared_ptr<Platform> World::findLowestPlatform() {
-    std::shared_ptr<Platform> lowest;
+std::shared_ptr<Entities::Platform> World::findLowestPlatform() {
+    std::shared_ptr<Entities::Platform> lowest;
     for (const auto& entity: this->platforms) {
         if (lowest == nullptr or entity->getPosY() < lowest->getPosY()) {
             lowest = entity;
@@ -214,8 +215,8 @@ std::shared_ptr<Platform> World::findLowestPlatform() {
     return lowest;
 }
 
-std::shared_ptr<BGTile> World::findLowestStar() {
-    std::shared_ptr<BGTile> lowest;
+std::shared_ptr<Entities::BGTile> World::findLowestStar() {
+    std::shared_ptr<Entities::BGTile> lowest;
     for (const auto& entity: this->bgTiles) {
         if (lowest == nullptr or entity->getPosY() < lowest->getPosY()) {
             lowest = entity;
@@ -246,8 +247,8 @@ bool World::newStarsNeeded() {
     return true;
 }
 
-std::shared_ptr<Bonus> World::findLowestBonus() {
-    std::shared_ptr<Bonus> lowest;
+__attribute__((unused)) std::shared_ptr<Entities::Bonus> World::findLowestBonus() {
+    std::shared_ptr<Entities::Bonus> lowest;
     for (const auto& entity: this->bonuses) {
         if (lowest == nullptr or entity->getPosY() < lowest->getPosY()) {
             lowest = entity;
@@ -256,8 +257,8 @@ std::shared_ptr<Bonus> World::findLowestBonus() {
     return lowest;
 }
 
-void World::removePlatform(const std::shared_ptr<Platform>& toRemove) {
-    std::vector<std::shared_ptr<Platform>> newPlatforms;
+void World::removePlatform(const std::shared_ptr<Entities::Platform>& toRemove) {
+    std::vector<std::shared_ptr<Entities::Platform>> newPlatforms;
     for (const auto& platform: this->platforms) {
         if (platform != toRemove) {
             newPlatforms.push_back(platform);
@@ -267,7 +268,7 @@ void World::removePlatform(const std::shared_ptr<Platform>& toRemove) {
     this->platforms = newPlatforms;
 }
 
-void World::addPlatformScore(const std::shared_ptr<Platform>& platform) {
+void World::addPlatformScore(const std::shared_ptr<Entities::Platform>& platform) {
     if (platform->getKind() == PKind::STATIC) {
         this->score+=10;
         return;
@@ -286,7 +287,7 @@ void World::addPlatformScore(const std::shared_ptr<Platform>& platform) {
     }
 }
 
-void World::addBonusScore(const std::shared_ptr<Bonus>& bonus) {
+void World::addBonusScore(const std::shared_ptr<Entities::Bonus>& bonus) {
     if (bonus->getPowerKind() == BonusPower::ROCKET) {
         this->score+=30;
         return;
@@ -307,9 +308,25 @@ bool World::checkGameOver() {
     else return false;
 }
 
+World::World(std::shared_ptr<Camera> camera) {
+    ConcreteFactory factory;
+    this->player = factory.createPlayer();
+    this->m_camera = std::move(camera);
+}
 
+std::shared_ptr<Entities::Player> World::getPlayer() {
+    return this->player;
+}
 
+void World::setPlayerLength(float length) {
+    this->playerLength = length;
+    this->player->setLength(this->playerLength);
+}
 
+void World::setPlatformLength(float length) {
+    this->platformLength = length;
+}
 
-
-
+std::vector<std::shared_ptr<Entities::BGTile>> World::getBackground() {
+    return this->bgTiles;
+}
