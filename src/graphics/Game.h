@@ -183,6 +183,8 @@ public:
 
     void jumpingGraphics();
 
+    bool openEndSFScreen();
+
 
 
 

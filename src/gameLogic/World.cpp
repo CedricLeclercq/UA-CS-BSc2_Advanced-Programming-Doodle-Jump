@@ -8,6 +8,9 @@ using Random = Utilities::Random;
 
 
 void World::updateWorld() {
+    // Don't do anything if game over!
+    if (this->checkGameOver()) return;
+
     // Checking if the player collided and letting him jump
     if (this->collisionCheckPlatform()) {
         this->player->jump(true);
