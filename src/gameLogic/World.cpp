@@ -303,7 +303,9 @@ int World::getScore() const {
 }
 
 bool World::checkGameOver() {
-    if (!this->m_camera->evalInCamera(*this->player->getPos()))
+    Coordinates toEval = (*this->player->getPos());
+    toEval.setY(toEval.getY() + 20); // Make the game over a bit less strict
+    if (!this->m_camera->evalInCamera(toEval))
         return true;
     else return false;
 }
