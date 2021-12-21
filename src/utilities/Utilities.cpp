@@ -30,7 +30,7 @@ float Utilities::Random::randFloat(float x, float y) {
 }
 
 void Utilities::Stopwatch::startCounter() {
-    this->beforeRunTicks = clock(); // todo maybe use high resolution clock
+    this->beforeRunTicks = clock();
 }
 
 void Utilities::Stopwatch::stopCounter() {
@@ -39,6 +39,17 @@ void Utilities::Stopwatch::stopCounter() {
 
 float Utilities::Stopwatch::getDeltaTicks() const {
     return static_cast<float>(this->deltaTicks);
+}
+
+float Utilities::Stopwatch::calculateSpeedUp() const {
+    //std::cout << static_cast<float>(this->deltaTicks) / 1000.f * 60.f << std::endl;
+    //return (float)pow((static_cast<float>(this->deltaTicks) / 400),2); // todo possibility 1
+    return static_cast<float>(this->deltaTicks) / 1000.f * 60.f; // todo possibility 2
+    //return 1; // Just return 1, will make the game run normally without an fps cap on my end
+}
+
+void Utilities::Stopwatch::setFPS(float nFPS) {
+    this->fps = nFPS;
 }
 
 void Utilities::Coordinates::setX(float nX) {

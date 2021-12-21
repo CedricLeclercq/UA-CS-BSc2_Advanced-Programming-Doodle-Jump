@@ -60,19 +60,19 @@ void Entities::Platform::makeTemp() {
 }
 
 void Entities::Platform::moveUp() {
-    this->setPos(this->getPosX(), this->getPosY() + (float)0.1);
+    this->setPos(this->getPosX(), this->getPosY() + ((float)0.1 * this->deltaTicksSpeedUp));
 }
 
 void Entities::Platform::moveDown() {
-    this->setPos(this->getPosX(), this->getPosY() - (float)0.1);
+    this->setPos(this->getPosX(), this->getPosY() - ((float)0.1 * this->deltaTicksSpeedUp));
 }
 
 void Entities::Platform::moveRight() {
-    this->setPos(this->getPosX() + (float)0.0003, this->getPosY());
+    this->setPos(this->getPosX() + ((float)0.0003 * this->deltaTicksSpeedUp), this->getPosY());
 }
 
 void Entities::Platform::moveLeft() {
-    this->setPos(this->getPosX() - (float)0.0003, this->getPosY());
+    this->setPos(this->getPosX() - ((float)0.0003 * this->deltaTicksSpeedUp), this->getPosY()); // todo change these to move?
 }
 
 PKind Entities::Platform::getKind() const {

@@ -37,6 +37,8 @@ private:
     float playerLength{};
     /// @brief Standard platform length
     float platformLength{};
+    /// @brief To speed up or slow down the logic world on slower pc's
+    float deltaTicksSpeedUp{};
     /**
      * @brief Create platforms and place them in the world (only if new platforms are needed)
      */
@@ -164,6 +166,15 @@ public:
      * @return      (gameOver?)
      */
     bool checkGameOver();
+    /**
+     * @brief Setter for the delta ticks speed up variable
+     * @param deltaTicks    New delta ticks speedup
+     */
+    void setDeltaTicks(float deltaTicks);
+    /**
+     * @brief Will apply the delta ticks to the player and the platforms (all the moving elements)
+     */
+    void applyDeltaTicks();
 };
 
 

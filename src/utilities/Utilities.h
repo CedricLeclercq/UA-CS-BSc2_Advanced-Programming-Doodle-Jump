@@ -41,6 +41,7 @@ namespace Utilities {
      * @class Utilities::Stopwatch
      * @brief Makes sure that the game logic and the graphical side runs the same on every pc using cpu ticks
      */
+     // todo make this one singleton
     class Stopwatch {
     private:
         // Member variables
@@ -48,6 +49,8 @@ namespace Utilities {
         clock_t beforeRunTicks;
         /// @brief deltaTicks := ticks when stopwatch ended - ticks when stopwatch started
         clock_t deltaTicks;
+        ///@brief Default FPS the games runs on
+        float fps;
         // Member functions
     public:
         /**
@@ -56,6 +59,7 @@ namespace Utilities {
         Stopwatch() {
             this->beforeRunTicks = 0;
             this->deltaTicks = 1;
+            this->fps = 60;
         }
         /**
          * @brief Getter for the delta ticks of the previous run
@@ -70,6 +74,15 @@ namespace Utilities {
          * @brief Stop the stopwatch - calculate delta ticks
          */
         void stopCounter();
+        /**
+         * @brief Setter for the fps
+         * @param nFPS      New fps
+         */
+        void setFPS(float nFPS);
+        /**
+         * @brief Will calculate how much slower/faster the movements in the game need to be
+         */
+        float calculateSpeedUp() const;
     };
     /**
      * @class Utilities::Coordinates

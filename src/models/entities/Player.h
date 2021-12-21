@@ -23,6 +23,8 @@ private:
     bool paralysedY{};
     /// @brief Velocity Y the player is currently moving at
     float velocityY{};
+    /// @brief Delta ticks at the beginning of the jump
+    float deltaAtJump{};
     /// @brief Shared pointer to the bonus the player is currenlty having an effect from
     std::shared_ptr<Entities::Bonus> bonus{};
 public:
@@ -31,6 +33,7 @@ public:
      */
     Player() {
         this->position = std::make_shared<Utilities::Coordinates>(0.5,0.f);
+        this->deltaAtJump = 1;
         this->mLookLeft = false;
         this->paralysedY = false;
     }

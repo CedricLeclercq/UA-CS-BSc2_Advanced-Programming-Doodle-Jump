@@ -13,6 +13,9 @@ void World::updateWorld() {
     // Don't do anything if game over!
     if (this->checkGameOver()) return;
 
+    // Setting delta ticks for player
+    this->applyDeltaTicks();
+
     // Checking if the player collided and letting him jump
     if (this->collisionCheckPlatform()) {
         this->player->jump(true);
@@ -340,4 +343,15 @@ void World::setPlatformLength(float length) {
 
 std::vector<std::shared_ptr<Entities::BGTile>> World::getBackground() {
     return this->bgTiles;
+}
+
+void World::setDeltaTicks(float deltaTicks) {
+    this->deltaTicksSpeedUp = deltaTicks;
+}
+
+void World::applyDeltaTicks() {
+    this->player->setDeltaTick(this->deltaTicksSpeedUp);
+    for (auto& platform: this->platforms) {
+        platform->setDeltaTick(this->deltaTicksSpeedUp);
+    }
 }

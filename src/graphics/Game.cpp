@@ -165,8 +165,8 @@ void Game::setTileTexture(const std::shared_ptr<Entities::BGTile> &tile, sf::Spr
 
 void Game::start() {
     while ((*this->mWindow).isOpen()) {
-        float deltaTicks = this->mStopwatch->getDeltaTicks(); // Getting the delta ticks for defining the player speed
-        std::cout << deltaTicks << std::endl;
+        float deltaTicks = this->mStopwatch->calculateSpeedUp(); // Getting the delta ticks for defining the player speed
+        std::cout << deltaTicks << std::endl; // todo remove debug
         this->mStopwatch->startCounter();
         this->getInput(); // Getting input from the user and moving the player
         this->updateWorld(); // Updating the world based on the user input
@@ -208,7 +208,8 @@ void Game::createWorld() {
     this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second,borderY.second));
     this->mWorld = factory.createWorld(mCamera);
     this->mStopwatch = std::make_unique<Utilities::Stopwatch>();
-    //this->mWindow->setFramerateLimit(20); // Setting framerate limit // todo fix setting framerate
+    this->mWindow->setFramerateLimit(60); // Setting framerate limit // todo fix setting framerate
+    //this->mStopwatch->setFPS(20);
 }
 
 void Game::initiateTextures() {
@@ -360,6 +361,7 @@ void Game::openSFWindow() {
 }
 
 void Game::updateWorld() {
+    this->mWorld->setDeltaTicks(this->mStopwatch->calculateSpeedUp());
     this->mWorld->updateWorld();
 }
 
@@ -420,8 +422,7 @@ void Game::drawEndScreen() {
     sf::FloatRect highscoreRect = highScoreText.getLocalBounds();
     highScoreText.setOrigin(highscoreRect.left + highscoreRect.width / 2.0f,
                             highscoreRect.top + highscoreRect.height / 2.0f);
-    highScoreText.setPosition(
-            sf::Vector2f(static_cast<float>(this->mWindow->getSize().x) / 2.0f, 400));
+    highScoreText.setPosition(sf::Vector2f(static_cast<float>(this->mWindow->getSize().x) / 2.0f, 400));
 
     sf::Text newGame;
     newGame.setFont(this->scoreFont);
@@ -429,8 +430,7 @@ void Game::drawEndScreen() {
     newGame.setCharacterSize(30);
     sf::FloatRect newGameRect = newGame.getLocalBounds();
     newGame.setOrigin(newGameRect.left + newGameRect.width / 2.0f, newGameRect.top + newGameRect.height / 2.0f);
-    newGame.setPosition(
-            sf::Vector2f(static_cast<float>(this->mWindow->getSize().x) / 2.0f, 600));
+    newGame.setPosition(sf::Vector2f(static_cast<float>(this->mWindow->getSize().x) / 2.0f, 600));
 
     while (not sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
         this->mWindow->clear(sf::Color::Black);
@@ -450,8 +450,6 @@ void Game::drawEndScreen() {
 
     this->initialiseGame();
     this->setup();
-
-
 }
 
 void Game::evaluateEndGame() {
@@ -472,12 +470,3 @@ bool Game::openEndSFScreen() {
     (*this->mWindow).clear(sf::Color::Black);
     return false;
 }
-
-
-
-
-
-
-
-
-

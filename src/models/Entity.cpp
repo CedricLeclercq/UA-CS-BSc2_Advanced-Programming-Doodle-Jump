@@ -44,3 +44,11 @@ void Entity::setLength(float nLength) {
 float Entity::getLength() const {
     return this->length;
 }
+
+float Entity::getDeltaTick() const {
+    return this->deltaTicksSpeedUp;
+}
+
+void Entity::setDeltaTick(float deltaTick) {
+    this->deltaTicksSpeedUp = deltaTick;
+}
