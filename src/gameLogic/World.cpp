@@ -13,9 +13,6 @@ void World::updateWorld() {
     // Don't do anything if game over!
     if (this->checkGameOver()) return;
 
-    // Setting delta ticks for player
-    this->applyDeltaTicks();
-
     // Checking if the player collided and letting him jump
     if (this->collisionCheckPlatform()) {
         this->player->jump(true);
@@ -94,8 +91,8 @@ void World::createPlatforms() {
     // Evaluating is we need new platforms
     while (newPlatformsNeeded()) {
         std::shared_ptr<Entities::Platform> newPlatform(new Entities::Platform);
-        newPlatform->setPosX(Random::randFloat(0,1 - this->platformLength));
-        newPlatform->setPosY(this->findHighestPlatform().getY() + Random::randFloat(20,150));
+        newPlatform->setPosX(Random::getInstance().randFloat(0,1 - this->platformLength));
+        newPlatform->setPosY(this->findHighestPlatform().getY() + Random::getInstance().randFloat(20,150));
         newPlatform->setLength(this->platformLength);
         if (newPlatform->getKind() == PKind::VERTICAL) {
             newPlatform->setMinHeight(newPlatform->getPosY());
@@ -112,18 +109,18 @@ void World::createBackground() {
     // Evaluating is we need new stars
     while (newStarsNeeded()) {
         std::shared_ptr<Entities::BGTile> newStar(new Entities::BGTile);
-        newStar->setPosX(Random::randFloat(0,1));
-        newStar->setPosY(this->findHighestStar().getY() + (float)Random::randInt(10,50));
+        newStar->setPosX(Random::getInstance().randFloat(0,1));
+        newStar->setPosY(this->findHighestStar().getY() + (float)Random::getInstance().randInt(10,50));
         this->bgTiles.push_back(newStar);
     }
 }
 
 void World::createBonus(const std::shared_ptr<Entities::Platform>& platform) {
     // Will there be a bonus on this platform: 5% chance
-    if (Random::randInt(1,100) <= 5) {
+    if (Random::getInstance().randInt(1,100) <= 5) {
         std::shared_ptr<Entities::Bonus> newBonus(new Entities::Bonus);
         // Place the bonus somewhere random on the platform
-        newBonus->setPosX(Random::randFloat(platform->getPosX(),platform->getPosX()+platform->getLength()));
+        newBonus->setPosX(Random::getInstance().randFloat(platform->getPosX(),platform->getPosX()+platform->getLength()));
         newBonus->setPosY(platform->getPosY());
         platform->setBonus(newBonus);
     }
@@ -343,15 +340,4 @@ void World::setPlatformLength(float length) {
 
 std::vector<std::shared_ptr<Entities::BGTile>> World::getBackground() {
     return this->bgTiles;
-}
-
-void World::setDeltaTicks(float deltaTicks) {
-    this->deltaTicksSpeedUp = deltaTicks;
-}
-
-void World::applyDeltaTicks() {
-    this->player->setDeltaTick(this->deltaTicksSpeedUp);
-    for (auto& platform: this->platforms) {
-        platform->setDeltaTick(this->deltaTicksSpeedUp);
-    }
 }

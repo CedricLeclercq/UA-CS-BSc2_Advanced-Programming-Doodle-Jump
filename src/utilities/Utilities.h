@@ -21,21 +21,27 @@ namespace Utilities {
      * @brief Will provide all the random values in the project
      */
     class Random {
+    private:
+        Random();
+        ~Random()=default;
+        std::random_device rd{};
+        std::mt19937 mt;
     public:
+        static Random& getInstance();
         /**
          * @brief Will return a random integer from x to y
          * @param x     Bounder x
          * @param y     Bounder Y
          * @return      Random integer between x and y
          */
-        static int randInt(int x,int y);
+        int randInt(int x,int y);
         /**
          * @brief Will return a random float from x to y
          * @param x     Bounder x
          * @param y     Bounder y
          * @return      Random float between x and y
          */
-        static float randFloat(float x, float y);
+        float randFloat(float x, float y);
     };
     /**
      * @class Utilities::Stopwatch
@@ -48,19 +54,17 @@ namespace Utilities {
         /// @brief Indicates how many ticks where recorded at the beginning of the stopwatch
         clock_t beforeRunTicks;
         /// @brief deltaTicks := ticks when stopwatch ended - ticks when stopwatch started
-        clock_t deltaTicks;
-        ///@brief Default FPS the games runs on
-        float fps;
+        float deltaTicks;
         // Member functions
-    public:
         /**
          * @brief Basic constructor for the stopwatch
          */
         Stopwatch() {
             this->beforeRunTicks = 0;
             this->deltaTicks = 1;
-            this->fps = 60;
         }
+    public:
+        static Stopwatch& getInstance();
         /**
          * @brief Getter for the delta ticks of the previous run
          * @return
@@ -74,15 +78,6 @@ namespace Utilities {
          * @brief Stop the stopwatch - calculate delta ticks
          */
         void stopCounter();
-        /**
-         * @brief Setter for the fps
-         * @param nFPS      New fps
-         */
-        void setFPS(float nFPS);
-        /**
-         * @brief Will calculate how much slower/faster the movements in the game need to be
-         */
-        float calculateSpeedUp() const;
     };
     /**
      * @class Utilities::Coordinates

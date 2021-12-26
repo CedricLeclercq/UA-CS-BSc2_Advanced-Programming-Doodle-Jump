@@ -23,7 +23,7 @@ void Entities::Platform::createPlatform() {
     }
 
     // Else generating platform based on the chance for each one to generate
-    int chance = Random::randInt(1,10);
+    int chance = Random::getInstance().randInt(1,10);
     if (chance <= 7) {
         // 70% chance of creating a static platform
         this->makeStatic();
@@ -46,7 +46,7 @@ void Entities::Platform::makeStatic() {
 
 void Entities::Platform::makeHorizontal() {
     this->platformKind = HORIZONTAL;
-    this->movingRight = (bool)Random::randInt(0,1);
+    this->movingRight = (bool)Random::getInstance().randInt(0,1);
 }
 
 void Entities::Platform::makeVertical() {
@@ -60,19 +60,19 @@ void Entities::Platform::makeTemp() {
 }
 
 void Entities::Platform::moveUp() {
-    this->setPos(this->getPosX(), this->getPosY() + ((float)0.1 * this->deltaTicksSpeedUp));
+    this->setPos(this->getPosX(), this->getPosY() + ((float)0.1 * Utilities::Stopwatch::getInstance().getDeltaTicks()));
 }
 
 void Entities::Platform::moveDown() {
-    this->setPos(this->getPosX(), this->getPosY() - ((float)0.1 * this->deltaTicksSpeedUp));
+    this->setPos(this->getPosX(), this->getPosY() - ((float)0.1 * Utilities::Stopwatch::getInstance().getDeltaTicks()));
 }
 
 void Entities::Platform::moveRight() {
-    this->setPos(this->getPosX() + ((float)0.0003 * this->deltaTicksSpeedUp), this->getPosY());
+    this->setPos(this->getPosX() + ((float)0.0003 * Utilities::Stopwatch::getInstance().getDeltaTicks()), this->getPosY());
 }
 
 void Entities::Platform::moveLeft() {
-    this->setPos(this->getPosX() - ((float)0.0003 * this->deltaTicksSpeedUp), this->getPosY()); // todo change these to move?
+    this->setPos(this->getPosX() - ((float)0.0003 * Utilities::Stopwatch::getInstance().getDeltaTicks()), this->getPosY());
 }
 
 PKind Entities::Platform::getKind() const {

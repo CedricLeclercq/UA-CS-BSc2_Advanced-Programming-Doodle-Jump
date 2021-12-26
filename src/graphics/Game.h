@@ -36,9 +36,6 @@ private:
     std::shared_ptr<World> mWorld;
     /// @brief Camera used for the projection of elements
     std::shared_ptr<Camera> mCamera;
-    /// @brief Singleton stopwatch for fps counting
-    std::unique_ptr<Utilities::Stopwatch> mStopwatch;
-
     // Textures
     /// @brief Main player sprite texture
     sf::Texture mSpriteTex;

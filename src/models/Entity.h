@@ -22,8 +22,6 @@ protected:
     std::shared_ptr<Utilities::Coordinates> position{};
     /// @brief Length of the entity
     float length{};
-    /// @brief Indicates how much the entity needs to speed up / slow down its movements
-    float deltaTicksSpeedUp{};
     /**
      * @brief Pure virtual function for the entity to move right
      */
@@ -44,7 +42,6 @@ public:
      */
     Entity() {
         this->position = std::make_shared<Utilities::Coordinates>(0,0);
-        this->deltaTicksSpeedUp = 1;
     }
     /**
      * @brief Setter for the position of the entity
@@ -87,17 +84,6 @@ public:
      * @return      Length of the entity
      */
     float getLength() const;
-    /**
-     * @brief Getter for the delta tick speed of an entity
-     * @return      Delta tick speed
-     */
-    float getDeltaTick() const;
-    /**
-     * @brief Setter for the delta tick speed of an entity
-     * @param deltaTick     New delta tick speed
-     */
-    void setDeltaTick(float deltaTick);
-
 };
 
 

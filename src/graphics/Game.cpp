@@ -165,9 +165,9 @@ void Game::setTileTexture(const std::shared_ptr<Entities::BGTile> &tile, sf::Spr
 
 void Game::start() {
     while ((*this->mWindow).isOpen()) {
-        float deltaTicks = this->mStopwatch->calculateSpeedUp(); // Getting the delta ticks for defining the player speed
+        float deltaTicks = Utilities::Stopwatch::getInstance().getDeltaTicks(); // Getting the delta ticks for defining the player speed
         std::cout << deltaTicks << std::endl; // todo remove debug
-        this->mStopwatch->startCounter();
+        Utilities::Stopwatch::getInstance().startCounter();
         this->getInput(); // Getting input from the user and moving the player
         this->updateWorld(); // Updating the world based on the user input
         this->setup(); // Setting up the graphics and placing all views
@@ -175,7 +175,7 @@ void Game::start() {
         this->addScore(); // Adding the score to the window
         this->openSFWindow(); // Finally, opening the game
         this->evaluateEndGame(); // Evaluating is the game has ended
-        this->mStopwatch->stopCounter();
+        Utilities::Stopwatch::getInstance().stopCounter();
     }
 }
 
@@ -207,8 +207,7 @@ void Game::createWorld() {
     // Creating camera
     this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second,borderY.second));
     this->mWorld = factory.createWorld(mCamera);
-    this->mStopwatch = std::make_unique<Utilities::Stopwatch>();
-    this->mWindow->setFramerateLimit(60); // Setting framerate limit // todo fix setting framerate
+    this->mWindow->setFramerateLimit(120); // Setting framerate limit // todo fix setting framerate
     //this->mStopwatch->setFPS(20);
 }
 
@@ -361,7 +360,7 @@ void Game::openSFWindow() {
 }
 
 void Game::updateWorld() {
-    this->mWorld->setDeltaTicks(this->mStopwatch->calculateSpeedUp());
+    //this->mWorld->setDeltaTicks(Utilities::Stopwatch::getInstance().calculateSpeedUp());
     this->mWorld->updateWorld();
 }
 
@@ -454,7 +453,9 @@ void Game::drawEndScreen() {
 
 void Game::evaluateEndGame() {
     if (this->mWorld->checkGameOver()) {
+        Utilities::Stopwatch::getInstance().stopCounter();
         this->drawEndScreen();
+        Utilities::Stopwatch::getInstance().startCounter();
     }
 }
 

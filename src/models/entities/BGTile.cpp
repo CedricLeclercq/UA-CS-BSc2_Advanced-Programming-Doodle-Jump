@@ -11,7 +11,7 @@ using Random = Utilities::Random;
 
 void Entities::BGTile::defineKind() {
     // Getting a random number
-    float random = Random::randFloat(0,1000);
+    float random = Random::getInstance().randFloat(0,1000);
 
     // STAR1 generates
     if (random <= 950) {
@@ -25,7 +25,7 @@ void Entities::BGTile::defineKind() {
     }
     // PLANETx generates
     if (random <= 998) {
-        int randomPlanet = Random::randInt(1,6);
+        int randomPlanet = Random::getInstance().randInt(1,6);
         switch (randomPlanet) {
             case 1:
                 this->kind = TKind::PLANET1;
@@ -51,7 +51,7 @@ void Entities::BGTile::defineKind() {
         }
     } else {
         // MILKYWAYx generates
-        int randomMilkyWay = Random ::randInt(1,2);
+        int randomMilkyWay = Random::getInstance().randInt(1,2);
         switch (randomMilkyWay) {
             case 1:
                 this->kind = TKind::MILKYWAY1;

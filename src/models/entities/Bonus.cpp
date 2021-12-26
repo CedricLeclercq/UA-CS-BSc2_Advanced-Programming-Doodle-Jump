@@ -12,7 +12,7 @@ using Random = Utilities::Random;
 
 Entities::Bonus::Bonus(BonusPower power) {
     this->powerKind = power;
-    if (Random::randInt(0,1) == 1) {
+    if (Random::getInstance().randInt(0,1) == 1) {
         this->powerKind = BonusPower::SPRING;
     }
     this->chargePowers();
