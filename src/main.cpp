@@ -9,5 +9,6 @@
 
 int main() {
     Game game; // Start the game!
+    return 0;
 }
 
