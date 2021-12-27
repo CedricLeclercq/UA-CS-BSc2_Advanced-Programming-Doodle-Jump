@@ -6,6 +6,7 @@
 // // // // // // // // // // // // // //
 
 #include "Game.h"
+#include "../observers/entityObservers/ScoreObserver.h"
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
 #include <memory>
@@ -200,6 +201,9 @@ void Game::jumpingGraphics() {
 }
 
 void Game::createWorld() {
+    // Resetting the player and score observer
+    Observers::ScoreObserver::getInstance().resetObserver();
+    // todo reset player controller
     // Creating world
     ConcreteFactory factory;
     std::pair<float,float> borderX = std::make_pair(0,this->mWindow->getSize().x);
@@ -366,13 +370,13 @@ void Game::updateWorld() {
 
 void Game::addScore() {
     // Do not change the score if it's not needed
-    if (this->scoreText.getString() == std::to_string(this->mWorld->getScore())) {
+    if (this->scoreText.getString() == std::to_string(Observers::ScoreObserver::getInstance().getScore())) {
         (*this->mWindow).draw(this->scoreText);
         return;
     }
 
     // else, change the score
-    this->scoreText.setString(std::to_string(this->mWorld->getScore()));
+    this->scoreText.setString(std::to_string(Observers::ScoreObserver::getInstance().getScore()));
     (*this->mWindow).draw(this->scoreText);
 }
 
@@ -404,10 +408,10 @@ void Game::drawEndScreen() {
     std::getline(file, highscore);
     file.close();
     // We get a score higher than the one we already had
-    if (std::stoi(highscore) < this->mWorld->getScore()) {
+    if (std::stoi(highscore) < Observers::ScoreObserver::getInstance().getScore()) {
         std::ofstream ofFile;
         ofFile.open("recourses/game_data.info", std::ofstream::out | std::ofstream::trunc);
-        ofFile << this->mWorld->getScore();
+        ofFile << Observers::ScoreObserver::getInstance().getScore();
         ofFile.close();
     }
     std::ifstream file2("recourses/game_data.info");

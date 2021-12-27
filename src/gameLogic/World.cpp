@@ -6,6 +6,7 @@
 // // // // // // // // // // // // // //
 
 #include "World.h"
+#include "../observers/entityObservers/ScoreObserver.h"
 
 using Random = Utilities::Random;
 
@@ -21,7 +22,7 @@ void World::updateWorld() {
     }
     // Calculating score for when the player has gone higher
     auto difference = static_cast<float>(this->m_camera->higherWindowHeight(this->player->getPosY()));
-    this->score+=difference*1/4; // and adding that score
+    Observers::ScoreObserver::getInstance().addScore(difference * 1/4); // and adding that score
     // Updating the player height
     m_camera->updateHeight(this->player->getPosY());
     // Creating all new elements in the world
@@ -72,9 +73,9 @@ bool World::collisionCheckPlatform() {
                 if (this->prevPlatform == nullptr) this->prevPlatform = platform;
                 // If the player jumped twice on the same platform, decrease score by 10
                 if (this->prevPlatform == platform) {
-                    if (this->score - 10 >= 0) {
-                        this->score -= 10; // Decreasing score
-                    } else this->score = 0;
+                    if (Observers::ScoreObserver::getInstance().getScore() - 10 >= 0) {
+                        Observers::ScoreObserver::getInstance().addScore(-10); // Decreasing score
+                    } else Observers::ScoreObserver::getInstance().setScore(0);
                 } else {
                     this->prevPlatform = platform; // Else adding to score
                     this->addPlatformScore(platform);
@@ -279,36 +280,32 @@ void World::removePlatform(const std::shared_ptr<Entities::Platform>& toRemove) 
 
 void World::addPlatformScore(const std::shared_ptr<Entities::Platform>& platform) {
     if (platform->getKind() == PKind::STATIC) {
-        this->score+=10;
+        Observers::ScoreObserver::getInstance().addScore(10);
         return;
     }
     if (platform->getKind() == PKind::HORIZONTAL) {
-        this->score+=12;
+        Observers::ScoreObserver::getInstance().addScore(12);
         return;
     }
     if (platform->getKind() == PKind::VERTICAL) {
-        this->score+=14;
+        Observers::ScoreObserver::getInstance().addScore(14);
         return;
     }
     if (platform->getKind() == PKind::TEMP) {
-        this->score+=16;
+        Observers::ScoreObserver::getInstance().addScore(16);
         return;
     }
 }
 
 void World::addBonusScore(const std::shared_ptr<Entities::Bonus>& bonus) {
     if (bonus->getPowerKind() == BonusPower::ROCKET) {
-        this->score+=30;
+        Observers::ScoreObserver::getInstance().addScore(30);
         return;
     }
     if (bonus->getPowerKind() == BonusPower::SPRING) {
-        this->score+=20;
+        Observers::ScoreObserver::getInstance().addScore(20);
         return;
     }
-}
-
-int World::getScore() const {
-    return static_cast<int>(this->score);
 }
 
 bool World::checkGameOver() {

@@ -9,6 +9,7 @@
 
 namespace Observers {
     class PlayerObserver;
+    class ScoreObserver;
 }
 
 #endif //ADVANCEDPROGRAMMINGDOODLEJUMP_OBSERVERS_H

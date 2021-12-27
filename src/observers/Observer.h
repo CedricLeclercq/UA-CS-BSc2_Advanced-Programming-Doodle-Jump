@@ -7,7 +7,10 @@
 
 
 class Observer {
-
+public:
+    virtual void notifyObserver() = 0;
+    virtual bool getNotified() = 0;
+    virtual void resetObserver() = 0;
 };
 
 

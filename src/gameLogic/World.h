@@ -12,6 +12,7 @@
 #include "../models/entities/Platform.h"
 #include "../models/entities/BGTile.h"
 #include "../factories/ConcreteFactory.h"
+#include "../observers/Observers.h"
 #include "Camera.h"
 #include <memory>
 #include <utility>
@@ -31,8 +32,6 @@ private:
     std::shared_ptr<Camera> m_camera;
     /// @brief Shared pointer to the previous platform the player jumped on
     std::shared_ptr<Entities::Platform> prevPlatform;
-    /// @brief Total score of the player
-    float score{};
     /// @brief Standard player length
     float playerLength{};
     /// @brief Standard platform length
@@ -154,11 +153,6 @@ public:
      * @return      Vector with shared pointers to the bonuses
      */
     __attribute__((unused)) std::vector<std::shared_ptr<Entities::Bonus>> getBonuses() const {return this->bonuses; }
-    /**
-     * @brief Getter for the score of the player
-     * @return      Static cast <int> (score of the player)
-     */
-    int getScore() const;
     /**
      * @brief Checks is the game is over in the world by comparing Y coordinates with the lowest allowed
      * @return      (gameOver?)
