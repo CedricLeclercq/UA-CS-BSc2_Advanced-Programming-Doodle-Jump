@@ -28,7 +28,14 @@ SET(LogicLibrary
         src/models/entities/Platform.h
         src/utilities/Utilities.h
         src/utilities/Utilities.cpp
-        src/logicMain.cpp)
+        src/logicMain.cpp
+        src/observers/Observer.cpp
+        src/observers/Observer.h
+        src/observers/entityObservers/PlayerObserver.cpp
+        src/observers/entityObservers/PlayerObserver.h
+        src/observers/Observers.h
+        src/observers/entityObservers/ScoreObserver.cpp
+        src/observers/entityObservers/ScoreObserver.h)
 
 SET(SRC
         src/main.cpp
@@ -62,7 +69,14 @@ SET(SRC
         src/controllers/entityControllers/PlayerController.cpp
         src/controllers/Controllers.h
         src/controllers/Controller.cpp
-        src/models/Entities.h src/observers/Observer.cpp src/observers/Observer.h src/observers/entityObservers/PlayerObserver.cpp src/observers/entityObservers/PlayerObserver.h src/observers/Observers.h src/observers/entityObservers/ScoreObserver.cpp src/observers/entityObservers/ScoreObserver.h)
+        src/models/Entities.h
+        src/observers/Observer.cpp
+        src/observers/Observer.h
+        src/observers/entityObservers/PlayerObserver.cpp
+        src/observers/entityObservers/PlayerObserver.h
+        src/observers/Observers.h
+        src/observers/entityObservers/ScoreObserver.cpp
+        src/observers/entityObservers/ScoreObserver.h)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 
