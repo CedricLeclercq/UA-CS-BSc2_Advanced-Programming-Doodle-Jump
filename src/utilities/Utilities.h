@@ -11,6 +11,7 @@
 #include <random>
 #include <iostream>
 #include <ctime>
+#include <chrono>
 
 /**
  * @brief Namespace for all the utilities and utility classes
