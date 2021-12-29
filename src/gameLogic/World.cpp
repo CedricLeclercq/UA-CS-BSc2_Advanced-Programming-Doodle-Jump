@@ -44,12 +44,14 @@ bool World::collisionCheckPlatform() {
     // Looping over all platforms to check for collision
     for (const auto& platform: this->platforms) {
         bool criteriaMatched = false;
-        // Setting criteria for when a collision occurred
-        if (std::ceil(posY) == std::ceil(platform->getPosY())) criteriaMatched = true;
-        if (std::ceil(posY) - 1 == std::ceil(platform->getPosY())) criteriaMatched = true;
-        if (std::ceil(posY) == std::ceil(platform->getPosY()) - 1) criteriaMatched = true;
+        // Setting criteria for when a collision occurred on the Y coordinate
+        if (std::ceil(posY) - 10 < std::ceil(platform->getPosY())
+            and std::ceil(posY) + 10 > std::ceil(platform->getPosY())) {
+            criteriaMatched = true;
+        }
 
         if (criteriaMatched) {
+            // And now comparing the X coordinate
             bool matched = false;
             // Checking leftmost part of the player
             if (leftMostX > platform->getPosX() and leftMostX <= platform->getPosX() + platform->getLength()) {
@@ -65,7 +67,7 @@ bool World::collisionCheckPlatform() {
                     // There is a bonus, give it to the player
                     this->player->setBonus(platform->getBonus());
                     // And of course credit the player for catching the bonus
-                    this->addBonusScore(platform->getBonus());
+                    World::addBonusScore(platform->getBonus());
                 }
                 // If we collided with a temporary platform, remove that platform
                 if (platform->getKind() == PKind::TEMP) this->removePlatform(platform);
@@ -78,8 +80,7 @@ bool World::collisionCheckPlatform() {
                     } else Observers::ScoreObserver::getInstance().setScore(0);
                 } else {
                     this->prevPlatform = platform; // Else adding to score
-                    this->addPlatformScore(platform);
-
+                    World::addPlatformScore(platform);
                 }
                 return true;
             }
@@ -89,11 +90,13 @@ bool World::collisionCheckPlatform() {
 }
 
 void World::createPlatforms() {
+    // Calculating difficulty of the game
+    auto difficulty = static_cast<float>(this->calculateDifficulty());
     // Evaluating is we need new platforms
     while (newPlatformsNeeded()) {
-        std::shared_ptr<Entities::Platform> newPlatform(new Entities::Platform);
+        std::shared_ptr<Entities::Platform> newPlatform(new Entities::Platform(World::difficultyPlatformOverride(difficulty)));
         newPlatform->setPosX(Random::getInstance().randFloat(0,1 - this->platformLength));
-        newPlatform->setPosY(this->findHighestPlatform().getY() + Random::getInstance().randFloat(20,150));
+        newPlatform->setPosY(this->findHighestPlatform().getY() + Random::getInstance().randFloat(20 * difficulty,150 * difficulty));
         newPlatform->setLength(this->platformLength);
         if (newPlatform->getKind() == PKind::VERTICAL) {
             newPlatform->setMinHeight(newPlatform->getPosY());
@@ -338,3 +341,19 @@ void World::setPlatformLength(float length) {
 std::vector<std::shared_ptr<Entities::BGTile>> World::getBackground() {
     return this->bgTiles;
 }
+
+double World::calculateDifficulty() const {
+    double difficulty = std::floor(this->player->getPosY() / 250) / 50;
+    return std::min(1 + difficulty,1.8);
+}
+
+PKind World::difficultyPlatformOverride(double diff) {
+    float random = Utilities::Random::getInstance().randFloat(1,static_cast<float>(diff));
+    if (random <= 1.3) {
+        return PKind::UNDEF;
+    }
+    if (random <= 1.6) {
+        return PKind::HORIZONTAL;
+    } else return PKind::VERTICAL;
+}
+

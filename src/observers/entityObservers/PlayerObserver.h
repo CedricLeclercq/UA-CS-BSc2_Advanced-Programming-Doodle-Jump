@@ -8,7 +8,17 @@
 #include "../Observers.h"
 
 class Observers::PlayerObserver: public Observer {
-
+private:
+    bool playerChanged{};
+    bool isRocket{};
+    PlayerObserver()=default;
+public:
+    static PlayerObserver& getInstance();
+    void notifyObserver() override;
+    bool getNotified() override;
+    void resetObserver() override;
+    bool getIsRocket() const;
+    void setIsRocket(bool newBool);
 };
 
 

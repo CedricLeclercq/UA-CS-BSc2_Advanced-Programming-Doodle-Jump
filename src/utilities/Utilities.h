@@ -52,7 +52,7 @@ namespace Utilities {
     private:
         // Member variables
         /// @brief Indicates how many ticks where recorded at the beginning of the stopwatch
-        clock_t beforeRunTicks;
+        std::chrono::time_point<std::chrono::high_resolution_clock> beforeRunTicks{};
         /// @brief deltaTicks := ticks when stopwatch ended - ticks when stopwatch started
         float deltaTicks;
         // Member functions
@@ -60,7 +60,6 @@ namespace Utilities {
          * @brief Basic constructor for the stopwatch
          */
         Stopwatch() {
-            this->beforeRunTicks = 0;
             this->deltaTicks = 1;
         }
     public:

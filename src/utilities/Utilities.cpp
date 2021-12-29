@@ -6,6 +6,7 @@
 // // // // // // // // // // // // // //
 
 #include "Utilities.h"
+#include "chrono"
 
 int Utilities::Random::randInt(int x, int y) {
     if (x == y)
@@ -35,11 +36,13 @@ Utilities::Random::Random() {
 }
 
 void Utilities::Stopwatch::startCounter() {
-    this->beforeRunTicks = clock();
+    this->beforeRunTicks = std::chrono::high_resolution_clock::now();
 }
 
 void Utilities::Stopwatch::stopCounter() {
-    this->deltaTicks = static_cast<float>(clock() - this->beforeRunTicks) / 1000.f;
+    auto currentTicks = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<float,std::milli> durationLength = currentTicks - this->beforeRunTicks;
+    this->deltaTicks = durationLength.count();
 }
 
 float Utilities::Stopwatch::getDeltaTicks() const {

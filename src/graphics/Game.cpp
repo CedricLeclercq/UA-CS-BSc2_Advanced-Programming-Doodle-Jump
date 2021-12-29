@@ -7,6 +7,7 @@
 
 #include "Game.h"
 #include "../observers/entityObservers/ScoreObserver.h"
+#include "../observers/entityObservers/PlayerObserver.h"
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
 #include <memory>
@@ -167,7 +168,7 @@ void Game::setTileTexture(const std::shared_ptr<Entities::BGTile> &tile, sf::Spr
 void Game::start() {
     while ((*this->mWindow).isOpen()) {
         float deltaTicks = Utilities::Stopwatch::getInstance().getDeltaTicks(); // Getting the delta ticks for defining the player speed
-        std::cout << deltaTicks << std::endl; // todo remove debug
+        //std::cout << deltaTicks << std::endl; // todo remove debug
         Utilities::Stopwatch::getInstance().startCounter();
         this->getInput(); // Getting input from the user and moving the player
         this->updateWorld(); // Updating the world based on the user input
@@ -211,7 +212,7 @@ void Game::createWorld() {
     // Creating camera
     this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second,borderY.second));
     this->mWorld = factory.createWorld(mCamera);
-    this->mWindow->setFramerateLimit(120); // Setting framerate limit // todo fix setting framerate
+    this->mWindow->setFramerateLimit(60); // Setting framerate limit // todo fix setting framerate
     //this->mStopwatch->setFPS(20);
 }
 
@@ -307,11 +308,9 @@ void Game::placePlayer() {
     // Getting and setting position of main player
     Coordinates viewCoo = this->mCamera->project(*this->mWorld->getPlayer()->getPos());
     this->playerController.getView().setPosition(viewCoo.getX(), viewCoo.getY());
-    std::shared_ptr<Entities::Bonus> playerBonus = this->mWorld->getPlayer()->getBonus();
-    // Load rocket texture
-    if (playerBonus != nullptr and playerBonus->getPowerKind() == BonusPower::ROCKET) {
+    // Load rocket texture if needed
+    if (Observers::PlayerObserver::getInstance().getIsRocket()) {
         this->playerController.getView().setTexture(this->mRocketBonusTex);
-        //this->playerController.getView().setScale(1,1);
     } else {
         this->playerController.getView().setTexture(this->mSpriteTex);
     }

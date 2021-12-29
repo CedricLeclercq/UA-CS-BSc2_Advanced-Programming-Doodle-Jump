@@ -5,6 +5,7 @@
 //                                     //
 // // // // // // // // // // // // // //
 
+#include "../../observers/entityObservers/PlayerObserver.h"
 #include "Bonus.h"
 #include "Player.h"
 
@@ -44,6 +45,7 @@ void Entities::Bonus::takeEffect(Entities::Player& player) {
         return;
     }
     if (this->powerKind == BonusPower::ROCKET) {
+        Observers::PlayerObserver::getInstance().setIsRocket(true);
         player.setParalysed(true);
         player.setPosY(player.getPosY() + 1);
         this->power -= 1;

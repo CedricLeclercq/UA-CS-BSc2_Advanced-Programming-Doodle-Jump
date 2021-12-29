@@ -8,7 +8,15 @@
 #include "Observer.h"
 
 namespace Observers {
+    /**
+     * @class Observers::PlayerObserver
+     * @brief Singleton Observer class for the player
+     */
     class PlayerObserver;
+    /**
+     * @class Observers::ScoreObserver
+     * @brief Singleton Observer class for the score in the world - also keeps the current score of the game
+     */
     class ScoreObserver;
 }
 

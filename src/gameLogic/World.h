@@ -97,12 +97,12 @@ private:
      * @brief Adds to the main score a score based on which platform we jumped on
      * @param platform      A shared pointer to the platform we jumped on
      */
-    void addPlatformScore(const std::shared_ptr<Entities::Platform>& platform);
+    static void addPlatformScore(const std::shared_ptr<Entities::Platform>& platform);
     /**
      * @brief Adds to the main score a score based on which bonus was picked up
      * @param bonus         A shared pointer to the bonus we picked up
      */
-    void addBonusScore(const std::shared_ptr<Entities::Bonus>& bonus);
+    static void addBonusScore(const std::shared_ptr<Entities::Bonus>& bonus);
     /**
      * @brief Checks if the player collided with a platform
      * @return      (player.collidedWithPlatform?)
@@ -112,6 +112,13 @@ private:
      * @brief Will move the horizontal and vertical platforms
      */
     void movePlatforms();
+    /**
+     * @brief Will calculate the current difficulty of the game
+     * @return // todo
+     */
+    double calculateDifficulty() const;
+
+    static PKind difficultyPlatformOverride(double diff) ;
 public:
 
     /**
