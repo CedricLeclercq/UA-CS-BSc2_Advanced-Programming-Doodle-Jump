@@ -15,7 +15,8 @@
 /// @brief Enumeration for the kind of power a bonus can have (more can easily be added)
 enum BonusPower {
     SPRING,
-    ROCKET
+    ROCKET,
+    NOTDEF
     };
 
 
@@ -24,7 +25,7 @@ private:
     /// @brief Power that the bonus has left to help the player
     float power{};
     /// @brief Kind of bonus we have
-    BonusPower powerKind{};
+    BonusPower powerKind = NOTDEF;
     /**
       * @brief Function that will look at the kind of power a bonus has and give the needed power to the bonus
       */
@@ -36,7 +37,7 @@ public:
      * @param power     Default argument for which power kind
      * @note            The default argument is not used for now, but can be used if future implementation might need it
      */
-    explicit Bonus(BonusPower power=ROCKET);
+    explicit Bonus(BonusPower power=NOTDEF);
     /**
      * @brief Will check if a bonus' power is 0
      * @return      (bonus.noMorePower?)

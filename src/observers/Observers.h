@@ -18,6 +18,12 @@ namespace Observers {
      * @brief Singleton Observer class for the score in the world - also keeps the current score of the game
      */
     class ScoreObserver;
+
+    class PlatformObserver;
+
+    class BGTileObserver;
+
+    class WorldObserver;
 }
 
 #endif //ADVANCEDPROGRAMMINGDOODLEJUMP_OBSERVERS_H

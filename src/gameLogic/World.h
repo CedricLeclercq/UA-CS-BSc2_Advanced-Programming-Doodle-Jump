@@ -10,12 +10,13 @@
 
 #include "../models/entities/Player.h"
 #include "../models/entities/Platform.h"
+#include "../observers/entityObservers/WorldObserver.h"
 #include "../models/entities/BGTile.h"
 #include "../factories/ConcreteFactory.h"
-#include "../observers/Observers.h"
 #include "Camera.h"
 #include <memory>
 #include <utility>
+#include "Score.h"
 
 
 class World {
@@ -36,6 +37,8 @@ private:
     float playerLength{};
     /// @brief Standard platform length
     float platformLength{};
+    /// @brief score of the game
+    std::shared_ptr<Score> score;
     /**
      * @brief Create platforms and place them in the world (only if new platforms are needed)
      */
@@ -97,12 +100,12 @@ private:
      * @brief Adds to the main score a score based on which platform we jumped on
      * @param platform      A shared pointer to the platform we jumped on
      */
-    static void addPlatformScore(const std::shared_ptr<Entities::Platform>& platform);
+    void addPlatformScore(const std::shared_ptr<Entities::Platform>& platform);
     /**
      * @brief Adds to the main score a score based on which bonus was picked up
      * @param bonus         A shared pointer to the bonus we picked up
      */
-    static void addBonusScore(const std::shared_ptr<Entities::Bonus>& bonus);
+    void addBonusScore(const std::shared_ptr<Entities::Bonus>& bonus);
     /**
      * @brief Checks if the player collided with a platform
      * @return      (player.collidedWithPlatform?)
@@ -120,7 +123,7 @@ private:
 
     static PKind difficultyPlatformOverride(double diff) ;
 public:
-
+    World()=default;
     /**
      * @brief Constructor for the world, will create a player and accept a camera for world view purposes
      * @param camera

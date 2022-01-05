@@ -66,7 +66,7 @@ void Entities::BGTile::defineKind() {
     }
 }
 
-Entities::BGTile::BGTile() {
+Entities::BGTile::BGTile(): observer(std::make_shared<Observers::BGTileObserver>()) {
     this->kind = TKind::NONE;
     this->defineKind();
 }

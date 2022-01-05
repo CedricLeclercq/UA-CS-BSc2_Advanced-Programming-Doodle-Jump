@@ -22,7 +22,7 @@ Entities::Bonus::Bonus(BonusPower power) {
 void Entities::Bonus::chargePowers() {
     if (this->powerKind == BonusPower::ROCKET) {
         // Rocket will use power as the amount of Y blocks the player moves up
-        this->power = 5000;
+        this->power = 500;
         return;
     }
     if (this->powerKind == BonusPower::SPRING) {
@@ -45,9 +45,9 @@ void Entities::Bonus::takeEffect(Entities::Player& player) {
         return;
     }
     if (this->powerKind == BonusPower::ROCKET) {
-        Observers::PlayerObserver::getInstance().setIsRocket(true);
+        player.observer->notifyIsRocket(true);
         player.setParalysed(true);
-        player.setPosY(player.getPosY() + 1);
+        player.setPosY(player.getPosY() + 1 * Utilities::Stopwatch::getInstance().getDeltaTicks());
         this->power -= 1;
         if (this->power == 0) {
             player.setParalysed(false);

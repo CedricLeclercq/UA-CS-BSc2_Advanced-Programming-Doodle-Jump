@@ -9,6 +9,8 @@
 #define DOODLEJUMP_BGTILE_H
 
 #include "../Entities.h"
+#include "../../observers/Observers.h"
+#include "../../observers/entityObservers/BGTileObserver.h"
 
 /// @brief Enumeration of the possible tile kinds
 enum TKind {
@@ -35,6 +37,8 @@ private:
      */
     void defineKind();
 public:
+    /// @brief Observer
+    std::shared_ptr<Observers::BGTileObserver> observer;
     /**
      * @brief Constructor for the background tile - will use other functions to define the tile kind
      */

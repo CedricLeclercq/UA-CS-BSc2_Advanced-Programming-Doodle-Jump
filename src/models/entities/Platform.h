@@ -11,6 +11,8 @@
 #include "../../utilities/Utilities.h"
 #include "../Entities.h"
 #include "Bonus.h"
+#include "../../observers/Observers.h"
+#include "observers/entityObservers/PlatformObserver.h"
 
 /// @brief Enumeration for the kind of platform we have
 enum PKind {UNDEF,STATIC,HORIZONTAL,VERTICAL,TEMP};
@@ -31,7 +33,6 @@ private:
     bool movingUp{};
     /// @brief Shared pointer to the bonus that the platform has on it
     std::shared_ptr<Entities::Bonus> bonus{};
-
     // Member functions
     /**
      * @brief Create a platform - used in construction - will define what kind of platform we have
@@ -54,12 +55,14 @@ private:
      */
     void makeTemp();
 public:
+    /// @brief Observer
+    std::shared_ptr<Observers::PlatformObserver> observer;
     /**
      * @brief Explicit constructor with default argument - will always be used when a platform is constructed
      * @param kind      Platform kind that the platform needs to be
      * @note            The default argument is not used for now, but can be used if future implementation might need it
      */
-    explicit Platform(PKind kind=UNDEF) {
+    explicit Platform(PKind kind=UNDEF): observer(std::make_shared<Observers::PlatformObserver>()) {
         this->platformKind = kind;
         this->createPlatform();
     }

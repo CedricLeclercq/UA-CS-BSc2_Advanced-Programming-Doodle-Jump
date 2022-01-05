@@ -29,13 +29,23 @@ SET(LogicLibrary
         src/utilities/Utilities.h
         src/utilities/Utilities.cpp
         src/logicMain.cpp
-        src/observers/Observer.cpp
-        src/observers/Observer.h
+        src/controllers/WorldController.cpp
+        src/controllers/WorldController.h
+        src/gameLogic/Score.cpp
+        src/gameLogic/Score.h
+        src/observers/entityObservers/PlatformObserver.cpp
+        src/observers/entityObservers/PlatformObserver.h
+        src/observers/entityObservers/BGTileObserver.cpp
+        src/observers/entityObservers/BGTileObserver.h
+        src/observers/entityObservers/WorldObserver.cpp
+        src/observers/entityObservers/WorldObserver.h
         src/observers/entityObservers/PlayerObserver.cpp
         src/observers/entityObservers/PlayerObserver.h
-        src/observers/Observers.h
         src/observers/entityObservers/ScoreObserver.cpp
-        src/observers/entityObservers/ScoreObserver.h)
+        src/observers/entityObservers/ScoreObserver.h
+        src/observers/Observer.h
+        src/observers/Observers.h
+        )
 
 SET(SRC
         src/main.cpp
@@ -60,25 +70,34 @@ SET(SRC
         src/factories/ConcreteFactory.cpp
         src/factories/ConcreteFactory.h
         src/utilities/Utilities.cpp
-        src/controllers/Controllers.h
-        src/controllers/entityControllers/BGTileController.h
-        src/controllers/entityControllers/BGTileController.cpp
-        src/controllers/entityControllers/PlatformsController.h
-        src/controllers/entityControllers/PlatformsController.cpp
-        src/controllers/entityControllers/PlayerController.h
-        src/controllers/entityControllers/PlayerController.cpp
-        src/controllers/Controllers.h
-        src/controllers/Controller.cpp
         src/models/Entities.h
-        src/observers/Observer.cpp
         src/observers/Observer.h
         src/observers/entityObservers/PlayerObserver.cpp
         src/observers/entityObservers/PlayerObserver.h
         src/observers/Observers.h
         src/observers/entityObservers/ScoreObserver.cpp
-        src/observers/entityObservers/ScoreObserver.h)
+        src/observers/entityObservers/ScoreObserver.h
+        src/views/Views.h
+        src/views/PlayerView.cpp
+        src/views/PlayerView.h
+        src/views/PlatformView.cpp
+        src/views/PlatformView.h
+        src/views/View.h
+        src/views/BGTileView.cpp
+        src/views/BGTileView.h
+        src/controllers/WorldController.cpp
+        src/controllers/WorldController.h
+        src/gameLogic/Score.cpp
+        src/gameLogic/Score.h
+        src/observers/entityObservers/PlatformObserver.cpp
+        src/observers/entityObservers/PlatformObserver.h
+        src/observers/entityObservers/BGTileObserver.cpp
+        src/observers/entityObservers/BGTileObserver.h
+        src/observers/entityObservers/WorldObserver.cpp
+        src/observers/entityObservers/WorldObserver.h)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/src")
 
 ADD_EXECUTABLE(AdvancedProgrammingDoodleJump ${SRC})
 ADD_EXECUTABLE(AdvancedProgrammingDoodleJumpLogic ${LogicLibrary})

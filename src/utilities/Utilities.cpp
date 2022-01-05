@@ -6,6 +6,12 @@
 // // // // // // // // // // // // // //
 
 #include "Utilities.h"
+#include <sys/stat.h>
+
+bool Utilities::Utils::pathExists(const std::string& path) {
+    struct stat buffer{};
+    return (stat (path.c_str(), &buffer) == 0);
+}
 
 int Utilities::Random::randInt(int x, int y) {
     if (x == y)
@@ -68,3 +74,5 @@ float Utilities::Coordinates::getX() const {
 float Utilities::Coordinates::getY() const {
     return this->y;
 }
+
+

@@ -13,6 +13,8 @@
 #include <utility>
 #include "Bonus.h"
 #include "../Entities.h"
+#include "../../observers/Observers.h"
+#include "observers/entityObservers/PlayerObserver.h"
 
 
 class Entities::Player: public Entity {
@@ -26,10 +28,12 @@ private:
     /// @brief Shared pointer to the bonus the player is currenlty having an effect from
     std::shared_ptr<Entities::Bonus> bonus{};
 public:
+    /// @brief Observer for player
+    std::shared_ptr<Observers::PlayerObserver> observer;
     /**
      * @brief Basic constructor for the player
      */
-    Player() {
+    Player(): observer(std::make_shared<Observers::PlayerObserver>())  {
         this->position = std::make_shared<Utilities::Coordinates>(0.5,0.f);
         this->mLookLeft = false;
         this->paralysedY = false;

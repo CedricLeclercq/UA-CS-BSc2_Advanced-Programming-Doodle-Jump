@@ -61,18 +61,22 @@ void Entities::Platform::makeTemp() {
 
 void Entities::Platform::moveUp() {
     this->setPos(this->getPosX(), this->getPosY() + ((float)0.1 * Utilities::Stopwatch::getInstance().getDeltaTicks()));
+    this->observer->notifyCurLocation(*this->position);
 }
 
 void Entities::Platform::moveDown() {
     this->setPos(this->getPosX(), this->getPosY() - ((float)0.1 * Utilities::Stopwatch::getInstance().getDeltaTicks()));
+    this->observer->notifyCurLocation(*this->position);
 }
 
 void Entities::Platform::moveRight() {
     this->setPos(this->getPosX() + ((float)0.0003 * Utilities::Stopwatch::getInstance().getDeltaTicks()), this->getPosY());
+    this->observer->notifyCurLocation(*this->position);
 }
 
 void Entities::Platform::moveLeft() {
     this->setPos(this->getPosX() - ((float)0.0003 * Utilities::Stopwatch::getInstance().getDeltaTicks()), this->getPosY());
+    this->observer->notifyCurLocation(*this->position);
 }
 
 PKind Entities::Platform::getKind() const {

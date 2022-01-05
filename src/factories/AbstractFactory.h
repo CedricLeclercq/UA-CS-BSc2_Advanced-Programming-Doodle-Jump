@@ -22,6 +22,10 @@ class World;
  */
 class AbstractFactory {
 protected:
+    /// @brief Default constructor
+    AbstractFactory()=default;
+    /// @brief Default destructor
+    ~AbstractFactory()=default;
     /**
      * @brief Pure virtual function to create a player
      * @return      Shared pointer to a player

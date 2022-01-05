@@ -17,6 +17,10 @@
  * @brief Namespace for all the utilities and utility classes
  */
 namespace Utilities {
+    class Utils {
+    public:
+        static bool pathExists(const std::string& path);
+    };
     /**
      * @class Utilities::Random
      * @brief Will provide all the random values in the project

@@ -11,7 +11,6 @@
 #include <utility>
 #include <memory>
 #include "../utilities/Utilities.h"
-
 /**
  * @class Entity
  * @brief Super class for all the entities

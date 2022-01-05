@@ -6,7 +6,6 @@
 // // // // // // // // // // // // // //
 
 #include "World.h"
-#include "../observers/entityObservers/ScoreObserver.h"
 
 using Random = Utilities::Random;
 
@@ -22,7 +21,7 @@ void World::updateWorld() {
     }
     // Calculating score for when the player has gone higher
     auto difference = static_cast<float>(this->m_camera->higherWindowHeight(this->player->getPosY()));
-    Observers::ScoreObserver::getInstance().addScore(difference * 1/4); // and adding that score
+    score->addScore(difference * 1/4); // and adding that score
     // Updating the player height
     m_camera->updateHeight(this->player->getPosY());
     // Creating all new elements in the world
@@ -75,9 +74,9 @@ bool World::collisionCheckPlatform() {
                 if (this->prevPlatform == nullptr) this->prevPlatform = platform;
                 // If the player jumped twice on the same platform, decrease score by 10
                 if (this->prevPlatform == platform) {
-                    if (Observers::ScoreObserver::getInstance().getScore() - 10 >= 0) {
-                        Observers::ScoreObserver::getInstance().addScore(-10); // Decreasing score
-                    } else Observers::ScoreObserver::getInstance().setScore(0);
+                    if (score->getScore() - 10 >= 0) {
+                        score->addScore(-10); // Decreasing score
+                    } else score->setScore(0);
                 } else {
                     this->prevPlatform = platform; // Else adding to score
                     World::addPlatformScore(platform);
@@ -104,6 +103,10 @@ void World::createPlatforms() {
         }
         World::createBonus(newPlatform);
         this->platforms.push_back(newPlatform);
+        Observers::WorldObserver::getInstance().notifyCreatePlatform(newPlatform);
+        newPlatform->observer->notifyPlatformCreation();
+        newPlatform->observer->notifyCurLocation(*newPlatform->getPos());
+        //Observers::PlatformObserver::getInstance().notifyCreation(newPlatform);
     }
     // Moving all the platforms
     this->movePlatforms();
@@ -112,10 +115,13 @@ void World::createPlatforms() {
 void World::createBackground() {
     // Evaluating is we need new stars
     while (newStarsNeeded()) {
-        std::shared_ptr<Entities::BGTile> newStar(new Entities::BGTile);
+        std::shared_ptr<Entities::BGTile> newStar(new Entities::BGTile());
         newStar->setPosX(Random::getInstance().randFloat(0,1));
         newStar->setPosY(this->findHighestStar().getY() + (float)Random::getInstance().randInt(10,50));
         this->bgTiles.push_back(newStar);
+        Observers::WorldObserver::getInstance().notifyCreateTile(newStar);
+        newStar->observer->notifyCreation();
+        newStar->observer->notifyCurLocation(*newStar->getPos());
     }
 }
 
@@ -139,6 +145,7 @@ void World::removeOutOfView() {
             if (platform != lowest)
                 newPlatforms.push_back(platform);
         }
+        lowest->observer->notifyRemoved();
         this->platforms.clear();
         this->platforms = newPlatforms;
     }
@@ -152,6 +159,7 @@ void World::removeOutOfView() {
                 newBGTiles.push_back(star);
             }
         }
+        lowest->observer->notifyRemoved();
         this->bgTiles.clear();
         this->bgTiles = newBGTiles;
     }
@@ -278,35 +286,36 @@ void World::removePlatform(const std::shared_ptr<Entities::Platform>& toRemove) 
         }
     }
     this->platforms.clear();
+    toRemove->observer->notifyRemoved();
     this->platforms = newPlatforms;
 }
 
 void World::addPlatformScore(const std::shared_ptr<Entities::Platform>& platform) {
     if (platform->getKind() == PKind::STATIC) {
-        Observers::ScoreObserver::getInstance().addScore(10);
+        score->addScore(10);
         return;
     }
     if (platform->getKind() == PKind::HORIZONTAL) {
-        Observers::ScoreObserver::getInstance().addScore(12);
+        score->addScore(12);
         return;
     }
     if (platform->getKind() == PKind::VERTICAL) {
-        Observers::ScoreObserver::getInstance().addScore(14);
+        score->addScore(14);
         return;
     }
     if (platform->getKind() == PKind::TEMP) {
-        Observers::ScoreObserver::getInstance().addScore(16);
+        score->addScore(16);
         return;
     }
 }
 
 void World::addBonusScore(const std::shared_ptr<Entities::Bonus>& bonus) {
     if (bonus->getPowerKind() == BonusPower::ROCKET) {
-        Observers::ScoreObserver::getInstance().addScore(30);
+        score->addScore(30);
         return;
     }
     if (bonus->getPowerKind() == BonusPower::SPRING) {
-        Observers::ScoreObserver::getInstance().addScore(20);
+        score->addScore(20);
         return;
     }
 }
@@ -314,13 +323,19 @@ void World::addBonusScore(const std::shared_ptr<Entities::Bonus>& bonus) {
 bool World::checkGameOver() {
     Coordinates toEval = (*this->player->getPos());
     toEval.setY(toEval.getY() + 20); // Make the game over a bit less strict
-    if (!this->m_camera->evalInCamera(toEval))
+
+    if (!this->m_camera->evalInCamera(toEval)) {
+        // Telling the observers to remove all the elements in the world
+        for (const auto& item: platforms) item->observer->notifyRemoved();
+        for (const auto& item: bgTiles) item->observer->notifyRemoved();
         return true;
+    }
     else return false;
 }
 
 World::World(std::shared_ptr<Camera> camera) {
     ConcreteFactory factory;
+    this->score = std::make_shared<Score>();
     this->player = factory.createPlayer();
     this->m_camera = std::move(camera);
 }
@@ -343,7 +358,8 @@ std::vector<std::shared_ptr<Entities::BGTile>> World::getBackground() {
 }
 
 double World::calculateDifficulty() const {
-    double difficulty = std::floor(this->player->getPosY() / 250) / 50;
+    // Difficulty increases each 500 Y points
+    double difficulty = std::floor(this->player->getPosY() / 500) / 50;
     return std::min(1 + difficulty,1.8);
 }
 

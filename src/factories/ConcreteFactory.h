@@ -16,6 +16,10 @@
  */
 class ConcreteFactory: public AbstractFactory {
 public:
+    /// @brief Default constructor
+    ConcreteFactory()=default;
+    /// @brief Default destructor
+    ~ConcreteFactory()=default;
     /**
      * @brief Concrete factory function to create and return a player
      * @return      Shared pointer to a player

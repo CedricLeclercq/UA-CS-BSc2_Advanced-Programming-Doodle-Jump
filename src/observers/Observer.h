@@ -5,12 +5,19 @@
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_OBSERVER_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_OBSERVER_H
 
+#include <utility>
+
+#include "utilities/Utilities.h"
+using Coordinates = Utilities::Coordinates;
 
 class Observer {
+private:
+    bool notified{};
 public:
-    virtual void notifyObserver() = 0;
-    virtual bool getNotified() = 0;
-    virtual void resetObserver() = 0;
+    Observer()=default;
+    virtual void notifyObserver() {notified = true;}
+    virtual bool getNotified() {return notified;}
+    virtual void resetObserver() {notified = false;}
 };
 
 

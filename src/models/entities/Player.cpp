@@ -11,6 +11,7 @@
 
 void Entities::Player::moveRight() {
     this->move((static_cast<float>(0.0008) * Utilities::Stopwatch::getInstance().getDeltaTicks()),0.f);
+    observer->notifyCurLocation(*this->position);
     if (this->mLookLeft) {
         //this->move(-0.1,0.f);
     }
@@ -19,21 +20,25 @@ void Entities::Player::moveRight() {
 
 void Entities::Player::moveLeft() {
     this->move((static_cast<float>(-0.0008) * Utilities::Stopwatch::getInstance().getDeltaTicks()),0.f);
+    observer->notifyCurLocation(*this->position);
     if (not this->mLookLeft) {
         //this->move(0.1,0.f);
     }
     this->mLookLeft = true;
 }
 
+
 void Entities::Player::jump(bool newJump) {
 
     if (!this->paralysedY) {
         if (this->position->getY() <= 0 or newJump) {
-            this->velocityY = static_cast<float>(0.6); // * this->deltaTicksSpeedUp;
+            this->velocityY = static_cast<float>(1); // * this->deltaTicksSpeedUp;
             this->move(0, this->velocityY * Utilities::Stopwatch::getInstance().getDeltaTicks());
+            observer->notifyCurLocation(*this->position);
         } else {
-            this->velocityY -= static_cast<float>(0.01) ; //* this->deltaTicksSpeedUp;
+            this->velocityY -= static_cast<float>(0.03) ; //* this->deltaTicksSpeedUp;
             this->move(0, this->velocityY * Utilities::Stopwatch::getInstance().getDeltaTicks());
+            observer->notifyCurLocation(*this->position);
         }
     }
 
@@ -44,6 +49,8 @@ void Entities::Player::jump(bool newJump) {
     } else if (this->bonus != nullptr) {
         // else applying the bonus
         this->bonus->takeEffect(*this);
+    } else if (this->bonus == nullptr or (this->bonus != nullptr and this->bonus->getPowerKind() != BonusPower::ROCKET)) {
+        observer->notifyIsRocket(false);
     }
 }
 

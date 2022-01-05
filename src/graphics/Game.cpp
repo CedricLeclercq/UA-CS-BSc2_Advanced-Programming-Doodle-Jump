@@ -8,6 +8,8 @@
 #include "Game.h"
 #include "../observers/entityObservers/ScoreObserver.h"
 #include "../observers/entityObservers/PlayerObserver.h"
+#include "../observers/entityObservers/PlatformObserver.h"
+#include "../observers/entityObservers/BGTileObserver.h"
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
 #include <memory>
@@ -15,165 +17,57 @@
 
 using Coordinates = Utilities::Coordinates;
 
+
+Game::Game(): mWindow(new sf::RenderWindow(sf::VideoMode(800, 1200),"Doodle jump - Advanced programming")) {
+    this->initialiseGame();
+    this->setup();
+    this->start();
+}
+
 void Game::initialiseGame() {
-    this->createWorld();
-    this->createPlayerController();
-    this->initiateTextures();
-    this->scaleElements();
+    // Resetting the player and score observer
+    //Observers::ScoreObserver::getInstance().resetObserver(); // todo fix
+    // Creating world
+    ConcreteFactory factory;
+    std::pair<float, float> borderX = std::make_pair(0, this->mWindow->getSize().x);
+    std::pair<float, float> borderY = std::make_pair(0, this->mWindow->getSize().y);
+    // Creating camera
+    this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second, borderY.second));
+    std::shared_ptr<World> world = std::make_shared<World>(mCamera);
+    this->controller = WorldController(world);
+    this->mWindow->setFramerateLimit(60); // Setting framerate limit
+    // Setting up the player view
+    playerView = std::make_shared<Views::PlayerView>(world->getPlayer());
+    playerView->setup();
+    // Loading text for score
+    this->scoreFont.loadFromFile("recourses/arial.ttf");
+    this->scoreText.setFont(this->scoreFont);
+    this->scoreText.setFillColor(sf::Color::White);
+    this->scoreText.setCharacterSize(50);
+    this->scoreText.setPosition(50,40);
+    this->defineLengths();
 }
 
 void Game::setup() {
-    // Creating new controllers if needed
-    this->createPlatformsControllers();
-    this->createBGTileControllers();
-
+    // Removing any of the removed platform views
+    this->removePlatformViews();
+    this->removeTileViews();
+    // Adding any new views
+    this->createNewViews();
     // Placing all the elements for the game
     this->placeBackground();
     this->placePlatforms();
     this->placePlayer();
 }
 
-void Game::createPlatformsControllers() {
-
-    // Removing all the controllers that are no longer used by the world
-    std::vector<std::shared_ptr<Entities::Platform>> worldPlatforms = (*this->mWorld).getPlatforms();
-    std::vector<Controllers::PlatformsController> newControllers;
-    for (const auto& pController: this->platformsControllers) {
-        for (const auto& platform: worldPlatforms) {
-            if (pController.getModel() == platform) {
-                newControllers.push_back(pController);
-            }
-        }
-    }
-    this->platformsControllers.clear();
-    this->platformsControllers = newControllers;
-
-    // Adding the platforms that don't yet have a controller
-    for (const auto& platform: worldPlatforms) {
-        bool found = false;
-        for (const auto& controller: this->platformsControllers) {
-            if (controller.getModel() == platform) {
-                found = true;
-            }
-        }
-        // Platform doesn't have a controller yet, create it!
-        if (!found) {
-            // Pushing back our new controller to all our controllers
-            this->platformsControllers.emplace_back(platform);
-        }
-    }
-}
-
-void Game::createBGTileControllers() {
-    // Removing all the controllers that are no longer used by the world
-    std::vector<std::shared_ptr<Entities::BGTile>> worldTiles = (*this->mWorld).getBackground();
-    std::vector<Controllers::BGTileController> newControllers;
-    for (const auto& tController: this->bgTileControllers) {
-        for (const auto& tile: worldTiles) {
-            if (tController.getModel() == tile) {
-                newControllers.push_back(tController);
-            }
-        }
-    }
-    this->bgTileControllers.clear();
-    this->bgTileControllers = newControllers;
-
-    // Adding the platforms that don't yet have a controller
-    for (const auto& tile: worldTiles) {
-        bool found = false;
-        for (const auto& controller: this->bgTileControllers) {
-            if (controller.getModel() == tile) {
-                found = true;
-            }
-        }
-        // Platform doesn't have a controller yet, create it!
-        if (!found) {
-            // Pushing back our new controller to all our controllers
-            this->bgTileControllers.emplace_back(tile);
-        }
-    }
-}
-
-void Game::setPlatformTexture(const std::shared_ptr<Entities::Platform>& platform, sf::Sprite& sfPlatform) {
-    if (platform->getBonus() == nullptr) {
-    if (platform->getKind() == PKind::STATIC)
-        sfPlatform.setTexture(this->mStaticPlatformTex);
-    else if (platform->getKind() == PKind::HORIZONTAL)
-        sfPlatform.setTexture(this->mHorizontalPlatformTex);
-    else if (platform->getKind() == PKind::TEMP)
-        sfPlatform.setTexture(this->mTempPlatformTex);
-    else if (platform->getKind() == PKind::VERTICAL)
-        sfPlatform.setTexture(this->mVerticalPlatformTex);
-    }
-
-    else if (platform->getBonus() != nullptr and platform->getBonus()->getPowerKind() == BonusPower::SPRING) {
-        if (platform->getKind() == PKind::STATIC)
-            sfPlatform.setTexture(this->mStaticSpringPlatformTex);
-        else if (platform->getKind() == PKind::HORIZONTAL)
-            sfPlatform.setTexture(this->mHorizontalSpringPlatformTex);
-        else if (platform->getKind() == PKind::TEMP)
-            sfPlatform.setTexture(this->mTempSpringPlatformTex);
-        else if (platform->getKind() == PKind::VERTICAL)
-            sfPlatform.setTexture(this->mVerticalSpringPlatformTex);
-    }
-
-    else if (platform->getBonus() != nullptr and platform->getBonus()->getPowerKind() == BonusPower::ROCKET) {
-        if (platform->getKind() == PKind::STATIC)
-            sfPlatform.setTexture(this->mStaticRocketPlatformTex);
-        else if (platform->getKind() == PKind::HORIZONTAL)
-            sfPlatform.setTexture(this->mHorizontalRocketPlatformTex);
-        else if (platform->getKind() == PKind::TEMP)
-            sfPlatform.setTexture(this->mTempRocketPlatformTex);
-        else if (platform->getKind() == PKind::VERTICAL)
-            sfPlatform.setTexture(this->mVerticalRocketPlatformTex);
-    }
-}
-
-void Game::setTileTexture(const std::shared_ptr<Entities::BGTile> &tile, sf::Sprite &sfTile) {
-    if (tile->getKind() == TKind::MILKYWAY1) {
-        sfTile.setTexture(this->mMilkyWay1Tex);
-        sfTile.setScale(1.2,1.2);
-    }
-    else if (tile->getKind() == TKind::MILKYWAY2) {
-        sfTile.setTexture(this->mMilkyWay2Tex);
-        sfTile.setScale(1.2,1.2);
-    }
-    else if (tile->getKind() == TKind::STAR1) {
-        sfTile.setTexture(this->mStar1Tex);
-        sfTile.setScale(0.2,0.2);
-    }
-    else if (tile->getKind() == TKind::STAR2) {
-        sfTile.setTexture(this->mStar2Tex);
-    }
-    else if (tile->getKind() == TKind::PLANET1) {
-        sfTile.setTexture(this->mPlanet1Tex);
-    }
-    else if (tile->getKind() == TKind::PLANET2) {
-        sfTile.setTexture(this->mPlanet2Tex);
-    }
-    else if (tile->getKind() == TKind::PLANET3) {
-        sfTile.setTexture(this->mPlanet3Tex);
-    }
-    else if (tile->getKind() == TKind::PLANET4) {
-        sfTile.setTexture(this->mPlanet4Tex);
-    }
-    else if (tile->getKind() == TKind::PLANET5) {
-        sfTile.setTexture(this->mPlanet5Tex);
-    }
-    else if (tile->getKind() == TKind::PLANET6) {
-        sfTile.setTexture(this->mPlanet6Tex);
-    }
-}
-
 void Game::start() {
     while ((*this->mWindow).isOpen()) {
-        float deltaTicks = Utilities::Stopwatch::getInstance().getDeltaTicks(); // Getting the delta ticks for defining the player speed
+        //float deltaTicks = Utilities::Stopwatch::getInstance().getDeltaTicks(); // Getting the delta ticks for defining the player speed
         //std::cout << deltaTicks << std::endl; // todo remove debug
         Utilities::Stopwatch::getInstance().startCounter();
         this->getInput(); // Getting input from the user and moving the player
-        this->updateWorld(); // Updating the world based on the user input
+        controller.updateWorld(); // Updating the world based on the user input
         this->setup(); // Setting up the graphics and placing all views
-        //Game::addFPSCounter(); // Adding an FPS counter, can be left out might the user want it
         this->addScore(); // Adding the score to the window
         this->openSFWindow(); // Finally, opening the game
         this->evaluateEndGame(); // Evaluating is the game has ended
@@ -181,105 +75,23 @@ void Game::start() {
     }
 }
 
+
 void Game::getInput() {
-    this->playerController.handleInput();
-    this->mWorld->getPlayer()->teleportPlayer(0.f,(float)this->mWindow->getSize().x);
-    this->jumpingGraphics();
-}
-
-void Game::jumpingGraphics() {
-    // todo fix looking left
-    // Adding the jump to the graphics
-    if (this->mWorld->getPlayer()->getLookingLeft()) {
-        // Mirroring the character if it is looking left
-        //this->playerController.getView().setScale(-0.4, 0.4); // todo look left is disabled
-    } else {
-        // But reverse if it is not looking left
-        //this->playerController.getView().setScale(0.4,0.4); // todo ... also here
+    this->controller.evalOutOfWorld(0.f,(float)this->mWindow->getSize().x);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) or sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        this->controller.movePlayerRight();
     }
-    // Scaling the player to its correct size
-    this->playerController.getView().setScale(0.4,0.4);
-}
-
-void Game::createWorld() {
-    // Resetting the player and score observer
-    Observers::ScoreObserver::getInstance().resetObserver();
-    // todo reset player controller
-    // Creating world
-    ConcreteFactory factory;
-    std::pair<float,float> borderX = std::make_pair(0,this->mWindow->getSize().x);
-    std::pair<float,float> borderY = std::make_pair(0,this->mWindow->getSize().y);
-    // Creating camera
-    this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second,borderY.second));
-    this->mWorld = factory.createWorld(mCamera);
-    this->mWindow->setFramerateLimit(60); // Setting framerate limit // todo fix setting framerate
-    //this->mStopwatch->setFPS(20);
-}
-
-void Game::initiateTextures() {
-    // todo make sure to try all of these and throw an exception if one didn't load!
-    try {
-        // Textures for platforms
-        this->mVerticalPlatformTex.loadFromFile("recourses/textures/platforms/yellow_platform.png");
-        this->mHorizontalPlatformTex.loadFromFile("recourses/textures/platforms/light_blue_platform.png");
-        this->mStaticPlatformTex.loadFromFile("recourses/textures/platforms/green_platform.png");
-        this->mTempPlatformTex.loadFromFile("recourses/textures/platforms/white_platform.png");
-        // Textures for bonus platforms
-        this->mVerticalSpringPlatformTex.loadFromFile("recourses/textures/platforms/yellow_platform_spring1.png");
-        this->mHorizontalSpringPlatformTex.loadFromFile("recourses/textures/platforms/light_blue_platform_spring1.png");
-        this->mStaticSpringPlatformTex.loadFromFile("recourses/textures/platforms/green_platform_spring1.png");
-        this->mTempSpringPlatformTex.loadFromFile("recourses/textures/platforms/white_platform_spring1.png");
-        this->mVerticalRocketPlatformTex.loadFromFile("recourses/textures/platforms/yellow_platform_rocket.png");
-        this->mHorizontalRocketPlatformTex.loadFromFile("recourses/textures/platforms/light_blue_platform_rocket.png");
-        this->mStaticRocketPlatformTex.loadFromFile("recourses/textures/platforms/green_platform_rocket.png");
-        this->mTempRocketPlatformTex.loadFromFile("recourses/textures/platforms/white_platform_rocket.png");
-
-        // Textures for background tiles
-        this->mPlanet1Tex.loadFromFile("recourses/textures/background/planets/Planet1.png");
-        this->mPlanet2Tex.loadFromFile("recourses/textures/background/planets/Planet2.png");
-        this->mPlanet3Tex.loadFromFile("recourses/textures/background/planets/Planet3.png");
-        this->mPlanet4Tex.loadFromFile("recourses/textures/background/planets/Planet4.png");
-        this->mPlanet5Tex.loadFromFile("recourses/textures/background/planets/Planet5.png");
-        this->mPlanet6Tex.loadFromFile("recourses/textures/background/planets/Planet6.png");
-        this->mMilkyWay1Tex.loadFromFile("recourses/textures/background/milkyways/MilkyWay1.png");
-        this->mMilkyWay2Tex.loadFromFile("recourses/textures/background/milkyways/MilkyWay2.png");
-        this->mStar1Tex.loadFromFile("recourses/textures/background/stars/Star1.png");
-        this->mStar2Tex.loadFromFile("recourses/textures/background/stars/Star2.png");
-        this->mGroundTex.loadFromFile("recourses/textures/background/Ground.png");
-
-        // Texture for bonuses
-        this->mRocketBonusTex.loadFromFile("recourses/textures/bonuses/rsz_rocket1.png");
-
-        // Loading text for score
-        this->scoreFont.loadFromFile("recourses/arial.ttf"); // "recourses/ChrustyRock-ORLA.ttf"
-        this->scoreText.setFont(this->scoreFont);
-        this->scoreText.setFillColor(sf::Color::White);
-        this->scoreText.setCharacterSize(50);
-        this->scoreText.setPosition(50,40);
-
-
-        // Texture for player
-        mSpriteTex.loadFromFile("recourses/textures/playerPictogram.png");
-        mSpriteTex.setSmooth(true);
-        sf::Sprite &playerView = this->playerController.getView();
-        playerView.setTexture(mSpriteTex);
-        playerView.setOrigin(0, playerView.getLocalBounds().height); // todo fix better location
-
-        this->defineLengths();
-
-    } catch (std::exception& exc) {
-        // todo fix what to catch here above
-        std::cerr << "An exception occurred but caught while loading the textures. ";
-        std::cerr << "The exception was the following: " << std::endl << exc.what() << std::endl << std::endl;
-        std::cerr << "The graphical interface might not look as expected. Try pulling the game again from GitHub.";
-        std::cerr << std::endl << std::endl;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) or sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        this->controller.movePlayerLeft();
     }
 }
 
 void Game::defineLengths() {
     // Getting platform length
     sf::Sprite testPlatform;
-    testPlatform.setTexture(this->mHorizontalPlatformTex);
+    sf::Texture testPlatformTex;
+    testPlatformTex.loadFromFile("recourses/textures/platforms/yellow_platform.png");
+    testPlatform.setTexture(testPlatformTex); // todo fix this will be removed
     float platformLength = testPlatform.getLocalBounds().width;
     // Getting player length
     sf::Sprite testPlayer;
@@ -287,69 +99,54 @@ void Game::defineLengths() {
     playerFeetTex.loadFromFile("recourses/textures/playerFeet.png"); // todo try and catch
     testPlayer.setTexture(playerFeetTex);
     float playerLength = testPlayer.getLocalBounds().width * (float)0.4;
-    this->mWorld->setPlatformLength(platformLength / (float)this->mWindow->getSize().x);
-    this->mWorld->setPlayerLength(playerLength / (float)this->mWindow->getSize().x);
-    this->mWorld->getPlayer()->setLength(playerLength / (float)this->mWindow->getSize().x);
-}
-
-void Game::createPlayerController() {
-    // Creating sprite
-    std::shared_ptr<sf::Sprite> sprite = std::make_shared<sf::Sprite>();
-    // Creating controllers
-    this->playerController = Controllers::PlayerController(this->mWorld->getPlayer(),sprite);
-}
-
-void Game::scaleElements() {
-    // Scaling main player
-    this->playerController.getView().setScale(0.1,0.1);
+    this->controller.setLengths(playerLength / (float)this->mWindow->getSize().x,
+                                platformLength / (float)this->mWindow->getSize().x);
 }
 
 void Game::placePlayer() {
     // Getting and setting position of main player
-    Coordinates viewCoo = this->mCamera->project(*this->mWorld->getPlayer()->getPos());
-    this->playerController.getView().setPosition(viewCoo.getX(), viewCoo.getY());
+    Coordinates viewCoo = mCamera->project(playerView->observer->getNotifiedPosition()); //= this->mCamera->project(*this->mWorld->getPlayer()->getPos()); // todo get player location from observer
+    playerView->setPosition(viewCoo.getX(), viewCoo.getY());
     // Load rocket texture if needed
-    if (Observers::PlayerObserver::getInstance().getIsRocket()) {
-        this->playerController.getView().setTexture(this->mRocketBonusTex);
+    if (playerView->observer->getNotifiedRocket()) {
+        playerView->setRocketTex();
     } else {
-        this->playerController.getView().setTexture(this->mSpriteTex);
+        playerView->setNormalTex();
     }
-    (*this->mWindow).draw(this->playerController.getView());
+    (*this->mWindow).draw(playerView->getView());
 }
 
 void Game::placePlatforms() {
-    for (auto& controller: this->platformsControllers) {
-        Utilities::Coordinates coords = this->mCamera->project(*controller.getModel()->getPos());
-        controller.getView()->setPosition(coords.getX(),coords.getY());
-        this->setPlatformTexture(controller.getModel(),*controller.getView());
-        controller.getView()->setOrigin(0,controller.getView()->getLocalBounds().height);
-        (*this->mWindow).draw(*controller.getView());
+    for (auto& view: this->platformsViews) {
+        Utilities::Coordinates coords = this->mCamera->project(view->observer->getNotifiedPosition());
+        //std::cout << view->observer->getNotifiedPosition().getX() << " " << view->observer->getNotifiedPosition().getY() << std::endl;
+        view->setPosition(coords.getX(),coords.getY());
+        view->getView().setOrigin(0,view->getView().getLocalBounds().height);
+        (*this->mWindow).draw(view->getView());
     }
+    // for (auto& controller: this->platformsControllers) {
+    //     Utilities::Coordinates coords = this->mCamera->project(*controller.getModel()->getPos());
+    //     controller.getView()->setPosition(coords.getX(),coords.getY());
+    //     this->setPlatformTexture(controller.getModel(),*controller.getView());
+    //     controller.getView()->setOrigin(0,controller.getView()->getLocalBounds().height);
+    //     (*this->mWindow).draw(*controller.getView());
+    // }
 }
 
 void Game::placeBackground() {
-    for (auto& controller: this->bgTileControllers) {
-        Utilities::Coordinates coords = this->mCamera->project(*controller.getModel()->getPos());
-        controller.getView()->setPosition(coords.getX(),coords.getY());
-        this->setTileTexture(controller.getModel(),*controller.getView());
-        controller.getView()->setOrigin(0,controller.getView()->getLocalBounds().height);
-        (*this->mWindow).draw(*controller.getView());
+    for (auto& view: this->tilesViews) {
+        Utilities::Coordinates coords = this->mCamera->project(view->observer->getNotifiedPosition());
+        view->setPosition(coords.getX(),coords.getY());
+        view->getView().setOrigin(0,view->getView().getLocalBounds().height);
+        (*this->mWindow).draw(view->getView());
     }
-}
-
-__attribute__((unused)) void Game::addFPSCounter() {
-    // FPS print
-    sf::Clock clock;
-    sf::Text text;
-    sf::Font font;
-    //font.loadFromFile("recourses/arial.ttf"); // If enabled again, catch a possible exception!
-    text.setFont(font);
-    //text.setString(std::to_string((int)std::round(1.f /  clock.restart().asSeconds())) + " fps");
-    //text.setString(std::to_string(Stopwatch::getFPS()) + " fps");
-    text.setFillColor(sf::Color::White);
-    text.setPosition(700,10);
-    text.setCharacterSize(24);
-    //(*this->mWindow).draw(text);
+    // for (auto& controller: this->view) {
+    //     Utilities::Coordinates coords = this->mCamera->project(*controller.getModel()->getPos());
+    //     controller.getView()->setPosition(coords.getX(),coords.getY());
+    //     this->setTileTexture(controller.getModel(),*controller.getView());
+    //     controller.getView()->setOrigin(0,controller.getView()->getLocalBounds().height);
+    //     (*this->mWindow).draw(*controller.getView());
+    // }
 }
 
 void Game::openSFWindow() {
@@ -360,11 +157,6 @@ void Game::openSFWindow() {
     }
     (*this->mWindow).display();
     (*this->mWindow).clear(sf::Color(5,5,25));
-}
-
-void Game::updateWorld() {
-    //this->mWorld->setDeltaTicks(Utilities::Stopwatch::getInstance().calculateSpeedUp());
-    this->mWorld->updateWorld();
 }
 
 void Game::addScore() {
@@ -455,7 +247,7 @@ void Game::drawEndScreen() {
 }
 
 void Game::evaluateEndGame() {
-    if (this->mWorld->checkGameOver()) {
+    if (controller.isGameOver()) {
         Utilities::Stopwatch::getInstance().stopCounter();
         this->drawEndScreen();
         Utilities::Stopwatch::getInstance().startCounter();
@@ -473,4 +265,39 @@ bool Game::openEndSFScreen() {
     (*this->mWindow).display();
     (*this->mWindow).clear(sf::Color::Black);
     return false;
+}
+
+void Game::removePlatformViews() {
+    std::vector<std::shared_ptr<Views::PlatformView>> newViews;
+    for (const auto& view: platformsViews) {
+        if (!view->observer->notifiedRemoval())
+            newViews.push_back(view);
+    }
+    platformsViews.clear();
+    platformsViews = newViews;
+}
+
+void Game::removeTileViews() {
+    std::vector<std::shared_ptr<Views::BGTileView>> newViews;
+    for (const auto& view: tilesViews) {
+        if (!view->observer->notifiedRemoval())
+            newViews.push_back(view);
+    }
+    tilesViews.clear();
+    tilesViews = newViews;
+}
+
+void Game::createNewViews() {
+    std::vector<std::shared_ptr<Entities::Platform>> newPlatforms = Observers::WorldObserver::getInstance().getNotifiedPlatforms();
+    for (const auto& item: newPlatforms) {
+        std::shared_ptr<Views::PlatformView> nView = std::make_shared<Views::PlatformView>(item);
+        nView->setup();
+        platformsViews.push_back(nView);
+    }
+    std::vector<std::shared_ptr<Entities::BGTile>> newTiles = Observers::WorldObserver::getInstance().getNotifiedTiles();
+    for (const auto& item: newTiles) {
+        std::shared_ptr<Views::BGTileView> nView = std::make_shared<Views::BGTileView>(item);
+        nView->setup();
+        tilesViews.emplace_back(nView);
+    }
 }

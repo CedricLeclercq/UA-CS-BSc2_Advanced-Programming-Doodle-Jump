@@ -4,27 +4,16 @@
 
 #include "PlayerObserver.h"
 
-void Observers::PlayerObserver::notifyObserver() {
-    this->playerChanged = true;
-}
+void Observers::PlayerObserver::notifyObserver() {}
 
-bool Observers::PlayerObserver::getNotified() {
-    return this->playerChanged;
-}
+bool Observers::PlayerObserver::getNotified() {return false;}
 
-void Observers::PlayerObserver::resetObserver() {
+void Observers::PlayerObserver::resetObserver() {} //todo implement
 
-}
-
-bool Observers::PlayerObserver::getIsRocket() const {
+bool Observers::PlayerObserver::getNotifiedRocket() const {
     return this->isRocket;
 }
 
-Observers::PlayerObserver &Observers::PlayerObserver::getInstance() {
-    static PlayerObserver instance;
-    return instance;
-}
-
-void Observers::PlayerObserver::setIsRocket(bool newBool) {
+void Observers::PlayerObserver::notifyIsRocket(bool newBool) {
     this->isRocket = newBool;
 }
