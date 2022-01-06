@@ -12,13 +12,7 @@
 
 class Views::PlayerView: public View {
 private:
-    std::string pathNormal = "recourses/textures/playerPictogram.png";
-    std::string pathRocket = "recourses/textures/bonuses/rsz_rocket1.png";
-    sf::Texture normalTex;
-    sf::Texture rocketTex;
     bool texLoaded = false;
-    void loadTextures() override;
-    bool texturesFound() override;
 public:
     std::shared_ptr<Observers::PlayerObserver> observer;
     PlayerView()=default;

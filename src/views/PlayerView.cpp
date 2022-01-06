@@ -5,46 +5,31 @@
 #include "PlayerView.h"
 #include <iostream>
 #include "../models/entities/Player.h"
+#include "../textureManagers/entityTexManagers/PlayerTexManager.h"
 
 using Utils = Utilities::Utils;
 
-Views::PlayerView::PlayerView(const std::shared_ptr<Entities::Player> &player): normalTex(), rocketTex() {
+Views::PlayerView::PlayerView(const std::shared_ptr<Entities::Player> &player) {
     observer = player->observer;
-}
-
-void Views::PlayerView::loadTextures() {
-    // Loading normal texture
-    normalTex.loadFromFile(pathNormal);
-    // Loading rocket texture
-    rocketTex.loadFromFile(pathRocket);
-    texLoaded = true;
 }
 
 void Views::PlayerView::setup() {
     // Loading all the textures
-    if (texturesFound() and not texLoaded) {
-        loadTextures();
+    if (TextureManagers::PlayerTexManager::getInstance().texturesFound() and not texLoaded) {
+        TextureManagers::PlayerTexManager::getInstance().loadTextures();
+        texLoaded = true;
     } else { std::cerr << "A texture in playerView was not able to be loaded!" << std::endl; }
     // Setting the standard texture
-    view.setTexture(normalTex);
-    // Setting the correct scale for the player
-    view.setScale(0.4,0.4);
-    // Setting the correct origin for the player
-    view.setOrigin(0, view.getLocalBounds().height);
-}
+    TextureManagers::PlayerTexManager::getInstance().setTexture(view,false);
 
-bool Views::PlayerView::texturesFound() {
-    if (!Utils::pathExists(pathNormal)) return false;
-    if (!Utils::pathExists(pathRocket)) return false;
-    return true;
 }
 
 void Views::PlayerView::setRocketTex() {
-    view.setTexture(rocketTex);
+    TextureManagers::PlayerTexManager::getInstance().setTexture(view,true);
 }
 
 void Views::PlayerView::setNormalTex() {
-    view.setTexture(normalTex);
+    TextureManagers::PlayerTexManager::getInstance().setTexture(view,false);
 }
 
 

@@ -9,13 +9,12 @@
 #include <memory>
 #include "../models/Entity.h"
 
+#include "../textureManagers/TextureManagers.h"
 
 class Views::View {
 protected:
     sf::Sprite view{};
-    virtual void loadTextures() = 0;
     virtual void setup() = 0;
-    virtual bool texturesFound() = 0;
 public:
     View()=default;
     explicit View(const std::shared_ptr<Entity>& entity): view{sf::Sprite{}} {};

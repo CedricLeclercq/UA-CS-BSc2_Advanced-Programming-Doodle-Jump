@@ -94,7 +94,7 @@ SET(SRC
         src/observers/entityObservers/BGTileObserver.cpp
         src/observers/entityObservers/BGTileObserver.h
         src/observers/entityObservers/WorldObserver.cpp
-        src/observers/entityObservers/WorldObserver.h)
+        src/observers/entityObservers/WorldObserver.h src/textureManagers/TextureManager.cpp src/textureManagers/TextureManager.h src/textureManagers/entityTexManagers/BGTileTexManager.cpp src/textureManagers/entityTexManagers/BGTileTexManager.h src/textureManagers/entityTexManagers/PlayerTexManager.cpp src/textureManagers/entityTexManagers/PlayerTexManager.h src/textureManagers/entityTexManagers/PlatformTexManager.cpp src/textureManagers/entityTexManagers/PlatformTexManager.h src/textureManagers/TextureManagers.h)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/src")
