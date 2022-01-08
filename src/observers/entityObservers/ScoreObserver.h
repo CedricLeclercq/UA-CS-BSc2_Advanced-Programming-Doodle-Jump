@@ -9,7 +9,7 @@
 
 class Observers::ScoreObserver: public Observer {
 private:
-    float currentScore{};
+    int currentScore{};
     bool scoreChanged{};
     /// @brief Default private constructor, because the class is used as a Singleton
     ScoreObserver()=default;
@@ -28,8 +28,8 @@ public:
      * @return      Will get is the score was changed
      */
     bool getNotified() override;
-    void notifyScore(float nScore);
-    float getScore() const {return currentScore;}
+    void notifyScore(int nScore);
+    int getScore() const {return currentScore;}
 };
 
 

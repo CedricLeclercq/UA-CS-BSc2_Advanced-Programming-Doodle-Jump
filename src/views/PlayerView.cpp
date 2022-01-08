@@ -20,16 +20,16 @@ void Views::PlayerView::setup() {
         texLoaded = true;
     } else { std::cerr << "A texture in playerView was not able to be loaded!" << std::endl; }
     // Setting the standard texture
-    TextureManagers::PlayerTexManager::getInstance().setTexture(view,false);
+    TextureManagers::PlayerTexManager::getInstance().setTexture(*view,false);
 
 }
 
 void Views::PlayerView::setRocketTex() {
-    TextureManagers::PlayerTexManager::getInstance().setTexture(view,true);
+    TextureManagers::PlayerTexManager::getInstance().setTexture(*view,true);
 }
 
 void Views::PlayerView::setNormalTex() {
-    TextureManagers::PlayerTexManager::getInstance().setTexture(view,false);
+    TextureManagers::PlayerTexManager::getInstance().setTexture(*view,false);
 }
 
 

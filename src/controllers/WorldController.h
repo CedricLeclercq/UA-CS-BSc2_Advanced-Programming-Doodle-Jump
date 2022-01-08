@@ -33,6 +33,8 @@ public:
      void setLengths(float playerLength, float platformLength);
 
      bool isGameOver() const {return m_world->checkGameOver();}
+
+     std::shared_ptr<Entities::Player> getPlayer() const {return this->m_world->getPlayer();}
 };
 
 

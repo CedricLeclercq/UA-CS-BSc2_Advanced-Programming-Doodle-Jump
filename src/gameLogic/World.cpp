@@ -44,8 +44,8 @@ bool World::collisionCheckPlatform() {
     for (const auto& platform: this->platforms) {
         bool criteriaMatched = false;
         // Setting criteria for when a collision occurred on the Y coordinate
-        if (std::ceil(posY) - 10 < std::ceil(platform->getPosY())
-            and std::ceil(posY) + 10 > std::ceil(platform->getPosY())) {
+        if (std::ceil(posY) - 20 < std::ceil(platform->getPosY())
+            and std::ceil(posY) + 20 > std::ceil(platform->getPosY())) {
             criteriaMatched = true;
         }
 
@@ -93,9 +93,11 @@ void World::createPlatforms() {
     auto difficulty = static_cast<float>(this->calculateDifficulty());
     // Evaluating is we need new platforms
     while (newPlatformsNeeded()) {
-        std::shared_ptr<Entities::Platform> newPlatform(new Entities::Platform(World::difficultyPlatformOverride(difficulty)));
+        // Defining the concrete factory
+        ConcreteFactory factory;
+        std::shared_ptr<Entities::Platform> newPlatform(factory.createPlatform(World::difficultyPlatformOverride(difficulty)));
         newPlatform->setPosX(Random::getInstance().randFloat(0,1 - this->platformLength));
-        newPlatform->setPosY(this->findHighestPlatform().getY() + Random::getInstance().randFloat(20 * difficulty,150 * difficulty));
+        newPlatform->setPosY(this->findHighestPlatform().getY() + Random::getInstance().randFloat(20 * difficulty,120 * difficulty));
         newPlatform->setLength(this->platformLength);
         if (newPlatform->getKind() == PKind::VERTICAL) {
             newPlatform->setMinHeight(newPlatform->getPosY());
@@ -115,7 +117,9 @@ void World::createPlatforms() {
 void World::createBackground() {
     // Evaluating is we need new stars
     while (newStarsNeeded()) {
-        std::shared_ptr<Entities::BGTile> newStar(new Entities::BGTile());
+        // Defining the concrete factory
+        ConcreteFactory factory;
+        std::shared_ptr<Entities::BGTile> newStar(factory.createBGTile());
         newStar->setPosX(Random::getInstance().randFloat(0,1));
         newStar->setPosY(this->findHighestStar().getY() + (float)Random::getInstance().randInt(10,50));
         this->bgTiles.push_back(newStar);
@@ -128,7 +132,9 @@ void World::createBackground() {
 void World::createBonus(const std::shared_ptr<Entities::Platform>& platform) {
     // Will there be a bonus on this platform: 5% chance
     if (Random::getInstance().randInt(1,100) <= 5) {
-        std::shared_ptr<Entities::Bonus> newBonus(new Entities::Bonus);
+        // Defining the concrete factory
+        ConcreteFactory factory;
+        std::shared_ptr<Entities::Bonus> newBonus(factory.createBonus());
         // Place the bonus somewhere random on the platform
         newBonus->setPosX(Random::getInstance().randFloat(platform->getPosX(),platform->getPosX()+platform->getLength()));
         newBonus->setPosY(platform->getPosY());
@@ -324,7 +330,7 @@ bool World::checkGameOver() {
     Coordinates toEval = (*this->player->getPos());
     toEval.setY(toEval.getY() + 20); // Make the game over a bit less strict
 
-    if (!this->m_camera->evalInCamera(toEval)) {
+    if (!this->m_camera->evalInCamera(toEval) and this->player->getPosY() > 0) {
         // Telling the observers to remove all the elements in the world
         for (const auto& item: platforms) item->observer->notifyRemoved();
         for (const auto& item: bgTiles) item->observer->notifyRemoved();
@@ -358,14 +364,14 @@ std::vector<std::shared_ptr<Entities::BGTile>> World::getBackground() {
 }
 
 double World::calculateDifficulty() const {
-    // Difficulty increases each 500 Y points
-    double difficulty = std::floor(this->player->getPosY() / 500) / 50;
+    // Difficulty increases slowly over a 1000 points
+    double difficulty = std::floor(this->player->getPosY() / 1000) / 50;
     return std::min(1 + difficulty,1.8);
 }
 
 PKind World::difficultyPlatformOverride(double diff) {
     float random = Utilities::Random::getInstance().randFloat(1,static_cast<float>(diff));
-    if (random <= 1.3) {
+    if (random <= 1.2) {
         return PKind::UNDEF;
     }
     if (random <= 1.6) {

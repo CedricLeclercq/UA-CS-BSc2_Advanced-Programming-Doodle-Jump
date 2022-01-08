@@ -9,11 +9,11 @@
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_ABSTRACTFACTORY_H
 
 #include <memory>
-#include "../models/entities/Player.h"
-#include "../models/entities/BGTile.h"
-#include "../models/entities/Bonus.h"
-#include "../models/entities/Platform.h"
-#include "../gameLogic/Camera.h"
+#include "models/entities/Player.h"
+#include "models/entities/BGTile.h"
+#include "models/entities/Bonus.h"
+#include "models/entities/Platform.h"
+#include "gameLogic/Camera.h"
 class World;
 
 /**
@@ -45,7 +45,7 @@ protected:
      * @brief Pure virtual function to create a platform
      * @return      Shared pointer to a platform
      */
-    virtual std::shared_ptr<Entities::Platform> createPlatform() = 0;
+    virtual std::shared_ptr<Entities::Platform> createPlatform(PKind kind) = 0;
     /**
      * @brief Pure virtual function to create the world
      * @param camera    World will be made with keeping a camera in mind

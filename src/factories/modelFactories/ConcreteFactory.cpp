@@ -7,7 +7,7 @@
 
 #include "ConcreteFactory.h"
 #include <memory>
-#include "../gameLogic/World.h"
+#include "gameLogic/World.h"
 
 std::shared_ptr<Entities::Player> ConcreteFactory::createPlayer() {
     return std::shared_ptr<Entities::Player>(new Entities::Player());
@@ -21,8 +21,8 @@ std::shared_ptr<Entities::Bonus> ConcreteFactory::createBonus() {
     return std::shared_ptr<Entities::Bonus>(new Entities::Bonus());
 }
 
-std::shared_ptr<Entities::Platform> ConcreteFactory::createPlatform() {
-    return std::shared_ptr<Entities::Platform>(new Entities::Platform());
+std::shared_ptr<Entities::Platform> ConcreteFactory::createPlatform(PKind kind) {
+    return std::shared_ptr<Entities::Platform>(new Entities::Platform(kind));
 }
 
 std::shared_ptr<World> ConcreteFactory::createWorld(std::shared_ptr<Camera> camera) {

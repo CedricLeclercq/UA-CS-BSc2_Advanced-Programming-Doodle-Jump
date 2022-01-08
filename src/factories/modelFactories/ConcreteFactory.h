@@ -39,7 +39,7 @@ public:
      * @brief Concrete factory function to create a platform
      * @return      Shared pointer to a platform
      */
-    std::shared_ptr<Entities::Platform> createPlatform() override;
+    std::shared_ptr<Entities::Platform> createPlatform(PKind kind) override;
     /**
      * @brief Concrete factory function to create a world
      * @param camera    World should be constructed with a camera

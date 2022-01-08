@@ -41,12 +41,6 @@ private:
     /// @brief Controller for the world
     WorldController controller;
 
-    // Observers
-    /// @brief Observer for the view <-> player
-
-
-
-
     // Member variables (minus the controllers)
     /// @brief Window where everything will be drawn on
     std::unique_ptr<sf::RenderWindow> mWindow;

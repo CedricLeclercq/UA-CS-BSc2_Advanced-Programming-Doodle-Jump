@@ -14,7 +14,7 @@ void Views::BGTileView::setup() {
        texLoaded = true;
    } else { std::cerr << "A texture in BGTileView was not able to be loaded!" << std::endl; }
    // Setting the texture based on the tile kind
-   TextureManagers::BGTileTexManager::getInstance().setTexture(view,tileKind);
+   TextureManagers::BGTileTexManager::getInstance().setTexture(*view,tileKind);
 }
 
 Views::BGTileView::BGTileView(const std::shared_ptr<Entities::BGTile> &tile) {

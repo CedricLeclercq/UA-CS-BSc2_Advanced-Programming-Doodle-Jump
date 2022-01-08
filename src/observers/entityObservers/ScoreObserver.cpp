@@ -18,7 +18,8 @@ Observers::ScoreObserver &Observers::ScoreObserver::getInstance() {
     return instance;
 }
 
-void Observers::ScoreObserver::notifyScore(float nScore) {
+void Observers::ScoreObserver::notifyScore(int nScore) {
+    if (currentScore == nScore) return; // Of course don't notify is the score is the same
     this->currentScore = nScore;
     notifyObserver();
 }

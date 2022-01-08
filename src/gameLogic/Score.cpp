@@ -8,12 +8,12 @@
 
 void Score::setScore(float newScore) {
     this->currentScore = newScore;
-    Observers::ScoreObserver::getInstance().notifyScore(currentScore);
+    Observers::ScoreObserver::getInstance().notifyScore(static_cast<int>(currentScore));
 }
 
 void Score::addScore(float newScore) {
     this->currentScore += newScore;
-    Observers::ScoreObserver::getInstance().notifyScore(currentScore);
+    Observers::ScoreObserver::getInstance().notifyScore(static_cast<int>(currentScore));
 }
 
 int Score::getScore() const {

@@ -7,9 +7,7 @@
 
 #include "Game.h"
 #include "../observers/entityObservers/ScoreObserver.h"
-#include "../observers/entityObservers/PlayerObserver.h"
-#include "../observers/entityObservers/PlatformObserver.h"
-#include "../observers/entityObservers/BGTileObserver.h"
+#include "../factories/viewFactories/ViewConcreteFactory.h"
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
 #include <memory>
@@ -25,26 +23,34 @@ Game::Game(): mWindow(new sf::RenderWindow(sf::VideoMode(800, 1200),"Doodle jump
 }
 
 void Game::initialiseGame() {
-    // Resetting the player and score observer
-    //Observers::ScoreObserver::getInstance().resetObserver(); // todo fix
-    // Creating world
+    // Creating world and camera
     ConcreteFactory factory;
+    ViewConcreteFactory viewFactory;
+
     std::pair<float, float> borderX = std::make_pair(0, this->mWindow->getSize().x);
     std::pair<float, float> borderY = std::make_pair(0, this->mWindow->getSize().y);
-    // Creating camera
     this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second, borderY.second));
-    std::shared_ptr<World> world = std::make_shared<World>(mCamera);
+    std::shared_ptr<World> world = factory.createWorld(mCamera);
     this->controller = WorldController(world);
-    this->mWindow->setFramerateLimit(60); // Setting framerate limit
+    this->mWindow->setFramerateLimit(60); // Setting framerate limit (max is 60)
+
+
     // Setting up the player view
-    playerView = std::make_shared<Views::PlayerView>(world->getPlayer());
+    playerView = viewFactory.createPlayerView(controller.getPlayer());
     playerView->setup();
+
     // Loading text for score
-    this->scoreFont.loadFromFile("recourses/arial.ttf");
-    this->scoreText.setFont(this->scoreFont);
-    this->scoreText.setFillColor(sf::Color::White);
-    this->scoreText.setCharacterSize(50);
-    this->scoreText.setPosition(50,40);
+    try {
+        std::string pathText = "recourses/arial.ttf";
+        if (!Utilities::Utils::pathExists(pathText)) throw std::exception();
+        this->scoreFont.loadFromFile(pathText);
+        this->scoreText.setFont(this->scoreFont);
+        this->scoreText.setFillColor(sf::Color::White);
+        this->scoreText.setCharacterSize(50);
+        this->scoreText.setPosition(50, 40);
+    } catch (std::exception& e) {
+        std::cerr << "A font could not been found while setting up the score text in Game.cpp (line 41)." << std::endl;
+    }
     this->defineLengths();
 }
 
@@ -62,8 +68,6 @@ void Game::setup() {
 
 void Game::start() {
     while ((*this->mWindow).isOpen()) {
-        //float deltaTicks = Utilities::Stopwatch::getInstance().getDeltaTicks(); // Getting the delta ticks for defining the player speed
-        //std::cout << deltaTicks << std::endl; // todo remove debug
         Utilities::Stopwatch::getInstance().startCounter();
         this->getInput(); // Getting input from the user and moving the player
         controller.updateWorld(); // Updating the world based on the user input
@@ -87,20 +91,30 @@ void Game::getInput() {
 }
 
 void Game::defineLengths() {
-    // Getting platform length
-    sf::Sprite testPlatform;
-    sf::Texture testPlatformTex;
-    testPlatformTex.loadFromFile("recourses/textures/platforms/yellow_platform.png");
-    testPlatform.setTexture(testPlatformTex); // todo fix this will be removed
-    float platformLength = testPlatform.getLocalBounds().width;
-    // Getting player length
-    sf::Sprite testPlayer;
-    sf::Texture playerFeetTex;
-    playerFeetTex.loadFromFile("recourses/textures/playerFeet.png"); // todo try and catch
-    testPlayer.setTexture(playerFeetTex);
-    float playerLength = testPlayer.getLocalBounds().width * (float)0.4;
-    this->controller.setLengths(playerLength / (float)this->mWindow->getSize().x,
-                                platformLength / (float)this->mWindow->getSize().x);
+
+    try {
+        // Getting platform length
+        sf::Sprite testPlatform;
+        sf::Texture testPlatformTex;
+        std::string pathPlatform = "recourses/textures/platforms/yellow_platform.png";
+        // Seeing if we can find the path
+        if (!Utilities::Utils::pathExists(pathPlatform)) throw std::exception();
+        testPlatformTex.loadFromFile(pathPlatform);
+        testPlatform.setTexture(testPlatformTex);
+        float platformLength = testPlatform.getLocalBounds().width;
+        // Getting player length
+        sf::Sprite testPlayer;
+        sf::Texture playerFeetTex;
+        std::string pathPlayerFeet = "recourses/textures/playerFeet.png";
+        if (!Utilities::Utils::pathExists(pathPlayerFeet)) throw std::exception();
+        playerFeetTex.loadFromFile("recourses/textures/playerFeet.png"); // todo try and catch
+        testPlayer.setTexture(playerFeetTex);
+        float playerLength = testPlayer.getLocalBounds().width * (float) 0.4;
+        this->controller.setLengths(playerLength / (float) this->mWindow->getSize().x,
+                                    platformLength / (float) this->mWindow->getSize().x);
+    } catch (std::exception& e) {
+        std::cerr << "A texture could not been found while defining player lengths in Game.cpp (line 82)." << std::endl;
+    }
 }
 
 void Game::placePlayer() {
@@ -113,40 +127,26 @@ void Game::placePlayer() {
     } else {
         playerView->setNormalTex();
     }
-    (*this->mWindow).draw(playerView->getView());
+    (*this->mWindow).draw(*playerView->getView());
 }
 
 void Game::placePlatforms() {
     for (auto& view: this->platformsViews) {
         Utilities::Coordinates coords = this->mCamera->project(view->observer->getNotifiedPosition());
         //std::cout << view->observer->getNotifiedPosition().getX() << " " << view->observer->getNotifiedPosition().getY() << std::endl;
+        view->getView()->setOrigin(0,view->getView()->getLocalBounds().height);
         view->setPosition(coords.getX(),coords.getY());
-        view->getView().setOrigin(0,view->getView().getLocalBounds().height);
-        (*this->mWindow).draw(view->getView());
+        (*this->mWindow).draw(*view->getView());
     }
-    // for (auto& controller: this->platformsControllers) {
-    //     Utilities::Coordinates coords = this->mCamera->project(*controller.getModel()->getPos());
-    //     controller.getView()->setPosition(coords.getX(),coords.getY());
-    //     this->setPlatformTexture(controller.getModel(),*controller.getView());
-    //     controller.getView()->setOrigin(0,controller.getView()->getLocalBounds().height);
-    //     (*this->mWindow).draw(*controller.getView());
-    // }
 }
 
 void Game::placeBackground() {
     for (auto& view: this->tilesViews) {
         Utilities::Coordinates coords = this->mCamera->project(view->observer->getNotifiedPosition());
         view->setPosition(coords.getX(),coords.getY());
-        view->getView().setOrigin(0,view->getView().getLocalBounds().height);
-        (*this->mWindow).draw(view->getView());
+        view->getView()->setOrigin(0,view->getView()->getLocalBounds().height);
+        (*this->mWindow).draw(*view->getView());
     }
-    // for (auto& controller: this->view) {
-    //     Utilities::Coordinates coords = this->mCamera->project(*controller.getModel()->getPos());
-    //     controller.getView()->setPosition(coords.getX(),coords.getY());
-    //     this->setTileTexture(controller.getModel(),*controller.getView());
-    //     controller.getView()->setOrigin(0,controller.getView()->getLocalBounds().height);
-    //     (*this->mWindow).draw(*controller.getView());
-    // }
 }
 
 void Game::openSFWindow() {
@@ -289,14 +289,15 @@ void Game::removeTileViews() {
 
 void Game::createNewViews() {
     std::vector<std::shared_ptr<Entities::Platform>> newPlatforms = Observers::WorldObserver::getInstance().getNotifiedPlatforms();
+    ViewConcreteFactory factory;
     for (const auto& item: newPlatforms) {
-        std::shared_ptr<Views::PlatformView> nView = std::make_shared<Views::PlatformView>(item);
+        std::shared_ptr<Views::PlatformView> nView = factory.createPlatformView(item);
         nView->setup();
         platformsViews.push_back(nView);
     }
     std::vector<std::shared_ptr<Entities::BGTile>> newTiles = Observers::WorldObserver::getInstance().getNotifiedTiles();
     for (const auto& item: newTiles) {
-        std::shared_ptr<Views::BGTileView> nView = std::make_shared<Views::BGTileView>(item);
+        std::shared_ptr<Views::BGTileView> nView = factory.creatBGTileView(item);
         nView->setup();
         tilesViews.emplace_back(nView);
     }

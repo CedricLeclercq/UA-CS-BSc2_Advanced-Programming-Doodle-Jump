@@ -8,9 +8,9 @@ SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/Modules/
 FIND_PACKAGE(SFML 2 COMPONENTS system window graphics)
 
 SET(LogicLibrary
-        src/factories/AbstractFactory.h
-        src/factories/ConcreteFactory.h
-        src/factories/ConcreteFactory.cpp
+        src/factories/modelFactories/AbstractFactory.h
+        src/factories/modelFactories/ConcreteFactory.h
+        src/factories/modelFactories/ConcreteFactory.cpp
         src/gameLogic/Camera.h
         src/gameLogic/Camera.cpp
         src/gameLogic/World.h
@@ -66,9 +66,9 @@ SET(SRC
         src/utilities/Utilities.h
         src/models/Entity.h
         src/models/Entity.cpp
-        src/factories/AbstractFactory.h
-        src/factories/ConcreteFactory.cpp
-        src/factories/ConcreteFactory.h
+        src/factories/modelFactories/AbstractFactory.h
+        src/factories/modelFactories/ConcreteFactory.cpp
+        src/factories/modelFactories/ConcreteFactory.h
         src/utilities/Utilities.cpp
         src/models/Entities.h
         src/observers/Observer.h
@@ -94,7 +94,7 @@ SET(SRC
         src/observers/entityObservers/BGTileObserver.cpp
         src/observers/entityObservers/BGTileObserver.h
         src/observers/entityObservers/WorldObserver.cpp
-        src/observers/entityObservers/WorldObserver.h src/textureManagers/TextureManager.cpp src/textureManagers/TextureManager.h src/textureManagers/entityTexManagers/BGTileTexManager.cpp src/textureManagers/entityTexManagers/BGTileTexManager.h src/textureManagers/entityTexManagers/PlayerTexManager.cpp src/textureManagers/entityTexManagers/PlayerTexManager.h src/textureManagers/entityTexManagers/PlatformTexManager.cpp src/textureManagers/entityTexManagers/PlatformTexManager.h src/textureManagers/TextureManagers.h)
+        src/observers/entityObservers/WorldObserver.h src/textureManagers/TextureManager.cpp src/textureManagers/TextureManager.h src/textureManagers/entityTexManagers/BGTileTexManager.cpp src/textureManagers/entityTexManagers/BGTileTexManager.h src/textureManagers/entityTexManagers/PlayerTexManager.cpp src/textureManagers/entityTexManagers/PlayerTexManager.h src/textureManagers/entityTexManagers/PlatformTexManager.cpp src/textureManagers/entityTexManagers/PlatformTexManager.h src/textureManagers/TextureManagers.h src/factories/viewFactories/ViewAbstractFactory.h src/factories/viewFactories/ViewConcreteFactory.cpp src/factories/viewFactories/ViewConcreteFactory.h)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/src")

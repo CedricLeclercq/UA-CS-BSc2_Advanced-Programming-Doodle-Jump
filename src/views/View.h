@@ -13,14 +13,14 @@
 
 class Views::View {
 protected:
-    sf::Sprite view{};
+    std::shared_ptr<sf::Sprite> view{};
     virtual void setup() = 0;
 public:
-    View()=default;
-    explicit View(const std::shared_ptr<Entity>& entity): view{sf::Sprite{}} {};
+    View(): view{std::make_shared<sf::Sprite>()} {}
+    explicit View(const std::shared_ptr<Entity>& entity): view{std::make_shared<sf::Sprite>()} {};
     ~View()=default;
-    void setPosition(float x, float y) {view.setPosition(x,y); }
-    sf::Sprite getView() const {return view;}
+    void setPosition(float x, float y) {view->setPosition(x,y); }
+    std::shared_ptr<sf::Sprite> getView() const {return view;}
 };
 
 

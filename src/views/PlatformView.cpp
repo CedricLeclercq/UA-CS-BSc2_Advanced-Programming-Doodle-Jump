@@ -8,7 +8,7 @@
 using Utils = Utilities::Utils;
 
 Views::PlatformView::PlatformView(const std::shared_ptr<Entities::Platform> &platform):
-    platformKind(platform->getKind()) {
+        platformKind(platform->getKind()) {
     // Linking observer
     observer = platform->observer;
     // Setting bonus kind
@@ -23,5 +23,5 @@ void Views::PlatformView::setup() {
         TextureManagers::PlatformTexManager::getInstance().loadTextures();
         texLoaded = true;
     } else { std::cerr << "A texture in playerView was not able to be loaded!" << std::endl; }
-    TextureManagers::PlatformTexManager::getInstance().setTexture(view,platformKind,bonusKind);
+    TextureManagers::PlatformTexManager::getInstance().setTexture(*view,platformKind,bonusKind);
 }

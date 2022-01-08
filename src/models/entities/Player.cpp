@@ -36,21 +36,15 @@ void Entities::Player::jump(bool newJump) {
             this->move(0, this->velocityY * Utilities::Stopwatch::getInstance().getDeltaTicks());
             observer->notifyCurLocation(*this->position);
         } else {
-            this->velocityY -= static_cast<float>(0.03) ; //* this->deltaTicksSpeedUp;
+            this->velocityY -= static_cast<float>(0.03); //* this->deltaTicksSpeedUp;
             this->move(0, this->velocityY * Utilities::Stopwatch::getInstance().getDeltaTicks());
             observer->notifyCurLocation(*this->position);
         }
     }
 
     // Removing bonus is it is exhausted
-    if (this->bonus != nullptr and this->bonus->exhaustedBonus()) {
-        this->paralysedY = false;
-        this->bonus = nullptr;
-    } else if (this->bonus != nullptr) {
-        // else applying the bonus
+    if (bonus != nullptr) {
         this->bonus->takeEffect(*this);
-    } else if (this->bonus == nullptr or (this->bonus != nullptr and this->bonus->getPowerKind() != BonusPower::ROCKET)) {
-        observer->notifyIsRocket(false);
     }
 }
 
@@ -67,10 +61,11 @@ void Entities::Player::setVelocityY(float velocity) {
 
 bool Entities::Player::getLookingLeft() const {
     return this->mLookLeft;
-
 }
 
 void Entities::Player::setBonus(std::shared_ptr<Entities::Bonus> nBonus) {
+    if (nBonus != nullptr and nBonus->getPowerKind() == BonusPower::ROCKET)
+        this->observer->notifyIsRocket(true);
     this->bonus = std::move(nBonus);
 }
 

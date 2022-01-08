@@ -12,7 +12,7 @@
 #include "../models/entities/Platform.h"
 #include "../observers/entityObservers/WorldObserver.h"
 #include "../models/entities/BGTile.h"
-#include "../factories/ConcreteFactory.h"
+#include "factories/modelFactories/ConcreteFactory.h"
 #include "Camera.h"
 #include <memory>
 #include <utility>
