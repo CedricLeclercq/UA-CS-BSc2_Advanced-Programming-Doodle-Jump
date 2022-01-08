@@ -1,6 +1,10 @@
-//
-// Created by Cédric Leclercq on 26/12/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//           logicMain.cpp             //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
+
 #include <iostream>
 #include "gameLogic/World.h"
 

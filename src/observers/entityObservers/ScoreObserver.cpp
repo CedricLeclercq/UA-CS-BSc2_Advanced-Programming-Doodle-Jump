@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 27/12/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//         ScoreObserver.cpp           //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "ScoreObserver.h"
 

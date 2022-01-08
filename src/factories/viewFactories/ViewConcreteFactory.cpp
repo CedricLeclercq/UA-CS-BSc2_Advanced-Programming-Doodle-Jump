@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 08/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//     viewConcreteFactory.cpp         //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "ViewConcreteFactory.h"
 

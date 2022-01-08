@@ -17,8 +17,17 @@
  * @brief Namespace for all the utilities and utility classes
  */
 namespace Utilities {
+    /**
+     * @class Utilities::Utils
+     * @brief Some handy functions for the whole project
+     */
     class Utils {
     public:
+        /**
+         * @brief Searches if a path exists
+         * @param path  path to search
+         * @return      pathExists?
+         */
         static bool pathExists(const std::string& path);
     };
     /**
@@ -27,11 +36,23 @@ namespace Utilities {
      */
     class Random {
     private:
+        /**
+         * @brief Default constructor
+         */
         Random();
-        ~Random()=default;
+        /// @brief Random device for random number generation
         std::random_device rd{};
+        /// @brief For random number generation - not initialised for real random numbers
         std::mt19937 mt;
     public:
+        /**
+         * @brief Default destructor
+         */
+        ~Random()=default;
+        /**
+         * @brief Will get an instance of the class regarding the singleton pattern
+         * @return      instance of Random
+         */
         static Random& getInstance();
         /**
          * @brief Will return a random integer from x to y
@@ -52,22 +73,27 @@ namespace Utilities {
      * @class Utilities::Stopwatch
      * @brief Makes sure that the game logic and the graphical side runs the same on every pc using cpu ticks
      */
-     // todo make this one singleton
     class Stopwatch {
     private:
         // Member variables
         /// @brief Indicates how many ticks where recorded at the beginning of the stopwatch
         std::chrono::time_point<std::chrono::high_resolution_clock> beforeRunTicks{};
         /// @brief deltaTicks := ticks when stopwatch ended - ticks when stopwatch started
-        float deltaTicks;
+        float deltaTicks{};
         // Member functions
         /**
          * @brief Basic constructor for the stopwatch
          */
-        Stopwatch() {
-            this->deltaTicks = 1;
-        }
+        Stopwatch() { this->deltaTicks = 1;}
     public:
+        /**
+         * @brief Default destructor
+         */
+        ~Stopwatch()=default;
+        /**
+         * @brief Will get an instance of the stopwatch class regarding the singleton design pattern
+         * @return  instance of Stopwatch
+         */
         static Stopwatch& getInstance();
         /**
          * @brief Getter for the delta ticks of the previous run
@@ -95,21 +121,19 @@ namespace Utilities {
         float y{};
     public:
         /**
-         * @brief Very simple default constructor initialising all the values
+         * @brief Very simple constructor initialising all the values
          */
-        Coordinates() {
-            x = 0;
-            y = 0;
-        }
+        Coordinates() { x = 0; y = 0;}
+        /**
+         * @brief Default destructor
+         */
+        ~Coordinates()=default;
         /**
          * @brief Constructor with given coordinates
          * @param nX    New coordinate x
          * @param nY    New coordinate y
          */
-        Coordinates(float nX, float nY) {
-            this->x = nX;
-            this->y = nY;
-        }
+        Coordinates(float nX, float nY) {this->x = nX; this->y = nY;}
         /**
          * @brief Setter for the x coordinate
          * @param nX    New coordinate x

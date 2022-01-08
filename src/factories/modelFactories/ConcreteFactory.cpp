@@ -32,3 +32,7 @@ std::shared_ptr<World> ConcreteFactory::createWorld(std::shared_ptr<Camera> came
 std::unique_ptr<Camera> ConcreteFactory::createCamera(const Coordinates& worldView, const Coordinates& cameraView) {
     return std::make_unique<Camera>(worldView,cameraView);
 }
+
+std::shared_ptr<Score> ConcreteFactory::createScore() {
+    return std::make_shared<Score>();
+}

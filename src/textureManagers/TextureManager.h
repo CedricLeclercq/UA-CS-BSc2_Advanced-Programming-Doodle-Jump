@@ -12,8 +12,22 @@ using Utils = Utilities::Utils;
 
 class TextureManagers::TextureManager {
 public:
+    /**
+     * @brief Default constructor
+     */
     TextureManager()=default;
+    /**
+     * @brief Default destructor
+     */
+    ~TextureManager()=default;
+    /**
+     * @brief Pure virtual function to load all the textures
+     */
     virtual void loadTextures() = 0;
+    /**
+     * @brief Pure virtual function to check if textures are found
+     * @return  foundAllTextures?
+     */
     virtual bool texturesFound() = 0;
 };
 

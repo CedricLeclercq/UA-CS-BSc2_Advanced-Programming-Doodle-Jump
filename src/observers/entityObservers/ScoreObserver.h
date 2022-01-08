@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 27/12/2021.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//          ScoreObserver.h            //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_SCOREOBSERVER_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_SCOREOBSERVER_H
@@ -9,7 +12,9 @@
 
 class Observers::ScoreObserver: public Observer {
 private:
+    /// @brief Last score that the observer was notified of
     int currentScore{};
+    /// @brief Bool that indicates if the score has been notified - changed
     bool scoreChanged{};
     /// @brief Default private constructor, because the class is used as a Singleton
     ScoreObserver()=default;
@@ -18,6 +23,10 @@ private:
      */
     void notifyObserver() override;
 public:
+    /**
+     * @brief Default destructor
+     */
+    ~ScoreObserver()=default;
     /**
      * @brief Will return the instance of the scoreObserver if it exists, else it will create one and return it
      * @return
@@ -28,7 +37,15 @@ public:
      * @return      Will get is the score was changed
      */
     bool getNotified() override;
+    /**
+     * @brief Will notify the observer of a score change
+     * @param nScore    newly changed score
+     */
     void notifyScore(int nScore);
+    /**
+     * @brief Getter for the current score
+     * @return      this->currentScore
+     */
     int getScore() const {return currentScore;}
 };
 

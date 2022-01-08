@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 04/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//          PlatformView.cpp           //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "PlatformView.h"
 #include "../textureManagers/entityTexManagers/PlatformTexManager.h"

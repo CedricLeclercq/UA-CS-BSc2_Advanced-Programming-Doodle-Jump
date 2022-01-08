@@ -20,13 +20,21 @@ using Coordinates = Utilities::Coordinates;
 class Camera {
 private:
     /// @brief height of the game window // todo fix comment
-    double m_windowHeight;
+    double m_windowHeight{};
     /// @brief Coordinates X and Y of the world view
-    Coordinates m_worldView;
+    Coordinates m_worldView{};
     /// @brief Coordinates X and Y of the camera view
-    Coordinates m_cameraView;
+    Coordinates m_cameraView{};
 
 public:
+    /**
+     * @brief Default constructor
+     */
+    Camera()=default;
+    /**
+     * @brief Default destructor
+     */
+    ~Camera()=default;
     /**
      * @brief Constructor for the camera class
      * @param worldView     Dimensions of the world view

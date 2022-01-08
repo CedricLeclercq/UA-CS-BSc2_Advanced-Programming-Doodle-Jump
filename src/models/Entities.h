@@ -15,23 +15,31 @@
  */
 namespace Entities {
     /**
-     * @class Entities::Bonus: public Entity
-     * @brief Class for the bonus in the game
+     * @class Entities::Bonus
+     * @public Entity
+     * @brief Entity class for a bonus in the game
+     * @note Makes use of several observers
      */
     class Bonus;
     /**
-     * @class Entities::Platform: public Entity
-     * @brief class for the platform in the game
+     * @class Entities::Platform
+     * @public Entity
+     * @brief Entity class for a platform in the game
+     * @note Makes use of several observers
      */
     class Platform;
     /**
-     * @class Entities::Player: public Entity
-     * @brief class for the player in the game
+     * @class Entities::Player
+     * @public Entity
+     * @brief Entity class for the player in the game
+     * @note Will make use of several observers
      */
     class Player;
     /**
-     * @class Entities::BGTile: public Entity
-     * @brief class for the background tile in the game
+     * @class Entities::BGTile
+     * @public Entity
+     * @brief Entity class for a background tile in the game
+     * @note Makes use of several observers
      */
     class BGTile;
 }

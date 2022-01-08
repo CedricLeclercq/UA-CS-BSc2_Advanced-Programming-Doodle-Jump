@@ -33,13 +33,10 @@ SET(LogicLibrary
         src/controllers/WorldController.h
         src/gameLogic/Score.cpp
         src/gameLogic/Score.h
-        src/observers/entityObservers/PlatformObserver.cpp
         src/observers/entityObservers/PlatformObserver.h
-        src/observers/entityObservers/BGTileObserver.cpp
         src/observers/entityObservers/BGTileObserver.h
         src/observers/entityObservers/WorldObserver.cpp
         src/observers/entityObservers/WorldObserver.h
-        src/observers/entityObservers/PlayerObserver.cpp
         src/observers/entityObservers/PlayerObserver.h
         src/observers/entityObservers/ScoreObserver.cpp
         src/observers/entityObservers/ScoreObserver.h
@@ -72,7 +69,6 @@ SET(SRC
         src/utilities/Utilities.cpp
         src/models/Entities.h
         src/observers/Observer.h
-        src/observers/entityObservers/PlayerObserver.cpp
         src/observers/entityObservers/PlayerObserver.h
         src/observers/Observers.h
         src/observers/entityObservers/ScoreObserver.cpp
@@ -89,12 +85,10 @@ SET(SRC
         src/controllers/WorldController.h
         src/gameLogic/Score.cpp
         src/gameLogic/Score.h
-        src/observers/entityObservers/PlatformObserver.cpp
         src/observers/entityObservers/PlatformObserver.h
-        src/observers/entityObservers/BGTileObserver.cpp
         src/observers/entityObservers/BGTileObserver.h
         src/observers/entityObservers/WorldObserver.cpp
-        src/observers/entityObservers/WorldObserver.h src/textureManagers/TextureManager.cpp src/textureManagers/TextureManager.h src/textureManagers/entityTexManagers/BGTileTexManager.cpp src/textureManagers/entityTexManagers/BGTileTexManager.h src/textureManagers/entityTexManagers/PlayerTexManager.cpp src/textureManagers/entityTexManagers/PlayerTexManager.h src/textureManagers/entityTexManagers/PlatformTexManager.cpp src/textureManagers/entityTexManagers/PlatformTexManager.h src/textureManagers/TextureManagers.h src/factories/viewFactories/ViewAbstractFactory.h src/factories/viewFactories/ViewConcreteFactory.cpp src/factories/viewFactories/ViewConcreteFactory.h)
+        src/observers/entityObservers/WorldObserver.h src/textureManagers/TextureManager.h src/textureManagers/entityTexManagers/BGTileTexManager.cpp src/textureManagers/entityTexManagers/BGTileTexManager.h src/textureManagers/entityTexManagers/PlayerTexManager.cpp src/textureManagers/entityTexManagers/PlayerTexManager.h src/textureManagers/entityTexManagers/PlatformTexManager.cpp src/textureManagers/entityTexManagers/PlatformTexManager.h src/textureManagers/TextureManagers.h src/factories/viewFactories/ViewAbstractFactory.h src/factories/viewFactories/ViewConcreteFactory.cpp src/factories/viewFactories/ViewConcreteFactory.h)
 
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/src")

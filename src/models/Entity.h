@@ -39,9 +39,7 @@ public:
     /**
      * @brief Constructor that will initialise only the coordinates
      */
-    Entity() {
-        this->position = std::make_shared<Utilities::Coordinates>(0,0);
-    }
+    Entity(): position(std::make_shared<Utilities::Coordinates>(0,0)) {}
     /**
      * @brief Setter for the position of the entity
      * @param nX    New x coordinate

@@ -12,19 +12,11 @@
 void Entities::Player::moveRight() {
     this->move((static_cast<float>(0.0008) * Utilities::Stopwatch::getInstance().getDeltaTicks()),0.f);
     observer->notifyCurLocation(*this->position);
-    if (this->mLookLeft) {
-        //this->move(-0.1,0.f);
-    }
-    this->mLookLeft = false;
 }
 
 void Entities::Player::moveLeft() {
     this->move((static_cast<float>(-0.0008) * Utilities::Stopwatch::getInstance().getDeltaTicks()),0.f);
     observer->notifyCurLocation(*this->position);
-    if (not this->mLookLeft) {
-        //this->move(0.1,0.f);
-    }
-    this->mLookLeft = true;
 }
 
 
@@ -59,20 +51,18 @@ void Entities::Player::setVelocityY(float velocity) {
     this->velocityY = velocity;
 }
 
-bool Entities::Player::getLookingLeft() const {
-    return this->mLookLeft;
-}
-
 void Entities::Player::setBonus(std::shared_ptr<Entities::Bonus> nBonus) {
     if (nBonus != nullptr and nBonus->getPowerKind() == BonusPower::ROCKET)
         this->observer->notifyIsRocket(true);
     this->bonus = std::move(nBonus);
 }
 
-std::shared_ptr<Entities::Bonus> Entities::Player::getBonus() const {
-    return this->bonus;
-}
-
 void Entities::Player::setParalysed(bool paralysed) {
     this->paralysedY = paralysed;
 }
+
+Entities::Player::Player(): observer(std::make_shared<Observers::PlayerObserver>()) {
+    this->position = std::make_shared<Utilities::Coordinates>(0.5, 0.f);
+    this->paralysedY = false;
+}
+

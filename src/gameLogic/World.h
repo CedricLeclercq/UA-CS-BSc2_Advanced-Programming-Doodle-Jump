@@ -18,7 +18,10 @@
 #include <utility>
 #include "Score.h"
 
-
+/**
+ * @class World
+ * @brief Manages all the elements in the logical world
+ */
 class World {
 private:
     /// @brief Shared pointer to our main player
@@ -120,10 +123,21 @@ private:
      * @return // todo
      */
     double calculateDifficulty() const;
-
+    /**
+     * @brief Will define a platform kind based on a difficulty, will spawn more rare as the diff increases
+     * @param diff      current game difficulty
+     * @return          random platform kind
+     */
     static PKind difficultyPlatformOverride(double diff) ;
 public:
+    /**
+     * @brief Default constructor for the world
+     */
     World()=default;
+    /**
+     * @brief Default destructor
+     */
+    ~World()=default;
     /**
      * @brief Constructor for the world, will create a player and accept a camera for world view purposes
      * @param camera
@@ -148,21 +162,6 @@ public:
      * @param length    Platform length
      */
     void setPlatformLength(float length);
-    /**
-     * @brief Getter for the background in the world
-     * @return      Vector with shared pointers to the background tiles
-     */
-    std::vector<std::shared_ptr<Entities::BGTile>> getBackground();
-    /**
-     * @brief Getter for the platforms in the world
-     * @return      Vector with shared pointers to the platforms
-     */
-    std::vector<std::shared_ptr<Entities::Platform>> getPlatforms();
-    /**
-     * @brief Getter for the bonuses in the world
-     * @return      Vector with shared pointers to the bonuses
-     */
-    __attribute__((unused)) std::vector<std::shared_ptr<Entities::Bonus>> getBonuses() const {return this->bonuses; }
     /**
      * @brief Checks is the game is over in the world by comparing Y coordinates with the lowest allowed
      * @return      (gameOver?)

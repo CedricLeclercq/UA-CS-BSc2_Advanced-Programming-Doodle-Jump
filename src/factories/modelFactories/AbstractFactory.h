@@ -13,6 +13,7 @@
 #include "models/entities/BGTile.h"
 #include "models/entities/Bonus.h"
 #include "models/entities/Platform.h"
+#include "gameLogic/Score.h"
 #include "gameLogic/Camera.h"
 class World;
 
@@ -22,9 +23,13 @@ class World;
  */
 class AbstractFactory {
 protected:
-    /// @brief Default constructor
+    /**
+     * @brief Default constructor
+     */
     AbstractFactory()=default;
-    /// @brief Default destructor
+    /**
+     * @brief Default destructor
+     */
     ~AbstractFactory()=default;
     /**
      * @brief Pure virtual function to create a player
@@ -59,6 +64,11 @@ protected:
      * @return              Unique pointer to a camera (only one pointer will exist)
      */
     virtual std::unique_ptr<Camera> createCamera(const Coordinates& worldView, const Coordinates& cameraView) = 0;
+    /**
+     * @brief Pure virtual function to create a shared pointer to a score object
+     * @return      shared pointer to a score object
+     */
+    virtual std::shared_ptr<Score> createScore() = 0;
 };
 
 #endif //ADVANCEDPROGRAMMINGDOODLEJUMP_ABSTRACTFACTORY_H

@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 08/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//       viewAbstractFactory.h         //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_VIEWABSTRACTFACTORY_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_VIEWABSTRACTFACTORY_H
@@ -16,6 +19,14 @@ using namespace Entities;
 
 class ViewAbstractFactory {
 protected:
+    /**
+     * @brief Default constructor
+     */
+    ViewAbstractFactory()=default;
+    /**
+     * @brief Default destructor
+     */
+    ~ViewAbstractFactory()=default;
     /**
      * @brief Pure virtual function for creating a player view
      * @param player    Player that a view should be created of

@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 04/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//            BGTileView.h             //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_BGTILEVIEW_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_BGTILEVIEW_H
@@ -13,13 +16,29 @@
 
 class Views::BGTileView: public View {
 private:
-    // Kind of tile we have
+    /// @brief Kind of tile we have
     TKind tileKind{};
+    /// @brief Indicator if the textures are loaded
     bool texLoaded = false;
 public:
-    // Observer
+    /// @brief Shared pointer to the observer to link the model and the view
     std::shared_ptr<Observers::BGTileObserver> observer;
+    /**
+     * @brief Default constructor
+     */
+    BGTileView()=default;
+    /**
+     * @brief Default destructor
+     */
+    ~BGTileView()=default;
+    /**
+     * @brief Default constructor that also links the models observer
+     * @param tile      model tile
+     */
     explicit BGTileView(const std::shared_ptr<Entities::BGTile>& tile);
+    /**
+     * @brief Will setup the textures for the background tiles
+     */
     void setup() override;
 };
 

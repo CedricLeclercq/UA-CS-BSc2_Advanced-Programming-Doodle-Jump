@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 08/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//       viewConcreteFactory.h         //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_VIEWCONCRETEFACTORY_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_VIEWCONCRETEFACTORY_H
@@ -9,6 +12,14 @@
 
 class ViewConcreteFactory: public ViewAbstractFactory {
 public:
+    /**
+     * @brief Default constructor
+     */
+    ViewConcreteFactory()=default;
+    /**
+     * @brief Default destructor
+     */
+    ~ViewConcreteFactory()=default;
     /**
      * @brief Virtual function for creating a player view
      * @param player    Player that a view should be created of

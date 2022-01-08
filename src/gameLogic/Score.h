@@ -1,17 +1,32 @@
-//
-// Created by Cédric Leclercq on 05/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//              Score.h                //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_SCORE_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_SCORE_H
 
 
+/**
+ * @class Score
+ * @brief Very simple class for keeping a score
+ * @note Will notify an observer if the score changes
+ */
 class Score {
 private:
     /// @brief The current overall score in the logic game
     float currentScore{};
 public:
+    /**
+     * @brief Very basic constructor
+     */
     Score(): currentScore(0.f) {}
+    /**
+     * @brief Default destructor
+     */
+    ~Score()=default;
     /**
      * @brief Setter for the score in the game
      * @param newScore   New score

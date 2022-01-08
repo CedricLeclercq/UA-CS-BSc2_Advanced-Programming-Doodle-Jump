@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 05/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//         BGTileTexManager.h          //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #ifndef ADVANCEDPROGRAMMINGDOODLEJUMP_BGTILETEXMANAGER_H
 #define ADVANCEDPROGRAMMINGDOODLEJUMP_BGTILETEXMANAGER_H
@@ -53,12 +56,34 @@ private:
     std::string pathStar1 = "recourses/textures/background/stars/Star1.png";
     /// @brief Star 2 - path
     std::string pathStar2 = "recourses/textures/background/stars/Star2.png";
-
+    /**
+     * @brief Default constructor (but private because of the singleton design pattern)
+     */
     BGTileTexManager()=default;
 public:
+    /**
+     * @brief Default destructor
+     */
+    ~BGTileTexManager()=default;
+    /**
+     * @brief Will return an instance of the class regarding the singleton design pattern
+     * @return  instance of BGTileTexManager
+     */
     static BGTileTexManager& getInstance();
+    /**
+     * @brief Will load the textures for the background tiles
+     */
     void loadTextures() override;
+    /**
+     * @brief Will define if all the texture for the background tiles can be found
+     * @return      allTexturesFound?
+     */
     bool texturesFound() override;
+    /**
+     * @brief Will set a texture to a background tile sprite
+     * @param sprite    sprite by reference - to give change
+     * @param kind      kind of background tile
+     */
     void setTexture(sf::Sprite& sprite, TKind kind) const;
 };
 

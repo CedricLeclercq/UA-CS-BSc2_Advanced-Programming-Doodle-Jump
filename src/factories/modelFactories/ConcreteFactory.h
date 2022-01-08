@@ -16,9 +16,13 @@
  */
 class ConcreteFactory: public AbstractFactory {
 public:
-    /// @brief Default constructor
+    /**
+     * @brief Default constructor
+     */
     ConcreteFactory()=default;
-    /// @brief Default destructor
+    /**
+     * @brief Default destructor
+     */
     ~ConcreteFactory()=default;
     /**
      * @brief Concrete factory function to create and return a player
@@ -53,6 +57,11 @@ public:
      * @return              Unique pointer to a camera
      */
     std::unique_ptr<Camera> createCamera(const Coordinates& worldView, const Coordinates& cameraView) override;
+    /**
+     * @brief Concrete factory function to create a shared pointer to a score object
+     * @return      shared pointer to a score object
+     */
+    std::shared_ptr<Score> createScore() override;
 };
 
 

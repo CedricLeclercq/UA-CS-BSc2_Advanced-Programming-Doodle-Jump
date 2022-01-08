@@ -19,6 +19,10 @@
 #include "../controllers/WorldController.h"
 
 
+/**
+ * @class Game
+ * @brief Will manage the graphical side of the game
+ */
 class Game {
 public:
     /**
@@ -29,6 +33,10 @@ public:
      * @brief Basic constructor that will create a window with standard dimensions, and start the game
      */
     Game();
+    /**
+     * @brief Default destructor
+     */
+    ~Game()=default;
 private:
     // Views
     /// @brief View for the player
@@ -38,6 +46,7 @@ private:
     /// @brief Views for all the background tiles
     std::vector<std::shared_ptr<Views::BGTileView>> tilesViews;
 
+    // Main controller - to communicate with the world
     /// @brief Controller for the world
     WorldController controller;
 
@@ -47,7 +56,7 @@ private:
     /// @brief Camera used for the projection of elements
     std::shared_ptr<Camera> mCamera;
 
-    // Fonts and texts // todo fix in class
+    // Fonts and texts
     /// @brief Text for the score
     sf::Text scoreText;
     /// @brief Font for the score and endscreen to be displayed in
@@ -103,10 +112,17 @@ private:
      * @return      (window.closed?) Will return true when the user asked to close the "end"window
      */
     bool openEndSFScreen();
-
-
+    /**
+     * @brief Will remove all the platform views that are no longer needed
+     */
     void removePlatformViews();
+    /**
+     * @brief Will remove all the background tile views that are no longer needed
+     */
     void removeTileViews();
+    /**
+     * @brief Will create new views if new models where created
+     */
     void createNewViews();
 };
 

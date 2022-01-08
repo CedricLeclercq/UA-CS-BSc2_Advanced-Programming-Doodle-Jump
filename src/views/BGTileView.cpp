@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 04/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//           BGTileView.cpp            //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "BGTileView.h"
 #include "../textureManagers/entityTexManagers/BGTileTexManager.h"

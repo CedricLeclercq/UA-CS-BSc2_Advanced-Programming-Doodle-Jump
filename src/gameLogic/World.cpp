@@ -205,10 +205,6 @@ void World::movePlatforms() {
     }
 }
 
-std::vector<std::shared_ptr<Entities::Platform>> World::getPlatforms() {
-    return this->platforms;
-}
-
 bool World::newPlatformsNeeded() {
 
     // Searching the highest platform
@@ -341,7 +337,7 @@ bool World::checkGameOver() {
 
 World::World(std::shared_ptr<Camera> camera) {
     ConcreteFactory factory;
-    this->score = std::make_shared<Score>();
+    this->score = factory.createScore();
     this->player = factory.createPlayer();
     this->m_camera = std::move(camera);
 }
@@ -357,10 +353,6 @@ void World::setPlayerLength(float length) {
 
 void World::setPlatformLength(float length) {
     this->platformLength = length;
-}
-
-std::vector<std::shared_ptr<Entities::BGTile>> World::getBackground() {
-    return this->bgTiles;
 }
 
 double World::calculateDifficulty() const {

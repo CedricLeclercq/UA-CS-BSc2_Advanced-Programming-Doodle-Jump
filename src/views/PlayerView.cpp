@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 04/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//           PlayerView.cpp            //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "PlayerView.h"
 #include <iostream>
@@ -31,8 +34,3 @@ void Views::PlayerView::setRocketTex() {
 void Views::PlayerView::setNormalTex() {
     TextureManagers::PlayerTexManager::getInstance().setTexture(*view,false);
 }
-
-
-
-
-

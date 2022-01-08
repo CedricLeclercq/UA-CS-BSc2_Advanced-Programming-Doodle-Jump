@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 05/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//             Score.cpp               //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "Score.h"
 #include "../observers/entityObservers/ScoreObserver.h"

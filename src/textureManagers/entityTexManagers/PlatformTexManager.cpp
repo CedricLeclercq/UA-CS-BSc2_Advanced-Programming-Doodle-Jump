@@ -1,6 +1,9 @@
-//
-// Created by Cédric Leclercq on 05/01/2022.
-//
+// // // // // // // // // // // // // //
+//                                     //
+//       PlatformTexManager.cpp        //
+//          Cédric Leclercq            //
+//                                     //
+// // // // // // // // // // // // // //
 
 #include "PlatformTexManager.h"
 
