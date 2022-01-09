@@ -107,7 +107,7 @@ void Game::defineLengths() {
         sf::Texture playerFeetTex;
         std::string pathPlayerFeet = "recourses/textures/playerFeet.png";
         if (!Utilities::Utils::pathExists(pathPlayerFeet)) throw std::exception();
-        playerFeetTex.loadFromFile("recourses/textures/playerFeet.png"); // todo try and catch
+        playerFeetTex.loadFromFile("recourses/textures/playerFeet.png");
         testPlayer.setTexture(playerFeetTex);
         float playerLength = testPlayer.getLocalBounds().width * (float) 0.4;
         this->controller.setLengths(playerLength / (float) this->mWindow->getSize().x,
@@ -119,7 +119,7 @@ void Game::defineLengths() {
 
 void Game::placePlayer() {
     // Getting and setting position of main player
-    Coordinates viewCoo = mCamera->project(playerView->observer->getNotifiedPosition()); //= this->mCamera->project(*this->mWorld->getPlayer()->getPos()); // todo get player location from observer
+    Coordinates viewCoo = mCamera->project(playerView->observer->getNotifiedPosition());
     playerView->setPosition(viewCoo.getX(), viewCoo.getY());
     // Load rocket texture if needed
     if (playerView->observer->getNotifiedRocket()) {
@@ -133,7 +133,6 @@ void Game::placePlayer() {
 void Game::placePlatforms() {
     for (auto& view: this->platformsViews) {
         Utilities::Coordinates coords = this->mCamera->project(view->observer->getNotifiedPosition());
-        //std::cout << view->observer->getNotifiedPosition().getX() << " " << view->observer->getNotifiedPosition().getY() << std::endl;
         view->getView()->setOrigin(0,view->getView()->getLocalBounds().height);
         view->setPosition(coords.getX(),coords.getY());
         (*this->mWindow).draw(*view->getView());

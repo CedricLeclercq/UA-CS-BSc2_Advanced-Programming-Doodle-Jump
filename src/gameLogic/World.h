@@ -120,7 +120,7 @@ private:
     void movePlatforms();
     /**
      * @brief Will calculate the current difficulty of the game
-     * @return // todo
+     * @return The current difficulty of the game
      */
     double calculateDifficulty() const;
     /**

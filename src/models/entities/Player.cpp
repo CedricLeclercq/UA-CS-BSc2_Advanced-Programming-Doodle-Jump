@@ -21,6 +21,7 @@ void Entities::Player::moveLeft() {
 
 
 void Entities::Player::jump(bool newJump) {
+    std::cout << this->position->getX() << " " << this->position->getY() << std::endl;
 
     if (!this->paralysedY) {
         if (this->position->getY() <= 0 or newJump) {
@@ -28,7 +29,7 @@ void Entities::Player::jump(bool newJump) {
             this->move(0, this->velocityY * Utilities::Stopwatch::getInstance().getDeltaTicks());
             observer->notifyCurLocation(*this->position);
         } else {
-            this->velocityY -= static_cast<float>(0.03); //* this->deltaTicksSpeedUp;
+            this->velocityY -= static_cast<float>(0.001875) * Utilities::Stopwatch::getInstance().getDeltaTicks(); //* this->deltaTicksSpeedUp;
             this->move(0, this->velocityY * Utilities::Stopwatch::getInstance().getDeltaTicks());
             observer->notifyCurLocation(*this->position);
         }

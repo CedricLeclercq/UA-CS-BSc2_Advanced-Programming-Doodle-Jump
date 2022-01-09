@@ -19,7 +19,7 @@ using Coordinates = Utilities::Coordinates;
  */
 class Camera {
 private:
-    /// @brief height of the game window // todo fix comment
+    /// @brief height of the graphical / game window
     double m_windowHeight{};
     /// @brief Coordinates X and Y of the world view
     Coordinates m_worldView{};
