@@ -30,7 +30,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~View()=default;
+    virtual ~View()=default;
     /**
      * @brief Function to set the position of the view
      * @param x     newX coordinate

@@ -21,8 +21,7 @@ void Entities::Player::moveLeft() {
 
 
 void Entities::Player::jump(bool newJump) {
-    std::cout << this->position->getX() << " " << this->position->getY() << std::endl;
-
+    // If the player is able to move in the Y direction, it is not allowed to do that when under effect of a bonus
     if (!this->paralysedY) {
         if (this->position->getY() <= 0 or newJump) {
             this->velocityY = static_cast<float>(1); // * this->deltaTicksSpeedUp;

@@ -19,7 +19,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~TextureManager()=default;
+    virtual ~TextureManager()=default;
     /**
      * @brief Pure virtual function to load all the textures
      */

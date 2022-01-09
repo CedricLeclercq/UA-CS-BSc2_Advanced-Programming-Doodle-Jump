@@ -29,7 +29,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~Observer()=default;
+    virtual ~Observer()=default;
     /**
      * @brief Will notify the observer and set the notified parameter to true
      */

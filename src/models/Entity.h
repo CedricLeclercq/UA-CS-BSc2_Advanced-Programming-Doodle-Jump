@@ -41,6 +41,10 @@ public:
      */
     Entity(): position(std::make_shared<Utilities::Coordinates>(0,0)) {}
     /**
+     * @brief Default destructor for entity
+     */
+    virtual ~Entity()=default;
+    /**
      * @brief Setter for the position of the entity
      * @param nX    New x coordinate
      * @param nY    New y coordinate

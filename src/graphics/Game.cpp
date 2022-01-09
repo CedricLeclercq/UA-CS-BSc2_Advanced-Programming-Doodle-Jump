@@ -32,7 +32,7 @@ void Game::initialiseGame() {
     this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second, borderY.second));
     std::shared_ptr<World> world = factory.createWorld(mCamera);
     this->controller = WorldController(world);
-    this->mWindow->setFramerateLimit(30); // Setting framerate limit (max is 60)
+    this->mWindow->setFramerateLimit(60); // Setting framerate limit (max is 60)
 
 
     // Setting up the player view

@@ -30,7 +30,7 @@ protected:
     /**
      * @brief Default destructor
      */
-    ~AbstractFactory()=default;
+    virtual ~AbstractFactory()=default;
     /**
      * @brief Pure virtual function to create a player
      * @return      Shared pointer to a player

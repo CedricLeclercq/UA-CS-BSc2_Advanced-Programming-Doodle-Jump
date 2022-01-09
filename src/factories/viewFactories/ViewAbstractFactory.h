@@ -26,7 +26,7 @@ protected:
     /**
      * @brief Default destructor
      */
-    ~ViewAbstractFactory()=default;
+    virtual ~ViewAbstractFactory()=default;
     /**
      * @brief Pure virtual function for creating a player view
      * @param player    Player that a view should be created of
