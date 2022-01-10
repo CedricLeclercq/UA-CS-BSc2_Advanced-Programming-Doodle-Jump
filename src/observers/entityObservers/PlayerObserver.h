@@ -38,7 +38,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~PlayerObserver()=default;
+    ~PlayerObserver() override=default;
     /**
      * @brief Getter for if the player is currently a rocket
      * @return  isPlayerRocket?

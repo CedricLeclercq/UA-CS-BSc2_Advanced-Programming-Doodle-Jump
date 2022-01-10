@@ -35,7 +35,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~BGTileObserver()=default;
+    ~BGTileObserver() override=default;
     /**
      * @brief Will notify if this tile needs to be removed in the next iteration
      */

@@ -64,7 +64,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~BGTileTexManager()=default;
+    ~BGTileTexManager() override =default;
     /**
      * @brief Will return an instance of the class regarding the singleton design pattern
      * @return  instance of BGTileTexManager

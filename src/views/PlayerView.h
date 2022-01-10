@@ -27,7 +27,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~PlayerView()=default;
+    ~PlayerView() override =default;
     /**
      * @brief Constructor with a player object
      * @param player    player of the logic game (model)

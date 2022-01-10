@@ -30,7 +30,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~BGTileView()=default;
+    ~BGTileView() override =default;
     /**
      * @brief Default constructor that also links the models observer
      * @param tile      model tile

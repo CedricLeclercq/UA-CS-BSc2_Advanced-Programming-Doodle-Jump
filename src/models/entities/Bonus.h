@@ -39,6 +39,10 @@ public:
      */
     explicit Bonus(BonusPower power=NOTDEF);
     /**
+     * @brief Default destructor
+     */
+    ~Bonus() override = default;
+    /**
      * @brief Will check if a bonus' power is 0
      * @return      (bonus.noMorePower?)
      */

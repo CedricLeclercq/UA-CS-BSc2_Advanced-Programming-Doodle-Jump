@@ -26,7 +26,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~ScoreObserver()=default;
+    ~ScoreObserver() override=default;
     /**
      * @brief Will return the instance of the scoreObserver if it exists, else it will create one and return it
      * @return

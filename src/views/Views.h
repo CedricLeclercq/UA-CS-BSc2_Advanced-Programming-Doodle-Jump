@@ -16,11 +16,6 @@
  */
 namespace Views {
     /**
-     * @class Views::View
-     * @brief Super class for all the views
-     */
-    class View;
-    /**
      * @class Views::PlayerView
      * @public View
      * @brief Class for the view of the player model

@@ -80,7 +80,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~PlatformTexManager()=default;
+    ~PlatformTexManager() override =default;
     /**
      * @brief Will return an instance of the class regarding the singleton design pattern
      * @return      instance of PlatformTexManager

@@ -26,7 +26,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~PlatformObserver()=default;
+    ~PlatformObserver() override=default;
     /**
      * @brief Will notify the observer if this platforms view needs to be removed
      */

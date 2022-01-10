@@ -26,7 +26,7 @@ void Entities::Bonus::chargePowers() {
     }
     if (this->powerKind == BonusPower::SPRING) {
         // Spring will use power as the offset it gives to a jump of the player, player will jump 5x higher
-        this->power = 1.5;
+        this->power = 2;
     }
 
     // ... more bonuses?

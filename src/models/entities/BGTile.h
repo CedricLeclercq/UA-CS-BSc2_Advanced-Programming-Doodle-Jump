@@ -31,7 +31,7 @@ enum TKind {
 class Entities::BGTile: public Entity {
 private:
     /// @brief Describes the kind of tile this tile is
-    TKind kind;
+    TKind kind{};
     /**
      * @brief Will define what kind of tile a tile will be upon constructing
      */
@@ -43,6 +43,10 @@ public:
      * @brief Constructor for the background tile - will use other functions to define the tile kind
      */
     BGTile();
+    /**
+     * @brief Default destructor
+     */
+    ~BGTile() override = default;
     /**
      * @brief Getter for the tile kind
      * @return      Tile kind

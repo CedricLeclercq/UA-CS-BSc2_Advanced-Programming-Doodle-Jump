@@ -28,7 +28,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~PlayerTexManager()=default;
+    ~PlayerTexManager() override =default;
     /**
      * @brief Will return an instance of this class - while respecting the singleton design pattern
      * @return  instance of playerTexManager

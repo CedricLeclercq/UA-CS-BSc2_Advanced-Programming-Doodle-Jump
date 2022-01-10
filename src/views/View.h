@@ -14,7 +14,7 @@
 
 #include "../textureManagers/TextureManagers.h"
 
-class Views::View {
+class View {
 protected:
     /// @brief Shared pointer to the view
     std::shared_ptr<sf::Sprite> view{};

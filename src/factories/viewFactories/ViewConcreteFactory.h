@@ -19,7 +19,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~ViewConcreteFactory()=default;
+    ~ViewConcreteFactory() override = default;
     /**
      * @brief Virtual function for creating a player view
      * @param player    Player that a view should be created of

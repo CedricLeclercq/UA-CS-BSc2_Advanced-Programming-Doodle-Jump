@@ -67,6 +67,10 @@ public:
         this->createPlatform();
     }
     /**
+     * @brief Default destructor
+     */
+    ~Platform() override = default;
+    /**
      * @brief Getter for the platform kind
      * @return      platform's kind
      */

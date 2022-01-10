@@ -31,7 +31,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~PlatformView()=default;
+    ~PlatformView() override =default;
     /**
      * @brief Explicit constructor that receives and links the model's observer
      * @param platform

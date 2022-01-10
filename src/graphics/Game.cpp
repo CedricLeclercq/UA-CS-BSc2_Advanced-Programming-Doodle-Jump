@@ -160,6 +160,7 @@ void Game::openSFWindow() {
 
 void Game::addScore() {
     // Do not change the score if it's not needed
+    // todo add get notified from the observer
     if (this->scoreText.getString() == std::to_string(Observers::ScoreObserver::getInstance().getScore())) {
         (*this->mWindow).draw(this->scoreText);
         return;

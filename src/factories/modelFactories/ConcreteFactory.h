@@ -23,7 +23,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~ConcreteFactory()=default;
+    ~ConcreteFactory() override = default;
     /**
      * @brief Concrete factory function to create and return a player
      * @return      Shared pointer to a player

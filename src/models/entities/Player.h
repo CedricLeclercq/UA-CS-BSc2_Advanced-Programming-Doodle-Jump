@@ -33,6 +33,10 @@ public:
      */
     Player();
     /**
+     * @brief Default destructor
+     */
+    ~Player() override = default;
+    /**
      * @brief Will move the player to the right with a fixed value
      */
     void moveRight() override;
