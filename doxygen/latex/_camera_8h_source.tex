@@ -1,0 +1,40 @@
+\hypertarget{_camera_8h_source}{}\doxysection{Camera.\+h}
+\label{_camera_8h_source}\index{src/gameLogic/Camera.h@{src/gameLogic/Camera.h}}
+\mbox{\hyperlink{_camera_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//              Camera.h               //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef DOODLEJUMP\_CAMERA\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define DOODLEJUMP\_CAMERA\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../utilities/Utilities.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{using} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} = \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Utilities::Coordinates}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_camera}{Camera}} \{}
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} m\_windowHeight\{\};}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} m\_worldView\{\};}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} m\_cameraView\{\};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_camera_ae23af4d7cab430c77d537621cdd16b3f}{Camera}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_camera_adcb96efefa7af58e3ee6534b15d4979b}{\string~Camera}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_camera_ae23af4d7cab430c77d537621cdd16b3f}{Camera}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}\& worldView, \textcolor{keyword}{const} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}\& cameraView);}
+\DoxyCodeLine{49     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} \mbox{\hyperlink{class_camera_aee6513cb59fe5d73004d469adc378226}{project}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}\& coordinates) \textcolor{keyword}{const};}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_camera_a8211e2ac4a31cfeab12416cd506acb5f}{updateHeight}}(\textcolor{keywordtype}{double} height);}
+\DoxyCodeLine{60     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_camera_a1e8d958e8920b0e7718bc3f49d8e781d}{evalInWindow}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}\& coordinates) \textcolor{keyword}{const};}
+\DoxyCodeLine{66     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_camera_a4a48e266c035d72103d6642192cc6050}{evalInCamera}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}\& coordinates) \textcolor{keyword}{const};}
+\DoxyCodeLine{72     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_camera_a2b1ea521f6b3daa9fdbda1d777ab0aef}{higherWindowHeight}}(\textcolor{keywordtype}{double} height) \textcolor{keyword}{const};}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DOODLEJUMP\_CAMERA\_H}}
+
+\end{DoxyCode}

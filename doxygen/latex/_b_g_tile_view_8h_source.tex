@@ -1,0 +1,36 @@
+\hypertarget{_b_g_tile_view_8h_source}{}\doxysection{BGTile\+View.\+h}
+\label{_b_g_tile_view_8h_source}\index{src/views/BGTileView.h@{src/views/BGTileView.h}}
+\mbox{\hyperlink{_b_g_tile_view_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//            BGTileView.h             //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_BGTILEVIEW\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_BGTILEVIEW\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_view_8h}{View.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../models/entities/BGTile.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../observers/Observers.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../observers/entityObservers/BGTileObserver.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_views_1_1_b_g_tile_view}{Views::BGTileView}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_view}{View}} \{}
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}{TKind}} tileKind\{\};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} texLoaded = \textcolor{keyword}{false};}
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     std::shared\_ptr<Observers::BGTileObserver> \mbox{\hyperlink{class_views_1_1_b_g_tile_view_a37a5c7a0936b25bbd76b22163b9c9d6c}{observer}}\{\};}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_views_1_1_b_g_tile_view_ac5ab7b9f8d5621cde627c8ce2cd185b9}{BGTileView}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_views_1_1_b_g_tile_view_a94364a7994356aa28fe996f75c0ef923}{\string~BGTileView}}() \textcolor{keyword}{override} =\textcolor{keywordflow}{default};}
+\DoxyCodeLine{38     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_views_1_1_b_g_tile_view_ac5ab7b9f8d5621cde627c8ce2cd185b9}{BGTileView}}(\textcolor{keyword}{const} std::shared\_ptr<Entities::BGTile>\& tile);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_views_1_1_b_g_tile_view_a185f01cb53c9b1c89c048894406ae482}{setup}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_BGTILEVIEW\_H}}
+
+\end{DoxyCode}

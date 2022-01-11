@@ -1,0 +1,111 @@
+\hypertarget{class_texture_managers_1_1_player_tex_manager}{}\doxysection{Texture\+Managers\+::Player\+Tex\+Manager Class Reference}
+\label{class_texture_managers_1_1_player_tex_manager}\index{TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}}
+
+
+{\ttfamily \#include $<$Player\+Tex\+Manager.\+h$>$}
+
+Inheritance diagram for Texture\+Managers\+::Player\+Tex\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_texture_managers_1_1_player_tex_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_ad6e19bbd29a7f454e8ae977d581107e6}{$\sim$\+Player\+Tex\+Manager}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_a98a5317db49d274e4355f4317a904cdf}{load\+Textures}} () override
+\begin{DoxyCompactList}\small\item\em Will load all the textures of the player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_aa08e64a1fd9e98a7389142027475d96a}{textures\+Found}} () override
+\begin{DoxyCompactList}\small\item\em Will search all the textures for the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_adc88a87a6d7f3925829ee40628a84787}{set\+Texture}} (sf\+::\+Sprite \&sprite, bool is\+Rocket=false) const
+\begin{DoxyCompactList}\small\item\em Will set a texture to the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager}{Player\+Tex\+Manager}} \& \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_ad3b88db249acfc90f3d8b0794fbd4167}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Will return an instance of this class -\/ while respecting the singleton design pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_texture_managers_1_1_player_tex_manager_ad6e19bbd29a7f454e8ae977d581107e6}\label{class_texture_managers_1_1_player_tex_manager_ad6e19bbd29a7f454e8ae977d581107e6}} 
+\index{TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}!````~PlayerTexManager@{$\sim$PlayerTexManager}}
+\index{````~PlayerTexManager@{$\sim$PlayerTexManager}!TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$PlayerTexManager()}{~PlayerTexManager()}}
+{\footnotesize\ttfamily Texture\+Managers\+::\+Player\+Tex\+Manager\+::$\sim$\+Player\+Tex\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_managers_1_1_player_tex_manager_ad3b88db249acfc90f3d8b0794fbd4167}\label{class_texture_managers_1_1_player_tex_manager_ad3b88db249acfc90f3d8b0794fbd4167}} 
+\index{TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager}{Texture\+Managers\+::\+Player\+Tex\+Manager}} \& Texture\+Managers\+::\+Player\+Tex\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Will return an instance of this class -\/ while respecting the singleton design pattern. 
+
+\begin{DoxyReturn}{Returns}
+instance of player\+Tex\+Manager 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_texture_managers_1_1_player_tex_manager_a98a5317db49d274e4355f4317a904cdf}\label{class_texture_managers_1_1_player_tex_manager_a98a5317db49d274e4355f4317a904cdf}} 
+\index{TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily void Texture\+Managers\+::\+Player\+Tex\+Manager\+::load\+Textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will load all the textures of the player. 
+
+
+
+Implements \mbox{\hyperlink{class_texture_managers_1_1_texture_manager_a5f04241a160d797958c9ff0537f8c59e}{Texture\+Managers\+::\+Texture\+Manager}}.
+
+\mbox{\Hypertarget{class_texture_managers_1_1_player_tex_manager_adc88a87a6d7f3925829ee40628a84787}\label{class_texture_managers_1_1_player_tex_manager_adc88a87a6d7f3925829ee40628a84787}} 
+\index{TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
+{\footnotesize\ttfamily void Texture\+Managers\+::\+Player\+Tex\+Manager\+::set\+Texture (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \&}]{sprite,  }\item[{bool}]{is\+Rocket = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+Will set a texture to the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & sprite, by reference so change is allowed \\
+\hline
+{\em is\+Rocket} & is the player currenlty a rocket (other texture) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_texture_managers_1_1_player_tex_manager_aa08e64a1fd9e98a7389142027475d96a}\label{class_texture_managers_1_1_player_tex_manager_aa08e64a1fd9e98a7389142027475d96a}} 
+\index{TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}!texturesFound@{texturesFound}}
+\index{texturesFound@{texturesFound}!TextureManagers::PlayerTexManager@{TextureManagers::PlayerTexManager}}
+\doxysubsubsection{\texorpdfstring{texturesFound()}{texturesFound()}}
+{\footnotesize\ttfamily bool Texture\+Managers\+::\+Player\+Tex\+Manager\+::textures\+Found (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will search all the textures for the player. 
+
+\begin{DoxyReturn}{Returns}
+found\+All\+Textures? 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_texture_managers_1_1_texture_manager_ad12aa47f3c6198c949f62a7385a54bd7}{Texture\+Managers\+::\+Texture\+Manager}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/texture\+Managers/entity\+Tex\+Managers/\mbox{\hyperlink{_player_tex_manager_8h}{Player\+Tex\+Manager.\+h}}\item 
+src/texture\+Managers/entity\+Tex\+Managers/\mbox{\hyperlink{_player_tex_manager_8cpp}{Player\+Tex\+Manager.\+cpp}}\end{DoxyCompactItemize}

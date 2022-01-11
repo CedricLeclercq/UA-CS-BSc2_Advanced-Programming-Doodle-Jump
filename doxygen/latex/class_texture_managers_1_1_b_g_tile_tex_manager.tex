@@ -1,0 +1,111 @@
+\hypertarget{class_texture_managers_1_1_b_g_tile_tex_manager}{}\doxysection{Texture\+Managers\+::BGTile\+Tex\+Manager Class Reference}
+\label{class_texture_managers_1_1_b_g_tile_tex_manager}\index{TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}}
+
+
+{\ttfamily \#include $<$BGTile\+Tex\+Manager.\+h$>$}
+
+Inheritance diagram for Texture\+Managers\+::BGTile\+Tex\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_texture_managers_1_1_b_g_tile_tex_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_acaa714ce9de1b1d1a9c016d4897441ab}{$\sim$\+BGTile\+Tex\+Manager}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_a8580ab9fdeb0b3804567240ea35821e3}{load\+Textures}} () override
+\begin{DoxyCompactList}\small\item\em Will load the textures for the background tiles. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_aac56a2306108d6c21756e6449b7eef1c}{textures\+Found}} () override
+\begin{DoxyCompactList}\small\item\em Will define if all the texture for the background tiles can be found. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_a54dff9b98414c13ae996126a9e3789db}{set\+Texture}} (sf\+::\+Sprite \&sprite, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}{TKind}} kind) const
+\begin{DoxyCompactList}\small\item\em Will set a texture to a background tile sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager}{BGTile\+Tex\+Manager}} \& \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_ab9be8e4d6e5d41942661c5fd22dcef78}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Will return an instance of the class regarding the singleton design pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_texture_managers_1_1_b_g_tile_tex_manager_acaa714ce9de1b1d1a9c016d4897441ab}\label{class_texture_managers_1_1_b_g_tile_tex_manager_acaa714ce9de1b1d1a9c016d4897441ab}} 
+\index{TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}!````~BGTileTexManager@{$\sim$BGTileTexManager}}
+\index{````~BGTileTexManager@{$\sim$BGTileTexManager}!TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$BGTileTexManager()}{~BGTileTexManager()}}
+{\footnotesize\ttfamily Texture\+Managers\+::\+BGTile\+Tex\+Manager\+::$\sim$\+BGTile\+Tex\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_managers_1_1_b_g_tile_tex_manager_ab9be8e4d6e5d41942661c5fd22dcef78}\label{class_texture_managers_1_1_b_g_tile_tex_manager_ab9be8e4d6e5d41942661c5fd22dcef78}} 
+\index{TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager}{Texture\+Managers\+::\+BGTile\+Tex\+Manager}} \& Texture\+Managers\+::\+BGTile\+Tex\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Will return an instance of the class regarding the singleton design pattern. 
+
+\begin{DoxyReturn}{Returns}
+instance of \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager}{BGTile\+Tex\+Manager}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_texture_managers_1_1_b_g_tile_tex_manager_a8580ab9fdeb0b3804567240ea35821e3}\label{class_texture_managers_1_1_b_g_tile_tex_manager_a8580ab9fdeb0b3804567240ea35821e3}} 
+\index{TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily void Texture\+Managers\+::\+BGTile\+Tex\+Manager\+::load\+Textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will load the textures for the background tiles. 
+
+
+
+Implements \mbox{\hyperlink{class_texture_managers_1_1_texture_manager_a5f04241a160d797958c9ff0537f8c59e}{Texture\+Managers\+::\+Texture\+Manager}}.
+
+\mbox{\Hypertarget{class_texture_managers_1_1_b_g_tile_tex_manager_a54dff9b98414c13ae996126a9e3789db}\label{class_texture_managers_1_1_b_g_tile_tex_manager_a54dff9b98414c13ae996126a9e3789db}} 
+\index{TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
+{\footnotesize\ttfamily void Texture\+Managers\+::\+BGTile\+Tex\+Manager\+::set\+Texture (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \&}]{sprite,  }\item[{\mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}{TKind}}}]{kind }\end{DoxyParamCaption}) const}
+
+
+
+Will set a texture to a background tile sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & sprite by reference -\/ to give change \\
+\hline
+{\em kind} & kind of background tile \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_texture_managers_1_1_b_g_tile_tex_manager_aac56a2306108d6c21756e6449b7eef1c}\label{class_texture_managers_1_1_b_g_tile_tex_manager_aac56a2306108d6c21756e6449b7eef1c}} 
+\index{TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}!texturesFound@{texturesFound}}
+\index{texturesFound@{texturesFound}!TextureManagers::BGTileTexManager@{TextureManagers::BGTileTexManager}}
+\doxysubsubsection{\texorpdfstring{texturesFound()}{texturesFound()}}
+{\footnotesize\ttfamily bool Texture\+Managers\+::\+BGTile\+Tex\+Manager\+::textures\+Found (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will define if all the texture for the background tiles can be found. 
+
+\begin{DoxyReturn}{Returns}
+all\+Textures\+Found? 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_texture_managers_1_1_texture_manager_ad12aa47f3c6198c949f62a7385a54bd7}{Texture\+Managers\+::\+Texture\+Manager}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/texture\+Managers/entity\+Tex\+Managers/\mbox{\hyperlink{_b_g_tile_tex_manager_8h}{BGTile\+Tex\+Manager.\+h}}\item 
+src/texture\+Managers/entity\+Tex\+Managers/\mbox{\hyperlink{_b_g_tile_tex_manager_8cpp}{BGTile\+Tex\+Manager.\+cpp}}\end{DoxyCompactItemize}

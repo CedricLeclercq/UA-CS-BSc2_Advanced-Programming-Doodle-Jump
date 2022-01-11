@@ -1,0 +1,29 @@
+\hypertarget{_view_concrete_factory_8h_source}{}\doxysection{View\+Concrete\+Factory.\+h}
+\label{_view_concrete_factory_8h_source}\index{src/factories/viewFactories/ViewConcreteFactory.h@{src/factories/viewFactories/ViewConcreteFactory.h}}
+\mbox{\hyperlink{_view_concrete_factory_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//       viewConcreteFactory.h         //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_VIEWCONCRETEFACTORY\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_VIEWCONCRETEFACTORY\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_view_abstract_factory_8h}{ViewAbstractFactory.h}}"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_view_concrete_factory}{ViewConcreteFactory}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_view_abstract_factory}{ViewAbstractFactory}} \{}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_view_concrete_factory_aa9d92103c4bd7bb1bd51c6d5b2000246}{ViewConcreteFactory}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_view_concrete_factory_ae8bd4e71bc6e301f78b602c0c868659f}{\string~ViewConcreteFactory}}() \textcolor{keyword}{override} = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{33     shared\_ptr<PlayerView> \mbox{\hyperlink{class_view_concrete_factory_a91bb36594b11cea424653840828e0022}{createPlayerView}}(\textcolor{keyword}{const} shared\_ptr<Player>\& player) \textcolor{keyword}{override};}
+\DoxyCodeLine{39     shared\_ptr<PlatformView> \mbox{\hyperlink{class_view_concrete_factory_a5f67acdd90595ad12ac31c43af2a0432}{createPlatformView}}(\textcolor{keyword}{const} shared\_ptr<Platform>\& platform) \textcolor{keyword}{override};}
+\DoxyCodeLine{45     shared\_ptr<BGTileView> \mbox{\hyperlink{class_view_concrete_factory_a3d119364f3f3803e1c32f6f9f09ab111}{creatBGTileView}}(\textcolor{keyword}{const} shared\_ptr<BGTile>\& tile) \textcolor{keyword}{override};}
+\DoxyCodeLine{46 \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_VIEWCONCRETEFACTORY\_H}}
+
+\end{DoxyCode}

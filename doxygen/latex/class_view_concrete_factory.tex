@@ -1,0 +1,134 @@
+\hypertarget{class_view_concrete_factory}{}\doxysection{View\+Concrete\+Factory Class Reference}
+\label{class_view_concrete_factory}\index{ViewConcreteFactory@{ViewConcreteFactory}}
+
+
+Concrete factory based on an abstract one for the views in the graphical world.  
+
+
+
+
+{\ttfamily \#include $<$View\+Concrete\+Factory.\+h$>$}
+
+Inheritance diagram for View\+Concrete\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_view_concrete_factory}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_view_concrete_factory_aa9d92103c4bd7bb1bd51c6d5b2000246}{View\+Concrete\+Factory}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_view_concrete_factory_ae8bd4e71bc6e301f78b602c0c868659f}{$\sim$\+View\+Concrete\+Factory}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_views_1_1_player_view}{Player\+View}} $>$ \mbox{\hyperlink{class_view_concrete_factory_a91bb36594b11cea424653840828e0022}{create\+Player\+View}} (const shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Player}} $>$ \&player) override
+\begin{DoxyCompactList}\small\item\em Virtual function for creating a player view. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_views_1_1_platform_view}{Platform\+View}} $>$ \mbox{\hyperlink{class_view_concrete_factory_a5f67acdd90595ad12ac31c43af2a0432}{create\+Platform\+View}} (const shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Platform}} $>$ \&platform) override
+\begin{DoxyCompactList}\small\item\em Virtual function for creating a platform view. \end{DoxyCompactList}\item 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_views_1_1_b_g_tile_view}{BGTile\+View}} $>$ \mbox{\hyperlink{class_view_concrete_factory_a3d119364f3f3803e1c32f6f9f09ab111}{creat\+BGTile\+View}} (const shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{BGTile}} $>$ \&tile) override
+\begin{DoxyCompactList}\small\item\em Virtual function for creating a background tile view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete factory based on an abstract one for the views in the graphical world. 
+
+\mbox{\hyperlink{class_view_abstract_factory}{View\+Abstract\+Factory}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_view_concrete_factory_aa9d92103c4bd7bb1bd51c6d5b2000246}\label{class_view_concrete_factory_aa9d92103c4bd7bb1bd51c6d5b2000246}} 
+\index{ViewConcreteFactory@{ViewConcreteFactory}!ViewConcreteFactory@{ViewConcreteFactory}}
+\index{ViewConcreteFactory@{ViewConcreteFactory}!ViewConcreteFactory@{ViewConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{ViewConcreteFactory()}{ViewConcreteFactory()}}
+{\footnotesize\ttfamily View\+Concrete\+Factory\+::\+View\+Concrete\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_view_concrete_factory_ae8bd4e71bc6e301f78b602c0c868659f}\label{class_view_concrete_factory_ae8bd4e71bc6e301f78b602c0c868659f}} 
+\index{ViewConcreteFactory@{ViewConcreteFactory}!````~ViewConcreteFactory@{$\sim$ViewConcreteFactory}}
+\index{````~ViewConcreteFactory@{$\sim$ViewConcreteFactory}!ViewConcreteFactory@{ViewConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{$\sim$ViewConcreteFactory()}{~ViewConcreteFactory()}}
+{\footnotesize\ttfamily View\+Concrete\+Factory\+::$\sim$\+View\+Concrete\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_view_concrete_factory_a3d119364f3f3803e1c32f6f9f09ab111}\label{class_view_concrete_factory_a3d119364f3f3803e1c32f6f9f09ab111}} 
+\index{ViewConcreteFactory@{ViewConcreteFactory}!creatBGTileView@{creatBGTileView}}
+\index{creatBGTileView@{creatBGTileView}!ViewConcreteFactory@{ViewConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{creatBGTileView()}{creatBGTileView()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_views_1_1_b_g_tile_view}{BGTile\+View}} $>$ View\+Concrete\+Factory\+::creat\+BGTile\+View (\begin{DoxyParamCaption}\item[{const shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{BGTile}} $>$ \&}]{tile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Virtual function for creating a background tile view. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile} & BGTile that a view should be created of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+shared pointer to the new view 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_view_abstract_factory_af58eb85e74dff521cb78d2fc230be433}{View\+Abstract\+Factory}}.
+
+\mbox{\Hypertarget{class_view_concrete_factory_a5f67acdd90595ad12ac31c43af2a0432}\label{class_view_concrete_factory_a5f67acdd90595ad12ac31c43af2a0432}} 
+\index{ViewConcreteFactory@{ViewConcreteFactory}!createPlatformView@{createPlatformView}}
+\index{createPlatformView@{createPlatformView}!ViewConcreteFactory@{ViewConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createPlatformView()}{createPlatformView()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_views_1_1_platform_view}{Platform\+View}} $>$ View\+Concrete\+Factory\+::create\+Platform\+View (\begin{DoxyParamCaption}\item[{const shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Platform}} $>$ \&}]{platform }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Virtual function for creating a platform view. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em platform} & Platform that a view should be created of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+shared pointer to the new view 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_view_abstract_factory_ad0f2073dbb4581085da32292a943961c}{View\+Abstract\+Factory}}.
+
+\mbox{\Hypertarget{class_view_concrete_factory_a91bb36594b11cea424653840828e0022}\label{class_view_concrete_factory_a91bb36594b11cea424653840828e0022}} 
+\index{ViewConcreteFactory@{ViewConcreteFactory}!createPlayerView@{createPlayerView}}
+\index{createPlayerView@{createPlayerView}!ViewConcreteFactory@{ViewConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createPlayerView()}{createPlayerView()}}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \mbox{\hyperlink{class_views_1_1_player_view}{Player\+View}} $>$ View\+Concrete\+Factory\+::create\+Player\+View (\begin{DoxyParamCaption}\item[{const shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Player}} $>$ \&}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Virtual function for creating a player view. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Player that a view should be created of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+shared pointer to the new view 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_view_abstract_factory_a06e0112d8e21dec48a437031b085cab5}{View\+Abstract\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/factories/view\+Factories/\mbox{\hyperlink{_view_concrete_factory_8h}{View\+Concrete\+Factory.\+h}}\item 
+src/factories/view\+Factories/\mbox{\hyperlink{_view_concrete_factory_8cpp}{View\+Concrete\+Factory.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,37 @@
+\hypertarget{_view_abstract_factory_8h_source}{}\doxysection{View\+Abstract\+Factory.\+h}
+\label{_view_abstract_factory_8h_source}\index{src/factories/viewFactories/ViewAbstractFactory.h@{src/factories/viewFactories/ViewAbstractFactory.h}}
+\mbox{\hyperlink{_view_abstract_factory_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//       viewAbstractFactory.h         //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_VIEWABSTRACTFACTORY\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_VIEWABSTRACTFACTORY\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_player_view_8h}{views/PlayerView.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_platform_view_8h}{views/PlatformView.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_b_g_tile_view_8h}{views/BGTileView.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{using} std::shared\_ptr;}
+\DoxyCodeLine{17 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_views}{Views}};}
+\DoxyCodeLine{18 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_entities}{Entities}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{class_view_abstract_factory}{ViewAbstractFactory}} \{}
+\DoxyCodeLine{25 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_view_abstract_factory_affaff96b3eb4926af939c64a5ed4b01d}{ViewAbstractFactory}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_view_abstract_factory_a2f58d589be4bd8ad134a334d25f8a4b0}{\string~ViewAbstractFactory}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} shared\_ptr<PlayerView> \mbox{\hyperlink{class_view_abstract_factory_a06e0112d8e21dec48a437031b085cab5}{createPlayerView}}(\textcolor{keyword}{const} shared\_ptr<Player>\& player) = 0;}
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} shared\_ptr<PlatformView> \mbox{\hyperlink{class_view_abstract_factory_ad0f2073dbb4581085da32292a943961c}{createPlatformView}}(\textcolor{keyword}{const} shared\_ptr<Platform>\& platform) = 0;}
+\DoxyCodeLine{51     \textcolor{keyword}{virtual} shared\_ptr<BGTileView> \mbox{\hyperlink{class_view_abstract_factory_af58eb85e74dff521cb78d2fc230be433}{creatBGTileView}}(\textcolor{keyword}{const} shared\_ptr<BGTile>\& tile) = 0;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_VIEWABSTRACTFACTORY\_H}}
+
+\end{DoxyCode}

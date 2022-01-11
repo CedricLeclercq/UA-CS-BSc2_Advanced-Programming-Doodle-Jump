@@ -1,0 +1,125 @@
+\hypertarget{class_observers_1_1_player_observer}{}\doxysection{Observers\+::Player\+Observer Class Reference}
+\label{class_observers_1_1_player_observer}\index{Observers::PlayerObserver@{Observers::PlayerObserver}}
+
+
+Singleton \mbox{\hyperlink{class_observer}{Observer}} class for the player.  
+
+
+
+
+{\ttfamily \#include $<$Player\+Observer.\+h$>$}
+
+Inheritance diagram for Observers\+::Player\+Observer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_observers_1_1_player_observer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_observers_1_1_player_observer_a561bc2d182cc8db86eb8e5d8c395b33e}{Player\+Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_observers_1_1_player_observer_aa40cfe4e6782f61d993d00685331e6df}{$\sim$\+Player\+Observer}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_observers_1_1_player_observer_a8ad214edf11cd06ea25980d8d9dbb3df}{get\+Notified\+Rocket}} () const
+\begin{DoxyCompactList}\small\item\em Getter for if the player is currently a rocket. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_player_observer_a53637ff201d07f2e4cd4d51ed6ea28f6}{notify\+Is\+Rocket}} (bool new\+Bool)
+\begin{DoxyCompactList}\small\item\em Will notify that the player is currently a rocket. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_player_observer_a4afa763c2470aca4d95827985fbf8fb5}{notify\+Cur\+Location}} (\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} location)
+\begin{DoxyCompactList}\small\item\em Will notify the current location of the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \mbox{\hyperlink{class_observers_1_1_player_observer_ac7b2c9369c50039271bb40ef44a0195f}{get\+Notified\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Will get the latest notified position of the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Singleton \mbox{\hyperlink{class_observer}{Observer}} class for the player. 
+
+\mbox{\hyperlink{class_observer}{Observer}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_observers_1_1_player_observer_a561bc2d182cc8db86eb8e5d8c395b33e}\label{class_observers_1_1_player_observer_a561bc2d182cc8db86eb8e5d8c395b33e}} 
+\index{Observers::PlayerObserver@{Observers::PlayerObserver}!PlayerObserver@{PlayerObserver}}
+\index{PlayerObserver@{PlayerObserver}!Observers::PlayerObserver@{Observers::PlayerObserver}}
+\doxysubsubsection{\texorpdfstring{PlayerObserver()}{PlayerObserver()}}
+{\footnotesize\ttfamily Observers\+::\+Player\+Observer\+::\+Player\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_observers_1_1_player_observer_aa40cfe4e6782f61d993d00685331e6df}\label{class_observers_1_1_player_observer_aa40cfe4e6782f61d993d00685331e6df}} 
+\index{Observers::PlayerObserver@{Observers::PlayerObserver}!````~PlayerObserver@{$\sim$PlayerObserver}}
+\index{````~PlayerObserver@{$\sim$PlayerObserver}!Observers::PlayerObserver@{Observers::PlayerObserver}}
+\doxysubsubsection{\texorpdfstring{$\sim$PlayerObserver()}{~PlayerObserver()}}
+{\footnotesize\ttfamily Observers\+::\+Player\+Observer\+::$\sim$\+Player\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_observers_1_1_player_observer_ac7b2c9369c50039271bb40ef44a0195f}\label{class_observers_1_1_player_observer_ac7b2c9369c50039271bb40ef44a0195f}} 
+\index{Observers::PlayerObserver@{Observers::PlayerObserver}!getNotifiedPosition@{getNotifiedPosition}}
+\index{getNotifiedPosition@{getNotifiedPosition}!Observers::PlayerObserver@{Observers::PlayerObserver}}
+\doxysubsubsection{\texorpdfstring{getNotifiedPosition()}{getNotifiedPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} Observers\+::\+Player\+Observer\+::get\+Notified\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will get the latest notified position of the player. 
+
+\begin{DoxyReturn}{Returns}
+latest\+Position\+Player 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_player_observer_a8ad214edf11cd06ea25980d8d9dbb3df}\label{class_observers_1_1_player_observer_a8ad214edf11cd06ea25980d8d9dbb3df}} 
+\index{Observers::PlayerObserver@{Observers::PlayerObserver}!getNotifiedRocket@{getNotifiedRocket}}
+\index{getNotifiedRocket@{getNotifiedRocket}!Observers::PlayerObserver@{Observers::PlayerObserver}}
+\doxysubsubsection{\texorpdfstring{getNotifiedRocket()}{getNotifiedRocket()}}
+{\footnotesize\ttfamily bool Observers\+::\+Player\+Observer\+::get\+Notified\+Rocket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for if the player is currently a rocket. 
+
+\begin{DoxyReturn}{Returns}
+is\+Player\+Rocket? 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_player_observer_a4afa763c2470aca4d95827985fbf8fb5}\label{class_observers_1_1_player_observer_a4afa763c2470aca4d95827985fbf8fb5}} 
+\index{Observers::PlayerObserver@{Observers::PlayerObserver}!notifyCurLocation@{notifyCurLocation}}
+\index{notifyCurLocation@{notifyCurLocation}!Observers::PlayerObserver@{Observers::PlayerObserver}}
+\doxysubsubsection{\texorpdfstring{notifyCurLocation()}{notifyCurLocation()}}
+{\footnotesize\ttfamily void Observers\+::\+Player\+Observer\+::notify\+Cur\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}}}]{location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will notify the current location of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & new location \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_observers_1_1_player_observer_a53637ff201d07f2e4cd4d51ed6ea28f6}\label{class_observers_1_1_player_observer_a53637ff201d07f2e4cd4d51ed6ea28f6}} 
+\index{Observers::PlayerObserver@{Observers::PlayerObserver}!notifyIsRocket@{notifyIsRocket}}
+\index{notifyIsRocket@{notifyIsRocket}!Observers::PlayerObserver@{Observers::PlayerObserver}}
+\doxysubsubsection{\texorpdfstring{notifyIsRocket()}{notifyIsRocket()}}
+{\footnotesize\ttfamily void Observers\+::\+Player\+Observer\+::notify\+Is\+Rocket (\begin{DoxyParamCaption}\item[{bool}]{new\+Bool }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will notify that the player is currently a rocket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Bool} & is\+Rocket? \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/observers/entity\+Observers/\mbox{\hyperlink{_player_observer_8h}{Player\+Observer.\+h}}\end{DoxyCompactItemize}

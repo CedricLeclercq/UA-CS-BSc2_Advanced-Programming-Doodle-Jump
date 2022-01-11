@@ -1,0 +1,39 @@
+\hypertarget{_abstract_factory_8h_source}{}\doxysection{Abstract\+Factory.\+h}
+\label{_abstract_factory_8h_source}\index{src/factories/modelFactories/AbstractFactory.h@{src/factories/modelFactories/AbstractFactory.h}}
+\mbox{\hyperlink{_abstract_factory_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//         AbstractFactory.h           //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_ABSTRACTFACTORY\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_ABSTRACTFACTORY\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_player_8h}{models/entities/Player.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_b_g_tile_8h}{models/entities/BGTile.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bonus_8h}{models/entities/Bonus.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_platform_8h}{models/entities/Platform.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_score_8h}{gameLogic/Score.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{gameLogic/Camera.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_world}{World}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{class_abstract_factory}{AbstractFactory}} \{}
+\DoxyCodeLine{25 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_abstract_factory_a41c48cc0b0fb83476861a69bf05edede}{AbstractFactory}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_abstract_factory_ae0b348ff14d4b3e9ab8322afd2fd8b38}{\string~AbstractFactory}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} std::shared\_ptr<Entities::Player> \mbox{\hyperlink{class_abstract_factory_a4061de1ea7f884c256bc0f44ee85ef58}{createPlayer}}() = 0;}
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} std::shared\_ptr<Entities::BGTile> \mbox{\hyperlink{class_abstract_factory_aa6cdad675855312741b0e8973ca69c29}{createBGTile}}() = 0;}
+\DoxyCodeLine{48     \textcolor{keyword}{virtual} std::shared\_ptr<Entities::Bonus> \mbox{\hyperlink{class_abstract_factory_a833bcbb4c21e8ea5834aca07590378bf}{createBonus}}() = 0;}
+\DoxyCodeLine{53     \textcolor{keyword}{virtual} std::shared\_ptr<Entities::Platform> \mbox{\hyperlink{class_abstract_factory_a5c17e6f5ac852292a517908cf9c3bf66}{createPlatform}}(\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} kind) = 0;}
+\DoxyCodeLine{59     \textcolor{keyword}{virtual} std::shared\_ptr<World> \mbox{\hyperlink{class_abstract_factory_adc3ba8ba07ee8f1177cc79b9b7f28dc2}{createWorld}}(std::shared\_ptr<Camera> camera) = 0;}
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} std::unique\_ptr<Camera> \mbox{\hyperlink{class_abstract_factory_a013d6361045fc8fee288ab6a68f664f7}{createCamera}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}\& worldView, \textcolor{keyword}{const} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}\& cameraView) = 0;}
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} std::shared\_ptr<Score> \mbox{\hyperlink{class_abstract_factory_a9f7f1cc9d17147db4031b075836bc64f}{createScore}}() = 0;}
+\DoxyCodeLine{72 \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_ABSTRACTFACTORY\_H}}
+
+\end{DoxyCode}

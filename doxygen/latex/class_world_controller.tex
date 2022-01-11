@@ -1,0 +1,170 @@
+\hypertarget{class_world_controller}{}\doxysection{World\+Controller Class Reference}
+\label{class_world_controller}\index{WorldController@{WorldController}}
+
+
+A controller for providing an interface between the graphical world and the logic one.  
+
+
+
+
+{\ttfamily \#include $<$World\+Controller.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_world_controller_ad5c13739b262c0d3cf60645000ed08c4}{World\+Controller}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_world_controller_aa48a815ff334e564fb114641fd9d9149}{$\sim$\+World\+Controller}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_world_controller_a17e197b6e90c2e38f61c8c921d5df644}{World\+Controller}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_world}{World}} $>$ n\+World)
+\begin{DoxyCompactList}\small\item\em Constructor that also initialises the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_controller_a129247b6c4de44d17242a6ab22b72d9b}{move\+Player\+Right}} () const
+\begin{DoxyCompactList}\small\item\em Handles the sfml input and moves the model based on this input -\/ right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_controller_a4197e6c4cd03ad4a50f78195449e349c}{move\+Player\+Left}} () const
+\begin{DoxyCompactList}\small\item\em Handles the sfml input and moves the model based on this input -\/ left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_controller_a6897bec6562ad1d8def812503d5ad911}{eval\+Out\+Of\+World}} (float minX, float maxX)
+\begin{DoxyCompactList}\small\item\em Will teleport the player if it falls out of the border. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_controller_a20c5e092ff625216692113ea4420de9e}{update\+World}} () const
+\begin{DoxyCompactList}\small\item\em Will ask the world to update itself. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_controller_ac9dd84e4f67538321f436fca9d0748cb}{set\+Lengths}} (float player\+Length, float platform\+Length)
+\begin{DoxyCompactList}\small\item\em Will set the lengths in the world for for example the collision check. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_world_controller_a202fedf768dea82bba8c28291f51d64a}{is\+Game\+Over}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ \mbox{\hyperlink{class_world_controller_a9bfa21531cd2a498351773c00f1c5100}{get\+Player}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A controller for providing an interface between the graphical world and the logic one. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_world_controller_ad5c13739b262c0d3cf60645000ed08c4}\label{class_world_controller_ad5c13739b262c0d3cf60645000ed08c4}} 
+\index{WorldController@{WorldController}!WorldController@{WorldController}}
+\index{WorldController@{WorldController}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{WorldController()}{WorldController()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily World\+Controller\+::\+World\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_world_controller_aa48a815ff334e564fb114641fd9d9149}\label{class_world_controller_aa48a815ff334e564fb114641fd9d9149}} 
+\index{WorldController@{WorldController}!````~WorldController@{$\sim$WorldController}}
+\index{````~WorldController@{$\sim$WorldController}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{$\sim$WorldController()}{~WorldController()}}
+{\footnotesize\ttfamily World\+Controller\+::$\sim$\+World\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+\mbox{\Hypertarget{class_world_controller_a17e197b6e90c2e38f61c8c921d5df644}\label{class_world_controller_a17e197b6e90c2e38f61c8c921d5df644}} 
+\index{WorldController@{WorldController}!WorldController@{WorldController}}
+\index{WorldController@{WorldController}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{WorldController()}{WorldController()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily World\+Controller\+::\+World\+Controller (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_world}{World}} $>$}]{n\+World }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor that also initialises the world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+World} & new world to initialise \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_world_controller_a6897bec6562ad1d8def812503d5ad911}\label{class_world_controller_a6897bec6562ad1d8def812503d5ad911}} 
+\index{WorldController@{WorldController}!evalOutOfWorld@{evalOutOfWorld}}
+\index{evalOutOfWorld@{evalOutOfWorld}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{evalOutOfWorld()}{evalOutOfWorld()}}
+{\footnotesize\ttfamily void World\+Controller\+::eval\+Out\+Of\+World (\begin{DoxyParamCaption}\item[{float}]{minX,  }\item[{float}]{maxX }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will teleport the player if it falls out of the border. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em minX} & minimal x coordinate for the player \\
+\hline
+{\em maxX} & maximal x coordinate for the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_world_controller_a9bfa21531cd2a498351773c00f1c5100}\label{class_world_controller_a9bfa21531cd2a498351773c00f1c5100}} 
+\index{WorldController@{WorldController}!getPlayer@{getPlayer}}
+\index{getPlayer@{getPlayer}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{getPlayer()}{getPlayer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ World\+Controller\+::get\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the player. 
+
+\begin{DoxyReturn}{Returns}
+world-\/\texorpdfstring{$>$}{>}\mbox{\hyperlink{class_world_controller_a9bfa21531cd2a498351773c00f1c5100}{get\+Player()}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_world_controller_a202fedf768dea82bba8c28291f51d64a}\label{class_world_controller_a202fedf768dea82bba8c28291f51d64a}} 
+\index{WorldController@{WorldController}!isGameOver@{isGameOver}}
+\index{isGameOver@{isGameOver}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{isGameOver()}{isGameOver()}}
+{\footnotesize\ttfamily bool World\+Controller\+::is\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+@grief Will ask the world if the game is over (so if the player has died \begin{DoxyReturn}{Returns}
+game\+Over? 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_world_controller_a4197e6c4cd03ad4a50f78195449e349c}\label{class_world_controller_a4197e6c4cd03ad4a50f78195449e349c}} 
+\index{WorldController@{WorldController}!movePlayerLeft@{movePlayerLeft}}
+\index{movePlayerLeft@{movePlayerLeft}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{movePlayerLeft()}{movePlayerLeft()}}
+{\footnotesize\ttfamily void World\+Controller\+::move\+Player\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handles the sfml input and moves the model based on this input -\/ left. 
+
+\mbox{\Hypertarget{class_world_controller_a129247b6c4de44d17242a6ab22b72d9b}\label{class_world_controller_a129247b6c4de44d17242a6ab22b72d9b}} 
+\index{WorldController@{WorldController}!movePlayerRight@{movePlayerRight}}
+\index{movePlayerRight@{movePlayerRight}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{movePlayerRight()}{movePlayerRight()}}
+{\footnotesize\ttfamily void World\+Controller\+::move\+Player\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handles the sfml input and moves the model based on this input -\/ right. 
+
+\mbox{\Hypertarget{class_world_controller_ac9dd84e4f67538321f436fca9d0748cb}\label{class_world_controller_ac9dd84e4f67538321f436fca9d0748cb}} 
+\index{WorldController@{WorldController}!setLengths@{setLengths}}
+\index{setLengths@{setLengths}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{setLengths()}{setLengths()}}
+{\footnotesize\ttfamily void World\+Controller\+::set\+Lengths (\begin{DoxyParamCaption}\item[{float}]{player\+Length,  }\item[{float}]{platform\+Length }\end{DoxyParamCaption})}
+
+
+
+Will set the lengths in the world for for example the collision check. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Length} & length of the player texture \\
+\hline
+{\em platform\+Length} & length of the platform texture \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_world_controller_a20c5e092ff625216692113ea4420de9e}\label{class_world_controller_a20c5e092ff625216692113ea4420de9e}} 
+\index{WorldController@{WorldController}!updateWorld@{updateWorld}}
+\index{updateWorld@{updateWorld}!WorldController@{WorldController}}
+\doxysubsubsection{\texorpdfstring{updateWorld()}{updateWorld()}}
+{\footnotesize\ttfamily void World\+Controller\+::update\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will ask the world to update itself. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/controllers/\mbox{\hyperlink{_world_controller_8h}{World\+Controller.\+h}}\item 
+src/controllers/\mbox{\hyperlink{_world_controller_8cpp}{World\+Controller.\+cpp}}\end{DoxyCompactItemize}

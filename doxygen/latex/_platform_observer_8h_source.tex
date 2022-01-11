@@ -1,0 +1,35 @@
+\hypertarget{_platform_observer_8h_source}{}\doxysection{Platform\+Observer.\+h}
+\label{_platform_observer_8h_source}\index{src/observers/entityObservers/PlatformObserver.h@{src/observers/entityObservers/PlatformObserver.h}}
+\mbox{\hyperlink{_platform_observer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//         PlatformObserver.h          //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_PLATFORMOBSERVER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_PLATFORMOBSERVER\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../Observers.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_observers_1_1_platform_observer}{Observers::PlatformObserver}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_observer}{Observer}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} curLocation\{\};}
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} remove\{\};}
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} create\{\};}
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_observers_1_1_platform_observer_a6a8bee3f2647367ac614b14876438e0b}{PlatformObserver}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_observers_1_1_platform_observer_a5ac6d7b8187298c3c998224d50380aec}{\string~PlatformObserver}}() \textcolor{keyword}{override}=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observers_1_1_platform_observer_a970ce788994ce17e0d601ed1e415947e}{notifyRemoved}}() \{remove = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observers_1_1_platform_observer_a81883e400368474c84afd711dec7570a}{notifyPlatformCreation}}() \{create = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{42     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_observers_1_1_platform_observer_ab97435d009bf0d6c8ca62ec9d03daad3}{notifiedRemoval}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} remove;\}}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observers_1_1_platform_observer_a5797a256d39de6c076989024556e6f64}{notifyCurLocation}}(\mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} location) \{curLocation = location;\}}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} \mbox{\hyperlink{class_observers_1_1_platform_observer_abdbf22c83c9a88c1f8a422a0d1417c9b}{getNotifiedPosition}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} this-\/>curLocation;\}}
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_PLATFORMOBSERVER\_H}}
+
+\end{DoxyCode}

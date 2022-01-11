@@ -1,0 +1,169 @@
+\hypertarget{class_camera}{}\doxysection{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+Class that will project between the logic world coordinates and the graphical world coordinates.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_camera_ae23af4d7cab430c77d537621cdd16b3f}{Camera}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_camera_adcb96efefa7af58e3ee6534b15d4979b}{$\sim$\+Camera}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_camera_a74f92ece7f349b852346415e74c38344}{Camera}} (const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&world\+View, const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&camera\+View)
+\begin{DoxyCompactList}\small\item\em Constructor for the camera class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \mbox{\hyperlink{class_camera_aee6513cb59fe5d73004d469adc378226}{project}} (const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&coordinates) const
+\begin{DoxyCompactList}\small\item\em Will project a coordinate form the world view to a coordinate of the camera view. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a8211e2ac4a31cfeab12416cd506acb5f}{update\+Height}} (double height)
+\begin{DoxyCompactList}\small\item\em Will update the parameter window height if the given projected height is higher than the current one. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_camera_a1e8d958e8920b0e7718bc3f49d8e781d}{eval\+In\+Window}} (const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&coordinates) const
+\begin{DoxyCompactList}\small\item\em Will evaluate if a given coordinate falls into the world window. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_camera_a4a48e266c035d72103d6642192cc6050}{eval\+In\+Camera}} (const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&coordinates) const
+\begin{DoxyCompactList}\small\item\em Will evaluate if a given coordinate falls into the camera window. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_camera_a2b1ea521f6b3daa9fdbda1d777ab0aef}{higher\+Window\+Height}} (double height) const
+\begin{DoxyCompactList}\small\item\em Will check is a given height, when projected, is higher than the current window height. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that will project between the logic world coordinates and the graphical world coordinates. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_camera_ae23af4d7cab430c77d537621cdd16b3f}\label{class_camera_ae23af4d7cab430c77d537621cdd16b3f}} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_camera_adcb96efefa7af58e3ee6534b15d4979b}\label{class_camera_adcb96efefa7af58e3ee6534b15d4979b}} 
+\index{Camera@{Camera}!````~Camera@{$\sim$Camera}}
+\index{````~Camera@{$\sim$Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{$\sim$Camera()}{~Camera()}}
+{\footnotesize\ttfamily Camera\+::$\sim$\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+\mbox{\Hypertarget{class_camera_a74f92ece7f349b852346415e74c38344}\label{class_camera_a74f92ece7f349b852346415e74c38344}} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&}]{world\+View,  }\item[{const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&}]{camera\+View }\end{DoxyParamCaption})}
+
+
+
+Constructor for the camera class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+View} & Dimensions of the world view \\
+\hline
+{\em camera\+View} & Dimensions of the camera view \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_camera_a4a48e266c035d72103d6642192cc6050}\label{class_camera_a4a48e266c035d72103d6642192cc6050}} 
+\index{Camera@{Camera}!evalInCamera@{evalInCamera}}
+\index{evalInCamera@{evalInCamera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{evalInCamera()}{evalInCamera()}}
+{\footnotesize\ttfamily bool Camera\+::eval\+In\+Camera (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption}) const}
+
+
+
+Will evaluate if a given coordinate falls into the camera window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & Given coordinate to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(coordinate.\+in\+Camera\+Window()) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_a1e8d958e8920b0e7718bc3f49d8e781d}\label{class_camera_a1e8d958e8920b0e7718bc3f49d8e781d}} 
+\index{Camera@{Camera}!evalInWindow@{evalInWindow}}
+\index{evalInWindow@{evalInWindow}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{evalInWindow()}{evalInWindow()}}
+{\footnotesize\ttfamily bool Camera\+::eval\+In\+Window (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption}) const}
+
+
+
+Will evaluate if a given coordinate falls into the world window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & Given coordinate to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(coordinate.\+in\+World\+Window()) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_a2b1ea521f6b3daa9fdbda1d777ab0aef}\label{class_camera_a2b1ea521f6b3daa9fdbda1d777ab0aef}} 
+\index{Camera@{Camera}!higherWindowHeight@{higherWindowHeight}}
+\index{higherWindowHeight@{higherWindowHeight}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{higherWindowHeight()}{higherWindowHeight()}}
+{\footnotesize\ttfamily double Camera\+::higher\+Window\+Height (\begin{DoxyParamCaption}\item[{double}]{height }\end{DoxyParamCaption}) const}
+
+
+
+Will check is a given height, when projected, is higher than the current window height. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & Given height to evaluate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(height \texorpdfstring{$>$}{>} this-\/\texorpdfstring{$>$}{>}height) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_aee6513cb59fe5d73004d469adc378226}\label{class_camera_aee6513cb59fe5d73004d469adc378226}} 
+\index{Camera@{Camera}!project@{project}}
+\index{project@{project}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{project()}{project()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} Camera\+::project (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption}) const}
+
+
+
+Will project a coordinate form the world view to a coordinate of the camera view. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & Coordinate to project \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Projected coordinate 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_a8211e2ac4a31cfeab12416cd506acb5f}\label{class_camera_a8211e2ac4a31cfeab12416cd506acb5f}} 
+\index{Camera@{Camera}!updateHeight@{updateHeight}}
+\index{updateHeight@{updateHeight}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{updateHeight()}{updateHeight()}}
+{\footnotesize\ttfamily void Camera\+::update\+Height (\begin{DoxyParamCaption}\item[{double}]{height }\end{DoxyParamCaption})}
+
+
+
+Will update the parameter window height if the given projected height is higher than the current one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & Given height to evaluate \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/game\+Logic/\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\item 
+src/game\+Logic/\mbox{\hyperlink{_camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,136 @@
+\hypertarget{class_entities_1_1_b_g_tile}{}\doxysection{Entities\+::BGTile Class Reference}
+\label{class_entities_1_1_b_g_tile}\index{Entities::BGTile@{Entities::BGTile}}
+
+
+\mbox{\hyperlink{class_entity}{Entity}} class for a background tile in the game.  
+
+
+
+
+{\ttfamily \#include $<$BGTile.\+h$>$}
+
+Inheritance diagram for Entities\+::BGTile\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entities_1_1_b_g_tile}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entities_1_1_b_g_tile_a1b1a006b3a2a47e952f239955172c33c}{BGTile}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the background tile -\/ will use other functions to define the tile kind. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entities_1_1_b_g_tile_ae85424105a4c831b463787a6dffa4bcc}{$\sim$\+BGTile}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}{TKind}} \mbox{\hyperlink{class_entities_1_1_b_g_tile_a531fe33ed02942e7bedee822b60c8ba6}{get\+Kind}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the tile kind. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_b_g_tile_a3b81ca9a247f66bb47ff0dc18a7a81a4}{move\+Right}} () override
+\begin{DoxyCompactList}\small\item\em Will move the background tile to the right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_b_g_tile_a1e567088b559cbc3068b6250fe4b4af5}{move\+Left}} () override
+\begin{DoxyCompactList}\small\item\em Will move the background tile to the left. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer}{Observers\+::\+BGTile\+Observer}} $>$ \mbox{\hyperlink{class_entities_1_1_b_g_tile_a429dc7d1b356c4bdee1f5871a35dedd3}{observer}} \{\}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_observer}{Observer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_entity}{Entity}} class for a background tile in the game. 
+
+\mbox{\hyperlink{class_entity}{Entity}} \begin{DoxyNote}{Note}
+Makes use of several observers 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_entities_1_1_b_g_tile_a1b1a006b3a2a47e952f239955172c33c}\label{class_entities_1_1_b_g_tile_a1b1a006b3a2a47e952f239955172c33c}} 
+\index{Entities::BGTile@{Entities::BGTile}!BGTile@{BGTile}}
+\index{BGTile@{BGTile}!Entities::BGTile@{Entities::BGTile}}
+\doxysubsubsection{\texorpdfstring{BGTile()}{BGTile()}}
+{\footnotesize\ttfamily Entities\+::\+BGTile\+::\+BGTile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for the background tile -\/ will use other functions to define the tile kind. 
+
+\mbox{\Hypertarget{class_entities_1_1_b_g_tile_ae85424105a4c831b463787a6dffa4bcc}\label{class_entities_1_1_b_g_tile_ae85424105a4c831b463787a6dffa4bcc}} 
+\index{Entities::BGTile@{Entities::BGTile}!````~BGTile@{$\sim$BGTile}}
+\index{````~BGTile@{$\sim$BGTile}!Entities::BGTile@{Entities::BGTile}}
+\doxysubsubsection{\texorpdfstring{$\sim$BGTile()}{~BGTile()}}
+{\footnotesize\ttfamily Entities\+::\+BGTile\+::$\sim$\+BGTile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entities_1_1_b_g_tile_a531fe33ed02942e7bedee822b60c8ba6}\label{class_entities_1_1_b_g_tile_a531fe33ed02942e7bedee822b60c8ba6}} 
+\index{Entities::BGTile@{Entities::BGTile}!getKind@{getKind}}
+\index{getKind@{getKind}!Entities::BGTile@{Entities::BGTile}}
+\doxysubsubsection{\texorpdfstring{getKind()}{getKind()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}{TKind}} Entities\+::\+BGTile\+::get\+Kind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the tile kind. 
+
+\begin{DoxyReturn}{Returns}
+Tile kind 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entities_1_1_b_g_tile_a1e567088b559cbc3068b6250fe4b4af5}\label{class_entities_1_1_b_g_tile_a1e567088b559cbc3068b6250fe4b4af5}} 
+\index{Entities::BGTile@{Entities::BGTile}!moveLeft@{moveLeft}}
+\index{moveLeft@{moveLeft}!Entities::BGTile@{Entities::BGTile}}
+\doxysubsubsection{\texorpdfstring{moveLeft()}{moveLeft()}}
+{\footnotesize\ttfamily void Entities\+::\+BGTile\+::move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will move the background tile to the left. 
+
+\begin{DoxyNote}{Note}
+This function is currently not defined and not used (not needed, but is in place if it ever is) 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_entity_a0b4312315f4ee19ee2ab254aeac761ed}{Entity}}.
+
+\mbox{\Hypertarget{class_entities_1_1_b_g_tile_a3b81ca9a247f66bb47ff0dc18a7a81a4}\label{class_entities_1_1_b_g_tile_a3b81ca9a247f66bb47ff0dc18a7a81a4}} 
+\index{Entities::BGTile@{Entities::BGTile}!moveRight@{moveRight}}
+\index{moveRight@{moveRight}!Entities::BGTile@{Entities::BGTile}}
+\doxysubsubsection{\texorpdfstring{moveRight()}{moveRight()}}
+{\footnotesize\ttfamily void Entities\+::\+BGTile\+::move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will move the background tile to the right. 
+
+\begin{DoxyNote}{Note}
+This function is currently not defined and not used (not needed, but is in place if it ever is) 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_entity_a56106c895216943f2fce1a29b619679b}{Entity}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entities_1_1_b_g_tile_a429dc7d1b356c4bdee1f5871a35dedd3}\label{class_entities_1_1_b_g_tile_a429dc7d1b356c4bdee1f5871a35dedd3}} 
+\index{Entities::BGTile@{Entities::BGTile}!observer@{observer}}
+\index{observer@{observer}!Entities::BGTile@{Entities::BGTile}}
+\doxysubsubsection{\texorpdfstring{observer}{observer}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_observers_1_1_b_g_tile_observer}{Observers\+::\+BGTile\+Observer}}$>$ Entities\+::\+BGTile\+::observer \{\}}
+
+
+
+\mbox{\hyperlink{class_observer}{Observer}}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/models/entities/\mbox{\hyperlink{_b_g_tile_8h}{BGTile.\+h}}\item 
+src/models/entities/\mbox{\hyperlink{_b_g_tile_8cpp}{BGTile.\+cpp}}\end{DoxyCompactItemize}

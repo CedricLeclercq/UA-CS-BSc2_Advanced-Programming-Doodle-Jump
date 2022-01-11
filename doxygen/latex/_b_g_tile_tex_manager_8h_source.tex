@@ -1,0 +1,55 @@
+\hypertarget{_b_g_tile_tex_manager_8h_source}{}\doxysection{BGTile\+Tex\+Manager.\+h}
+\label{_b_g_tile_tex_manager_8h_source}\index{src/textureManagers/entityTexManagers/BGTileTexManager.h@{src/textureManagers/entityTexManagers/BGTileTexManager.h}}
+\mbox{\hyperlink{_b_g_tile_tex_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//         BGTileTexManager.h          //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_BGTILETEXMANAGER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_BGTILETEXMANAGER\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../TextureManager.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../../models/entities/BGTile.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager}{TextureManagers::BGTileTexManager}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_texture_managers_1_1_texture_manager}{TextureManager}} \{}
+\DoxyCodeLine{15 \textcolor{keyword}{private}:}
+\DoxyCodeLine{16     \textcolor{comment}{// All textures}}
+\DoxyCodeLine{18 \textcolor{comment}{}    sf::Texture planet1Tex\{\};}
+\DoxyCodeLine{20     sf::Texture planet2Tex\{\};}
+\DoxyCodeLine{22     sf::Texture planet3Tex\{\};}
+\DoxyCodeLine{24     sf::Texture planet4Tex\{\};}
+\DoxyCodeLine{26     sf::Texture planet5Tex\{\};}
+\DoxyCodeLine{28     sf::Texture planet6Tex\{\};}
+\DoxyCodeLine{30     sf::Texture mw1Tex\{\};}
+\DoxyCodeLine{32     sf::Texture mw2Tex\{\};}
+\DoxyCodeLine{34     sf::Texture star1Tex\{\};}
+\DoxyCodeLine{36     sf::Texture star2Tex\{\};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{comment}{// All paths to textures}}
+\DoxyCodeLine{40 \textcolor{comment}{}    std::string pathPlanet1 = \textcolor{stringliteral}{"{}recourses/textures/background/planets/Planet1.png"{}};}
+\DoxyCodeLine{42     std::string pathPlanet2 = \textcolor{stringliteral}{"{}recourses/textures/background/planets/Planet2.png"{}};}
+\DoxyCodeLine{44     std::string pathPlanet3 = \textcolor{stringliteral}{"{}recourses/textures/background/planets/Planet3.png"{}};}
+\DoxyCodeLine{46     std::string pathPlanet4 = \textcolor{stringliteral}{"{}recourses/textures/background/planets/Planet4.png"{}};}
+\DoxyCodeLine{48     std::string pathPlanet5 = \textcolor{stringliteral}{"{}recourses/textures/background/planets/Planet5.png"{}};}
+\DoxyCodeLine{50     std::string pathPlanet6 = \textcolor{stringliteral}{"{}recourses/textures/background/planets/Planet6.png"{}};}
+\DoxyCodeLine{52     std::string pathMw1 = \textcolor{stringliteral}{"{}recourses/textures/background/milkyways/MilkyWay1.png"{}};}
+\DoxyCodeLine{54     std::string pathMw2 = \textcolor{stringliteral}{"{}recourses/textures/background/milkyways/MilkyWay2.png"{}};}
+\DoxyCodeLine{56     std::string pathStar1 = \textcolor{stringliteral}{"{}recourses/textures/background/stars/Star1.png"{}};}
+\DoxyCodeLine{58     std::string pathStar2 = \textcolor{stringliteral}{"{}recourses/textures/background/stars/Star2.png"{}};}
+\DoxyCodeLine{62     \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager}{BGTileTexManager}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{63 \textcolor{keyword}{public}:}
+\DoxyCodeLine{67     \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_acaa714ce9de1b1d1a9c016d4897441ab}{\string~BGTileTexManager}}() \textcolor{keyword}{override} =\textcolor{keywordflow}{default};}
+\DoxyCodeLine{72     \textcolor{keyword}{static} \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager}{BGTileTexManager}}\& \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_ab9be8e4d6e5d41942661c5fd22dcef78}{getInstance}}();}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_a8580ab9fdeb0b3804567240ea35821e3}{loadTextures}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{81     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_aac56a2306108d6c21756e6449b7eef1c}{texturesFound}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_a54dff9b98414c13ae996126a9e3789db}{setTexture}}(sf::Sprite\& sprite, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}{TKind}} kind) \textcolor{keyword}{const};}
+\DoxyCodeLine{88 \};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_BGTILETEXMANAGER\_H}}
+
+\end{DoxyCode}

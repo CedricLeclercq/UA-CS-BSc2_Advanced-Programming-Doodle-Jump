@@ -1,0 +1,137 @@
+\hypertarget{class_views_1_1_player_view}{}\doxysection{Views\+::Player\+View Class Reference}
+\label{class_views_1_1_player_view}\index{Views::PlayerView@{Views::PlayerView}}
+
+
+Class for the view of the player model.  
+
+
+
+
+{\ttfamily \#include $<$Player\+View.\+h$>$}
+
+Inheritance diagram for Views\+::Player\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_views_1_1_player_view}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_views_1_1_player_view_aa8832091fd6a2fa7c368f9400a3eac72}{Player\+View}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_views_1_1_player_view_aa1ecb96ff53d092301549626d242f23b}{$\sim$\+Player\+View}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_views_1_1_player_view_abd78dd652d3465b2feed8e719f570c7f}{Player\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ \&player)
+\begin{DoxyCompactList}\small\item\em Constructor with a player object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_views_1_1_player_view_a6186624e31340cd35a575b7470847415}{set\+Rocket\+Tex}} ()
+\begin{DoxyCompactList}\small\item\em Will set the rocket texture to the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_views_1_1_player_view_a85f0ec2a6f462cb0bad4655e8207cfe1}{setup}} () override
+\begin{DoxyCompactList}\small\item\em Will setup the textures and the class so its ready for use. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_views_1_1_player_view_a6794a3b49c8e3ee67cfe7d8ef2ba95f1}{set\+Normal\+Tex}} ()
+\begin{DoxyCompactList}\small\item\em Will set the normal texture to the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observers_1_1_player_observer}{Observers\+::\+Player\+Observer}} $>$ \mbox{\hyperlink{class_views_1_1_player_view_aac31906242a1bf0b35545cc7112cac55}{observer}} \{\}
+\begin{DoxyCompactList}\small\item\em Shared pointer to the observer for linking the model and the view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class for the view of the player model. 
+
+\mbox{\hyperlink{class_view}{View}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_views_1_1_player_view_aa8832091fd6a2fa7c368f9400a3eac72}\label{class_views_1_1_player_view_aa8832091fd6a2fa7c368f9400a3eac72}} 
+\index{Views::PlayerView@{Views::PlayerView}!PlayerView@{PlayerView}}
+\index{PlayerView@{PlayerView}!Views::PlayerView@{Views::PlayerView}}
+\doxysubsubsection{\texorpdfstring{PlayerView()}{PlayerView()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Views\+::\+Player\+View\+::\+Player\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_views_1_1_player_view_aa1ecb96ff53d092301549626d242f23b}\label{class_views_1_1_player_view_aa1ecb96ff53d092301549626d242f23b}} 
+\index{Views::PlayerView@{Views::PlayerView}!````~PlayerView@{$\sim$PlayerView}}
+\index{````~PlayerView@{$\sim$PlayerView}!Views::PlayerView@{Views::PlayerView}}
+\doxysubsubsection{\texorpdfstring{$\sim$PlayerView()}{~PlayerView()}}
+{\footnotesize\ttfamily Views\+::\+Player\+View\+::$\sim$\+Player\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+\mbox{\Hypertarget{class_views_1_1_player_view_abd78dd652d3465b2feed8e719f570c7f}\label{class_views_1_1_player_view_abd78dd652d3465b2feed8e719f570c7f}} 
+\index{Views::PlayerView@{Views::PlayerView}!PlayerView@{PlayerView}}
+\index{PlayerView@{PlayerView}!Views::PlayerView@{Views::PlayerView}}
+\doxysubsubsection{\texorpdfstring{PlayerView()}{PlayerView()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Views\+::\+Player\+View\+::\+Player\+View (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ \&}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor with a player object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & player of the logic game (model) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_views_1_1_player_view_a6794a3b49c8e3ee67cfe7d8ef2ba95f1}\label{class_views_1_1_player_view_a6794a3b49c8e3ee67cfe7d8ef2ba95f1}} 
+\index{Views::PlayerView@{Views::PlayerView}!setNormalTex@{setNormalTex}}
+\index{setNormalTex@{setNormalTex}!Views::PlayerView@{Views::PlayerView}}
+\doxysubsubsection{\texorpdfstring{setNormalTex()}{setNormalTex()}}
+{\footnotesize\ttfamily void Views\+::\+Player\+View\+::set\+Normal\+Tex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Will set the normal texture to the player. 
+
+\mbox{\Hypertarget{class_views_1_1_player_view_a6186624e31340cd35a575b7470847415}\label{class_views_1_1_player_view_a6186624e31340cd35a575b7470847415}} 
+\index{Views::PlayerView@{Views::PlayerView}!setRocketTex@{setRocketTex}}
+\index{setRocketTex@{setRocketTex}!Views::PlayerView@{Views::PlayerView}}
+\doxysubsubsection{\texorpdfstring{setRocketTex()}{setRocketTex()}}
+{\footnotesize\ttfamily void Views\+::\+Player\+View\+::set\+Rocket\+Tex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Will set the rocket texture to the player. 
+
+\mbox{\Hypertarget{class_views_1_1_player_view_a85f0ec2a6f462cb0bad4655e8207cfe1}\label{class_views_1_1_player_view_a85f0ec2a6f462cb0bad4655e8207cfe1}} 
+\index{Views::PlayerView@{Views::PlayerView}!setup@{setup}}
+\index{setup@{setup}!Views::PlayerView@{Views::PlayerView}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Views\+::\+Player\+View\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will setup the textures and the class so its ready for use. 
+
+
+
+Implements \mbox{\hyperlink{class_view_ac7259ea1e34ca117c11d158ba9f9f156}{View}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_views_1_1_player_view_aac31906242a1bf0b35545cc7112cac55}\label{class_views_1_1_player_view_aac31906242a1bf0b35545cc7112cac55}} 
+\index{Views::PlayerView@{Views::PlayerView}!observer@{observer}}
+\index{observer@{observer}!Views::PlayerView@{Views::PlayerView}}
+\doxysubsubsection{\texorpdfstring{observer}{observer}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_observers_1_1_player_observer}{Observers\+::\+Player\+Observer}}$>$ Views\+::\+Player\+View\+::observer \{\}}
+
+
+
+Shared pointer to the observer for linking the model and the view. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/views/\mbox{\hyperlink{_player_view_8h}{Player\+View.\+h}}\item 
+src/views/\mbox{\hyperlink{_player_view_8cpp}{Player\+View.\+cpp}}\end{DoxyCompactItemize}

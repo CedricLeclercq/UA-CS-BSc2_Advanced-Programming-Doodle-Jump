@@ -1,0 +1,195 @@
+\hypertarget{class_abstract_factory}{}\doxysection{Abstract\+Factory Class Reference}
+\label{class_abstract_factory}\index{AbstractFactory@{AbstractFactory}}
+
+
+{\ttfamily \#include $<$Abstract\+Factory.\+h$>$}
+
+Inheritance diagram for Abstract\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_abstract_factory}
+\end{center}
+\end{figure}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_factory_a41c48cc0b0fb83476861a69bf05edede}{Abstract\+Factory}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_abstract_factory_ae0b348ff14d4b3e9ab8322afd2fd8b38}{$\sim$\+Abstract\+Factory}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ \mbox{\hyperlink{class_abstract_factory_a4061de1ea7f884c256bc0f44ee85ef58}{create\+Player}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to create a player. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ \mbox{\hyperlink{class_abstract_factory_aa6cdad675855312741b0e8973ca69c29}{create\+BGTile}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to create a background tile. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$ \mbox{\hyperlink{class_abstract_factory_a833bcbb4c21e8ea5834aca07590378bf}{create\+Bonus}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to create a bonus. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ \mbox{\hyperlink{class_abstract_factory_a5c17e6f5ac852292a517908cf9c3bf66}{create\+Platform}} (\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} kind)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to create a platform. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_world}{World}} $>$ \mbox{\hyperlink{class_abstract_factory_adc3ba8ba07ee8f1177cc79b9b7f28dc2}{create\+World}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ camera)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to create the world. \end{DoxyCompactList}\item 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \mbox{\hyperlink{class_abstract_factory_a013d6361045fc8fee288ab6a68f664f7}{create\+Camera}} (const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&world\+View, const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&camera\+View)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to create a camera. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ \mbox{\hyperlink{class_abstract_factory_a9f7f1cc9d17147db4031b075836bc64f}{create\+Score}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to create a shared pointer to a score object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_abstract_factory_a41c48cc0b0fb83476861a69bf05edede}\label{class_abstract_factory_a41c48cc0b0fb83476861a69bf05edede}} 
+\index{AbstractFactory@{AbstractFactory}!AbstractFactory@{AbstractFactory}}
+\index{AbstractFactory@{AbstractFactory}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{AbstractFactory()}{AbstractFactory()}}
+{\footnotesize\ttfamily Abstract\+Factory\+::\+Abstract\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_abstract_factory_ae0b348ff14d4b3e9ab8322afd2fd8b38}\label{class_abstract_factory_ae0b348ff14d4b3e9ab8322afd2fd8b38}} 
+\index{AbstractFactory@{AbstractFactory}!````~AbstractFactory@{$\sim$AbstractFactory}}
+\index{````~AbstractFactory@{$\sim$AbstractFactory}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{$\sim$AbstractFactory()}{~AbstractFactory()}}
+{\footnotesize\ttfamily virtual Abstract\+Factory\+::$\sim$\+Abstract\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_abstract_factory_aa6cdad675855312741b0e8973ca69c29}\label{class_abstract_factory_aa6cdad675855312741b0e8973ca69c29}} 
+\index{AbstractFactory@{AbstractFactory}!createBGTile@{createBGTile}}
+\index{createBGTile@{createBGTile}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createBGTile()}{createBGTile()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ Abstract\+Factory\+::create\+BGTile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to create a background tile. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to a background tile 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_a847b009ab1843b0437fa9864fabf6839}{Concrete\+Factory}}.
+
+\mbox{\Hypertarget{class_abstract_factory_a833bcbb4c21e8ea5834aca07590378bf}\label{class_abstract_factory_a833bcbb4c21e8ea5834aca07590378bf}} 
+\index{AbstractFactory@{AbstractFactory}!createBonus@{createBonus}}
+\index{createBonus@{createBonus}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createBonus()}{createBonus()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$ Abstract\+Factory\+::create\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to create a bonus. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to a bonus 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_a2c8429b078421ed0266e23e74303b479}{Concrete\+Factory}}.
+
+\mbox{\Hypertarget{class_abstract_factory_a013d6361045fc8fee288ab6a68f664f7}\label{class_abstract_factory_a013d6361045fc8fee288ab6a68f664f7}} 
+\index{AbstractFactory@{AbstractFactory}!createCamera@{createCamera}}
+\index{createCamera@{createCamera}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createCamera()}{createCamera()}}
+{\footnotesize\ttfamily virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ Abstract\+Factory\+::create\+Camera (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&}]{world\+View,  }\item[{const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&}]{camera\+View }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to create a camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+View} & The view of the logic library world \\
+\hline
+{\em camera\+View} & The view of the graphical library world \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Unique pointer to a camera (only one pointer will exist) 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_abfd5154efe46389d7d45112e430ab022}{Concrete\+Factory}}.
+
+\mbox{\Hypertarget{class_abstract_factory_a5c17e6f5ac852292a517908cf9c3bf66}\label{class_abstract_factory_a5c17e6f5ac852292a517908cf9c3bf66}} 
+\index{AbstractFactory@{AbstractFactory}!createPlatform@{createPlatform}}
+\index{createPlatform@{createPlatform}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createPlatform()}{createPlatform()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ Abstract\+Factory\+::create\+Platform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}}}]{kind }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to create a platform. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to a platform 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_ae349def47af4c66f8b770a3613a83de8}{Concrete\+Factory}}.
+
+\mbox{\Hypertarget{class_abstract_factory_a4061de1ea7f884c256bc0f44ee85ef58}\label{class_abstract_factory_a4061de1ea7f884c256bc0f44ee85ef58}} 
+\index{AbstractFactory@{AbstractFactory}!createPlayer@{createPlayer}}
+\index{createPlayer@{createPlayer}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ Abstract\+Factory\+::create\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to create a player. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to a player 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_a654be58de7545003b4d486e932e3852d}{Concrete\+Factory}}.
+
+\mbox{\Hypertarget{class_abstract_factory_a9f7f1cc9d17147db4031b075836bc64f}\label{class_abstract_factory_a9f7f1cc9d17147db4031b075836bc64f}} 
+\index{AbstractFactory@{AbstractFactory}!createScore@{createScore}}
+\index{createScore@{createScore}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createScore()}{createScore()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ Abstract\+Factory\+::create\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to create a shared pointer to a score object. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to a score object 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_a641f72a02e157d8a842d906a7b0514e0}{Concrete\+Factory}}.
+
+\mbox{\Hypertarget{class_abstract_factory_adc3ba8ba07ee8f1177cc79b9b7f28dc2}\label{class_abstract_factory_adc3ba8ba07ee8f1177cc79b9b7f28dc2}} 
+\index{AbstractFactory@{AbstractFactory}!createWorld@{createWorld}}
+\index{createWorld@{createWorld}!AbstractFactory@{AbstractFactory}}
+\doxysubsubsection{\texorpdfstring{createWorld()}{createWorld()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_world}{World}} $>$ Abstract\+Factory\+::create\+World (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to create the world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera} & \mbox{\hyperlink{class_world}{World}} will be made with keeping a camera in mind \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shared pointer to a world 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_concrete_factory_a7f7ae0169f340a17c915c1762899c6b2}{Concrete\+Factory}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/factories/model\+Factories/\mbox{\hyperlink{_abstract_factory_8h}{Abstract\+Factory.\+h}}\end{DoxyCompactItemize}

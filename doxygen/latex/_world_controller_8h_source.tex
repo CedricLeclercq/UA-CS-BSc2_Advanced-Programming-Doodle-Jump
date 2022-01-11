@@ -1,0 +1,35 @@
+\hypertarget{_world_controller_8h_source}{}\doxysection{World\+Controller.\+h}
+\label{_world_controller_8h_source}\index{src/controllers/WorldController.h@{src/controllers/WorldController.h}}
+\mbox{\hyperlink{_world_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Cédric Leclercq on 05/01/2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_WORLDCONTROLLER\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_WORLDCONTROLLER\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../gameLogic/World.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_world_controller}{WorldController}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     std::shared\_ptr<World> m\_world\{\};}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_world_controller_ad5c13739b262c0d3cf60645000ed08c4}{WorldController}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{28      \mbox{\hyperlink{class_world_controller_aa48a815ff334e564fb114641fd9d9149}{\string~WorldController}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{33     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_world_controller_a17e197b6e90c2e38f61c8c921d5df644}{WorldController}}(std::shared\_ptr<World> nWorld): m\_world(std::move(nWorld)) \{\}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_controller_a129247b6c4de44d17242a6ab22b72d9b}{movePlayerRight}}()\textcolor{keyword}{ const }\{m\_world-\/>getPlayer()-\/>moveRight();\}}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_controller_a4197e6c4cd03ad4a50f78195449e349c}{movePlayerLeft}}()\textcolor{keyword}{ const }\{m\_world-\/>getPlayer()-\/>moveLeft();\}}
+\DoxyCodeLine{47      \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_controller_a6897bec6562ad1d8def812503d5ad911}{evalOutOfWorld}}(\textcolor{keywordtype}{float} minX, \textcolor{keywordtype}{float} maxX) \{m\_world-\/>getPlayer()-\/>teleportPlayer(minX,maxX);\}}
+\DoxyCodeLine{51      \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_controller_a20c5e092ff625216692113ea4420de9e}{updateWorld}}()\textcolor{keyword}{ const }\{m\_world-\/>updateWorld();\}}
+\DoxyCodeLine{57      \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_controller_ac9dd84e4f67538321f436fca9d0748cb}{setLengths}}(\textcolor{keywordtype}{float} playerLength, \textcolor{keywordtype}{float} platformLength);}
+\DoxyCodeLine{62      \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_world_controller_a202fedf768dea82bba8c28291f51d64a}{isGameOver}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} m\_world-\/>checkGameOver();\}}
+\DoxyCodeLine{67      std::shared\_ptr<Entities::Player> \mbox{\hyperlink{class_world_controller_a9bfa21531cd2a498351773c00f1c5100}{getPlayer}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} this-\/>m\_world-\/>getPlayer();\}}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_WORLDCONTROLLER\_H}}
+
+\end{DoxyCode}

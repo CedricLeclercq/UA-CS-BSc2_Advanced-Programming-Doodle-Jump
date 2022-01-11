@@ -17,6 +17,10 @@ using std::shared_ptr;
 using namespace Views;
 using namespace Entities;
 
+/**
+ * @class ViewAbstractFactory
+ * @brief Abstract factory for creating views in the graphical world
+ */
 class ViewAbstractFactory {
 protected:
     /**

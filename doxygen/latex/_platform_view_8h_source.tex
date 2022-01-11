@@ -1,0 +1,36 @@
+\hypertarget{_platform_view_8h_source}{}\doxysection{Platform\+View.\+h}
+\label{_platform_view_8h_source}\index{src/views/PlatformView.h@{src/views/PlatformView.h}}
+\mbox{\hyperlink{_platform_view_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//           PlatformView.h            //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_PLATFORMVIEW\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_PLATFORMVIEW\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_view_8h}{View.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../observers/Observers.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../observers/entityObservers/PlatformObserver.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_platform_8h}{models/entities/Platform.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_views_1_1_platform_view}{Views::PlatformView}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_view}{View}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} platformKind\{\};}
+\DoxyCodeLine{21     \mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6}{BonusPower}} bonusKind\{\};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool} texLoaded = \textcolor{keyword}{false};}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     std::shared\_ptr<Observers::PlatformObserver> \mbox{\hyperlink{class_views_1_1_platform_view_a922ac13c5bf9936733c9b643d4de18ff}{observer}}\{\};}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_views_1_1_platform_view_a76b31698e4f5b39aa3e3a46c3d3d6f6b}{PlatformView}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_views_1_1_platform_view_a5f67e0ef5d25b63d765a90178d6115f3}{\string~PlatformView}}() \textcolor{keyword}{override} =\textcolor{keywordflow}{default};}
+\DoxyCodeLine{39     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_views_1_1_platform_view_a76b31698e4f5b39aa3e3a46c3d3d6f6b}{PlatformView}}(\textcolor{keyword}{const} std::shared\_ptr<Entities::Platform>\& platform);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_views_1_1_platform_view_a88b5e2207c210335dbb24a1d3c3c51d9}{setup}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_PLATFORMVIEW\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,119 @@
+\hypertarget{class_observers_1_1_score_observer}{}\doxysection{Observers\+::Score\+Observer Class Reference}
+\label{class_observers_1_1_score_observer}\index{Observers::ScoreObserver@{Observers::ScoreObserver}}
+
+
+Singleton \mbox{\hyperlink{class_observer}{Observer}} class for the score in the world -\/ also keeps the current score of the game.  
+
+
+
+
+{\ttfamily \#include $<$Score\+Observer.\+h$>$}
+
+Inheritance diagram for Observers\+::Score\+Observer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_observers_1_1_score_observer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_observers_1_1_score_observer_a675529927ce25cdce0881d13f297a159}{$\sim$\+Score\+Observer}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_observers_1_1_score_observer_aaff6b7917ab14914efa9c50e1df45501}{get\+Notified}} () override
+\begin{DoxyCompactList}\small\item\em Getter for if the score is changed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_score_observer_a432a845b308d93560c68a6a06382a12b}{notify\+Score}} (int n\+Score)
+\begin{DoxyCompactList}\small\item\em Will notify the observer of a score change. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_observers_1_1_score_observer_ab112687d660993798006ca8c53dc2b71}{get\+Score}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the current score. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_observers_1_1_score_observer}{Score\+Observer}} \& \mbox{\hyperlink{class_observers_1_1_score_observer_acc666ec94c0472dff16f794b13d6d05a}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Will return the instance of the score\+Observer if it exists, else it will create one and return it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Singleton \mbox{\hyperlink{class_observer}{Observer}} class for the score in the world -\/ also keeps the current score of the game. 
+
+\mbox{\hyperlink{class_observer}{Observer}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_observers_1_1_score_observer_a675529927ce25cdce0881d13f297a159}\label{class_observers_1_1_score_observer_a675529927ce25cdce0881d13f297a159}} 
+\index{Observers::ScoreObserver@{Observers::ScoreObserver}!````~ScoreObserver@{$\sim$ScoreObserver}}
+\index{````~ScoreObserver@{$\sim$ScoreObserver}!Observers::ScoreObserver@{Observers::ScoreObserver}}
+\doxysubsubsection{\texorpdfstring{$\sim$ScoreObserver()}{~ScoreObserver()}}
+{\footnotesize\ttfamily Observers\+::\+Score\+Observer\+::$\sim$\+Score\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_observers_1_1_score_observer_acc666ec94c0472dff16f794b13d6d05a}\label{class_observers_1_1_score_observer_acc666ec94c0472dff16f794b13d6d05a}} 
+\index{Observers::ScoreObserver@{Observers::ScoreObserver}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Observers::ScoreObserver@{Observers::ScoreObserver}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_observers_1_1_score_observer}{Observers\+::\+Score\+Observer}} \& Observers\+::\+Score\+Observer\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Will return the instance of the score\+Observer if it exists, else it will create one and return it. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_score_observer_aaff6b7917ab14914efa9c50e1df45501}\label{class_observers_1_1_score_observer_aaff6b7917ab14914efa9c50e1df45501}} 
+\index{Observers::ScoreObserver@{Observers::ScoreObserver}!getNotified@{getNotified}}
+\index{getNotified@{getNotified}!Observers::ScoreObserver@{Observers::ScoreObserver}}
+\doxysubsubsection{\texorpdfstring{getNotified()}{getNotified()}}
+{\footnotesize\ttfamily bool Observers\+::\+Score\+Observer\+::get\+Notified (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Getter for if the score is changed. 
+
+\begin{DoxyReturn}{Returns}
+Will get is the score was changed 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_observer_acc37bb20fa7b1a602efd6d2110be8eb8}{Observer}}.
+
+\mbox{\Hypertarget{class_observers_1_1_score_observer_ab112687d660993798006ca8c53dc2b71}\label{class_observers_1_1_score_observer_ab112687d660993798006ca8c53dc2b71}} 
+\index{Observers::ScoreObserver@{Observers::ScoreObserver}!getScore@{getScore}}
+\index{getScore@{getScore}!Observers::ScoreObserver@{Observers::ScoreObserver}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily int Observers\+::\+Score\+Observer\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the current score. 
+
+\begin{DoxyReturn}{Returns}
+this-\/\texorpdfstring{$>$}{>}current\+Score 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_score_observer_a432a845b308d93560c68a6a06382a12b}\label{class_observers_1_1_score_observer_a432a845b308d93560c68a6a06382a12b}} 
+\index{Observers::ScoreObserver@{Observers::ScoreObserver}!notifyScore@{notifyScore}}
+\index{notifyScore@{notifyScore}!Observers::ScoreObserver@{Observers::ScoreObserver}}
+\doxysubsubsection{\texorpdfstring{notifyScore()}{notifyScore()}}
+{\footnotesize\ttfamily void Observers\+::\+Score\+Observer\+::notify\+Score (\begin{DoxyParamCaption}\item[{int}]{n\+Score }\end{DoxyParamCaption})}
+
+
+
+Will notify the observer of a score change. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Score} & newly changed score \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/observers/entity\+Observers/\mbox{\hyperlink{_score_observer_8h}{Score\+Observer.\+h}}\item 
+src/observers/entity\+Observers/\mbox{\hyperlink{_score_observer_8cpp}{Score\+Observer.\+cpp}}\end{DoxyCompactItemize}

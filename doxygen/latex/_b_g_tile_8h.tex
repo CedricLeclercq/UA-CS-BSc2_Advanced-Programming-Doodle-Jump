@@ -1,0 +1,88 @@
+\hypertarget{_b_g_tile_8h}{}\doxysection{src/models/entities/\+BGTile.h File Reference}
+\label{_b_g_tile_8h}\index{src/models/entities/BGTile.h@{src/models/entities/BGTile.h}}
+{\ttfamily \#include \char`\"{}../\+Entities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../observers/\+Observers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../observers/entity\+Observers/\+BGTile\+Observer.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_entity}{Entity}} class for a background tile in the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}{TKind}} \{ \newline
+\mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
+, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca9070499f9ca197cfe223b3b4c3f35292}{PLANET1}}
+, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cafd8f7cf2879fcde4287693d93490442d}{PLANET2}}
+, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cae9b675c0c23840804a68fcab9c7211a2}{PLANET3}}
+, \newline
+\mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646caf538f1562ed8d0780270bcd09675a9c3}{PLANET4}}
+, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca1b97dc024995f9e05a1987bcada5a9b8}{PLANET5}}
+, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cac5b3d4e493d93947b5ec7b1028205c2d}{PLANET6}}
+, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca59d74272faaa20d3777478e40b6f4398}{STAR1}}
+, \newline
+\mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646caa901a5bfdd982816d36e1eab9c6fcb95}{STAR2}}
+, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca66b386f36660da7703353e9cf4c1de48}{MILKYWAY1}}
+, \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca472fc19459d20b039dec1e3e1ff71bf3}{MILKYWAY2}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of the possible tile kinds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}} 
+\index{BGTile.h@{BGTile.h}!TKind@{TKind}}
+\index{TKind@{TKind}!BGTile.h@{BGTile.h}}
+\doxysubsubsection{\texorpdfstring{TKind}{TKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646c}{TKind}}}
+
+
+
+Enumeration of the possible tile kinds. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!NONE@{NONE}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cac157bdf0b85a40d2619cbc8bc1ae5fe2}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cac157bdf0b85a40d2619cbc8bc1ae5fe2}} 
+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLANET1@{PLANET1}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!PLANET1@{PLANET1}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca9070499f9ca197cfe223b3b4c3f35292}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca9070499f9ca197cfe223b3b4c3f35292}} 
+PLANET1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLANET2@{PLANET2}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!PLANET2@{PLANET2}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cafd8f7cf2879fcde4287693d93490442d}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cafd8f7cf2879fcde4287693d93490442d}} 
+PLANET2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLANET3@{PLANET3}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!PLANET3@{PLANET3}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cae9b675c0c23840804a68fcab9c7211a2}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cae9b675c0c23840804a68fcab9c7211a2}} 
+PLANET3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLANET4@{PLANET4}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!PLANET4@{PLANET4}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646caf538f1562ed8d0780270bcd09675a9c3}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646caf538f1562ed8d0780270bcd09675a9c3}} 
+PLANET4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLANET5@{PLANET5}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!PLANET5@{PLANET5}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca1b97dc024995f9e05a1987bcada5a9b8}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca1b97dc024995f9e05a1987bcada5a9b8}} 
+PLANET5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLANET6@{PLANET6}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!PLANET6@{PLANET6}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cac5b3d4e493d93947b5ec7b1028205c2d}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646cac5b3d4e493d93947b5ec7b1028205c2d}} 
+PLANET6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STAR1@{STAR1}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!STAR1@{STAR1}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca59d74272faaa20d3777478e40b6f4398}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca59d74272faaa20d3777478e40b6f4398}} 
+STAR1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STAR2@{STAR2}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!STAR2@{STAR2}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646caa901a5bfdd982816d36e1eab9c6fcb95}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646caa901a5bfdd982816d36e1eab9c6fcb95}} 
+STAR2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MILKYWAY1@{MILKYWAY1}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!MILKYWAY1@{MILKYWAY1}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca66b386f36660da7703353e9cf4c1de48}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca66b386f36660da7703353e9cf4c1de48}} 
+MILKYWAY1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MILKYWAY2@{MILKYWAY2}!BGTile.h@{BGTile.h}}\index{BGTile.h@{BGTile.h}!MILKYWAY2@{MILKYWAY2}}}\mbox{\Hypertarget{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca472fc19459d20b039dec1e3e1ff71bf3}\label{_b_g_tile_8h_a7a163053d5dba9714bd3f1fba32b646ca472fc19459d20b039dec1e3e1ff71bf3}} 
+MILKYWAY2&\\
+\hline
+
+\end{DoxyEnumFields}

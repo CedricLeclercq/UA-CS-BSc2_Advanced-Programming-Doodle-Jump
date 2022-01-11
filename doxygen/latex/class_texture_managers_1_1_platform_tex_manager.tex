@@ -1,0 +1,113 @@
+\hypertarget{class_texture_managers_1_1_platform_tex_manager}{}\doxysection{Texture\+Managers\+::Platform\+Tex\+Manager Class Reference}
+\label{class_texture_managers_1_1_platform_tex_manager}\index{TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}}
+
+
+{\ttfamily \#include $<$Platform\+Tex\+Manager.\+h$>$}
+
+Inheritance diagram for Texture\+Managers\+::Platform\+Tex\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_texture_managers_1_1_platform_tex_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager_add7f542510ae83895cb24fbf411ec591}{$\sim$\+Platform\+Tex\+Manager}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager_aafe4dc5d18d73e9d8b1a8bb7468740ff}{load\+Textures}} () override
+\begin{DoxyCompactList}\small\item\em Will load all the textures for the platforms. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager_a34db3b72b4940d03a4b89d32f8d34b41}{textures\+Found}} () override
+\begin{DoxyCompactList}\small\item\em Will define if all the textures are found for the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager_aa2c81ed72bdc62fa2d6c0e7c0eef8061}{set\+Texture}} (sf\+::\+Sprite \&sprite, \mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} p\+Kind, \mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6}{Bonus\+Power}} b\+Kind) const
+\begin{DoxyCompactList}\small\item\em Will set a texture to a sprite platform. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager}{Platform\+Tex\+Manager}} \& \mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager_a9af21c38254ee3fbe6a94943c7d38831}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Will return an instance of the class regarding the singleton design pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_texture_managers_1_1_platform_tex_manager_add7f542510ae83895cb24fbf411ec591}\label{class_texture_managers_1_1_platform_tex_manager_add7f542510ae83895cb24fbf411ec591}} 
+\index{TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}!````~PlatformTexManager@{$\sim$PlatformTexManager}}
+\index{````~PlatformTexManager@{$\sim$PlatformTexManager}!TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$PlatformTexManager()}{~PlatformTexManager()}}
+{\footnotesize\ttfamily Texture\+Managers\+::\+Platform\+Tex\+Manager\+::$\sim$\+Platform\+Tex\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_managers_1_1_platform_tex_manager_a9af21c38254ee3fbe6a94943c7d38831}\label{class_texture_managers_1_1_platform_tex_manager_a9af21c38254ee3fbe6a94943c7d38831}} 
+\index{TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager}{Texture\+Managers\+::\+Platform\+Tex\+Manager}} \& Texture\+Managers\+::\+Platform\+Tex\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Will return an instance of the class regarding the singleton design pattern. 
+
+\begin{DoxyReturn}{Returns}
+instance of \mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager}{Platform\+Tex\+Manager}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_texture_managers_1_1_platform_tex_manager_aafe4dc5d18d73e9d8b1a8bb7468740ff}\label{class_texture_managers_1_1_platform_tex_manager_aafe4dc5d18d73e9d8b1a8bb7468740ff}} 
+\index{TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily void Texture\+Managers\+::\+Platform\+Tex\+Manager\+::load\+Textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will load all the textures for the platforms. 
+
+
+
+Implements \mbox{\hyperlink{class_texture_managers_1_1_texture_manager_a5f04241a160d797958c9ff0537f8c59e}{Texture\+Managers\+::\+Texture\+Manager}}.
+
+\mbox{\Hypertarget{class_texture_managers_1_1_platform_tex_manager_aa2c81ed72bdc62fa2d6c0e7c0eef8061}\label{class_texture_managers_1_1_platform_tex_manager_aa2c81ed72bdc62fa2d6c0e7c0eef8061}} 
+\index{TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}!setTexture@{setTexture}}
+\index{setTexture@{setTexture}!TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}}
+\doxysubsubsection{\texorpdfstring{setTexture()}{setTexture()}}
+{\footnotesize\ttfamily void Texture\+Managers\+::\+Platform\+Tex\+Manager\+::set\+Texture (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \&}]{sprite,  }\item[{\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}}}]{p\+Kind,  }\item[{\mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6}{Bonus\+Power}}}]{b\+Kind }\end{DoxyParamCaption}) const}
+
+
+
+Will set a texture to a sprite platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & sprite by reference -\/ for changes \\
+\hline
+{\em p\+Kind} & platform kind -\/ needed for defining which texture \\
+\hline
+{\em b\+Kind} & bonus kind -\/ needed for defining which texture \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_texture_managers_1_1_platform_tex_manager_a34db3b72b4940d03a4b89d32f8d34b41}\label{class_texture_managers_1_1_platform_tex_manager_a34db3b72b4940d03a4b89d32f8d34b41}} 
+\index{TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}!texturesFound@{texturesFound}}
+\index{texturesFound@{texturesFound}!TextureManagers::PlatformTexManager@{TextureManagers::PlatformTexManager}}
+\doxysubsubsection{\texorpdfstring{texturesFound()}{texturesFound()}}
+{\footnotesize\ttfamily bool Texture\+Managers\+::\+Platform\+Tex\+Manager\+::textures\+Found (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will define if all the textures are found for the platform. 
+
+\begin{DoxyReturn}{Returns}
+all\+Textures\+Found? 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_texture_managers_1_1_texture_manager_ad12aa47f3c6198c949f62a7385a54bd7}{Texture\+Managers\+::\+Texture\+Manager}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/texture\+Managers/entity\+Tex\+Managers/\mbox{\hyperlink{_platform_tex_manager_8h}{Platform\+Tex\+Manager.\+h}}\item 
+src/texture\+Managers/entity\+Tex\+Managers/\mbox{\hyperlink{_platform_tex_manager_8cpp}{Platform\+Tex\+Manager.\+cpp}}\end{DoxyCompactItemize}

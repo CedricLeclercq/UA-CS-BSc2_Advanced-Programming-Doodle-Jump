@@ -1,0 +1,103 @@
+\hypertarget{class_utilities_1_1_random}{}\doxysection{Utilities\+::Random Class Reference}
+\label{class_utilities_1_1_random}\index{Utilities::Random@{Utilities::Random}}
+
+
+Will provide all the random values in the project.  
+
+
+
+
+{\ttfamily \#include $<$Utilities.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_utilities_1_1_random_ae3fec0ddec06d2bcc4230226e4401c34}{$\sim$\+Random}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_utilities_1_1_random_a67152979e3962ba8285293e9f5d73e23}{rand\+Int}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Will return a random integer from x to y. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_utilities_1_1_random_a88bc8efbabc78d1a14a5f828bc793896}{rand\+Float}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Will return a random float from x to y. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_utilities_1_1_random}{Random}} \& \mbox{\hyperlink{class_utilities_1_1_random_ab2dafbe3bdf6d9880008055f9c74eec6}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Will get an instance of the class regarding the singleton pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Will provide all the random values in the project. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_utilities_1_1_random_ae3fec0ddec06d2bcc4230226e4401c34}\label{class_utilities_1_1_random_ae3fec0ddec06d2bcc4230226e4401c34}} 
+\index{Utilities::Random@{Utilities::Random}!````~Random@{$\sim$Random}}
+\index{````~Random@{$\sim$Random}!Utilities::Random@{Utilities::Random}}
+\doxysubsubsection{\texorpdfstring{$\sim$Random()}{~Random()}}
+{\footnotesize\ttfamily Utilities\+::\+Random\+::$\sim$\+Random (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_utilities_1_1_random_ab2dafbe3bdf6d9880008055f9c74eec6}\label{class_utilities_1_1_random_ab2dafbe3bdf6d9880008055f9c74eec6}} 
+\index{Utilities::Random@{Utilities::Random}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Utilities::Random@{Utilities::Random}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_utilities_1_1_random}{Utilities\+::\+Random}} \& Utilities\+::\+Random\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Will get an instance of the class regarding the singleton pattern. 
+
+\begin{DoxyReturn}{Returns}
+instance of \mbox{\hyperlink{class_utilities_1_1_random}{Random}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_utilities_1_1_random_a88bc8efbabc78d1a14a5f828bc793896}\label{class_utilities_1_1_random_a88bc8efbabc78d1a14a5f828bc793896}} 
+\index{Utilities::Random@{Utilities::Random}!randFloat@{randFloat}}
+\index{randFloat@{randFloat}!Utilities::Random@{Utilities::Random}}
+\doxysubsubsection{\texorpdfstring{randFloat()}{randFloat()}}
+{\footnotesize\ttfamily float Utilities\+::\+Random\+::rand\+Float (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Will return a random float from x to y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Bounder x \\
+\hline
+{\em y} & Bounder y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_utilities_1_1_random}{Random}} float between x and y 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_utilities_1_1_random_a67152979e3962ba8285293e9f5d73e23}\label{class_utilities_1_1_random_a67152979e3962ba8285293e9f5d73e23}} 
+\index{Utilities::Random@{Utilities::Random}!randInt@{randInt}}
+\index{randInt@{randInt}!Utilities::Random@{Utilities::Random}}
+\doxysubsubsection{\texorpdfstring{randInt()}{randInt()}}
+{\footnotesize\ttfamily int Utilities\+::\+Random\+::rand\+Int (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Will return a random integer from x to y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Bounder x \\
+\hline
+{\em y} & Bounder Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_utilities_1_1_random}{Random}} integer between x and y 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/utilities/\mbox{\hyperlink{_utilities_8h}{Utilities.\+h}}\item 
+src/utilities/\mbox{\hyperlink{_utilities_8cpp}{Utilities.\+cpp}}\end{DoxyCompactItemize}

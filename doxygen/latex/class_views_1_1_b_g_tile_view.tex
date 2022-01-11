@@ -1,0 +1,113 @@
+\hypertarget{class_views_1_1_b_g_tile_view}{}\doxysection{Views\+::BGTile\+View Class Reference}
+\label{class_views_1_1_b_g_tile_view}\index{Views::BGTileView@{Views::BGTileView}}
+
+
+Class for the view of the background tile model.  
+
+
+
+
+{\ttfamily \#include $<$BGTile\+View.\+h$>$}
+
+Inheritance diagram for Views\+::BGTile\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_views_1_1_b_g_tile_view}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_views_1_1_b_g_tile_view_ac5ab7b9f8d5621cde627c8ce2cd185b9}{BGTile\+View}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_views_1_1_b_g_tile_view_a94364a7994356aa28fe996f75c0ef923}{$\sim$\+BGTile\+View}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_views_1_1_b_g_tile_view_a667bc01379a98f2a90eadda75f327e92}{BGTile\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ \&tile)
+\begin{DoxyCompactList}\small\item\em Default constructor that also links the models observer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_views_1_1_b_g_tile_view_a185f01cb53c9b1c89c048894406ae482}{setup}} () override
+\begin{DoxyCompactList}\small\item\em Will setup the textures for the background tiles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer}{Observers\+::\+BGTile\+Observer}} $>$ \mbox{\hyperlink{class_views_1_1_b_g_tile_view_a37a5c7a0936b25bbd76b22163b9c9d6c}{observer}} \{\}
+\begin{DoxyCompactList}\small\item\em Shared pointer to the observer to link the model and the view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class for the view of the background tile model. 
+
+\mbox{\hyperlink{class_view}{View}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_views_1_1_b_g_tile_view_ac5ab7b9f8d5621cde627c8ce2cd185b9}\label{class_views_1_1_b_g_tile_view_ac5ab7b9f8d5621cde627c8ce2cd185b9}} 
+\index{Views::BGTileView@{Views::BGTileView}!BGTileView@{BGTileView}}
+\index{BGTileView@{BGTileView}!Views::BGTileView@{Views::BGTileView}}
+\doxysubsubsection{\texorpdfstring{BGTileView()}{BGTileView()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Views\+::\+BGTile\+View\+::\+BGTile\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_views_1_1_b_g_tile_view_a94364a7994356aa28fe996f75c0ef923}\label{class_views_1_1_b_g_tile_view_a94364a7994356aa28fe996f75c0ef923}} 
+\index{Views::BGTileView@{Views::BGTileView}!````~BGTileView@{$\sim$BGTileView}}
+\index{````~BGTileView@{$\sim$BGTileView}!Views::BGTileView@{Views::BGTileView}}
+\doxysubsubsection{\texorpdfstring{$\sim$BGTileView()}{~BGTileView()}}
+{\footnotesize\ttfamily Views\+::\+BGTile\+View\+::$\sim$\+BGTile\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+\mbox{\Hypertarget{class_views_1_1_b_g_tile_view_a667bc01379a98f2a90eadda75f327e92}\label{class_views_1_1_b_g_tile_view_a667bc01379a98f2a90eadda75f327e92}} 
+\index{Views::BGTileView@{Views::BGTileView}!BGTileView@{BGTileView}}
+\index{BGTileView@{BGTileView}!Views::BGTileView@{Views::BGTileView}}
+\doxysubsubsection{\texorpdfstring{BGTileView()}{BGTileView()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Views\+::\+BGTile\+View\+::\+BGTile\+View (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ \&}]{tile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Default constructor that also links the models observer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile} & model tile \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_views_1_1_b_g_tile_view_a185f01cb53c9b1c89c048894406ae482}\label{class_views_1_1_b_g_tile_view_a185f01cb53c9b1c89c048894406ae482}} 
+\index{Views::BGTileView@{Views::BGTileView}!setup@{setup}}
+\index{setup@{setup}!Views::BGTileView@{Views::BGTileView}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Views\+::\+BGTile\+View\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will setup the textures for the background tiles. 
+
+
+
+Implements \mbox{\hyperlink{class_view_ac7259ea1e34ca117c11d158ba9f9f156}{View}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_views_1_1_b_g_tile_view_a37a5c7a0936b25bbd76b22163b9c9d6c}\label{class_views_1_1_b_g_tile_view_a37a5c7a0936b25bbd76b22163b9c9d6c}} 
+\index{Views::BGTileView@{Views::BGTileView}!observer@{observer}}
+\index{observer@{observer}!Views::BGTileView@{Views::BGTileView}}
+\doxysubsubsection{\texorpdfstring{observer}{observer}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_observers_1_1_b_g_tile_observer}{Observers\+::\+BGTile\+Observer}}$>$ Views\+::\+BGTile\+View\+::observer \{\}}
+
+
+
+Shared pointer to the observer to link the model and the view. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/views/\mbox{\hyperlink{_b_g_tile_view_8h}{BGTile\+View.\+h}}\item 
+src/views/\mbox{\hyperlink{_b_g_tile_view_8cpp}{BGTile\+View.\+cpp}}\end{DoxyCompactItemize}

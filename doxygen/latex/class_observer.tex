@@ -1,0 +1,107 @@
+\hypertarget{class_observer}{}\doxysection{Observer Class Reference}
+\label{class_observer}\index{Observer@{Observer}}
+
+
+Super class for all the observers.  
+
+
+
+
+{\ttfamily \#include $<$Observer.\+h$>$}
+
+Inheritance diagram for Observer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.204301cm]{class_observer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_observer_acb0af5014875c6ec7465cccc85e4f39b}{Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Simple default constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_observer_a37824643eeaef086de17bba2717d865a}{$\sim$\+Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_observer_a529f041eec2264143da5be197b28a2a7}{notify\+Observer}} ()
+\begin{DoxyCompactList}\small\item\em Will notify the observer and set the notified parameter to true. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_observer_acc37bb20fa7b1a602efd6d2110be8eb8}{get\+Notified}} ()
+\begin{DoxyCompactList}\small\item\em Getter for if the observer is notified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_observer_a79a85317a9ad154a75c106cbcc922d85}{notified}} \{\}
+\begin{DoxyCompactList}\small\item\em Parameter for if the observer has been notified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Super class for all the observers. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_observer_acb0af5014875c6ec7465cccc85e4f39b}\label{class_observer_acb0af5014875c6ec7465cccc85e4f39b}} 
+\index{Observer@{Observer}!Observer@{Observer}}
+\index{Observer@{Observer}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{Observer()}{Observer()}}
+{\footnotesize\ttfamily Observer\+::\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Simple default constructor. 
+
+\mbox{\Hypertarget{class_observer_a37824643eeaef086de17bba2717d865a}\label{class_observer_a37824643eeaef086de17bba2717d865a}} 
+\index{Observer@{Observer}!````~Observer@{$\sim$Observer}}
+\index{````~Observer@{$\sim$Observer}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{$\sim$Observer()}{~Observer()}}
+{\footnotesize\ttfamily virtual Observer\+::$\sim$\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_observer_acc37bb20fa7b1a602efd6d2110be8eb8}\label{class_observer_acc37bb20fa7b1a602efd6d2110be8eb8}} 
+\index{Observer@{Observer}!getNotified@{getNotified}}
+\index{getNotified@{getNotified}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{getNotified()}{getNotified()}}
+{\footnotesize\ttfamily virtual bool Observer\+::get\+Notified (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Getter for if the observer is notified. 
+
+\begin{DoxyReturn}{Returns}
+is\+Notified? 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_observers_1_1_score_observer_aaff6b7917ab14914efa9c50e1df45501}{Observers\+::\+Score\+Observer}}.
+
+\mbox{\Hypertarget{class_observer_a529f041eec2264143da5be197b28a2a7}\label{class_observer_a529f041eec2264143da5be197b28a2a7}} 
+\index{Observer@{Observer}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily virtual void Observer\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Will notify the observer and set the notified parameter to true. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_observer_a79a85317a9ad154a75c106cbcc922d85}\label{class_observer_a79a85317a9ad154a75c106cbcc922d85}} 
+\index{Observer@{Observer}!notified@{notified}}
+\index{notified@{notified}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{notified}{notified}}
+{\footnotesize\ttfamily bool Observer\+::notified \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Parameter for if the observer has been notified. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/observers/\mbox{\hyperlink{_observer_8h}{Observer.\+h}}\end{DoxyCompactItemize}

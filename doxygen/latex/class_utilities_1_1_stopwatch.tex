@@ -1,0 +1,98 @@
+\hypertarget{class_utilities_1_1_stopwatch}{}\doxysection{Utilities\+::Stopwatch Class Reference}
+\label{class_utilities_1_1_stopwatch}\index{Utilities::Stopwatch@{Utilities::Stopwatch}}
+
+
+Makes sure that the game logic and the graphical side runs the same on every pc using cpu ticks.  
+
+
+
+
+{\ttfamily \#include $<$Utilities.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_utilities_1_1_stopwatch_a0eed9951443c36e0983c6dabf0c176a7}{$\sim$\+Stopwatch}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_utilities_1_1_stopwatch_a7ffe0c357182c848a002eaa83657233a}{get\+Delta\+Ticks}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the delta ticks of the previous run. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_utilities_1_1_stopwatch_af3e65381ef8f0e6bc7119a99c10a1c93}{start\+Counter}} ()
+\begin{DoxyCompactList}\small\item\em Start the stopwatch -\/ record the ticks at this moment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_utilities_1_1_stopwatch_a0fff82cdd3cf2e036548ef410cb0b8c2}{stop\+Counter}} ()
+\begin{DoxyCompactList}\small\item\em Stop the stopwatch -\/ calculate delta ticks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_utilities_1_1_stopwatch}{Stopwatch}} \& \mbox{\hyperlink{class_utilities_1_1_stopwatch_ac1f1eb7c4449ec2575006c7c141b90f5}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Will get an instance of the stopwatch class regarding the singleton design pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Makes sure that the game logic and the graphical side runs the same on every pc using cpu ticks. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_utilities_1_1_stopwatch_a0eed9951443c36e0983c6dabf0c176a7}\label{class_utilities_1_1_stopwatch_a0eed9951443c36e0983c6dabf0c176a7}} 
+\index{Utilities::Stopwatch@{Utilities::Stopwatch}!````~Stopwatch@{$\sim$Stopwatch}}
+\index{````~Stopwatch@{$\sim$Stopwatch}!Utilities::Stopwatch@{Utilities::Stopwatch}}
+\doxysubsubsection{\texorpdfstring{$\sim$Stopwatch()}{~Stopwatch()}}
+{\footnotesize\ttfamily Utilities\+::\+Stopwatch\+::$\sim$\+Stopwatch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_utilities_1_1_stopwatch_a7ffe0c357182c848a002eaa83657233a}\label{class_utilities_1_1_stopwatch_a7ffe0c357182c848a002eaa83657233a}} 
+\index{Utilities::Stopwatch@{Utilities::Stopwatch}!getDeltaTicks@{getDeltaTicks}}
+\index{getDeltaTicks@{getDeltaTicks}!Utilities::Stopwatch@{Utilities::Stopwatch}}
+\doxysubsubsection{\texorpdfstring{getDeltaTicks()}{getDeltaTicks()}}
+{\footnotesize\ttfamily float Utilities\+::\+Stopwatch\+::get\+Delta\+Ticks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the delta ticks of the previous run. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_utilities_1_1_stopwatch_ac1f1eb7c4449ec2575006c7c141b90f5}\label{class_utilities_1_1_stopwatch_ac1f1eb7c4449ec2575006c7c141b90f5}} 
+\index{Utilities::Stopwatch@{Utilities::Stopwatch}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Utilities::Stopwatch@{Utilities::Stopwatch}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_utilities_1_1_stopwatch}{Utilities\+::\+Stopwatch}} \& Utilities\+::\+Stopwatch\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Will get an instance of the stopwatch class regarding the singleton design pattern. 
+
+\begin{DoxyReturn}{Returns}
+instance of \mbox{\hyperlink{class_utilities_1_1_stopwatch}{Stopwatch}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_utilities_1_1_stopwatch_af3e65381ef8f0e6bc7119a99c10a1c93}\label{class_utilities_1_1_stopwatch_af3e65381ef8f0e6bc7119a99c10a1c93}} 
+\index{Utilities::Stopwatch@{Utilities::Stopwatch}!startCounter@{startCounter}}
+\index{startCounter@{startCounter}!Utilities::Stopwatch@{Utilities::Stopwatch}}
+\doxysubsubsection{\texorpdfstring{startCounter()}{startCounter()}}
+{\footnotesize\ttfamily void Utilities\+::\+Stopwatch\+::start\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start the stopwatch -\/ record the ticks at this moment. 
+
+\mbox{\Hypertarget{class_utilities_1_1_stopwatch_a0fff82cdd3cf2e036548ef410cb0b8c2}\label{class_utilities_1_1_stopwatch_a0fff82cdd3cf2e036548ef410cb0b8c2}} 
+\index{Utilities::Stopwatch@{Utilities::Stopwatch}!stopCounter@{stopCounter}}
+\index{stopCounter@{stopCounter}!Utilities::Stopwatch@{Utilities::Stopwatch}}
+\doxysubsubsection{\texorpdfstring{stopCounter()}{stopCounter()}}
+{\footnotesize\ttfamily void Utilities\+::\+Stopwatch\+::stop\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stop the stopwatch -\/ calculate delta ticks. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/utilities/\mbox{\hyperlink{_utilities_8h}{Utilities.\+h}}\item 
+src/utilities/\mbox{\hyperlink{_utilities_8cpp}{Utilities.\+cpp}}\end{DoxyCompactItemize}

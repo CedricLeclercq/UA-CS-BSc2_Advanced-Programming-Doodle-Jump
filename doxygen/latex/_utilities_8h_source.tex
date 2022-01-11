@@ -1,0 +1,68 @@
+\hypertarget{_utilities_8h_source}{}\doxysection{Utilities.\+h}
+\label{_utilities_8h_source}\index{src/utilities/Utilities.h@{src/utilities/Utilities.h}}
+\mbox{\hyperlink{_utilities_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//            Utilities.h              //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_UTILITIES\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_UTILITIES\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_utilities}{Utilities}} \{}
+\DoxyCodeLine{24     \textcolor{keyword}{class }\mbox{\hyperlink{class_utilities_1_1_utils}{Utils}} \{}
+\DoxyCodeLine{25     \textcolor{keyword}{public}:}
+\DoxyCodeLine{31         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utilities_1_1_utils_a3ffe670233ff9388962105b1228cff41}{pathExists}}(\textcolor{keyword}{const} std::string\& path);}
+\DoxyCodeLine{32     \};}
+\DoxyCodeLine{37     \textcolor{keyword}{class }\mbox{\hyperlink{class_utilities_1_1_random}{Random}} \{}
+\DoxyCodeLine{38     \textcolor{keyword}{private}:}
+\DoxyCodeLine{42         \mbox{\hyperlink{class_utilities_1_1_random}{Random}}();}
+\DoxyCodeLine{44         std::random\_device rd\{\};}
+\DoxyCodeLine{46         std::mt19937 mt;}
+\DoxyCodeLine{47     \textcolor{keyword}{public}:}
+\DoxyCodeLine{51         \mbox{\hyperlink{class_utilities_1_1_random_ae3fec0ddec06d2bcc4230226e4401c34}{\string~Random}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{56         \textcolor{keyword}{static} \mbox{\hyperlink{class_utilities_1_1_random}{Random}}\& \mbox{\hyperlink{class_utilities_1_1_random_ab2dafbe3bdf6d9880008055f9c74eec6}{getInstance}}();}
+\DoxyCodeLine{63         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_utilities_1_1_random_a67152979e3962ba8285293e9f5d73e23}{randInt}}(\textcolor{keywordtype}{int} x,\textcolor{keywordtype}{int} y);}
+\DoxyCodeLine{70         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_utilities_1_1_random_a88bc8efbabc78d1a14a5f828bc793896}{randFloat}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);}
+\DoxyCodeLine{71     \};}
+\DoxyCodeLine{76     \textcolor{keyword}{class }\mbox{\hyperlink{class_utilities_1_1_stopwatch}{Stopwatch}} \{}
+\DoxyCodeLine{77     \textcolor{keyword}{private}:}
+\DoxyCodeLine{78         \textcolor{comment}{// Member variables}}
+\DoxyCodeLine{80 \textcolor{comment}{}        std::chrono::time\_point<std::chrono::high\_resolution\_clock> beforeRunTicks\{\};}
+\DoxyCodeLine{82         \textcolor{keywordtype}{float} deltaTicks\{\};}
+\DoxyCodeLine{83         \textcolor{comment}{// Member functions}}
+\DoxyCodeLine{87 \textcolor{comment}{}        \mbox{\hyperlink{class_utilities_1_1_stopwatch}{Stopwatch}}() \{ this-\/>deltaTicks = 1;\}}
+\DoxyCodeLine{88     \textcolor{keyword}{public}:}
+\DoxyCodeLine{92         \mbox{\hyperlink{class_utilities_1_1_stopwatch_a0eed9951443c36e0983c6dabf0c176a7}{\string~Stopwatch}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{97         \textcolor{keyword}{static} \mbox{\hyperlink{class_utilities_1_1_stopwatch}{Stopwatch}}\& \mbox{\hyperlink{class_utilities_1_1_stopwatch_ac1f1eb7c4449ec2575006c7c141b90f5}{getInstance}}();}
+\DoxyCodeLine{102         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_utilities_1_1_stopwatch_a7ffe0c357182c848a002eaa83657233a}{getDeltaTicks}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{106         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utilities_1_1_stopwatch_af3e65381ef8f0e6bc7119a99c10a1c93}{startCounter}}();}
+\DoxyCodeLine{110         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utilities_1_1_stopwatch_a0fff82cdd3cf2e036548ef410cb0b8c2}{stopCounter}}();}
+\DoxyCodeLine{111     \};}
+\DoxyCodeLine{116     \textcolor{keyword}{class }\mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} \{}
+\DoxyCodeLine{117     \textcolor{keyword}{private}:}
+\DoxyCodeLine{119         \textcolor{keywordtype}{float} x\{\};}
+\DoxyCodeLine{121         \textcolor{keywordtype}{float} y\{\};}
+\DoxyCodeLine{122     \textcolor{keyword}{public}:}
+\DoxyCodeLine{126         \mbox{\hyperlink{class_utilities_1_1_coordinates_ade88fc3edf881a901bca72b0f8d85101}{Coordinates}}() \{ x = 0; y = 0;\}}
+\DoxyCodeLine{130         \mbox{\hyperlink{class_utilities_1_1_coordinates_a9b7eb2ac1699d3fe61aee8d0623453ee}{\string~Coordinates}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{136         \mbox{\hyperlink{class_utilities_1_1_coordinates_a535fb2cd23f1fe1187f0d197f8fefaff}{Coordinates}}(\textcolor{keywordtype}{float} nX, \textcolor{keywordtype}{float} nY) \{this-\/>x = nX; this-\/>y = nY;\}}
+\DoxyCodeLine{141         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utilities_1_1_coordinates_acb769693560f4acf0c86f211628fcefb}{setX}}(\textcolor{keywordtype}{float} nX);}
+\DoxyCodeLine{146         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utilities_1_1_coordinates_af63a3600446f9cace369e398987f9754}{setY}}(\textcolor{keywordtype}{float} nY);}
+\DoxyCodeLine{151         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_utilities_1_1_coordinates_a36b48c6c6bf5219d1bea315410fda975}{getX}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{156         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_utilities_1_1_coordinates_afad24049b1886c0031bdd8b5c3aaf47d}{getY}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{157     \};}
+\DoxyCodeLine{158 \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_UTILITIES\_H}}
+
+\end{DoxyCode}

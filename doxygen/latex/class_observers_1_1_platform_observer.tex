@@ -1,0 +1,132 @@
+\hypertarget{class_observers_1_1_platform_observer}{}\doxysection{Observers\+::Platform\+Observer Class Reference}
+\label{class_observers_1_1_platform_observer}\index{Observers::PlatformObserver@{Observers::PlatformObserver}}
+
+
+\mbox{\hyperlink{class_observer}{Observer}} class for a platform in the world -\/ for linking its view and model.  
+
+
+
+
+{\ttfamily \#include $<$Platform\+Observer.\+h$>$}
+
+Inheritance diagram for Observers\+::Platform\+Observer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_observers_1_1_platform_observer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_observers_1_1_platform_observer_a6a8bee3f2647367ac614b14876438e0b}{Platform\+Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the game. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_observers_1_1_platform_observer_a5ac6d7b8187298c3c998224d50380aec}{$\sim$\+Platform\+Observer}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_platform_observer_a970ce788994ce17e0d601ed1e415947e}{notify\+Removed}} ()
+\begin{DoxyCompactList}\small\item\em Will notify the observer if this platforms view needs to be removed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_platform_observer_a81883e400368474c84afd711dec7570a}{notify\+Platform\+Creation}} ()
+\begin{DoxyCompactList}\small\item\em Will notify if a platform was created. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_observers_1_1_platform_observer_ab97435d009bf0d6c8ca62ec9d03daad3}{notified\+Removal}} () const
+\begin{DoxyCompactList}\small\item\em Getter for if a platform was just removed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_platform_observer_a5797a256d39de6c076989024556e6f64}{notify\+Cur\+Location}} (\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} location)
+\begin{DoxyCompactList}\small\item\em Will notify the observer of the platforms latest location. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \mbox{\hyperlink{class_observers_1_1_platform_observer_abdbf22c83c9a88c1f8a422a0d1417c9b}{get\+Notified\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the latest notified location of the platforms observer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_observer}{Observer}} class for a platform in the world -\/ for linking its view and model. 
+
+\mbox{\hyperlink{class_observer}{Observer}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_observers_1_1_platform_observer_a6a8bee3f2647367ac614b14876438e0b}\label{class_observers_1_1_platform_observer_a6a8bee3f2647367ac614b14876438e0b}} 
+\index{Observers::PlatformObserver@{Observers::PlatformObserver}!PlatformObserver@{PlatformObserver}}
+\index{PlatformObserver@{PlatformObserver}!Observers::PlatformObserver@{Observers::PlatformObserver}}
+\doxysubsubsection{\texorpdfstring{PlatformObserver()}{PlatformObserver()}}
+{\footnotesize\ttfamily Observers\+::\+Platform\+Observer\+::\+Platform\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor for the game. 
+
+\mbox{\Hypertarget{class_observers_1_1_platform_observer_a5ac6d7b8187298c3c998224d50380aec}\label{class_observers_1_1_platform_observer_a5ac6d7b8187298c3c998224d50380aec}} 
+\index{Observers::PlatformObserver@{Observers::PlatformObserver}!````~PlatformObserver@{$\sim$PlatformObserver}}
+\index{````~PlatformObserver@{$\sim$PlatformObserver}!Observers::PlatformObserver@{Observers::PlatformObserver}}
+\doxysubsubsection{\texorpdfstring{$\sim$PlatformObserver()}{~PlatformObserver()}}
+{\footnotesize\ttfamily Observers\+::\+Platform\+Observer\+::$\sim$\+Platform\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_observers_1_1_platform_observer_abdbf22c83c9a88c1f8a422a0d1417c9b}\label{class_observers_1_1_platform_observer_abdbf22c83c9a88c1f8a422a0d1417c9b}} 
+\index{Observers::PlatformObserver@{Observers::PlatformObserver}!getNotifiedPosition@{getNotifiedPosition}}
+\index{getNotifiedPosition@{getNotifiedPosition}!Observers::PlatformObserver@{Observers::PlatformObserver}}
+\doxysubsubsection{\texorpdfstring{getNotifiedPosition()}{getNotifiedPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} Observers\+::\+Platform\+Observer\+::get\+Notified\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the latest notified location of the platforms observer. 
+
+\begin{DoxyReturn}{Returns}
+latest\+Location? 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_platform_observer_ab97435d009bf0d6c8ca62ec9d03daad3}\label{class_observers_1_1_platform_observer_ab97435d009bf0d6c8ca62ec9d03daad3}} 
+\index{Observers::PlatformObserver@{Observers::PlatformObserver}!notifiedRemoval@{notifiedRemoval}}
+\index{notifiedRemoval@{notifiedRemoval}!Observers::PlatformObserver@{Observers::PlatformObserver}}
+\doxysubsubsection{\texorpdfstring{notifiedRemoval()}{notifiedRemoval()}}
+{\footnotesize\ttfamily bool Observers\+::\+Platform\+Observer\+::notified\+Removal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for if a platform was just removed. 
+
+\begin{DoxyReturn}{Returns}
+removed? 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_platform_observer_a5797a256d39de6c076989024556e6f64}\label{class_observers_1_1_platform_observer_a5797a256d39de6c076989024556e6f64}} 
+\index{Observers::PlatformObserver@{Observers::PlatformObserver}!notifyCurLocation@{notifyCurLocation}}
+\index{notifyCurLocation@{notifyCurLocation}!Observers::PlatformObserver@{Observers::PlatformObserver}}
+\doxysubsubsection{\texorpdfstring{notifyCurLocation()}{notifyCurLocation()}}
+{\footnotesize\ttfamily void Observers\+::\+Platform\+Observer\+::notify\+Cur\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}}}]{location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will notify the observer of the platforms latest location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_observers_1_1_platform_observer_a81883e400368474c84afd711dec7570a}\label{class_observers_1_1_platform_observer_a81883e400368474c84afd711dec7570a}} 
+\index{Observers::PlatformObserver@{Observers::PlatformObserver}!notifyPlatformCreation@{notifyPlatformCreation}}
+\index{notifyPlatformCreation@{notifyPlatformCreation}!Observers::PlatformObserver@{Observers::PlatformObserver}}
+\doxysubsubsection{\texorpdfstring{notifyPlatformCreation()}{notifyPlatformCreation()}}
+{\footnotesize\ttfamily void Observers\+::\+Platform\+Observer\+::notify\+Platform\+Creation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will notify if a platform was created. 
+
+\mbox{\Hypertarget{class_observers_1_1_platform_observer_a970ce788994ce17e0d601ed1e415947e}\label{class_observers_1_1_platform_observer_a970ce788994ce17e0d601ed1e415947e}} 
+\index{Observers::PlatformObserver@{Observers::PlatformObserver}!notifyRemoved@{notifyRemoved}}
+\index{notifyRemoved@{notifyRemoved}!Observers::PlatformObserver@{Observers::PlatformObserver}}
+\doxysubsubsection{\texorpdfstring{notifyRemoved()}{notifyRemoved()}}
+{\footnotesize\ttfamily void Observers\+::\+Platform\+Observer\+::notify\+Removed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will notify the observer if this platforms view needs to be removed. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/observers/entity\+Observers/\mbox{\hyperlink{_platform_observer_8h}{Platform\+Observer.\+h}}\end{DoxyCompactItemize}

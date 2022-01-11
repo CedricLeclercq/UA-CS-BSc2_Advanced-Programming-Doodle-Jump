@@ -1,0 +1,207 @@
+\hypertarget{class_concrete_factory}{}\doxysection{Concrete\+Factory Class Reference}
+\label{class_concrete_factory}\index{ConcreteFactory@{ConcreteFactory}}
+
+
+A concrete factory for creating our models.  
+
+
+
+
+{\ttfamily \#include $<$Concrete\+Factory.\+h$>$}
+
+Inheritance diagram for Concrete\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_concrete_factory}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_concrete_factory_af61a44446f994409e9c9610321cd2160}{Concrete\+Factory}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_concrete_factory_a2fdf991ea94d71513b0df9c6df963a6a}{$\sim$\+Concrete\+Factory}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ \mbox{\hyperlink{class_concrete_factory_a654be58de7545003b4d486e932e3852d}{create\+Player}} () override
+\begin{DoxyCompactList}\small\item\em Concrete factory function to create and return a player. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ \mbox{\hyperlink{class_concrete_factory_a847b009ab1843b0437fa9864fabf6839}{create\+BGTile}} () override
+\begin{DoxyCompactList}\small\item\em Concrete factory function to create and return a background tile. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$ \mbox{\hyperlink{class_concrete_factory_a2c8429b078421ed0266e23e74303b479}{create\+Bonus}} () override
+\begin{DoxyCompactList}\small\item\em Concrete factory function to create and return a bonus. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ \mbox{\hyperlink{class_concrete_factory_ae349def47af4c66f8b770a3613a83de8}{create\+Platform}} (\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} kind) override
+\begin{DoxyCompactList}\small\item\em Concrete factory function to create a platform. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_world}{World}} $>$ \mbox{\hyperlink{class_concrete_factory_a7f7ae0169f340a17c915c1762899c6b2}{create\+World}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ camera) override
+\begin{DoxyCompactList}\small\item\em Concrete factory function to create a world. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \mbox{\hyperlink{class_concrete_factory_abfd5154efe46389d7d45112e430ab022}{create\+Camera}} (const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&world\+View, const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&camera\+View) override
+\begin{DoxyCompactList}\small\item\em Concrete factory function to create a camera. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ \mbox{\hyperlink{class_concrete_factory_a641f72a02e157d8a842d906a7b0514e0}{create\+Score}} () override
+\begin{DoxyCompactList}\small\item\em Concrete factory function to create a shared pointer to a score object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A concrete factory for creating our models. 
+
+(part of \mbox{\hyperlink{class_abstract}{Abstract}} Factory design pattern) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_concrete_factory_af61a44446f994409e9c9610321cd2160}\label{class_concrete_factory_af61a44446f994409e9c9610321cd2160}} 
+\index{ConcreteFactory@{ConcreteFactory}!ConcreteFactory@{ConcreteFactory}}
+\index{ConcreteFactory@{ConcreteFactory}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{ConcreteFactory()}{ConcreteFactory()}}
+{\footnotesize\ttfamily Concrete\+Factory\+::\+Concrete\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_concrete_factory_a2fdf991ea94d71513b0df9c6df963a6a}\label{class_concrete_factory_a2fdf991ea94d71513b0df9c6df963a6a}} 
+\index{ConcreteFactory@{ConcreteFactory}!````~ConcreteFactory@{$\sim$ConcreteFactory}}
+\index{````~ConcreteFactory@{$\sim$ConcreteFactory}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{$\sim$ConcreteFactory()}{~ConcreteFactory()}}
+{\footnotesize\ttfamily Concrete\+Factory\+::$\sim$\+Concrete\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_concrete_factory_a847b009ab1843b0437fa9864fabf6839}\label{class_concrete_factory_a847b009ab1843b0437fa9864fabf6839}} 
+\index{ConcreteFactory@{ConcreteFactory}!createBGTile@{createBGTile}}
+\index{createBGTile@{createBGTile}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createBGTile()}{createBGTile()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ Concrete\+Factory\+::create\+BGTile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Concrete factory function to create and return a background tile. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to a background tile 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_aa6cdad675855312741b0e8973ca69c29}{Abstract\+Factory}}.
+
+\mbox{\Hypertarget{class_concrete_factory_a2c8429b078421ed0266e23e74303b479}\label{class_concrete_factory_a2c8429b078421ed0266e23e74303b479}} 
+\index{ConcreteFactory@{ConcreteFactory}!createBonus@{createBonus}}
+\index{createBonus@{createBonus}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createBonus()}{createBonus()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$ Concrete\+Factory\+::create\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Concrete factory function to create and return a bonus. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to a bonus 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_a833bcbb4c21e8ea5834aca07590378bf}{Abstract\+Factory}}.
+
+\mbox{\Hypertarget{class_concrete_factory_abfd5154efe46389d7d45112e430ab022}\label{class_concrete_factory_abfd5154efe46389d7d45112e430ab022}} 
+\index{ConcreteFactory@{ConcreteFactory}!createCamera@{createCamera}}
+\index{createCamera@{createCamera}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createCamera()}{createCamera()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ Concrete\+Factory\+::create\+Camera (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&}]{world\+View,  }\item[{const \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \&}]{camera\+View }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Concrete factory function to create a camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+View} & Current view of the logic library world \\
+\hline
+{\em camera\+View} & Current view of the graphical library world \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Unique pointer to a camera 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_a013d6361045fc8fee288ab6a68f664f7}{Abstract\+Factory}}.
+
+\mbox{\Hypertarget{class_concrete_factory_ae349def47af4c66f8b770a3613a83de8}\label{class_concrete_factory_ae349def47af4c66f8b770a3613a83de8}} 
+\index{ConcreteFactory@{ConcreteFactory}!createPlatform@{createPlatform}}
+\index{createPlatform@{createPlatform}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createPlatform()}{createPlatform()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ Concrete\+Factory\+::create\+Platform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}}}]{kind }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Concrete factory function to create a platform. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to a platform 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_a5c17e6f5ac852292a517908cf9c3bf66}{Abstract\+Factory}}.
+
+\mbox{\Hypertarget{class_concrete_factory_a654be58de7545003b4d486e932e3852d}\label{class_concrete_factory_a654be58de7545003b4d486e932e3852d}} 
+\index{ConcreteFactory@{ConcreteFactory}!createPlayer@{createPlayer}}
+\index{createPlayer@{createPlayer}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ Concrete\+Factory\+::create\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Concrete factory function to create and return a player. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to a player 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_a4061de1ea7f884c256bc0f44ee85ef58}{Abstract\+Factory}}.
+
+\mbox{\Hypertarget{class_concrete_factory_a641f72a02e157d8a842d906a7b0514e0}\label{class_concrete_factory_a641f72a02e157d8a842d906a7b0514e0}} 
+\index{ConcreteFactory@{ConcreteFactory}!createScore@{createScore}}
+\index{createScore@{createScore}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createScore()}{createScore()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_score}{Score}} $>$ Concrete\+Factory\+::create\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Concrete factory function to create a shared pointer to a score object. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to a score object 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_a9f7f1cc9d17147db4031b075836bc64f}{Abstract\+Factory}}.
+
+\mbox{\Hypertarget{class_concrete_factory_a7f7ae0169f340a17c915c1762899c6b2}\label{class_concrete_factory_a7f7ae0169f340a17c915c1762899c6b2}} 
+\index{ConcreteFactory@{ConcreteFactory}!createWorld@{createWorld}}
+\index{createWorld@{createWorld}!ConcreteFactory@{ConcreteFactory}}
+\doxysubsubsection{\texorpdfstring{createWorld()}{createWorld()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_world}{World}} $>$ Concrete\+Factory\+::create\+World (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Concrete factory function to create a world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera} & \mbox{\hyperlink{class_world}{World}} should be constructed with a camera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shared pointer to a world 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_factory_adc3ba8ba07ee8f1177cc79b9b7f28dc2}{Abstract\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/factories/model\+Factories/\mbox{\hyperlink{_concrete_factory_8h}{Concrete\+Factory.\+h}}\item 
+src/factories/model\+Factories/\mbox{\hyperlink{_concrete_factory_8cpp}{Concrete\+Factory.\+cpp}}\end{DoxyCompactItemize}

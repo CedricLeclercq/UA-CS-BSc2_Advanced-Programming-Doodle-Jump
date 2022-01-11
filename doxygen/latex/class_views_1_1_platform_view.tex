@@ -1,0 +1,113 @@
+\hypertarget{class_views_1_1_platform_view}{}\doxysection{Views\+::Platform\+View Class Reference}
+\label{class_views_1_1_platform_view}\index{Views::PlatformView@{Views::PlatformView}}
+
+
+Class for the view of the platform model.  
+
+
+
+
+{\ttfamily \#include $<$Platform\+View.\+h$>$}
+
+Inheritance diagram for Views\+::Platform\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_views_1_1_platform_view}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_views_1_1_platform_view_a76b31698e4f5b39aa3e3a46c3d3d6f6b}{Platform\+View}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_views_1_1_platform_view_a5f67e0ef5d25b63d765a90178d6115f3}{$\sim$\+Platform\+View}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_views_1_1_platform_view_af95c3c42664c82f10c9e25aed697e18f}{Platform\+View}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ \&platform)
+\begin{DoxyCompactList}\small\item\em Explicit constructor that receives and links the model\textquotesingle{}s observer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_views_1_1_platform_view_a88b5e2207c210335dbb24a1d3c3c51d9}{setup}} () override
+\begin{DoxyCompactList}\small\item\em Will setup the textures for all the platforms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observers_1_1_platform_observer}{Observers\+::\+Platform\+Observer}} $>$ \mbox{\hyperlink{class_views_1_1_platform_view_a922ac13c5bf9936733c9b643d4de18ff}{observer}} \{\}
+\begin{DoxyCompactList}\small\item\em Shared pointer to the observer for linking the model and the view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class for the view of the platform model. 
+
+\mbox{\hyperlink{class_view}{View}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_views_1_1_platform_view_a76b31698e4f5b39aa3e3a46c3d3d6f6b}\label{class_views_1_1_platform_view_a76b31698e4f5b39aa3e3a46c3d3d6f6b}} 
+\index{Views::PlatformView@{Views::PlatformView}!PlatformView@{PlatformView}}
+\index{PlatformView@{PlatformView}!Views::PlatformView@{Views::PlatformView}}
+\doxysubsubsection{\texorpdfstring{PlatformView()}{PlatformView()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Views\+::\+Platform\+View\+::\+Platform\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_views_1_1_platform_view_a5f67e0ef5d25b63d765a90178d6115f3}\label{class_views_1_1_platform_view_a5f67e0ef5d25b63d765a90178d6115f3}} 
+\index{Views::PlatformView@{Views::PlatformView}!````~PlatformView@{$\sim$PlatformView}}
+\index{````~PlatformView@{$\sim$PlatformView}!Views::PlatformView@{Views::PlatformView}}
+\doxysubsubsection{\texorpdfstring{$\sim$PlatformView()}{~PlatformView()}}
+{\footnotesize\ttfamily Views\+::\+Platform\+View\+::$\sim$\+Platform\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+\mbox{\Hypertarget{class_views_1_1_platform_view_af95c3c42664c82f10c9e25aed697e18f}\label{class_views_1_1_platform_view_af95c3c42664c82f10c9e25aed697e18f}} 
+\index{Views::PlatformView@{Views::PlatformView}!PlatformView@{PlatformView}}
+\index{PlatformView@{PlatformView}!Views::PlatformView@{Views::PlatformView}}
+\doxysubsubsection{\texorpdfstring{PlatformView()}{PlatformView()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Views\+::\+Platform\+View\+::\+Platform\+View (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ \&}]{platform }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Explicit constructor that receives and links the model\textquotesingle{}s observer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em platform} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_views_1_1_platform_view_a88b5e2207c210335dbb24a1d3c3c51d9}\label{class_views_1_1_platform_view_a88b5e2207c210335dbb24a1d3c3c51d9}} 
+\index{Views::PlatformView@{Views::PlatformView}!setup@{setup}}
+\index{setup@{setup}!Views::PlatformView@{Views::PlatformView}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Views\+::\+Platform\+View\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will setup the textures for all the platforms. 
+
+
+
+Implements \mbox{\hyperlink{class_view_ac7259ea1e34ca117c11d158ba9f9f156}{View}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_views_1_1_platform_view_a922ac13c5bf9936733c9b643d4de18ff}\label{class_views_1_1_platform_view_a922ac13c5bf9936733c9b643d4de18ff}} 
+\index{Views::PlatformView@{Views::PlatformView}!observer@{observer}}
+\index{observer@{observer}!Views::PlatformView@{Views::PlatformView}}
+\doxysubsubsection{\texorpdfstring{observer}{observer}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_observers_1_1_platform_observer}{Observers\+::\+Platform\+Observer}}$>$ Views\+::\+Platform\+View\+::observer \{\}}
+
+
+
+Shared pointer to the observer for linking the model and the view. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/views/\mbox{\hyperlink{_platform_view_8h}{Platform\+View.\+h}}\item 
+src/views/\mbox{\hyperlink{_platform_view_8cpp}{Platform\+View.\+cpp}}\end{DoxyCompactItemize}

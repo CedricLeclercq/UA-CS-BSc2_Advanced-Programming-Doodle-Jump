@@ -14,6 +14,10 @@
 
 #include "../textureManagers/TextureManagers.h"
 
+/**
+ * @class View
+ * @brief Super class for all the views
+ */
 class View {
 protected:
     /// @brief Shared pointer to the view

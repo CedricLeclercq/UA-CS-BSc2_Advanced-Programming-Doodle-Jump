@@ -1,0 +1,35 @@
+\hypertarget{_player_tex_manager_8h_source}{}\doxysection{Player\+Tex\+Manager.\+h}
+\label{_player_tex_manager_8h_source}\index{src/textureManagers/entityTexManagers/PlayerTexManager.h@{src/textureManagers/entityTexManagers/PlayerTexManager.h}}
+\mbox{\hyperlink{_player_tex_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//         PlayerTexManager.h          //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYERTEXMANAGER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYERTEXMANAGER\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../TextureManager.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager}{TextureManagers::PlayerTexManager}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_texture_managers_1_1_texture_manager}{TextureManager}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{16     std::string pathNormal = \textcolor{stringliteral}{"{}recourses/textures/playerPictogram.png"{}};}
+\DoxyCodeLine{18     std::string pathRocket = \textcolor{stringliteral}{"{}recourses/textures/bonuses/rsz\_rocket1.png"{}};}
+\DoxyCodeLine{20     sf::Texture normalTex\{\};}
+\DoxyCodeLine{22     sf::Texture rocketTex\{\};}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager}{PlayerTexManager}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_ad6e19bbd29a7f454e8ae977d581107e6}{\string~PlayerTexManager}}() \textcolor{keyword}{override} =\textcolor{keywordflow}{default};}
+\DoxyCodeLine{36     \textcolor{keyword}{static} \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager}{PlayerTexManager}} \& \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_ad3b88db249acfc90f3d8b0794fbd4167}{getInstance}}();}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_a98a5317db49d274e4355f4317a904cdf}{loadTextures}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_aa08e64a1fd9e98a7389142027475d96a}{texturesFound}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_adc88a87a6d7f3925829ee40628a84787}{setTexture}}(sf::Sprite\& sprite, \textcolor{keywordtype}{bool} isRocket=\textcolor{keyword}{false}) \textcolor{keyword}{const};}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYERTEXMANAGER\_H}}
+
+\end{DoxyCode}

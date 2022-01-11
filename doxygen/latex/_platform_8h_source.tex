@@ -1,0 +1,66 @@
+\hypertarget{_platform_8h_source}{}\doxysection{Platform.\+h}
+\label{_platform_8h_source}\index{src/models/entities/Platform.h@{src/models/entities/Platform.h}}
+\mbox{\hyperlink{_platform_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//            Platform.h               //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_PLATFORM\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_PLATFORM\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../../utilities/Utilities.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../Entities.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bonus_8h}{Bonus.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../../observers/Observers.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_platform_observer_8h}{observers/entityObservers/PlatformObserver.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{18 \textcolor{keyword}{enum} \mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} \{\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285a632fa39438c1676b435ec43e6a0f9647}{UNDEF}},\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285ae55a36a850c67d46b3b3325de7fce0b8}{STATIC}},\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285a4dd51ad73508d6fc83a502966779e48e}{HORIZONTAL}},\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285a1a88641fcd39f2ed3e58a18526e97138}{VERTICAL}},\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285a5937389a60030a604f0efdf5e3927325}{TEMP}}\};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_entities_1_1_platform}{Entities::Platform}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_entity}{Entity}} \{}
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     \textcolor{comment}{// Member variables}}
+\DoxyCodeLine{25 \textcolor{comment}{}    \mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} platformKind\{\};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{float} maxHeight\{\};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{float} minHeight\{\};}
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} movingRight\{\};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool} movingUp\{\};}
+\DoxyCodeLine{35     std::shared\_ptr<Entities::Bonus> bonus\{\};}
+\DoxyCodeLine{36     \textcolor{comment}{// Member functions}}
+\DoxyCodeLine{40 \textcolor{comment}{}    \textcolor{keywordtype}{void} createPlatform();}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} makeStatic();}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} makeHorizontal();}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} makeVertical();}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} makeTemp();}
+\DoxyCodeLine{57 \textcolor{keyword}{public}:}
+\DoxyCodeLine{59     std::shared\_ptr<Observers::PlatformObserver> \mbox{\hyperlink{class_entities_1_1_platform_ab97951cb32b87995b27e604766dca01b}{observer}}\{\};}
+\DoxyCodeLine{65     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_entities_1_1_platform_a802e9840a593a9b1124df2bdf38d8cfd}{Platform}}(\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} kind=\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285a632fa39438c1676b435ec43e6a0f9647}{UNDEF}}): \mbox{\hyperlink{class_entities_1_1_platform_ab97951cb32b87995b27e604766dca01b}{observer}}(std::make\_shared<\mbox{\hyperlink{namespace_observers}{Observers}}::PlatformObserver>()) \{}
+\DoxyCodeLine{66         this-\/>platformKind = kind;}
+\DoxyCodeLine{67         this-\/>createPlatform();}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{72     \mbox{\hyperlink{class_entities_1_1_platform_aa039974eea3dd102729c320d0f1467e8}{\string~Platform}}() \textcolor{keyword}{override} = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{77     \mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} \mbox{\hyperlink{class_entities_1_1_platform_afc65c78cf66679f979d4605139efefea}{getKind}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_platform_a04bacc2a9088006aab4dcf38907444b2}{moveRight}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_platform_a7b4c4f0a3442956b7c15d0c55457462e}{moveLeft}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_platform_a025d036589608715a7fd2c358fa7cff7}{moveUp}}();}
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_platform_ab9987abc4d6c3851b34139903a33e32f}{moveDown}}();}
+\DoxyCodeLine{98     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_entities_1_1_platform_ad352f70acfdc43ad46a379ab232b96dc}{getMovingRight}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{103     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_platform_a8813660f63d63da80df4357d550e3875}{setMovingRight}}(\textcolor{keywordtype}{bool} newBool);}
+\DoxyCodeLine{108     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_entities_1_1_platform_a9c27851205cb01769b8b626847b70052}{getMovingUp}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{113     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_platform_ae0dafaa26429d11712055ef008d97974}{setMovingUp}}(\textcolor{keywordtype}{bool} newBool);}
+\DoxyCodeLine{118     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_entities_1_1_platform_af2f47bf7e9f84066425431c6d8af9f19}{getMaxHeight}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{123     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_platform_aa76f4884ee206f68dffbe558d3c87f32}{setMaxHeight}}(\textcolor{keywordtype}{float} newHeight);}
+\DoxyCodeLine{128     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_entities_1_1_platform_a1a361348afee0d9da0631185d0d0258a}{getMinHeight}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{133     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_platform_ab7349ca720253ef843ab07bd476a0469}{setMinHeight}}(\textcolor{keywordtype}{float} newHeight);}
+\DoxyCodeLine{138     std::shared\_ptr<Entities::Bonus> \mbox{\hyperlink{class_entities_1_1_platform_a6b1c2a85a9b4a3cc1a4043c4b3b6ca21}{getBonus}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{143     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_platform_a440d5624f091eaa3161536e352237473}{setBonus}}(std::shared\_ptr<Entities::Bonus> nBonus);}
+\DoxyCodeLine{144 \};}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_PLATFORM\_H}}
+
+\end{DoxyCode}

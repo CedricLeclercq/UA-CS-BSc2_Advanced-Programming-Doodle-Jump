@@ -1,0 +1,135 @@
+\hypertarget{class_observers_1_1_world_observer}{}\doxysection{Observers\+::World\+Observer Class Reference}
+\label{class_observers_1_1_world_observer}\index{Observers::WorldObserver@{Observers::WorldObserver}}
+
+
+Singleton \mbox{\hyperlink{class_observer}{Observer}} class for linking all the elements in the world with their views.  
+
+
+
+
+{\ttfamily \#include $<$World\+Observer.\+h$>$}
+
+Inheritance diagram for Observers\+::World\+Observer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_observers_1_1_world_observer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_observers_1_1_world_observer_ac5c642b03edf9f95b40b0f7067ffd131}{$\sim$\+World\+Observer}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_world_observer_ac7f88e261fb4ec0b40a6eec61570de31}{notify\+Create\+Platform}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ \&n)
+\begin{DoxyCompactList}\small\item\em Will add a platform where a view needs to be created of. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_world_observer_a2ef03f7a5f9c8aecce56fcfda9818952}{notify\+Create\+Tile}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ \&n)
+\begin{DoxyCompactList}\small\item\em Will add a tile where a view needs to be created of. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ $>$ \mbox{\hyperlink{class_observers_1_1_world_observer_a45e6a001141011fd81c8ca2dca656f68}{get\+Notified\+Platforms}} ()
+\begin{DoxyCompactList}\small\item\em Getter for all the platforms that need a view. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ $>$ \mbox{\hyperlink{class_observers_1_1_world_observer_a39b271509774cc7da6b49f5bd16d22b1}{get\+Notified\+Tiles}} ()
+\begin{DoxyCompactList}\small\item\em Getter for all the tiles that need a view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_observers_1_1_world_observer}{World\+Observer}} \& \mbox{\hyperlink{class_observers_1_1_world_observer_a7274d93fad7e941d940fbfd19af96be9}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Will return an instance of the class -\/ part of the singleton pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Singleton \mbox{\hyperlink{class_observer}{Observer}} class for linking all the elements in the world with their views. 
+
+\mbox{\hyperlink{class_observer}{Observer}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_observers_1_1_world_observer_ac5c642b03edf9f95b40b0f7067ffd131}\label{class_observers_1_1_world_observer_ac5c642b03edf9f95b40b0f7067ffd131}} 
+\index{Observers::WorldObserver@{Observers::WorldObserver}!````~WorldObserver@{$\sim$WorldObserver}}
+\index{````~WorldObserver@{$\sim$WorldObserver}!Observers::WorldObserver@{Observers::WorldObserver}}
+\doxysubsubsection{\texorpdfstring{$\sim$WorldObserver()}{~WorldObserver()}}
+{\footnotesize\ttfamily Observers\+::\+World\+Observer\+::$\sim$\+World\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_observers_1_1_world_observer_a7274d93fad7e941d940fbfd19af96be9}\label{class_observers_1_1_world_observer_a7274d93fad7e941d940fbfd19af96be9}} 
+\index{Observers::WorldObserver@{Observers::WorldObserver}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Observers::WorldObserver@{Observers::WorldObserver}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_observers_1_1_world_observer}{Observers\+::\+World\+Observer}} \& Observers\+::\+World\+Observer\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Will return an instance of the class -\/ part of the singleton pattern. 
+
+\begin{DoxyNote}{Note}
+If an instance does not yet exist, it will create one 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+an instance of world\+Observer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_world_observer_a45e6a001141011fd81c8ca2dca656f68}\label{class_observers_1_1_world_observer_a45e6a001141011fd81c8ca2dca656f68}} 
+\index{Observers::WorldObserver@{Observers::WorldObserver}!getNotifiedPlatforms@{getNotifiedPlatforms}}
+\index{getNotifiedPlatforms@{getNotifiedPlatforms}!Observers::WorldObserver@{Observers::WorldObserver}}
+\doxysubsubsection{\texorpdfstring{getNotifiedPlatforms()}{getNotifiedPlatforms()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ $>$ Observers\+::\+World\+Observer\+::get\+Notified\+Platforms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for all the platforms that need a view. 
+
+\begin{DoxyReturn}{Returns}
+vector with all the platforms 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_world_observer_a39b271509774cc7da6b49f5bd16d22b1}\label{class_observers_1_1_world_observer_a39b271509774cc7da6b49f5bd16d22b1}} 
+\index{Observers::WorldObserver@{Observers::WorldObserver}!getNotifiedTiles@{getNotifiedTiles}}
+\index{getNotifiedTiles@{getNotifiedTiles}!Observers::WorldObserver@{Observers::WorldObserver}}
+\doxysubsubsection{\texorpdfstring{getNotifiedTiles()}{getNotifiedTiles()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ $>$ Observers\+::\+World\+Observer\+::get\+Notified\+Tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for all the tiles that need a view. 
+
+\begin{DoxyReturn}{Returns}
+vector with all the tiles 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_world_observer_ac7f88e261fb4ec0b40a6eec61570de31}\label{class_observers_1_1_world_observer_ac7f88e261fb4ec0b40a6eec61570de31}} 
+\index{Observers::WorldObserver@{Observers::WorldObserver}!notifyCreatePlatform@{notifyCreatePlatform}}
+\index{notifyCreatePlatform@{notifyCreatePlatform}!Observers::WorldObserver@{Observers::WorldObserver}}
+\doxysubsubsection{\texorpdfstring{notifyCreatePlatform()}{notifyCreatePlatform()}}
+{\footnotesize\ttfamily void Observers\+::\+World\+Observer\+::notify\+Create\+Platform (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_platform}{Entities\+::\+Platform}} $>$ \&}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will add a platform where a view needs to be created of. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & new platform \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_observers_1_1_world_observer_a2ef03f7a5f9c8aecce56fcfda9818952}\label{class_observers_1_1_world_observer_a2ef03f7a5f9c8aecce56fcfda9818952}} 
+\index{Observers::WorldObserver@{Observers::WorldObserver}!notifyCreateTile@{notifyCreateTile}}
+\index{notifyCreateTile@{notifyCreateTile}!Observers::WorldObserver@{Observers::WorldObserver}}
+\doxysubsubsection{\texorpdfstring{notifyCreateTile()}{notifyCreateTile()}}
+{\footnotesize\ttfamily void Observers\+::\+World\+Observer\+::notify\+Create\+Tile (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_b_g_tile}{Entities\+::\+BGTile}} $>$ \&}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will add a tile where a view needs to be created of. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & new tile \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/observers/entity\+Observers/\mbox{\hyperlink{_world_observer_8h}{World\+Observer.\+h}}\item 
+src/observers/entity\+Observers/\mbox{\hyperlink{_world_observer_8cpp}{World\+Observer.\+cpp}}\end{DoxyCompactItemize}

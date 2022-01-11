@@ -10,6 +10,9 @@
 
 #include "Observer.h"
 
+/**
+ * @brief Namespace for all the observers in the world
+ */
 namespace Observers {
     /**
      * @class Observers::PlayerObserver

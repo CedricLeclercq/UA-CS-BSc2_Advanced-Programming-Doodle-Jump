@@ -10,6 +10,11 @@
 
 #include "ViewAbstractFactory.h"
 
+/**
+ * @class ViewConcreteFactory
+ * @public ViewAbstractFactory
+ * @brief Concrete factory based on an abstract one for the views in the graphical world
+ */
 class ViewConcreteFactory: public ViewAbstractFactory {
 public:
     /**

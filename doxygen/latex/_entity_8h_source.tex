@@ -1,0 +1,41 @@
+\hypertarget{_entity_8h_source}{}\doxysection{Entity.\+h}
+\label{_entity_8h_source}\index{src/models/Entity.h@{src/models/Entity.h}}
+\mbox{\hyperlink{_entity_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//             Entity.h                //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_ENTITY\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_ENTITY\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../utilities/Utilities.h"{}}}
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_entity}{Entity}} \{}
+\DoxyCodeLine{19 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{21     std::shared\_ptr<Utilities::Coordinates> \mbox{\hyperlink{class_entity_a68cd90ddb938ffca9634c4746500af42}{position}}\{\};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_entity_a4f547c6464f9694237940d8479f16aa7}{length}}\{\};}
+\DoxyCodeLine{27     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_a56106c895216943f2fce1a29b619679b}{moveRight}}() = 0;}
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_a0b4312315f4ee19ee2ab254aeac761ed}{moveLeft}}() = 0;}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_a474692558c0fcb4f3d0b931022b847d8}{move}}(\textcolor{keywordtype}{float} offsetX, \textcolor{keywordtype}{float} offsetY);}
+\DoxyCodeLine{38 \textcolor{keyword}{public}:}
+\DoxyCodeLine{42     \mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}}(): \mbox{\hyperlink{class_entity_a68cd90ddb938ffca9634c4746500af42}{position}}(std::make\_shared<\mbox{\hyperlink{namespace_utilities}{Utilities}}::\mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}>(0,0)) \{\}}
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_entity_ac479d009ddde62dfb378ca0a70d81307}{\string~Entity}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_abaa533dba8501c739d421924ae1e2cff}{setPos}}(\textcolor{keywordtype}{float} nX, \textcolor{keywordtype}{float} nY);}
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_a0a7f9911b015b9a92f7e3d8dc300d729}{setPosX}}(\textcolor{keywordtype}{float} nX);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_a44fac6e999e86b788b8d74d571340371}{setPosY}}(\textcolor{keywordtype}{float} nY);}
+\DoxyCodeLine{67     std::shared\_ptr<Utilities::Coordinates> \mbox{\hyperlink{class_entity_ad9f4e4c96937aaf2988ff12a0b32b7d2}{getPos}}();}
+\DoxyCodeLine{72     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_entity_abc07607e9d85670694097ac4b6b6dd27}{getPosX}}();}
+\DoxyCodeLine{77     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_entity_adc3a7257facf71297850bc86b705b503}{getPosY}}();}
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entity_a38030d8169b5498002b1348239440dbd}{setLength}}(\textcolor{keywordtype}{float} nLength);}
+\DoxyCodeLine{87     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_entity_a0cf0bbaf0c97da0b964dbe302d1dbc5d}{getLength}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{88 \};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_ENTITY\_H}}
+
+\end{DoxyCode}

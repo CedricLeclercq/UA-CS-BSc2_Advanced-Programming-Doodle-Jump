@@ -1,0 +1,97 @@
+\hypertarget{class_texture_managers_1_1_texture_manager}{}\doxysection{Texture\+Managers\+::Texture\+Manager Class Reference}
+\label{class_texture_managers_1_1_texture_manager}\index{TextureManagers::TextureManager@{TextureManagers::TextureManager}}
+
+
+Super class for all the other texture managers.  
+
+
+
+
+{\ttfamily \#include $<$Texture\+Manager.\+h$>$}
+
+Inheritance diagram for Texture\+Managers\+::Texture\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.542700cm]{class_texture_managers_1_1_texture_manager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_texture_managers_1_1_texture_manager_ab40d421c8a5e0765f6400b8826ed5fef}{Texture\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_texture_managers_1_1_texture_manager_a13ddb2b01c8d320f92a06e01d2bbe78f}{$\sim$\+Texture\+Manager}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_texture_managers_1_1_texture_manager_a5f04241a160d797958c9ff0537f8c59e}{load\+Textures}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to load all the textures. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_texture_managers_1_1_texture_manager_ad12aa47f3c6198c949f62a7385a54bd7}{textures\+Found}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to check if textures are found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Super class for all the other texture managers. 
+
+Manager for all the textures of all the background tile views.
+
+\mbox{\hyperlink{class_texture_managers_1_1_texture_manager}{Texture\+Manager}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_texture_managers_1_1_texture_manager_ab40d421c8a5e0765f6400b8826ed5fef}\label{class_texture_managers_1_1_texture_manager_ab40d421c8a5e0765f6400b8826ed5fef}} 
+\index{TextureManagers::TextureManager@{TextureManagers::TextureManager}!TextureManager@{TextureManager}}
+\index{TextureManager@{TextureManager}!TextureManagers::TextureManager@{TextureManagers::TextureManager}}
+\doxysubsubsection{\texorpdfstring{TextureManager()}{TextureManager()}}
+{\footnotesize\ttfamily Texture\+Managers\+::\+Texture\+Manager\+::\+Texture\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_texture_managers_1_1_texture_manager_a13ddb2b01c8d320f92a06e01d2bbe78f}\label{class_texture_managers_1_1_texture_manager_a13ddb2b01c8d320f92a06e01d2bbe78f}} 
+\index{TextureManagers::TextureManager@{TextureManagers::TextureManager}!````~TextureManager@{$\sim$TextureManager}}
+\index{````~TextureManager@{$\sim$TextureManager}!TextureManagers::TextureManager@{TextureManagers::TextureManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$TextureManager()}{~TextureManager()}}
+{\footnotesize\ttfamily virtual Texture\+Managers\+::\+Texture\+Manager\+::$\sim$\+Texture\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_managers_1_1_texture_manager_a5f04241a160d797958c9ff0537f8c59e}\label{class_texture_managers_1_1_texture_manager_a5f04241a160d797958c9ff0537f8c59e}} 
+\index{TextureManagers::TextureManager@{TextureManagers::TextureManager}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!TextureManagers::TextureManager@{TextureManagers::TextureManager}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily virtual void Texture\+Managers\+::\+Texture\+Manager\+::load\+Textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to load all the textures. 
+
+
+
+Implemented in \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_a8580ab9fdeb0b3804567240ea35821e3}{Texture\+Managers\+::\+BGTile\+Tex\+Manager}}, \mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager_aafe4dc5d18d73e9d8b1a8bb7468740ff}{Texture\+Managers\+::\+Platform\+Tex\+Manager}}, and \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_a98a5317db49d274e4355f4317a904cdf}{Texture\+Managers\+::\+Player\+Tex\+Manager}}.
+
+\mbox{\Hypertarget{class_texture_managers_1_1_texture_manager_ad12aa47f3c6198c949f62a7385a54bd7}\label{class_texture_managers_1_1_texture_manager_ad12aa47f3c6198c949f62a7385a54bd7}} 
+\index{TextureManagers::TextureManager@{TextureManagers::TextureManager}!texturesFound@{texturesFound}}
+\index{texturesFound@{texturesFound}!TextureManagers::TextureManager@{TextureManagers::TextureManager}}
+\doxysubsubsection{\texorpdfstring{texturesFound()}{texturesFound()}}
+{\footnotesize\ttfamily virtual bool Texture\+Managers\+::\+Texture\+Manager\+::textures\+Found (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to check if textures are found. 
+
+\begin{DoxyReturn}{Returns}
+found\+All\+Textures? 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_texture_managers_1_1_b_g_tile_tex_manager_aac56a2306108d6c21756e6449b7eef1c}{Texture\+Managers\+::\+BGTile\+Tex\+Manager}}, \mbox{\hyperlink{class_texture_managers_1_1_platform_tex_manager_a34db3b72b4940d03a4b89d32f8d34b41}{Texture\+Managers\+::\+Platform\+Tex\+Manager}}, and \mbox{\hyperlink{class_texture_managers_1_1_player_tex_manager_aa08e64a1fd9e98a7389142027475d96a}{Texture\+Managers\+::\+Player\+Tex\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/texture\+Managers/\mbox{\hyperlink{_texture_manager_8h}{Texture\+Manager.\+h}}\end{DoxyCompactItemize}

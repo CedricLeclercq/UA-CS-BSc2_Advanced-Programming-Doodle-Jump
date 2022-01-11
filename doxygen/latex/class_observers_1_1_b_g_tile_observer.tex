@@ -1,0 +1,132 @@
+\hypertarget{class_observers_1_1_b_g_tile_observer}{}\doxysection{Observers\+::BGTile\+Observer Class Reference}
+\label{class_observers_1_1_b_g_tile_observer}\index{Observers::BGTileObserver@{Observers::BGTileObserver}}
+
+
+\mbox{\hyperlink{class_observer}{Observer}} class for a background tile in the world -\/ for linking its view and model.  
+
+
+
+
+{\ttfamily \#include $<$BGTile\+Observer.\+h$>$}
+
+Inheritance diagram for Observers\+::BGTile\+Observer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_observers_1_1_b_g_tile_observer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a920deedfa3555c2634e08aa34926b8dc}{BGTile\+Observer}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a0fb8f197067ac8411334c4b0571d563b}{$\sim$\+BGTile\+Observer}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_aa54a1fe549ab8ba304291f4c5ad6617d}{notify\+Removed}} ()
+\begin{DoxyCompactList}\small\item\em Will notify if this tile needs to be removed in the next iteration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_aa69b8724935b6949796203c4ffca58f3}{notify\+Creation}} ()
+\begin{DoxyCompactList}\small\item\em Will notify is this tile was just created in the previous iteration. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a5196616715b4c14676ec01e5650e39af}{notified\+Removal}} () const
+\begin{DoxyCompactList}\small\item\em Getter for if the tile was just asked to be removed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a644fa294946b11841b295ef2f32f3fb8}{notify\+Cur\+Location}} (\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} location)
+\begin{DoxyCompactList}\small\item\em Notify the observer of the tiles latest location. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a999b0fa0b7520f0f03acdc22eba22b42}{get\+Notified\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the latest notified position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_observer}{Observer}} class for a background tile in the world -\/ for linking its view and model. 
+
+\mbox{\hyperlink{class_observer}{Observer}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_observers_1_1_b_g_tile_observer_a920deedfa3555c2634e08aa34926b8dc}\label{class_observers_1_1_b_g_tile_observer_a920deedfa3555c2634e08aa34926b8dc}} 
+\index{Observers::BGTileObserver@{Observers::BGTileObserver}!BGTileObserver@{BGTileObserver}}
+\index{BGTileObserver@{BGTileObserver}!Observers::BGTileObserver@{Observers::BGTileObserver}}
+\doxysubsubsection{\texorpdfstring{BGTileObserver()}{BGTileObserver()}}
+{\footnotesize\ttfamily Observers\+::\+BGTile\+Observer\+::\+BGTile\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+\mbox{\Hypertarget{class_observers_1_1_b_g_tile_observer_a0fb8f197067ac8411334c4b0571d563b}\label{class_observers_1_1_b_g_tile_observer_a0fb8f197067ac8411334c4b0571d563b}} 
+\index{Observers::BGTileObserver@{Observers::BGTileObserver}!````~BGTileObserver@{$\sim$BGTileObserver}}
+\index{````~BGTileObserver@{$\sim$BGTileObserver}!Observers::BGTileObserver@{Observers::BGTileObserver}}
+\doxysubsubsection{\texorpdfstring{$\sim$BGTileObserver()}{~BGTileObserver()}}
+{\footnotesize\ttfamily Observers\+::\+BGTile\+Observer\+::$\sim$\+BGTile\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_observers_1_1_b_g_tile_observer_a999b0fa0b7520f0f03acdc22eba22b42}\label{class_observers_1_1_b_g_tile_observer_a999b0fa0b7520f0f03acdc22eba22b42}} 
+\index{Observers::BGTileObserver@{Observers::BGTileObserver}!getNotifiedPosition@{getNotifiedPosition}}
+\index{getNotifiedPosition@{getNotifiedPosition}!Observers::BGTileObserver@{Observers::BGTileObserver}}
+\doxysubsubsection{\texorpdfstring{getNotifiedPosition()}{getNotifiedPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}} Observers\+::\+BGTile\+Observer\+::get\+Notified\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the latest notified position. 
+
+\begin{DoxyReturn}{Returns}
+latest\+Location? 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_b_g_tile_observer_a5196616715b4c14676ec01e5650e39af}\label{class_observers_1_1_b_g_tile_observer_a5196616715b4c14676ec01e5650e39af}} 
+\index{Observers::BGTileObserver@{Observers::BGTileObserver}!notifiedRemoval@{notifiedRemoval}}
+\index{notifiedRemoval@{notifiedRemoval}!Observers::BGTileObserver@{Observers::BGTileObserver}}
+\doxysubsubsection{\texorpdfstring{notifiedRemoval()}{notifiedRemoval()}}
+{\footnotesize\ttfamily bool Observers\+::\+BGTile\+Observer\+::notified\+Removal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for if the tile was just asked to be removed. 
+
+\begin{DoxyReturn}{Returns}
+remove? 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_observers_1_1_b_g_tile_observer_aa69b8724935b6949796203c4ffca58f3}\label{class_observers_1_1_b_g_tile_observer_aa69b8724935b6949796203c4ffca58f3}} 
+\index{Observers::BGTileObserver@{Observers::BGTileObserver}!notifyCreation@{notifyCreation}}
+\index{notifyCreation@{notifyCreation}!Observers::BGTileObserver@{Observers::BGTileObserver}}
+\doxysubsubsection{\texorpdfstring{notifyCreation()}{notifyCreation()}}
+{\footnotesize\ttfamily void Observers\+::\+BGTile\+Observer\+::notify\+Creation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will notify is this tile was just created in the previous iteration. 
+
+\mbox{\Hypertarget{class_observers_1_1_b_g_tile_observer_a644fa294946b11841b295ef2f32f3fb8}\label{class_observers_1_1_b_g_tile_observer_a644fa294946b11841b295ef2f32f3fb8}} 
+\index{Observers::BGTileObserver@{Observers::BGTileObserver}!notifyCurLocation@{notifyCurLocation}}
+\index{notifyCurLocation@{notifyCurLocation}!Observers::BGTileObserver@{Observers::BGTileObserver}}
+\doxysubsubsection{\texorpdfstring{notifyCurLocation()}{notifyCurLocation()}}
+{\footnotesize\ttfamily void Observers\+::\+BGTile\+Observer\+::notify\+Cur\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_camera_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Coordinates}}}]{location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Notify the observer of the tiles latest location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & latest location \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_observers_1_1_b_g_tile_observer_aa54a1fe549ab8ba304291f4c5ad6617d}\label{class_observers_1_1_b_g_tile_observer_aa54a1fe549ab8ba304291f4c5ad6617d}} 
+\index{Observers::BGTileObserver@{Observers::BGTileObserver}!notifyRemoved@{notifyRemoved}}
+\index{notifyRemoved@{notifyRemoved}!Observers::BGTileObserver@{Observers::BGTileObserver}}
+\doxysubsubsection{\texorpdfstring{notifyRemoved()}{notifyRemoved()}}
+{\footnotesize\ttfamily void Observers\+::\+BGTile\+Observer\+::notify\+Removed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Will notify if this tile needs to be removed in the next iteration. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/observers/entity\+Observers/\mbox{\hyperlink{_b_g_tile_observer_8h}{BGTile\+Observer.\+h}}\end{DoxyCompactItemize}

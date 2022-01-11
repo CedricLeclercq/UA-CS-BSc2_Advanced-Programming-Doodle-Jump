@@ -1,0 +1,217 @@
+\hypertarget{class_entities_1_1_player}{}\doxysection{Entities\+::Player Class Reference}
+\label{class_entities_1_1_player}\index{Entities::Player@{Entities::Player}}
+
+
+\mbox{\hyperlink{class_entity}{Entity}} class for the player in the game.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+Inheritance diagram for Entities\+::Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entities_1_1_player}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entities_1_1_player_afd58db692549cdd50699e952dee75369}{Player}} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor for the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entities_1_1_player_a85799d45710b958a71750d40200a91bd}{$\sim$\+Player}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_player_a92a5375633b374db40b3373bb7f4fe2e}{move\+Right}} () override
+\begin{DoxyCompactList}\small\item\em Will move the player to the right with a fixed value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_player_a1e4a1fedf4b48625ecf3b35cba414905}{move\+Left}} () override
+\begin{DoxyCompactList}\small\item\em Will move the player to the left with a fixed speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_player_a33b6d21e558eddb120dd2f167b8fb5ac}{jump}} (bool new\+Jump=false)
+\begin{DoxyCompactList}\small\item\em Will let the player jump. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_player_a143a9e83fe2d99a7ce0b2b3b65297300}{set\+VelocityY}} (float velocity)
+\begin{DoxyCompactList}\small\item\em Setter for the velocity Y of the player. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entities_1_1_player_ae4f764d307b4c63c6b72606cd1466589}{get\+VelocityY}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the velocity Y of the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_player_af1b596568a9d11de64e774b661136445}{teleport\+Player}} (float minX, float maxX)
+\begin{DoxyCompactList}\small\item\em Will teleport the player is it goes over the edges of the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_player_afc868d7d04d8e6fec1b7849a8a61e80e}{set\+Bonus}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$ n\+Bonus)
+\begin{DoxyCompactList}\small\item\em Setter for the bonus the player currently is having effect from. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_player_a61acd2e338aea1bbf23de218beb9e71f}{set\+Paralysed}} (bool paralysed)
+\begin{DoxyCompactList}\small\item\em Setter for the is the player is paralysedY (aka not able to move up and down on itself) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observers_1_1_player_observer}{Observers\+::\+Player\+Observer}} $>$ \mbox{\hyperlink{class_entities_1_1_player_af247cc32a075e043bf01f4273bff338b}{observer}} \{\}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_observer}{Observer}} for player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_entity}{Entity}} class for the player in the game. 
+
+\mbox{\hyperlink{class_entity}{Entity}} \begin{DoxyNote}{Note}
+Will make use of several observers 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_entities_1_1_player_afd58db692549cdd50699e952dee75369}\label{class_entities_1_1_player_afd58db692549cdd50699e952dee75369}} 
+\index{Entities::Player@{Entities::Player}!Player@{Player}}
+\index{Player@{Player}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Entities\+::\+Player\+::\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Basic constructor for the player. 
+
+\mbox{\Hypertarget{class_entities_1_1_player_a85799d45710b958a71750d40200a91bd}\label{class_entities_1_1_player_a85799d45710b958a71750d40200a91bd}} 
+\index{Entities::Player@{Entities::Player}!````~Player@{$\sim$Player}}
+\index{````~Player@{$\sim$Player}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{$\sim$Player()}{~Player()}}
+{\footnotesize\ttfamily Entities\+::\+Player\+::$\sim$\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entities_1_1_player_ae4f764d307b4c63c6b72606cd1466589}\label{class_entities_1_1_player_ae4f764d307b4c63c6b72606cd1466589}} 
+\index{Entities::Player@{Entities::Player}!getVelocityY@{getVelocityY}}
+\index{getVelocityY@{getVelocityY}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{getVelocityY()}{getVelocityY()}}
+{\footnotesize\ttfamily float Entities\+::\+Player\+::get\+VelocityY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the velocity Y of the player. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_entities_1_1_player}{Player}} current velocity Y 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entities_1_1_player_a33b6d21e558eddb120dd2f167b8fb5ac}\label{class_entities_1_1_player_a33b6d21e558eddb120dd2f167b8fb5ac}} 
+\index{Entities::Player@{Entities::Player}!jump@{jump}}
+\index{jump@{jump}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{jump()}{jump()}}
+{\footnotesize\ttfamily void Entities\+::\+Player\+::jump (\begin{DoxyParamCaption}\item[{bool}]{new\+Jump = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Will let the player jump. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Jump} & (does the player do a new jump?) else (continue prev. jump) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entities_1_1_player_a1e4a1fedf4b48625ecf3b35cba414905}\label{class_entities_1_1_player_a1e4a1fedf4b48625ecf3b35cba414905}} 
+\index{Entities::Player@{Entities::Player}!moveLeft@{moveLeft}}
+\index{moveLeft@{moveLeft}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{moveLeft()}{moveLeft()}}
+{\footnotesize\ttfamily void Entities\+::\+Player\+::move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will move the player to the left with a fixed speed. 
+
+
+
+Implements \mbox{\hyperlink{class_entity_a0b4312315f4ee19ee2ab254aeac761ed}{Entity}}.
+
+\mbox{\Hypertarget{class_entities_1_1_player_a92a5375633b374db40b3373bb7f4fe2e}\label{class_entities_1_1_player_a92a5375633b374db40b3373bb7f4fe2e}} 
+\index{Entities::Player@{Entities::Player}!moveRight@{moveRight}}
+\index{moveRight@{moveRight}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{moveRight()}{moveRight()}}
+{\footnotesize\ttfamily void Entities\+::\+Player\+::move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will move the player to the right with a fixed value. 
+
+
+
+Implements \mbox{\hyperlink{class_entity_a56106c895216943f2fce1a29b619679b}{Entity}}.
+
+\mbox{\Hypertarget{class_entities_1_1_player_afc868d7d04d8e6fec1b7849a8a61e80e}\label{class_entities_1_1_player_afc868d7d04d8e6fec1b7849a8a61e80e}} 
+\index{Entities::Player@{Entities::Player}!setBonus@{setBonus}}
+\index{setBonus@{setBonus}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{setBonus()}{setBonus()}}
+{\footnotesize\ttfamily void Entities\+::\+Player\+::set\+Bonus (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$}]{n\+Bonus }\end{DoxyParamCaption})}
+
+
+
+Setter for the bonus the player currently is having effect from. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Bonus} & New bonus to give to the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entities_1_1_player_a61acd2e338aea1bbf23de218beb9e71f}\label{class_entities_1_1_player_a61acd2e338aea1bbf23de218beb9e71f}} 
+\index{Entities::Player@{Entities::Player}!setParalysed@{setParalysed}}
+\index{setParalysed@{setParalysed}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{setParalysed()}{setParalysed()}}
+{\footnotesize\ttfamily void Entities\+::\+Player\+::set\+Paralysed (\begin{DoxyParamCaption}\item[{bool}]{paralysed }\end{DoxyParamCaption})}
+
+
+
+Setter for the is the player is paralysedY (aka not able to move up and down on itself) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em paralysed} & new paralysed bool \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entities_1_1_player_a143a9e83fe2d99a7ce0b2b3b65297300}\label{class_entities_1_1_player_a143a9e83fe2d99a7ce0b2b3b65297300}} 
+\index{Entities::Player@{Entities::Player}!setVelocityY@{setVelocityY}}
+\index{setVelocityY@{setVelocityY}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{setVelocityY()}{setVelocityY()}}
+{\footnotesize\ttfamily void Entities\+::\+Player\+::set\+VelocityY (\begin{DoxyParamCaption}\item[{float}]{velocity }\end{DoxyParamCaption})}
+
+
+
+Setter for the velocity Y of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em velocity} & new velocity Y \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entities_1_1_player_af1b596568a9d11de64e774b661136445}\label{class_entities_1_1_player_af1b596568a9d11de64e774b661136445}} 
+\index{Entities::Player@{Entities::Player}!teleportPlayer@{teleportPlayer}}
+\index{teleportPlayer@{teleportPlayer}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{teleportPlayer()}{teleportPlayer()}}
+{\footnotesize\ttfamily void Entities\+::\+Player\+::teleport\+Player (\begin{DoxyParamCaption}\item[{float}]{minX,  }\item[{float}]{maxX }\end{DoxyParamCaption})}
+
+
+
+Will teleport the player is it goes over the edges of the world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em minX} & Min edge X \\
+\hline
+{\em maxX} & Max edge X \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entities_1_1_player_af247cc32a075e043bf01f4273bff338b}\label{class_entities_1_1_player_af247cc32a075e043bf01f4273bff338b}} 
+\index{Entities::Player@{Entities::Player}!observer@{observer}}
+\index{observer@{observer}!Entities::Player@{Entities::Player}}
+\doxysubsubsection{\texorpdfstring{observer}{observer}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_observers_1_1_player_observer}{Observers\+::\+Player\+Observer}}$>$ Entities\+::\+Player\+::observer \{\}}
+
+
+
+\mbox{\hyperlink{class_observer}{Observer}} for player. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/models/entities/\mbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+src/models/entities/\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

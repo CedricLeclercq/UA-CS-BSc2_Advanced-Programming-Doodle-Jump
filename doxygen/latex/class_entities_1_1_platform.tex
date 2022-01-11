@@ -1,0 +1,322 @@
+\hypertarget{class_entities_1_1_platform}{}\doxysection{Entities\+::Platform Class Reference}
+\label{class_entities_1_1_platform}\index{Entities::Platform@{Entities::Platform}}
+
+
+\mbox{\hyperlink{class_entity}{Entity}} class for a platform in the game.  
+
+
+
+
+{\ttfamily \#include $<$Platform.\+h$>$}
+
+Inheritance diagram for Entities\+::Platform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entities_1_1_platform}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entities_1_1_platform_a802e9840a593a9b1124df2bdf38d8cfd}{Platform}} (\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} kind=\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285a632fa39438c1676b435ec43e6a0f9647}{UNDEF}})
+\begin{DoxyCompactList}\small\item\em Explicit constructor with default argument -\/ will always be used when a platform is constructed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entities_1_1_platform_aa039974eea3dd102729c320d0f1467e8}{$\sim$\+Platform}} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} \mbox{\hyperlink{class_entities_1_1_platform_afc65c78cf66679f979d4605139efefea}{get\+Kind}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the platform kind. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_platform_a04bacc2a9088006aab4dcf38907444b2}{move\+Right}} () override
+\begin{DoxyCompactList}\small\item\em Will move a platform to the right with a fixed value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_platform_a7b4c4f0a3442956b7c15d0c55457462e}{move\+Left}} () override
+\begin{DoxyCompactList}\small\item\em Will move a platform to the left with a fixed value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_platform_a025d036589608715a7fd2c358fa7cff7}{move\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Will move a platform up with a fixed value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_platform_ab9987abc4d6c3851b34139903a33e32f}{move\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Will move a platform down with a fixed value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entities_1_1_platform_ad352f70acfdc43ad46a379ab232b96dc}{get\+Moving\+Right}} () const
+\begin{DoxyCompactList}\small\item\em Getter for if the platform is moving to the right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_platform_a8813660f63d63da80df4357d550e3875}{set\+Moving\+Right}} (bool new\+Bool)
+\begin{DoxyCompactList}\small\item\em Setter for if the platform is moving to the right. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_entities_1_1_platform_a9c27851205cb01769b8b626847b70052}{get\+Moving\+Up}} () const
+\begin{DoxyCompactList}\small\item\em Getter for if the platform is moving up. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_platform_ae0dafaa26429d11712055ef008d97974}{set\+Moving\+Up}} (bool new\+Bool)
+\begin{DoxyCompactList}\small\item\em Setter for is the platform is moving up. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entities_1_1_platform_af2f47bf7e9f84066425431c6d8af9f19}{get\+Max\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the maximum height a platform can go. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_platform_aa76f4884ee206f68dffbe558d3c87f32}{set\+Max\+Height}} (float new\+Height)
+\begin{DoxyCompactList}\small\item\em Setter for the maximum height a platform can go. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entities_1_1_platform_a1a361348afee0d9da0631185d0d0258a}{get\+Min\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the minimum height a platform can go. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_platform_ab7349ca720253ef843ab07bd476a0469}{set\+Min\+Height}} (float new\+Height)
+\begin{DoxyCompactList}\small\item\em Setter for the minimum height a platform can go. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$ \mbox{\hyperlink{class_entities_1_1_platform_a6b1c2a85a9b4a3cc1a4043c4b3b6ca21}{get\+Bonus}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the bonus that is on the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entities_1_1_platform_a440d5624f091eaa3161536e352237473}{set\+Bonus}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$ n\+Bonus)
+\begin{DoxyCompactList}\small\item\em Setter for which bonus is on the platform. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observers_1_1_platform_observer}{Observers\+::\+Platform\+Observer}} $>$ \mbox{\hyperlink{class_entities_1_1_platform_ab97951cb32b87995b27e604766dca01b}{observer}} \{\}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_observer}{Observer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_entity}{Entity}} class for a platform in the game. 
+
+\mbox{\hyperlink{class_entity}{Entity}} \begin{DoxyNote}{Note}
+Makes use of several observers 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_entities_1_1_platform_a802e9840a593a9b1124df2bdf38d8cfd}\label{class_entities_1_1_platform_a802e9840a593a9b1124df2bdf38d8cfd}} 
+\index{Entities::Platform@{Entities::Platform}!Platform@{Platform}}
+\index{Platform@{Platform}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{Platform()}{Platform()}}
+{\footnotesize\ttfamily Entities\+::\+Platform\+::\+Platform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}}}]{kind = {\ttfamily \mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285a632fa39438c1676b435ec43e6a0f9647}{UNDEF}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Explicit constructor with default argument -\/ will always be used when a platform is constructed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kind} & \mbox{\hyperlink{class_entities_1_1_platform}{Platform}} kind that the platform needs to be \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The default argument is not used for now, but can be used if future implementation might need it 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_entities_1_1_platform_aa039974eea3dd102729c320d0f1467e8}\label{class_entities_1_1_platform_aa039974eea3dd102729c320d0f1467e8}} 
+\index{Entities::Platform@{Entities::Platform}!````~Platform@{$\sim$Platform}}
+\index{````~Platform@{$\sim$Platform}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{$\sim$Platform()}{~Platform()}}
+{\footnotesize\ttfamily Entities\+::\+Platform\+::$\sim$\+Platform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entities_1_1_platform_a6b1c2a85a9b4a3cc1a4043c4b3b6ca21}\label{class_entities_1_1_platform_a6b1c2a85a9b4a3cc1a4043c4b3b6ca21}} 
+\index{Entities::Platform@{Entities::Platform}!getBonus@{getBonus}}
+\index{getBonus@{getBonus}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{getBonus()}{getBonus()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$ Entities\+::\+Platform\+::get\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the bonus that is on the platform. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_entities_1_1_bonus}{Bonus}} currently on the platform 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entities_1_1_platform_afc65c78cf66679f979d4605139efefea}\label{class_entities_1_1_platform_afc65c78cf66679f979d4605139efefea}} 
+\index{Entities::Platform@{Entities::Platform}!getKind@{getKind}}
+\index{getKind@{getKind}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{getKind()}{getKind()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} Entities\+::\+Platform\+::get\+Kind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the platform kind. 
+
+\begin{DoxyReturn}{Returns}
+platform\textquotesingle{}s kind 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entities_1_1_platform_af2f47bf7e9f84066425431c6d8af9f19}\label{class_entities_1_1_platform_af2f47bf7e9f84066425431c6d8af9f19}} 
+\index{Entities::Platform@{Entities::Platform}!getMaxHeight@{getMaxHeight}}
+\index{getMaxHeight@{getMaxHeight}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{getMaxHeight()}{getMaxHeight()}}
+{\footnotesize\ttfamily float Entities\+::\+Platform\+::get\+Max\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the maximum height a platform can go. 
+
+\begin{DoxyReturn}{Returns}
+Platforms max height 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entities_1_1_platform_a1a361348afee0d9da0631185d0d0258a}\label{class_entities_1_1_platform_a1a361348afee0d9da0631185d0d0258a}} 
+\index{Entities::Platform@{Entities::Platform}!getMinHeight@{getMinHeight}}
+\index{getMinHeight@{getMinHeight}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{getMinHeight()}{getMinHeight()}}
+{\footnotesize\ttfamily float Entities\+::\+Platform\+::get\+Min\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the minimum height a platform can go. 
+
+\begin{DoxyReturn}{Returns}
+Platforms min height 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entities_1_1_platform_ad352f70acfdc43ad46a379ab232b96dc}\label{class_entities_1_1_platform_ad352f70acfdc43ad46a379ab232b96dc}} 
+\index{Entities::Platform@{Entities::Platform}!getMovingRight@{getMovingRight}}
+\index{getMovingRight@{getMovingRight}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{getMovingRight()}{getMovingRight()}}
+{\footnotesize\ttfamily bool Entities\+::\+Platform\+::get\+Moving\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for if the platform is moving to the right. 
+
+\begin{DoxyReturn}{Returns}
+(platform\+Is\+Moving\+Right?) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entities_1_1_platform_a9c27851205cb01769b8b626847b70052}\label{class_entities_1_1_platform_a9c27851205cb01769b8b626847b70052}} 
+\index{Entities::Platform@{Entities::Platform}!getMovingUp@{getMovingUp}}
+\index{getMovingUp@{getMovingUp}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{getMovingUp()}{getMovingUp()}}
+{\footnotesize\ttfamily bool Entities\+::\+Platform\+::get\+Moving\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for if the platform is moving up. 
+
+\begin{DoxyReturn}{Returns}
+(platform\+Is\+Moving\+Up?) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entities_1_1_platform_ab9987abc4d6c3851b34139903a33e32f}\label{class_entities_1_1_platform_ab9987abc4d6c3851b34139903a33e32f}} 
+\index{Entities::Platform@{Entities::Platform}!moveDown@{moveDown}}
+\index{moveDown@{moveDown}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{moveDown()}{moveDown()}}
+{\footnotesize\ttfamily void Entities\+::\+Platform\+::move\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Will move a platform down with a fixed value. 
+
+\mbox{\Hypertarget{class_entities_1_1_platform_a7b4c4f0a3442956b7c15d0c55457462e}\label{class_entities_1_1_platform_a7b4c4f0a3442956b7c15d0c55457462e}} 
+\index{Entities::Platform@{Entities::Platform}!moveLeft@{moveLeft}}
+\index{moveLeft@{moveLeft}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{moveLeft()}{moveLeft()}}
+{\footnotesize\ttfamily void Entities\+::\+Platform\+::move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will move a platform to the left with a fixed value. 
+
+
+
+Implements \mbox{\hyperlink{class_entity_a0b4312315f4ee19ee2ab254aeac761ed}{Entity}}.
+
+\mbox{\Hypertarget{class_entities_1_1_platform_a04bacc2a9088006aab4dcf38907444b2}\label{class_entities_1_1_platform_a04bacc2a9088006aab4dcf38907444b2}} 
+\index{Entities::Platform@{Entities::Platform}!moveRight@{moveRight}}
+\index{moveRight@{moveRight}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{moveRight()}{moveRight()}}
+{\footnotesize\ttfamily void Entities\+::\+Platform\+::move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Will move a platform to the right with a fixed value. 
+
+
+
+Implements \mbox{\hyperlink{class_entity_a56106c895216943f2fce1a29b619679b}{Entity}}.
+
+\mbox{\Hypertarget{class_entities_1_1_platform_a025d036589608715a7fd2c358fa7cff7}\label{class_entities_1_1_platform_a025d036589608715a7fd2c358fa7cff7}} 
+\index{Entities::Platform@{Entities::Platform}!moveUp@{moveUp}}
+\index{moveUp@{moveUp}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{moveUp()}{moveUp()}}
+{\footnotesize\ttfamily void Entities\+::\+Platform\+::move\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Will move a platform up with a fixed value. 
+
+\mbox{\Hypertarget{class_entities_1_1_platform_a440d5624f091eaa3161536e352237473}\label{class_entities_1_1_platform_a440d5624f091eaa3161536e352237473}} 
+\index{Entities::Platform@{Entities::Platform}!setBonus@{setBonus}}
+\index{setBonus@{setBonus}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{setBonus()}{setBonus()}}
+{\footnotesize\ttfamily void Entities\+::\+Platform\+::set\+Bonus (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_bonus}{Entities\+::\+Bonus}} $>$}]{n\+Bonus }\end{DoxyParamCaption})}
+
+
+
+Setter for which bonus is on the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Bonus} & Shared pointer to a new bonus \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entities_1_1_platform_aa76f4884ee206f68dffbe558d3c87f32}\label{class_entities_1_1_platform_aa76f4884ee206f68dffbe558d3c87f32}} 
+\index{Entities::Platform@{Entities::Platform}!setMaxHeight@{setMaxHeight}}
+\index{setMaxHeight@{setMaxHeight}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{setMaxHeight()}{setMaxHeight()}}
+{\footnotesize\ttfamily void Entities\+::\+Platform\+::set\+Max\+Height (\begin{DoxyParamCaption}\item[{float}]{new\+Height }\end{DoxyParamCaption})}
+
+
+
+Setter for the maximum height a platform can go. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Height} & New maximum height \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entities_1_1_platform_ab7349ca720253ef843ab07bd476a0469}\label{class_entities_1_1_platform_ab7349ca720253ef843ab07bd476a0469}} 
+\index{Entities::Platform@{Entities::Platform}!setMinHeight@{setMinHeight}}
+\index{setMinHeight@{setMinHeight}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{setMinHeight()}{setMinHeight()}}
+{\footnotesize\ttfamily void Entities\+::\+Platform\+::set\+Min\+Height (\begin{DoxyParamCaption}\item[{float}]{new\+Height }\end{DoxyParamCaption})}
+
+
+
+Setter for the minimum height a platform can go. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Height} & New minimum height \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entities_1_1_platform_a8813660f63d63da80df4357d550e3875}\label{class_entities_1_1_platform_a8813660f63d63da80df4357d550e3875}} 
+\index{Entities::Platform@{Entities::Platform}!setMovingRight@{setMovingRight}}
+\index{setMovingRight@{setMovingRight}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{setMovingRight()}{setMovingRight()}}
+{\footnotesize\ttfamily void Entities\+::\+Platform\+::set\+Moving\+Right (\begin{DoxyParamCaption}\item[{bool}]{new\+Bool }\end{DoxyParamCaption})}
+
+
+
+Setter for if the platform is moving to the right. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Bool} & New moving right \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entities_1_1_platform_ae0dafaa26429d11712055ef008d97974}\label{class_entities_1_1_platform_ae0dafaa26429d11712055ef008d97974}} 
+\index{Entities::Platform@{Entities::Platform}!setMovingUp@{setMovingUp}}
+\index{setMovingUp@{setMovingUp}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{setMovingUp()}{setMovingUp()}}
+{\footnotesize\ttfamily void Entities\+::\+Platform\+::set\+Moving\+Up (\begin{DoxyParamCaption}\item[{bool}]{new\+Bool }\end{DoxyParamCaption})}
+
+
+
+Setter for is the platform is moving up. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Bool} & New moving up \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entities_1_1_platform_ab97951cb32b87995b27e604766dca01b}\label{class_entities_1_1_platform_ab97951cb32b87995b27e604766dca01b}} 
+\index{Entities::Platform@{Entities::Platform}!observer@{observer}}
+\index{observer@{observer}!Entities::Platform@{Entities::Platform}}
+\doxysubsubsection{\texorpdfstring{observer}{observer}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_observers_1_1_platform_observer}{Observers\+::\+Platform\+Observer}}$>$ Entities\+::\+Platform\+::observer \{\}}
+
+
+
+\mbox{\hyperlink{class_observer}{Observer}}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/models/entities/\mbox{\hyperlink{_platform_8h}{Platform.\+h}}\item 
+src/models/entities/\mbox{\hyperlink{_platform_8cpp}{Platform.\+cpp}}\end{DoxyCompactItemize}

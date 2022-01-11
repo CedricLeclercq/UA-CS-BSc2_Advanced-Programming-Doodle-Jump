@@ -1,0 +1,69 @@
+\hypertarget{_game_8h_source}{}\doxysection{Game.\+h}
+\label{_game_8h_source}\index{src/graphics/Game.h@{src/graphics/Game.h}}
+\mbox{\hyperlink{_game_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//               Game.h                //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef DOODLEJUMP\_GAME\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define DOODLEJUMP\_GAME\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <SFML/Window.hpp>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../gameLogic/World.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../gameLogic/Camera.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../views/PlatformView.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../views/PlayerView.h"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../views/BGTileView.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../controllers/WorldController.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_game}{Game}} \{}
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_a3d9b98f7c4a96ecf578f75b96c9f0e90}{start}}();}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game}}();}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_game_a3d09cd0b68ef69107d36360ca903e023}{\string~Game}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{40 \textcolor{keyword}{private}:}
+\DoxyCodeLine{41     \textcolor{comment}{// Views}}
+\DoxyCodeLine{43 \textcolor{comment}{}    std::shared\_ptr<Views::PlayerView> playerView\{\};}
+\DoxyCodeLine{45     std::vector<std::shared\_ptr<Views::PlatformView>> platformsViews\{\};}
+\DoxyCodeLine{47     std::vector<std::shared\_ptr<Views::BGTileView>> tilesViews\{\};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{comment}{// Main controller -\/ to communicate with the world}}
+\DoxyCodeLine{51 \textcolor{comment}{}    \mbox{\hyperlink{class_world_controller}{WorldController}} controller\{\};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{// Member variables (minus the controllers)}}
+\DoxyCodeLine{55 \textcolor{comment}{}    std::unique\_ptr<sf::RenderWindow> mWindow\{\};}
+\DoxyCodeLine{57     std::shared\_ptr<Camera> mCamera\{\};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{// Fonts and texts}}
+\DoxyCodeLine{61 \textcolor{comment}{}    sf::Text scoreText\{\};}
+\DoxyCodeLine{63     sf::Font scoreFont\{\};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{comment}{// Functions}}
+\DoxyCodeLine{69 \textcolor{comment}{}    \textcolor{keywordtype}{void} initialiseGame();}
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} setup();}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} getInput();}
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} placePlayer();}
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} placePlatforms();}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} placeBackground();}
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} openSFWindow();}
+\DoxyCodeLine{97     \textcolor{keywordtype}{void} defineLengths();}
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} addScore();}
+\DoxyCodeLine{105     \textcolor{keywordtype}{void} drawEndScreen();}
+\DoxyCodeLine{109     \textcolor{keywordtype}{void} evaluateEndGame();}
+\DoxyCodeLine{114     \textcolor{keywordtype}{bool} openEndSFScreen();}
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} removePlatformViews();}
+\DoxyCodeLine{122     \textcolor{keywordtype}{void} removeTileViews();}
+\DoxyCodeLine{126     \textcolor{keywordtype}{void} createNewViews();}
+\DoxyCodeLine{127 \};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DOODLEJUMP\_GAME\_H}}
+
+\end{DoxyCode}

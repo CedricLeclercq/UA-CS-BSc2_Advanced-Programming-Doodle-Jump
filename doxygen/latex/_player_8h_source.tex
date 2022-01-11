@@ -1,0 +1,46 @@
+\hypertarget{_player_8h_source}{}\doxysection{Player.\+h}
+\label{_player_8h_source}\index{src/models/entities/Player.h@{src/models/entities/Player.h}}
+\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//              Player.h               //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYER\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bonus_8h}{Bonus.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../Entities.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../../observers/Observers.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_player_observer_8h}{observers/entityObservers/PlayerObserver.h}}"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_entities_1_1_player}{Entities::Player}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_entity}{Entity}} \{}
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool} paralysedY\{\};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{float} velocityY\{\};}
+\DoxyCodeLine{27     std::shared\_ptr<Entities::Bonus> bonus\{\};}
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     std::shared\_ptr<Observers::PlayerObserver> \mbox{\hyperlink{class_entities_1_1_player_af247cc32a075e043bf01f4273bff338b}{observer}}\{\};}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_entities_1_1_player_afd58db692549cdd50699e952dee75369}{Player}}();}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_entities_1_1_player_a85799d45710b958a71750d40200a91bd}{\string~Player}}() \textcolor{keyword}{override} = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_player_a92a5375633b374db40b3373bb7f4fe2e}{moveRight}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_player_a1e4a1fedf4b48625ecf3b35cba414905}{moveLeft}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_player_a33b6d21e558eddb120dd2f167b8fb5ac}{jump}}(\textcolor{keywordtype}{bool} newJump=\textcolor{keyword}{false});}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_player_a143a9e83fe2d99a7ce0b2b3b65297300}{setVelocityY}}(\textcolor{keywordtype}{float} velocity);}
+\DoxyCodeLine{61     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_entities_1_1_player_ae4f764d307b4c63c6b72606cd1466589}{getVelocityY}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this-\/>velocityY;\}}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_player_af1b596568a9d11de64e774b661136445}{teleportPlayer}}(\textcolor{keywordtype}{float} minX, \textcolor{keywordtype}{float} maxX);}
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_player_afc868d7d04d8e6fec1b7849a8a61e80e}{setBonus}}(std::shared\_ptr<Entities::Bonus> nBonus);}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_player_a61acd2e338aea1bbf23de218beb9e71f}{setParalysed}}(\textcolor{keywordtype}{bool} paralysed);}
+\DoxyCodeLine{78 \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYER\_H}}
+
+\end{DoxyCode}

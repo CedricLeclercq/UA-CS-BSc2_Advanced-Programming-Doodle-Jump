@@ -1,0 +1,33 @@
+\hypertarget{_concrete_factory_8h_source}{}\doxysection{Concrete\+Factory.\+h}
+\label{_concrete_factory_8h_source}\index{src/factories/modelFactories/ConcreteFactory.h@{src/factories/modelFactories/ConcreteFactory.h}}
+\mbox{\hyperlink{_concrete_factory_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//         ConcreteFactory.h           //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_CONCRETEFACTORY\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_CONCRETEFACTORY\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_abstract_factory_8h}{AbstractFactory.h}}"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_concrete_factory}{ConcreteFactory}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_abstract_factory}{AbstractFactory}} \{}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_concrete_factory_af61a44446f994409e9c9610321cd2160}{ConcreteFactory}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_concrete_factory_a2fdf991ea94d71513b0df9c6df963a6a}{\string~ConcreteFactory}}() \textcolor{keyword}{override} = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{31     std::shared\_ptr<Entities::Player> \mbox{\hyperlink{class_concrete_factory_a654be58de7545003b4d486e932e3852d}{createPlayer}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{36     std::shared\_ptr<Entities::BGTile> \mbox{\hyperlink{class_concrete_factory_a847b009ab1843b0437fa9864fabf6839}{createBGTile}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{41     std::shared\_ptr<Entities::Bonus> \mbox{\hyperlink{class_concrete_factory_a2c8429b078421ed0266e23e74303b479}{createBonus}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{46     std::shared\_ptr<Entities::Platform> \mbox{\hyperlink{class_concrete_factory_ae349def47af4c66f8b770a3613a83de8}{createPlatform}}(\mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} kind) \textcolor{keyword}{override};}
+\DoxyCodeLine{52     std::shared\_ptr<World> \mbox{\hyperlink{class_concrete_factory_a7f7ae0169f340a17c915c1762899c6b2}{createWorld}}(std::shared\_ptr<Camera> camera) \textcolor{keyword}{override};}
+\DoxyCodeLine{59     std::unique\_ptr<Camera> \mbox{\hyperlink{class_concrete_factory_abfd5154efe46389d7d45112e430ab022}{createCamera}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}\& worldView, \textcolor{keyword}{const} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}}\& cameraView) \textcolor{keyword}{override};}
+\DoxyCodeLine{64     std::shared\_ptr<Score> \mbox{\hyperlink{class_concrete_factory_a641f72a02e157d8a842d906a7b0514e0}{createScore}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{65 \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_CONCRETEFACTORY\_H}}
+
+\end{DoxyCode}

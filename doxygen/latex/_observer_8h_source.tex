@@ -1,0 +1,33 @@
+\hypertarget{_observer_8h_source}{}\doxysection{Observer.\+h}
+\label{_observer_8h_source}\index{src/observers/Observer.h@{src/observers/Observer.h}}
+\mbox{\hyperlink{_observer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//             Observer.h              //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_OBSERVER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_OBSERVER\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_utilities_8h}{utilities/Utilities.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{keyword}{using} \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} = \mbox{\hyperlink{_observer_8h_a4349a2b97c9eb6bd76638c959ecc2b43}{Utilities::Coordinates}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_observer}{Observer}} \{}
+\DoxyCodeLine{21 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_observer_a79a85317a9ad154a75c106cbcc922d85}{notified}}\{\};}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_observer_acb0af5014875c6ec7465cccc85e4f39b}{Observer}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_observer_a37824643eeaef086de17bba2717d865a}{\string~Observer}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observer_a529f041eec2264143da5be197b28a2a7}{notifyObserver}}() \{\mbox{\hyperlink{class_observer_a79a85317a9ad154a75c106cbcc922d85}{notified}} = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_observer_acc37bb20fa7b1a602efd6d2110be8eb8}{getNotified}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_observer_a79a85317a9ad154a75c106cbcc922d85}{notified}};\}}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_OBSERVER\_H}}
+
+\end{DoxyCode}

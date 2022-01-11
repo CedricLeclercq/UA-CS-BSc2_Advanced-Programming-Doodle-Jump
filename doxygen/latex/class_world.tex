@@ -1,0 +1,146 @@
+\hypertarget{class_world}{}\doxysection{World Class Reference}
+\label{class_world}\index{World@{World}}
+
+
+Manages all the elements in the logical world.  
+
+
+
+
+{\ttfamily \#include $<$World.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_world_a1fc6067fe31da6405bece93c9dbb61ac}{World}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the world. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_world_a3d07ed2f713c3946fbbaa3a1b7b7f8c0}{$\sim$\+World}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_world_a0eb4168a658972a82e5aa53b87e7b695}{World}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ camera)
+\begin{DoxyCompactList}\small\item\em Constructor for the world, will create a player and accept a camera for world view purposes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_aea055bac16c4cb8886e70f670f46f044}{update\+World}} ()
+\begin{DoxyCompactList}\small\item\em Update the world after one loop (Update the player, the platforms, the bonuses, ...) \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ \mbox{\hyperlink{class_world_a1840b83d833bfc5f9e19ca45f5309ff3}{get\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_a0abada2614636ac5a955e9dd2de47093}{set\+Player\+Length}} (float length)
+\begin{DoxyCompactList}\small\item\em Will set the standard length of the player (needed for the collision check) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_world_ab9f1ddf03191662355ea3d578349bc47}{set\+Platform\+Length}} (float length)
+\begin{DoxyCompactList}\small\item\em Will set the standard length of a platform (needed for the collision check) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_world_a9856228b4496a06be583ce972532c655}{check\+Game\+Over}} ()
+\begin{DoxyCompactList}\small\item\em Checks is the game is over in the world by comparing Y coordinates with the lowest allowed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages all the elements in the logical world. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_world_a1fc6067fe31da6405bece93c9dbb61ac}\label{class_world_a1fc6067fe31da6405bece93c9dbb61ac}} 
+\index{World@{World}!World@{World}}
+\index{World@{World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{World()}{World()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily World\+::\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor for the world. 
+
+\mbox{\Hypertarget{class_world_a3d07ed2f713c3946fbbaa3a1b7b7f8c0}\label{class_world_a3d07ed2f713c3946fbbaa3a1b7b7f8c0}} 
+\index{World@{World}!````~World@{$\sim$World}}
+\index{````~World@{$\sim$World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{$\sim$World()}{~World()}}
+{\footnotesize\ttfamily World\+::$\sim$\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default destructor. 
+
+\mbox{\Hypertarget{class_world_a0eb4168a658972a82e5aa53b87e7b695}\label{class_world_a0eb4168a658972a82e5aa53b87e7b695}} 
+\index{World@{World}!World@{World}}
+\index{World@{World}!World@{World}}
+\doxysubsubsection{\texorpdfstring{World()}{World()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily World\+::\+World (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$}]{camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for the world, will create a player and accept a camera for world view purposes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_world_a9856228b4496a06be583ce972532c655}\label{class_world_a9856228b4496a06be583ce972532c655}} 
+\index{World@{World}!checkGameOver@{checkGameOver}}
+\index{checkGameOver@{checkGameOver}!World@{World}}
+\doxysubsubsection{\texorpdfstring{checkGameOver()}{checkGameOver()}}
+{\footnotesize\ttfamily bool World\+::check\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks is the game is over in the world by comparing Y coordinates with the lowest allowed. 
+
+\begin{DoxyReturn}{Returns}
+(game\+Over?) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_world_a1840b83d833bfc5f9e19ca45f5309ff3}\label{class_world_a1840b83d833bfc5f9e19ca45f5309ff3}} 
+\index{World@{World}!getPlayer@{getPlayer}}
+\index{getPlayer@{getPlayer}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getPlayer()}{getPlayer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entities_1_1_player}{Entities\+::\+Player}} $>$ World\+::get\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the player. 
+
+\begin{DoxyReturn}{Returns}
+Shared pointer to the player; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_world_ab9f1ddf03191662355ea3d578349bc47}\label{class_world_ab9f1ddf03191662355ea3d578349bc47}} 
+\index{World@{World}!setPlatformLength@{setPlatformLength}}
+\index{setPlatformLength@{setPlatformLength}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setPlatformLength()}{setPlatformLength()}}
+{\footnotesize\ttfamily void World\+::set\+Platform\+Length (\begin{DoxyParamCaption}\item[{float}]{length }\end{DoxyParamCaption})}
+
+
+
+Will set the standard length of a platform (needed for the collision check) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & Platform length \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_world_a0abada2614636ac5a955e9dd2de47093}\label{class_world_a0abada2614636ac5a955e9dd2de47093}} 
+\index{World@{World}!setPlayerLength@{setPlayerLength}}
+\index{setPlayerLength@{setPlayerLength}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setPlayerLength()}{setPlayerLength()}}
+{\footnotesize\ttfamily void World\+::set\+Player\+Length (\begin{DoxyParamCaption}\item[{float}]{length }\end{DoxyParamCaption})}
+
+
+
+Will set the standard length of the player (needed for the collision check) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & Player length \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_world_aea055bac16c4cb8886e70f670f46f044}\label{class_world_aea055bac16c4cb8886e70f670f46f044}} 
+\index{World@{World}!updateWorld@{updateWorld}}
+\index{updateWorld@{updateWorld}!World@{World}}
+\doxysubsubsection{\texorpdfstring{updateWorld()}{updateWorld()}}
+{\footnotesize\ttfamily void World\+::update\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update the world after one loop (Update the player, the platforms, the bonuses, ...) 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/game\+Logic/\mbox{\hyperlink{_world_8h}{World.\+h}}\item 
+src/game\+Logic/\mbox{\hyperlink{_world_8cpp}{World.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,37 @@
+\hypertarget{_b_g_tile_observer_8h_source}{}\doxysection{BGTile\+Observer.\+h}
+\label{_b_g_tile_observer_8h_source}\index{src/observers/entityObservers/BGTileObserver.h@{src/observers/entityObservers/BGTileObserver.h}}
+\mbox{\hyperlink{_b_g_tile_observer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//         BGTileObserver.h            //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_BGTILEOBSERVER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_BGTILEOBSERVER\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../Observers.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_observers_1_1_b_g_tile_observer}{Observers::BGTileObserver}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_observer}{Observer}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} curLocation\{\};}
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} remove\{\};}
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} create\{\};}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} notifyObserver()\textcolor{keyword}{ override }\{ \mbox{\hyperlink{class_observer_a79a85317a9ad154a75c106cbcc922d85}{notified}}=\textcolor{keyword}{true};\}}
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} getNotified()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_observer_a79a85317a9ad154a75c106cbcc922d85}{notified}};\}}
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a920deedfa3555c2634e08aa34926b8dc}{BGTileObserver}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a0fb8f197067ac8411334c4b0571d563b}{\string~BGTileObserver}}() \textcolor{keyword}{override}=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_aa54a1fe549ab8ba304291f4c5ad6617d}{notifyRemoved}}() \{remove = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_aa69b8724935b6949796203c4ffca58f3}{notifyCreation}}() \{ create = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a5196616715b4c14676ec01e5650e39af}{notifiedRemoval}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} remove;\}}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a644fa294946b11841b295ef2f32f3fb8}{notifyCurLocation}}(\mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} location) \{curLocation = location;\}}
+\DoxyCodeLine{61     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} \mbox{\hyperlink{class_observers_1_1_b_g_tile_observer_a999b0fa0b7520f0f03acdc22eba22b42}{getNotifiedPosition}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} this-\/>curLocation;\}}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_BGTILEOBSERVER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,34 @@
+\hypertarget{_score_observer_8h_source}{}\doxysection{Score\+Observer.\+h}
+\label{_score_observer_8h_source}\index{src/observers/entityObservers/ScoreObserver.h@{src/observers/entityObservers/ScoreObserver.h}}
+\mbox{\hyperlink{_score_observer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//          ScoreObserver.h            //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_SCOREOBSERVER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_SCOREOBSERVER\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../Observers.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_observers_1_1_score_observer}{Observers::ScoreObserver}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_observer}{Observer}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} currentScore\{\};}
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} scoreChanged\{\};}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_observers_1_1_score_observer}{ScoreObserver}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} notifyObserver() \textcolor{keyword}{override};}
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_observers_1_1_score_observer_a675529927ce25cdce0881d13f297a159}{\string~ScoreObserver}}() \textcolor{keyword}{override}=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{34     \textcolor{keyword}{static} \mbox{\hyperlink{class_observers_1_1_score_observer}{ScoreObserver}}\& \mbox{\hyperlink{class_observers_1_1_score_observer_acc666ec94c0472dff16f794b13d6d05a}{getInstance}}();}
+\DoxyCodeLine{39     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_observers_1_1_score_observer_aaff6b7917ab14914efa9c50e1df45501}{getNotified}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observers_1_1_score_observer_a432a845b308d93560c68a6a06382a12b}{notifyScore}}(\textcolor{keywordtype}{int} nScore);}
+\DoxyCodeLine{49     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_observers_1_1_score_observer_ab112687d660993798006ca8c53dc2b71}{getScore}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} currentScore;\}}
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_SCOREOBSERVER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,273 @@
+\hypertarget{class_entity}{}\doxysection{Entity Class Reference}
+\label{class_entity}\index{Entity@{Entity}}
+
+
+Super class for all the entities.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+Inheritance diagram for Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entity}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity}} ()
+\begin{DoxyCompactList}\small\item\em Constructor that will initialise only the coordinates. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_entity_ac479d009ddde62dfb378ca0a70d81307}{$\sim$\+Entity}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor for entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_abaa533dba8501c739d421924ae1e2cff}{set\+Pos}} (float nX, float nY)
+\begin{DoxyCompactList}\small\item\em Setter for the position of the entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a0a7f9911b015b9a92f7e3d8dc300d729}{set\+PosX}} (float nX)
+\begin{DoxyCompactList}\small\item\em Setter for the x coordinate of the entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a44fac6e999e86b788b8d74d571340371}{set\+PosY}} (float nY)
+\begin{DoxyCompactList}\small\item\em Setter for the y coordinate of the entity. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_utilities_1_1_coordinates}{Utilities\+::\+Coordinates}} $>$ \mbox{\hyperlink{class_entity_ad9f4e4c96937aaf2988ff12a0b32b7d2}{get\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the position of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_abc07607e9d85670694097ac4b6b6dd27}{get\+PosX}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the x coordinate of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_adc3a7257facf71297850bc86b705b503}{get\+PosY}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the y coordinate of the entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a38030d8169b5498002b1348239440dbd}{set\+Length}} (float n\+Length)
+\begin{DoxyCompactList}\small\item\em Setter for the length of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a0cf0bbaf0c97da0b964dbe302d1dbc5d}{get\+Length}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the length of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_entity_a56106c895216943f2fce1a29b619679b}{move\+Right}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function for the entity to move right. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a0b4312315f4ee19ee2ab254aeac761ed}{move\+Left}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function for the entity to move left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a474692558c0fcb4f3d0b931022b847d8}{move}} (float offsetX, float offsetY)
+\begin{DoxyCompactList}\small\item\em Will Move the player given an offset based on its current position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_utilities_1_1_coordinates}{Utilities\+::\+Coordinates}} $>$ \mbox{\hyperlink{class_entity_a68cd90ddb938ffca9634c4746500af42}{position}} \{\}
+\begin{DoxyCompactList}\small\item\em Position of the entity. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a4f547c6464f9694237940d8479f16aa7}{length}} \{\}
+\begin{DoxyCompactList}\small\item\em Length of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Super class for all the entities. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_entity_a980f368aa07ce358583982821533a54a}\label{class_entity_a980f368aa07ce358583982821533a54a}} 
+\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that will initialise only the coordinates. 
+
+\mbox{\Hypertarget{class_entity_ac479d009ddde62dfb378ca0a70d81307}\label{class_entity_ac479d009ddde62dfb378ca0a70d81307}} 
+\index{Entity@{Entity}!````~Entity@{$\sim$Entity}}
+\index{````~Entity@{$\sim$Entity}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{$\sim$Entity()}{~Entity()}}
+{\footnotesize\ttfamily virtual Entity\+::$\sim$\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Default destructor for entity. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entity_a0cf0bbaf0c97da0b964dbe302d1dbc5d}\label{class_entity_a0cf0bbaf0c97da0b964dbe302d1dbc5d}} 
+\index{Entity@{Entity}!getLength@{getLength}}
+\index{getLength@{getLength}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getLength()}{getLength()}}
+{\footnotesize\ttfamily float Entity\+::get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the length of the entity. 
+
+\begin{DoxyReturn}{Returns}
+Length of the entity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entity_ad9f4e4c96937aaf2988ff12a0b32b7d2}\label{class_entity_ad9f4e4c96937aaf2988ff12a0b32b7d2}} 
+\index{Entity@{Entity}!getPos@{getPos}}
+\index{getPos@{getPos}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_utilities_1_1_coordinates}{Utilities\+::\+Coordinates}} $>$ Entity\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the position of the entity. 
+
+\begin{DoxyReturn}{Returns}
+Coordinates of the entity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entity_abc07607e9d85670694097ac4b6b6dd27}\label{class_entity_abc07607e9d85670694097ac4b6b6dd27}} 
+\index{Entity@{Entity}!getPosX@{getPosX}}
+\index{getPosX@{getPosX}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getPosX()}{getPosX()}}
+{\footnotesize\ttfamily float Entity\+::get\+PosX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the x coordinate of the entity. 
+
+\begin{DoxyReturn}{Returns}
+X coordinate of the entity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entity_adc3a7257facf71297850bc86b705b503}\label{class_entity_adc3a7257facf71297850bc86b705b503}} 
+\index{Entity@{Entity}!getPosY@{getPosY}}
+\index{getPosY@{getPosY}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getPosY()}{getPosY()}}
+{\footnotesize\ttfamily float Entity\+::get\+PosY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the y coordinate of the entity. 
+
+\begin{DoxyReturn}{Returns}
+Y coordinate of the entity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_entity_a474692558c0fcb4f3d0b931022b847d8}\label{class_entity_a474692558c0fcb4f3d0b931022b847d8}} 
+\index{Entity@{Entity}!move@{move}}
+\index{move@{move}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Entity\+::move (\begin{DoxyParamCaption}\item[{float}]{offsetX,  }\item[{float}]{offsetY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Will Move the player given an offset based on its current position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offsetX} & Offset on the X coordinate \\
+\hline
+{\em offsetY} & Offset on the Y coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_a0b4312315f4ee19ee2ab254aeac761ed}\label{class_entity_a0b4312315f4ee19ee2ab254aeac761ed}} 
+\index{Entity@{Entity}!moveLeft@{moveLeft}}
+\index{moveLeft@{moveLeft}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{moveLeft()}{moveLeft()}}
+{\footnotesize\ttfamily virtual void Entity\+::move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function for the entity to move left. 
+
+
+
+Implemented in \mbox{\hyperlink{class_entities_1_1_b_g_tile_a1e567088b559cbc3068b6250fe4b4af5}{Entities\+::\+BGTile}}, \mbox{\hyperlink{class_entities_1_1_bonus_a384daa0f827dfe5ed44985d505f598ab}{Entities\+::\+Bonus}}, \mbox{\hyperlink{class_entities_1_1_platform_a7b4c4f0a3442956b7c15d0c55457462e}{Entities\+::\+Platform}}, and \mbox{\hyperlink{class_entities_1_1_player_a1e4a1fedf4b48625ecf3b35cba414905}{Entities\+::\+Player}}.
+
+\mbox{\Hypertarget{class_entity_a56106c895216943f2fce1a29b619679b}\label{class_entity_a56106c895216943f2fce1a29b619679b}} 
+\index{Entity@{Entity}!moveRight@{moveRight}}
+\index{moveRight@{moveRight}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{moveRight()}{moveRight()}}
+{\footnotesize\ttfamily virtual void Entity\+::move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function for the entity to move right. 
+
+
+
+Implemented in \mbox{\hyperlink{class_entities_1_1_b_g_tile_a3b81ca9a247f66bb47ff0dc18a7a81a4}{Entities\+::\+BGTile}}, \mbox{\hyperlink{class_entities_1_1_bonus_a38069751d92cd2206025317df800a3dc}{Entities\+::\+Bonus}}, \mbox{\hyperlink{class_entities_1_1_platform_a04bacc2a9088006aab4dcf38907444b2}{Entities\+::\+Platform}}, and \mbox{\hyperlink{class_entities_1_1_player_a92a5375633b374db40b3373bb7f4fe2e}{Entities\+::\+Player}}.
+
+\mbox{\Hypertarget{class_entity_a38030d8169b5498002b1348239440dbd}\label{class_entity_a38030d8169b5498002b1348239440dbd}} 
+\index{Entity@{Entity}!setLength@{setLength}}
+\index{setLength@{setLength}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setLength()}{setLength()}}
+{\footnotesize\ttfamily void Entity\+::set\+Length (\begin{DoxyParamCaption}\item[{float}]{n\+Length }\end{DoxyParamCaption})}
+
+
+
+Setter for the length of the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Length} & New length \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_abaa533dba8501c739d421924ae1e2cff}\label{class_entity_abaa533dba8501c739d421924ae1e2cff}} 
+\index{Entity@{Entity}!setPos@{setPos}}
+\index{setPos@{setPos}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}}
+{\footnotesize\ttfamily void Entity\+::set\+Pos (\begin{DoxyParamCaption}\item[{float}]{nX,  }\item[{float}]{nY }\end{DoxyParamCaption})}
+
+
+
+Setter for the position of the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nX} & New x coordinate \\
+\hline
+{\em nY} & New y coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_a0a7f9911b015b9a92f7e3d8dc300d729}\label{class_entity_a0a7f9911b015b9a92f7e3d8dc300d729}} 
+\index{Entity@{Entity}!setPosX@{setPosX}}
+\index{setPosX@{setPosX}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setPosX()}{setPosX()}}
+{\footnotesize\ttfamily void Entity\+::set\+PosX (\begin{DoxyParamCaption}\item[{float}]{nX }\end{DoxyParamCaption})}
+
+
+
+Setter for the x coordinate of the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nX} & New x coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_entity_a44fac6e999e86b788b8d74d571340371}\label{class_entity_a44fac6e999e86b788b8d74d571340371}} 
+\index{Entity@{Entity}!setPosY@{setPosY}}
+\index{setPosY@{setPosY}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{setPosY()}{setPosY()}}
+{\footnotesize\ttfamily void Entity\+::set\+PosY (\begin{DoxyParamCaption}\item[{float}]{nY }\end{DoxyParamCaption})}
+
+
+
+Setter for the y coordinate of the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nY} & New y coordinate \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entity_a4f547c6464f9694237940d8479f16aa7}\label{class_entity_a4f547c6464f9694237940d8479f16aa7}} 
+\index{Entity@{Entity}!length@{length}}
+\index{length@{length}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily float Entity\+::length \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Length of the entity. 
+
+\mbox{\Hypertarget{class_entity_a68cd90ddb938ffca9634c4746500af42}\label{class_entity_a68cd90ddb938ffca9634c4746500af42}} 
+\index{Entity@{Entity}!position@{position}}
+\index{position@{position}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_utilities_1_1_coordinates}{Utilities\+::\+Coordinates}}$>$ Entity\+::position \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Position of the entity. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/models/\mbox{\hyperlink{_entity_8h}{Entity.\+h}}\item 
+src/models/\mbox{\hyperlink{_entity_8cpp}{Entity.\+cpp}}\end{DoxyCompactItemize}

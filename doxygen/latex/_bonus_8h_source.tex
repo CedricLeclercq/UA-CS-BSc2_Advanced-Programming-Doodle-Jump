@@ -1,0 +1,45 @@
+\hypertarget{_bonus_8h_source}{}\doxysection{Bonus.\+h}
+\label{_bonus_8h_source}\index{src/models/entities/Bonus.h@{src/models/entities/Bonus.h}}
+\mbox{\hyperlink{_bonus_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//              Bonus.h                //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef DOODLEJUMP\_BONUS\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define DOODLEJUMP\_BONUS\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../../utilities/Utilities.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../Entities.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 }
+\DoxyCodeLine{16 \textcolor{keyword}{enum} \mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6}{BonusPower}} \{}
+\DoxyCodeLine{17     \mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6a74ce3137b26cdafc19bdb66d881971fa}{SPRING}},}
+\DoxyCodeLine{18     \mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6afafc201536271f745d3923b7efb6d375}{ROCKET}},}
+\DoxyCodeLine{19     \mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6a65d2c03538c0b628182b5421b432d788}{NOTDEF}}}
+\DoxyCodeLine{20     \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_entities_1_1_bonus}{Entities::Bonus}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_entity}{Entity}} \{}
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{26     \textcolor{keywordtype}{float} power\{\};}
+\DoxyCodeLine{28     \mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6}{BonusPower}} powerKind = \mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6a65d2c03538c0b628182b5421b432d788}{NOTDEF}};}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} chargePowers();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{public}:}
+\DoxyCodeLine{40     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_entities_1_1_bonus_acf446eab117dc6be033f78179372e1df}{Bonus}}(\mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6}{BonusPower}} power=\mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6a65d2c03538c0b628182b5421b432d788}{NOTDEF}});}
+\DoxyCodeLine{44     \mbox{\hyperlink{class_entities_1_1_bonus_ad3e614fe009b9c4f089e60515ffd2b21}{\string~Bonus}}() \textcolor{keyword}{override} = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{49     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_entities_1_1_bonus_a61075efe1fbeb3101548bcefca7f45d7}{exhaustedBonus}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_bonus_af16a4abcca2bde1d32e558b042b194ff}{takeEffect}}(\mbox{\hyperlink{class_entities_1_1_player}{Entities::Player}}\& player);}
+\DoxyCodeLine{59     \mbox{\hyperlink{_bonus_8h_a06d493cf548c5428bcf611e2e8a496a6}{BonusPower}} \mbox{\hyperlink{class_entities_1_1_bonus_ad204d7cfafab5a92890706c3326f96a7}{getPowerKind}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_bonus_a38069751d92cd2206025317df800a3dc}{moveRight}}()\textcolor{keyword}{ override }\{\}}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_entities_1_1_bonus_a384daa0f827dfe5ed44985d505f598ab}{moveLeft}}()\textcolor{keyword}{ override }\{\}}
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DOODLEJUMP\_BONUS\_H}}
+
+\end{DoxyCode}

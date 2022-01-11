@@ -1,0 +1,36 @@
+\hypertarget{_player_observer_8h_source}{}\doxysection{Player\+Observer.\+h}
+\label{_player_observer_8h_source}\index{src/observers/entityObservers/PlayerObserver.h@{src/observers/entityObservers/PlayerObserver.h}}
+\mbox{\hyperlink{_player_observer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//          PlayerObserver.h           //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYEROBSERVER\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYEROBSERVER\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../Observers.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_observers_1_1_player_observer}{Observers::PlayerObserver}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_observer}{Observer}} \{}
+\DoxyCodeLine{15 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} curLocation\{\};}
+\DoxyCodeLine{19     \textcolor{keywordtype}{bool} isRocket\{\};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} notifyObserver()\textcolor{keyword}{ override }\{ \mbox{\hyperlink{class_observer_a79a85317a9ad154a75c106cbcc922d85}{notified}} = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{28     \textcolor{keywordtype}{bool} getNotified()\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_observer_a79a85317a9ad154a75c106cbcc922d85}{notified}};\}}
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_observers_1_1_player_observer_a561bc2d182cc8db86eb8e5d8c395b33e}{PlayerObserver}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_observers_1_1_player_observer_aa40cfe4e6782f61d993d00685331e6df}{\string~PlayerObserver}}() \textcolor{keyword}{override}=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{42     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_observers_1_1_player_observer_a8ad214edf11cd06ea25980d8d9dbb3df}{getNotifiedRocket}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} this-\/>isRocket;\}}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observers_1_1_player_observer_a53637ff201d07f2e4cd4d51ed6ea28f6}{notifyIsRocket}}(\textcolor{keywordtype}{bool} newBool)  \{ this-\/>isRocket = newBool;\}}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_observers_1_1_player_observer_a4afa763c2470aca4d95827985fbf8fb5}{notifyCurLocation}}(\mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} location) \{curLocation = location;\}}
+\DoxyCodeLine{57     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} \mbox{\hyperlink{class_observers_1_1_player_observer_ac7b2c9369c50039271bb40ef44a0195f}{getNotifiedPosition}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} this-\/>curLocation;\}}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYEROBSERVER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,68 @@
+\hypertarget{_world_8h_source}{}\doxysection{World.\+h}
+\label{_world_8h_source}\index{src/gameLogic/World.h@{src/gameLogic/World.h}}
+\mbox{\hyperlink{_world_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//               World.h               //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef DOODLEJUMP\_WORLD\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define DOODLEJUMP\_WORLD\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../models/entities/Player.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../models/entities/Platform.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../observers/entityObservers/WorldObserver.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../models/entities/BGTile.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_concrete_factory_8h}{factories/modelFactories/ConcreteFactory.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_score_8h}{Score.h}}"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_world}{World}} \{}
+\DoxyCodeLine{26 \textcolor{keyword}{private}:}
+\DoxyCodeLine{28     std::shared\_ptr<Entities::Player> player\{\};}
+\DoxyCodeLine{30     std::vector<std::shared\_ptr<Entities::Platform>> platforms\{\};}
+\DoxyCodeLine{32     std::vector<std::shared\_ptr<Entities::BGTile>> bgTiles\{\};}
+\DoxyCodeLine{34     std::vector<std::shared\_ptr<Entities::Bonus>> bonuses\{\};}
+\DoxyCodeLine{36     std::shared\_ptr<Camera> m\_camera\{\};}
+\DoxyCodeLine{38     std::shared\_ptr<Entities::Platform> prevPlatform\{\};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{float} playerLength\{\};}
+\DoxyCodeLine{42     \textcolor{keywordtype}{float} platformLength\{\};}
+\DoxyCodeLine{44     std::shared\_ptr<Score> score\{\};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} createPlatforms();}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} createBackground();}
+\DoxyCodeLine{57     \textcolor{keyword}{static} \textcolor{keywordtype}{void} createBonus(\textcolor{keyword}{const} std::shared\_ptr<Entities::Platform>\& platform);}
+\DoxyCodeLine{62     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} findHighestStar() \textcolor{keyword}{const};}
+\DoxyCodeLine{67     \mbox{\hyperlink{class_utilities_1_1_coordinates}{Coordinates}} findHighestPlatform() \textcolor{keyword}{const};}
+\DoxyCodeLine{72     std::shared\_ptr<Entities::Platform> findLowestPlatform();}
+\DoxyCodeLine{77     std::shared\_ptr<Entities::BGTile> findLowestStar();}
+\DoxyCodeLine{82     \mbox{\hyperlink{_world_8cpp_a54287e8db815d8b63faadf0851c6b674}{\_\_attribute\_\_}}((unused)) std::shared\_ptr<Entities::Bonus> findLowestBonus();}
+\DoxyCodeLine{87     \textcolor{keywordtype}{bool} newPlatformsNeeded();}
+\DoxyCodeLine{92     \textcolor{keywordtype}{bool} newStarsNeeded();}
+\DoxyCodeLine{97     \textcolor{keywordtype}{void} removePlatform(\textcolor{keyword}{const} std::shared\_ptr<Entities::Platform>\& toRemove);}
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} removeOutOfView();}
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} addPlatformScore(\textcolor{keyword}{const} std::shared\_ptr<Entities::Platform>\& platform);}
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} addBonusScore(\textcolor{keyword}{const} std::shared\_ptr<Entities::Bonus>\& bonus);}
+\DoxyCodeLine{116     \textcolor{keywordtype}{bool} collisionCheckPlatform();}
+\DoxyCodeLine{120     \textcolor{keywordtype}{void} movePlatforms();}
+\DoxyCodeLine{125     \textcolor{keywordtype}{double} calculateDifficulty() \textcolor{keyword}{const};}
+\DoxyCodeLine{131     \textcolor{keyword}{static} \mbox{\hyperlink{_platform_8h_a5d3e217cf5ab5c986e2c3b02d3b80285}{PKind}} difficultyPlatformOverride(\textcolor{keywordtype}{double} diff) ;}
+\DoxyCodeLine{132 \textcolor{keyword}{public}:}
+\DoxyCodeLine{136     \mbox{\hyperlink{class_world_a1fc6067fe31da6405bece93c9dbb61ac}{World}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{140     \mbox{\hyperlink{class_world_a3d07ed2f713c3946fbbaa3a1b7b7f8c0}{\string~World}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{145     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_world_a1fc6067fe31da6405bece93c9dbb61ac}{World}}(std::shared\_ptr<Camera> camera);}
+\DoxyCodeLine{149     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_aea055bac16c4cb8886e70f670f46f044}{updateWorld}}();}
+\DoxyCodeLine{154     std::shared\_ptr<Entities::Player> \mbox{\hyperlink{class_world_a1840b83d833bfc5f9e19ca45f5309ff3}{getPlayer}}();}
+\DoxyCodeLine{159     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_a0abada2614636ac5a955e9dd2de47093}{setPlayerLength}}(\textcolor{keywordtype}{float} length);}
+\DoxyCodeLine{164     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_world_ab9f1ddf03191662355ea3d578349bc47}{setPlatformLength}}(\textcolor{keywordtype}{float} length);}
+\DoxyCodeLine{169     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_world_a9856228b4496a06be583ce972532c655}{checkGameOver}}();}
+\DoxyCodeLine{170 \};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//DOODLEJUMP\_WORLD\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,36 @@
+\hypertarget{_player_view_8h_source}{}\doxysection{Player\+View.\+h}
+\label{_player_view_8h_source}\index{src/views/PlayerView.h@{src/views/PlayerView.h}}
+\mbox{\hyperlink{_player_view_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{2 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{3 \textcolor{comment}{//            PlayerView.h             //}}
+\DoxyCodeLine{4 \textcolor{comment}{//          Cédric Leclercq            //}}
+\DoxyCodeLine{5 \textcolor{comment}{//                                     //}}
+\DoxyCodeLine{6 \textcolor{comment}{// // // // // // // // // // // // // //}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYERVIEW\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYERVIEW\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_view_8h}{View.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../models/Entities.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../observers/Observers.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../observers/entityObservers/PlayerObserver.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_views_1_1_player_view}{Views::PlayerView}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_view}{View}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \textcolor{keywordtype}{bool} texLoaded = \textcolor{keyword}{false};}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     std::shared\_ptr<Observers::PlayerObserver> \mbox{\hyperlink{class_views_1_1_player_view_aac31906242a1bf0b35545cc7112cac55}{observer}}\{\};}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_views_1_1_player_view_aa8832091fd6a2fa7c368f9400a3eac72}{PlayerView}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_views_1_1_player_view_aa1ecb96ff53d092301549626d242f23b}{\string~PlayerView}}() \textcolor{keyword}{override} =\textcolor{keywordflow}{default};}
+\DoxyCodeLine{35     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_views_1_1_player_view_aa8832091fd6a2fa7c368f9400a3eac72}{PlayerView}}(\textcolor{keyword}{const} std::shared\_ptr<Entities::Player>\& player);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_views_1_1_player_view_a6186624e31340cd35a575b7470847415}{setRocketTex}}();}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_views_1_1_player_view_a85f0ec2a6f462cb0bad4655e8207cfe1}{setup}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_views_1_1_player_view_a6794a3b49c8e3ee67cfe7d8ef2ba95f1}{setNormalTex}}();}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ADVANCEDPROGRAMMINGDOODLEJUMP\_PLAYERVIEW\_H}}
+
+\end{DoxyCode}
