@@ -25,6 +25,13 @@ This projects makes use of four design patterns:
 Three classes in the doxygen output (PlayerTexManager, PlatformTexManager and BGTileTexManager) don't seem to have any 
 documentation, but this documentation is present in the project itself and can be found in src/textureManagers/TextureManagers.h.
 
+
+### Known bugs
+
+- Bug where the rocket texture for the player shows a small
+black line to its left +- half the length of the rocket. This however seems to be a bug of the SFML library
+rather than the texture itself (the texture doesn't show said black line). Doesn't affect the gameplay.
+
 ### In short
 
 Versions:
