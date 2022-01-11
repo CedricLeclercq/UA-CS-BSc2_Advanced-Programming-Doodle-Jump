@@ -6,7 +6,7 @@ jobs:
     docker:
     - image: ubuntu:20.04
     steps:
-    - run: sudo apt install openssh-client
+    - run: apt install openssh-client
     - run: apt update
     - checkout
     - run: DEBIAN_FRONTEND=noninteractive TZ=Europe/Brussels apt install -y gcc g++ libsfml-dev cmake git
