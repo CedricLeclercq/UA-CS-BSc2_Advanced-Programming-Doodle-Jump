@@ -15,25 +15,25 @@ class TextureManagers::BGTileTexManager: public TextureManager {
 private:
     // All textures
     /// @brief Planet 1 - texture
-    sf::Texture planet1Tex;
+    sf::Texture planet1Tex{};
     /// @brief Planet 2 - texture
-    sf::Texture planet2Tex;
+    sf::Texture planet2Tex{};
     /// @brief Planet 3 - texture
-    sf::Texture planet3Tex;
+    sf::Texture planet3Tex{};
     /// @brief Planet 4 - texture
-    sf::Texture planet4Tex;
+    sf::Texture planet4Tex{};
     /// @brief Planet 5 - texture
-    sf::Texture planet5Tex;
+    sf::Texture planet5Tex{};
     /// @brief Planet 6 - texture
-    sf::Texture planet6Tex;
+    sf::Texture planet6Tex{};
     /// @brief Milky way 1 - texture
-    sf::Texture mw1Tex;
+    sf::Texture mw1Tex{};
     /// @brief Milky way 2 - texture
-    sf::Texture mw2Tex;
+    sf::Texture mw2Tex{};
     /// @brief Star 1 - texture
-    sf::Texture star1Tex;
+    sf::Texture star1Tex{};
     /// @brief Star 2 - texture
-    sf::Texture star2Tex;
+    sf::Texture star2Tex{};
 
     // All paths to textures
     /// @brief Planet 1 - path

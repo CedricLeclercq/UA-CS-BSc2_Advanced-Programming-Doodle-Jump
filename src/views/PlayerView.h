@@ -19,7 +19,7 @@ private:
     bool texLoaded = false;
 public:
     /// @brief Shared pointer to the observer for linking the model and the view
-    std::shared_ptr<Observers::PlayerObserver> observer;
+    std::shared_ptr<Observers::PlayerObserver> observer{};
     /**
      * @brief Default constructor
      */

@@ -26,10 +26,6 @@ private:
      * @return  notified
      */
     bool getNotified() override {return notified;}
-    /**
-     * @brief Will reset the observer
-     */
-    void resetObserver() override {notified = false;}
 public:
     /**
      * @brief Default constructor

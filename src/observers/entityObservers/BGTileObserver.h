@@ -50,10 +50,6 @@ public:
      */
     bool notifiedRemoval() const {return remove;}
     /**
-     * @brief Reset the observer
-     */
-    void resetObserver() override {create = false; remove = false;}
-    /**
      * @brief Notify the observer of the tiles latest location
      * @param location  latest location
      */

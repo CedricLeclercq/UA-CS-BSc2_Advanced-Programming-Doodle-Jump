@@ -23,7 +23,7 @@ private:
     bool texLoaded = false;
 public:
     /// @brief Shared pointer to the observer for linking the model and the view
-    std::shared_ptr<Observers::PlatformObserver> observer;
+    std::shared_ptr<Observers::PlatformObserver> observer{};
     /**
      * @brief Default constructor
      */

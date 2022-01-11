@@ -15,9 +15,9 @@
 class Observers::WorldObserver: public Observer {
 private:
     /// @brief Vector will all the platforms that need a view
-    std::vector<std::shared_ptr<Entities::Platform>> createPlatforms;
+    std::vector<std::shared_ptr<Entities::Platform>> createPlatforms{};
     /// @brief Vector will all the tiles that need a view
-    std::vector<std::shared_ptr<Entities::BGTile>> createTiles;
+    std::vector<std::shared_ptr<Entities::BGTile>> createTiles{};
     /**
      * @brief Private default constructor (because singleton class)
      */
@@ -26,7 +26,7 @@ public:
     /**
      * @brief Default destructor
      */
-    ~WorldObserver()=default;
+    ~WorldObserver() override=default;
     /**
      * @brief Will return an instance of the class - part of the singleton pattern
      * @note If an instance does not yet exist, it will create one

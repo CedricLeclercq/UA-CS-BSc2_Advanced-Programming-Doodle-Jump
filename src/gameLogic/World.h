@@ -25,23 +25,23 @@
 class World {
 private:
     /// @brief Shared pointer to our main player
-    std::shared_ptr<Entities::Player> player;
+    std::shared_ptr<Entities::Player> player{};
     /// @brief Vector with shared pointer to all our platforms
-    std::vector<std::shared_ptr<Entities::Platform>> platforms;
+    std::vector<std::shared_ptr<Entities::Platform>> platforms{};
     /// @brief Vector with shared pointer to our background elements
-    std::vector<std::shared_ptr<Entities::BGTile>> bgTiles;
+    std::vector<std::shared_ptr<Entities::BGTile>> bgTiles{};
     /// @brief Vector with shared pointer to our bonuses
-    std::vector<std::shared_ptr<Entities::Bonus>> bonuses;
+    std::vector<std::shared_ptr<Entities::Bonus>> bonuses{};
     /// @brief Shared pointer to the camera view of our world
-    std::shared_ptr<Camera> m_camera;
+    std::shared_ptr<Camera> m_camera{};
     /// @brief Shared pointer to the previous platform the player jumped on
-    std::shared_ptr<Entities::Platform> prevPlatform;
+    std::shared_ptr<Entities::Platform> prevPlatform{};
     /// @brief Standard player length
     float playerLength{};
     /// @brief Standard platform length
     float platformLength{};
     /// @brief score of the game
-    std::shared_ptr<Score> score;
+    std::shared_ptr<Score> score{};
     /**
      * @brief Create platforms and place them in the world (only if new platforms are needed)
      */

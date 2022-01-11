@@ -38,7 +38,7 @@ private:
     void defineKind();
 public:
     /// @brief Observer
-    std::shared_ptr<Observers::BGTileObserver> observer;
+    std::shared_ptr<Observers::BGTileObserver> observer{};
     /**
      * @brief Constructor for the background tile - will use other functions to define the tile kind
      */

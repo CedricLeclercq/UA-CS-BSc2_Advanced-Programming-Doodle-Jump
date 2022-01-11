@@ -17,9 +17,9 @@ private:
     /// @brief Path to the rocket texture for the player
     std::string pathRocket = "recourses/textures/bonuses/rsz_rocket1.png";
     /// @brief Texture for the normal doodle the Doodler texture
-    sf::Texture normalTex;
+    sf::Texture normalTex{};
     /// @brief Texture for the rocket texture of the player
-    sf::Texture rocketTex;
+    sf::Texture rocketTex{};
     /**
      * @brief Default constructor
      */

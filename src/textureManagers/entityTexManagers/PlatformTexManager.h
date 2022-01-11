@@ -45,33 +45,33 @@ private:
 
     // Normal platforms - textures
     /// @brief Normal platform: static type - texture
-    sf::Texture staticTex;
+    sf::Texture staticTex{};
     /// @brief Normal platform: horizontal type - texture
-    sf::Texture horizontalTex;
+    sf::Texture horizontalTex{};
     /// @brief Normal platform: vertical type - texture
-    sf::Texture verticalTex;
+    sf::Texture verticalTex{};
     /// @brief Normal platform: temporary type - texture
-    sf::Texture tempTex;
+    sf::Texture tempTex{};
 
     // Spring platforms - textures
     /// @brief Spring platform: static type - texture
-    sf::Texture staticSpringTex;
+    sf::Texture staticSpringTex{};
     /// @brief Spring platform: horizontal type - texture
-    sf::Texture horizontalSpringTex;
+    sf::Texture horizontalSpringTex{};
     /// @brief Spring platform: vertical type - texture
-    sf::Texture verticalSpringTex;
+    sf::Texture verticalSpringTex{};
     /// @brief Spring platform: temporary type - texture
-    sf::Texture tempSpringTex;
+    sf::Texture tempSpringTex{};
 
     // Rocket platforms - textures
     /// @brief Rocket platform: static type - texture
-    sf::Texture staticRocketTex;
+    sf::Texture staticRocketTex{};
     /// @brief Rocket platform: horizontal type - texture
-    sf::Texture horizontalRocketTex;
+    sf::Texture horizontalRocketTex{};
     /// @brief Rocket platform: vertical type - texture
-    sf::Texture verticalRocketTex;
+    sf::Texture verticalRocketTex{};
     /// @brief Rocket platform: temporary type - texture
-    sf::Texture tempRocketTex;
+    sf::Texture tempRocketTex{};
     /**
      * @brief Default constructor (private because of singleton)
      */

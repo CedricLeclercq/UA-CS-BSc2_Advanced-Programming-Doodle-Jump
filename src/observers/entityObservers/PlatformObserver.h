@@ -41,10 +41,6 @@ public:
      */
     bool notifiedRemoval() const {return remove;}
     /**
-     * @brief Will reset the observer
-     */
-    void resetObserver() override {create = false; remove = false;}
-    /**
      * @brief Will notify the observer of the platforms latest location
      * @param location
      */

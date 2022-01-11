@@ -16,7 +16,7 @@
 using Coordinates = Utilities::Coordinates;
 
 
-Game::Game(): mWindow(new sf::RenderWindow(sf::VideoMode(800, 1200),"Doodle jump - Advanced programming")) {
+Game::Game(): mWindow(new sf::RenderWindow(sf::VideoMode(600, 800),"Doodle jump - Advanced programming")) {
     this->initialiseGame();
     this->setup();
     this->start();
@@ -32,7 +32,6 @@ void Game::initialiseGame() {
     this->mCamera = factory.createCamera(Coordinates(1, 1200), Coordinates(borderX.second, borderY.second));
     std::shared_ptr<World> world = factory.createWorld(mCamera);
     this->controller = WorldController(world);
-    this->mWindow->setFramerateLimit(60); // Setting framerate limit (max is 60)
 
 
     // Setting up the player view
@@ -160,7 +159,7 @@ void Game::openSFWindow() {
 
 void Game::addScore() {
     // Do not change the score if it's not needed
-    // todo add get notified from the observer
+    if (!Observers::ScoreObserver::getInstance().getNotified()) return;
     if (this->scoreText.getString() == std::to_string(Observers::ScoreObserver::getInstance().getScore())) {
         (*this->mWindow).draw(this->scoreText);
         return;
@@ -226,7 +225,7 @@ void Game::drawEndScreen() {
     newGame.setOrigin(newGameRect.left + newGameRect.width / 2.0f, newGameRect.top + newGameRect.height / 2.0f);
     newGame.setPosition(sf::Vector2f(static_cast<float>(this->mWindow->getSize().x) / 2.0f, 600));
 
-    while (not sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
+    while (not sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
         this->mWindow->clear(sf::Color::Black);
 
         (*this->mWindow).draw(gameOverText);

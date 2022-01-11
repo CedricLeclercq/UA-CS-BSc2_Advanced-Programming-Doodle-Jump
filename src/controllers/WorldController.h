@@ -16,7 +16,7 @@
 class WorldController {
 private:
     /// @brief A shared pointer to the world
-    std::shared_ptr<World> m_world;
+    std::shared_ptr<World> m_world{};
 public:
     /**
      * @brief Default constructor

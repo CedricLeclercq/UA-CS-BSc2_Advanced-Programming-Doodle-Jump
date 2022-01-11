@@ -40,27 +40,27 @@ public:
 private:
     // Views
     /// @brief View for the player
-    std::shared_ptr<Views::PlayerView> playerView;
+    std::shared_ptr<Views::PlayerView> playerView{};
     /// @brief Views for all the platforms
-    std::vector<std::shared_ptr<Views::PlatformView>> platformsViews;
+    std::vector<std::shared_ptr<Views::PlatformView>> platformsViews{};
     /// @brief Views for all the background tiles
-    std::vector<std::shared_ptr<Views::BGTileView>> tilesViews;
+    std::vector<std::shared_ptr<Views::BGTileView>> tilesViews{};
 
     // Main controller - to communicate with the world
     /// @brief Controller for the world
-    WorldController controller;
+    WorldController controller{};
 
     // Member variables (minus the controllers)
     /// @brief Window where everything will be drawn on
-    std::unique_ptr<sf::RenderWindow> mWindow;
+    std::unique_ptr<sf::RenderWindow> mWindow{};
     /// @brief Camera used for the projection of elements
-    std::shared_ptr<Camera> mCamera;
+    std::shared_ptr<Camera> mCamera{};
 
     // Fonts and texts
     /// @brief Text for the score
-    sf::Text scoreText;
+    sf::Text scoreText{};
     /// @brief Font for the score and endscreen to be displayed in
-    sf::Font scoreFont;
+    sf::Font scoreFont{};
 
     // Functions
     /**

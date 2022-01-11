@@ -56,7 +56,7 @@ private:
     void makeTemp();
 public:
     /// @brief Observer
-    std::shared_ptr<Observers::PlatformObserver> observer;
+    std::shared_ptr<Observers::PlatformObserver> observer{};
     /**
      * @brief Explicit constructor with default argument - will always be used when a platform is constructed
      * @param kind      Platform kind that the platform needs to be

@@ -9,7 +9,7 @@
 
 
 int main() {
-    Game game; // Start the game!
+    Game game{}; // Start the game!
     return 0;
 }
 

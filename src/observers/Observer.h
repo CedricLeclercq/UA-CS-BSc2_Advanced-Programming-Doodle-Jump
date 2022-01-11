@@ -39,10 +39,6 @@ public:
      * @return      isNotified?
      */
     virtual bool getNotified() {return notified;}
-    /**
-     * @brief Will reset the observer
-     */
-    virtual void resetObserver() {notified = false;}
 };
 
 

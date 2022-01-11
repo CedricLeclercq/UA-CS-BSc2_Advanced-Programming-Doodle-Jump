@@ -27,7 +27,7 @@ private:
     std::shared_ptr<Entities::Bonus> bonus{};
 public:
     /// @brief Observer for player
-    std::shared_ptr<Observers::PlayerObserver> observer;
+    std::shared_ptr<Observers::PlayerObserver> observer{};
     /**
      * @brief Basic constructor for the player
      */
